@@ -53,7 +53,7 @@ func TestBoolAttributes(t *testing.T) {
 			Actual:   BUTTON().POPOVERTARGET("my-popover").Text("Open Popover"),
 		},
 		{
-			Expected: "<div popover=\"auto\" id=\"my-popover\">Greetings, one and all!</div>",
+			Expected: "<div id=\"my-popover\" popover=\"auto\">Greetings, one and all!</div>",
 			Actual:   DIV().POPOVER(DivPopover_auto).ID("my-popover").Text("Greetings, one and all!"),
 		},
 		{

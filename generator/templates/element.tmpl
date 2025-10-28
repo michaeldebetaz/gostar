@@ -61,7 +61,7 @@ func (e *{{$elStructName}}) BoolAttr(name string) *{{$elStructName}} {
 
 func (e *{{$elStructName}}) IfBoolAttr(condition bool, name string) *{{$elStructName}} {
   if condition {
-    e.AttrBool(name)
+    e.BoolAttr(name)
   }
   return e
 }
