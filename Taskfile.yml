@@ -44,15 +44,6 @@ tasks:
     cmds:
       - go test ./...
 
-  libpub:
-    dir: ./library
-    cmds:
-      - git push origin
-      - git tag v{{.VERSION}}
-      - git push origin --tags
-      - git push --tags
-      - GOPROXY=proxy.golang.org go list -m github.com/delaneyj/gostar@v{{.VERSION}}
-
   default:
     deps:
       - test
