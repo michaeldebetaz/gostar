@@ -49,11 +49,33 @@ func (e *SVGPATTERNElement) TernChildren(condition bool, trueChildren, falseChil
 	return e
 }
 
-func (e *SVGPATTERNElement) Attr(name string, value string) *SVGPATTERNElement {
+func (e *SVGPATTERNElement) BoolAttr(name string) *SVGPATTERNElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *SVGPATTERNElement) IfBoolAttr(condition bool, name string) *SVGPATTERNElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *SVGPATTERNElement) Attr(name, value string) *SVGPATTERNElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *SVGPATTERNElement) IfAttr(condition bool, name, value string) *SVGPATTERNElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 

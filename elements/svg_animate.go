@@ -49,11 +49,33 @@ func (e *SVGANIMATEElement) TernChildren(condition bool, trueChildren, falseChil
 	return e
 }
 
-func (e *SVGANIMATEElement) Attr(name string, value string) *SVGANIMATEElement {
+func (e *SVGANIMATEElement) BoolAttr(name string) *SVGANIMATEElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *SVGANIMATEElement) IfBoolAttr(condition bool, name string) *SVGANIMATEElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *SVGANIMATEElement) Attr(name, value string) *SVGANIMATEElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *SVGANIMATEElement) IfAttr(condition bool, name, value string) *SVGANIMATEElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 

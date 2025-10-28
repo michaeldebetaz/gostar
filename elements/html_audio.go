@@ -51,11 +51,33 @@ func (e *AUDIOElement) TernChildren(condition bool, trueChildren, falseChildren 
 	return e
 }
 
-func (e *AUDIOElement) Attr(name string, value string) *AUDIOElement {
+func (e *AUDIOElement) BoolAttr(name string) *AUDIOElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *AUDIOElement) IfBoolAttr(condition bool, name string) *AUDIOElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *AUDIOElement) Attr(name, value string) *AUDIOElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *AUDIOElement) IfAttr(condition bool, name, value string) *AUDIOElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 
@@ -2022,28 +2044,28 @@ func (e *AUDIOElement) PARTRemove(s ...string) *AUDIOElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *AUDIOElement) POPVER(c AudioPopverChoice) *AUDIOElement {
+func (e *AUDIOElement) POPOVER(c AudioPopoverChoice) *AUDIOElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type AudioPopverChoice string
+type AudioPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	AudioPopver_auto AudioPopverChoice = "auto"
+	AudioPopover_auto AudioPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	AudioPopver_empty AudioPopverChoice = ""
+	AudioPopover_empty AudioPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	AudioPopver_manual AudioPopverChoice = "manual"
+	AudioPopover_manual AudioPopoverChoice = "manual"
 )
 
 // The popover global attribute is used to designate an element as a popover
@@ -2055,12 +2077,12 @@ const (
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-// Remove the attribute POPVER from the element.
-func (e *AUDIOElement) POPVERRemove(c AudioPopverChoice) *AUDIOElement {
+// Remove the attribute POPOVER from the element.
+func (e *AUDIOElement) POPOVERRemove(c AudioPopoverChoice) *AUDIOElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

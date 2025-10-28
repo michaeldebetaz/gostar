@@ -49,11 +49,33 @@ func (e *FIGCAPTIONElement) TernChildren(condition bool, trueChildren, falseChil
 	return e
 }
 
-func (e *FIGCAPTIONElement) Attr(name string, value string) *FIGCAPTIONElement {
+func (e *FIGCAPTIONElement) BoolAttr(name string) *FIGCAPTIONElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *FIGCAPTIONElement) IfBoolAttr(condition bool, name string) *FIGCAPTIONElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *FIGCAPTIONElement) Attr(name, value string) *FIGCAPTIONElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *FIGCAPTIONElement) IfAttr(condition bool, name, value string) *FIGCAPTIONElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 
@@ -1729,28 +1751,28 @@ func (e *FIGCAPTIONElement) PARTRemove(s ...string) *FIGCAPTIONElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *FIGCAPTIONElement) POPVER(c FigcaptionPopverChoice) *FIGCAPTIONElement {
+func (e *FIGCAPTIONElement) POPOVER(c FigcaptionPopoverChoice) *FIGCAPTIONElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type FigcaptionPopverChoice string
+type FigcaptionPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	FigcaptionPopver_auto FigcaptionPopverChoice = "auto"
+	FigcaptionPopover_auto FigcaptionPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	FigcaptionPopver_empty FigcaptionPopverChoice = ""
+	FigcaptionPopover_empty FigcaptionPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	FigcaptionPopver_manual FigcaptionPopverChoice = "manual"
+	FigcaptionPopover_manual FigcaptionPopoverChoice = "manual"
 )
 
 // The popover global attribute is used to designate an element as a popover
@@ -1762,12 +1784,12 @@ const (
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-// Remove the attribute POPVER from the element.
-func (e *FIGCAPTIONElement) POPVERRemove(c FigcaptionPopverChoice) *FIGCAPTIONElement {
+// Remove the attribute POPOVER from the element.
+func (e *FIGCAPTIONElement) POPOVERRemove(c FigcaptionPopoverChoice) *FIGCAPTIONElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

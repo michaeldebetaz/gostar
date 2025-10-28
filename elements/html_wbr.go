@@ -49,11 +49,33 @@ func (e *WBRElement) TernChildren(condition bool, trueChildren, falseChildren El
 	return e
 }
 
-func (e *WBRElement) Attr(name string, value string) *WBRElement {
+func (e *WBRElement) BoolAttr(name string) *WBRElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *WBRElement) IfBoolAttr(condition bool, name string) *WBRElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *WBRElement) Attr(name, value string) *WBRElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *WBRElement) IfAttr(condition bool, name, value string) *WBRElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 
@@ -1729,28 +1751,28 @@ func (e *WBRElement) PARTRemove(s ...string) *WBRElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *WBRElement) POPVER(c WbrPopverChoice) *WBRElement {
+func (e *WBRElement) POPOVER(c WbrPopoverChoice) *WBRElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type WbrPopverChoice string
+type WbrPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	WbrPopver_auto WbrPopverChoice = "auto"
+	WbrPopover_auto WbrPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	WbrPopver_empty WbrPopverChoice = ""
+	WbrPopover_empty WbrPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	WbrPopver_manual WbrPopverChoice = "manual"
+	WbrPopover_manual WbrPopoverChoice = "manual"
 )
 
 // The popover global attribute is used to designate an element as a popover
@@ -1762,12 +1784,12 @@ const (
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-// Remove the attribute POPVER from the element.
-func (e *WBRElement) POPVERRemove(c WbrPopverChoice) *WBRElement {
+// Remove the attribute POPOVER from the element.
+func (e *WBRElement) POPOVERRemove(c WbrPopoverChoice) *WBRElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

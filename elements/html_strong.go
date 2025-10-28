@@ -50,11 +50,33 @@ func (e *STRONGElement) TernChildren(condition bool, trueChildren, falseChildren
 	return e
 }
 
-func (e *STRONGElement) Attr(name string, value string) *STRONGElement {
+func (e *STRONGElement) BoolAttr(name string) *STRONGElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *STRONGElement) IfBoolAttr(condition bool, name string) *STRONGElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *STRONGElement) Attr(name, value string) *STRONGElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *STRONGElement) IfAttr(condition bool, name, value string) *STRONGElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 
@@ -1730,28 +1752,28 @@ func (e *STRONGElement) PARTRemove(s ...string) *STRONGElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *STRONGElement) POPVER(c StrongPopverChoice) *STRONGElement {
+func (e *STRONGElement) POPOVER(c StrongPopoverChoice) *STRONGElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type StrongPopverChoice string
+type StrongPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	StrongPopver_auto StrongPopverChoice = "auto"
+	StrongPopover_auto StrongPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	StrongPopver_empty StrongPopverChoice = ""
+	StrongPopover_empty StrongPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	StrongPopver_manual StrongPopverChoice = "manual"
+	StrongPopover_manual StrongPopoverChoice = "manual"
 )
 
 // The popover global attribute is used to designate an element as a popover
@@ -1763,12 +1785,12 @@ const (
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-// Remove the attribute POPVER from the element.
-func (e *STRONGElement) POPVERRemove(c StrongPopverChoice) *STRONGElement {
+// Remove the attribute POPOVER from the element.
+func (e *STRONGElement) POPOVERRemove(c StrongPopoverChoice) *STRONGElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

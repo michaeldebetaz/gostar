@@ -48,11 +48,33 @@ func (e *SVGIMAGEElement) TernChildren(condition bool, trueChildren, falseChildr
 	return e
 }
 
-func (e *SVGIMAGEElement) Attr(name string, value string) *SVGIMAGEElement {
+func (e *SVGIMAGEElement) BoolAttr(name string) *SVGIMAGEElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *SVGIMAGEElement) IfBoolAttr(condition bool, name string) *SVGIMAGEElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *SVGIMAGEElement) Attr(name, value string) *SVGIMAGEElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *SVGIMAGEElement) IfAttr(condition bool, name, value string) *SVGIMAGEElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 

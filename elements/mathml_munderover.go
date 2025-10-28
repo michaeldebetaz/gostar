@@ -49,11 +49,33 @@ func (e *MathMLMUNDEROVERElement) TernChildren(condition bool, trueChildren, fal
 	return e
 }
 
-func (e *MathMLMUNDEROVERElement) Attr(name string, value string) *MathMLMUNDEROVERElement {
+func (e *MathMLMUNDEROVERElement) BoolAttr(name string) *MathMLMUNDEROVERElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *MathMLMUNDEROVERElement) IfBoolAttr(condition bool, name string) *MathMLMUNDEROVERElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *MathMLMUNDEROVERElement) Attr(name, value string) *MathMLMUNDEROVERElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *MathMLMUNDEROVERElement) IfAttr(condition bool, name, value string) *MathMLMUNDEROVERElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 

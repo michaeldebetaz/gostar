@@ -50,11 +50,33 @@ func (e *TEXTAREAElement) TernChildren(condition bool, trueChildren, falseChildr
 	return e
 }
 
-func (e *TEXTAREAElement) Attr(name string, value string) *TEXTAREAElement {
+func (e *TEXTAREAElement) BoolAttr(name string) *TEXTAREAElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *TEXTAREAElement) IfBoolAttr(condition bool, name string) *TEXTAREAElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *TEXTAREAElement) Attr(name, value string) *TEXTAREAElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *TEXTAREAElement) IfAttr(condition bool, name, value string) *TEXTAREAElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 
@@ -2125,28 +2147,28 @@ func (e *TEXTAREAElement) PARTRemove(s ...string) *TEXTAREAElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *TEXTAREAElement) POPVER(c TextareaPopverChoice) *TEXTAREAElement {
+func (e *TEXTAREAElement) POPOVER(c TextareaPopoverChoice) *TEXTAREAElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type TextareaPopverChoice string
+type TextareaPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	TextareaPopver_auto TextareaPopverChoice = "auto"
+	TextareaPopover_auto TextareaPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	TextareaPopver_empty TextareaPopverChoice = ""
+	TextareaPopover_empty TextareaPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	TextareaPopver_manual TextareaPopverChoice = "manual"
+	TextareaPopover_manual TextareaPopoverChoice = "manual"
 )
 
 // The popover global attribute is used to designate an element as a popover
@@ -2158,12 +2180,12 @@ const (
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-// Remove the attribute POPVER from the element.
-func (e *TEXTAREAElement) POPVERRemove(c TextareaPopverChoice) *TEXTAREAElement {
+// Remove the attribute POPOVER from the element.
+func (e *TEXTAREAElement) POPOVERRemove(c TextareaPopoverChoice) *TEXTAREAElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

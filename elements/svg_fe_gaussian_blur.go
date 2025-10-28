@@ -49,11 +49,33 @@ func (e *SVGFEGAUSSIANBLURElement) TernChildren(condition bool, trueChildren, fa
 	return e
 }
 
-func (e *SVGFEGAUSSIANBLURElement) Attr(name string, value string) *SVGFEGAUSSIANBLURElement {
+func (e *SVGFEGAUSSIANBLURElement) BoolAttr(name string) *SVGFEGAUSSIANBLURElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *SVGFEGAUSSIANBLURElement) IfBoolAttr(condition bool, name string) *SVGFEGAUSSIANBLURElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *SVGFEGAUSSIANBLURElement) Attr(name, value string) *SVGFEGAUSSIANBLURElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *SVGFEGAUSSIANBLURElement) IfAttr(condition bool, name, value string) *SVGFEGAUSSIANBLURElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 

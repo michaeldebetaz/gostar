@@ -49,11 +49,33 @@ func (e *MAPElement) TernChildren(condition bool, trueChildren, falseChildren El
 	return e
 }
 
-func (e *MAPElement) Attr(name string, value string) *MAPElement {
+func (e *MAPElement) BoolAttr(name string) *MAPElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *MAPElement) IfBoolAttr(condition bool, name string) *MAPElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *MAPElement) Attr(name, value string) *MAPElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *MAPElement) IfAttr(condition bool, name, value string) *MAPElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 
@@ -1774,28 +1796,28 @@ func (e *MAPElement) PARTRemove(s ...string) *MAPElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *MAPElement) POPVER(c MapPopverChoice) *MAPElement {
+func (e *MAPElement) POPOVER(c MapPopoverChoice) *MAPElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type MapPopverChoice string
+type MapPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	MapPopver_auto MapPopverChoice = "auto"
+	MapPopover_auto MapPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	MapPopver_empty MapPopverChoice = ""
+	MapPopover_empty MapPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	MapPopver_manual MapPopverChoice = "manual"
+	MapPopover_manual MapPopoverChoice = "manual"
 )
 
 // The popover global attribute is used to designate an element as a popover
@@ -1807,12 +1829,12 @@ const (
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-// Remove the attribute POPVER from the element.
-func (e *MAPElement) POPVERRemove(c MapPopverChoice) *MAPElement {
+// Remove the attribute POPOVER from the element.
+func (e *MAPElement) POPOVERRemove(c MapPopoverChoice) *MAPElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

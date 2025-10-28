@@ -49,11 +49,33 @@ func (e *SVGCLIPPATHElement) TernChildren(condition bool, trueChildren, falseChi
 	return e
 }
 
-func (e *SVGCLIPPATHElement) Attr(name string, value string) *SVGCLIPPATHElement {
+func (e *SVGCLIPPATHElement) BoolAttr(name string) *SVGCLIPPATHElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *SVGCLIPPATHElement) IfBoolAttr(condition bool, name string) *SVGCLIPPATHElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *SVGCLIPPATHElement) Attr(name, value string) *SVGCLIPPATHElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *SVGCLIPPATHElement) IfAttr(condition bool, name, value string) *SVGCLIPPATHElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 

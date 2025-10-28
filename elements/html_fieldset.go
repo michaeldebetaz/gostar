@@ -49,11 +49,33 @@ func (e *FIELDSETElement) TernChildren(condition bool, trueChildren, falseChildr
 	return e
 }
 
-func (e *FIELDSETElement) Attr(name string, value string) *FIELDSETElement {
+func (e *FIELDSETElement) BoolAttr(name string) *FIELDSETElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *FIELDSETElement) IfBoolAttr(condition bool, name string) *FIELDSETElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *FIELDSETElement) Attr(name, value string) *FIELDSETElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *FIELDSETElement) IfAttr(condition bool, name, value string) *FIELDSETElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 
@@ -160,6 +182,204 @@ func (e *FIELDSETElement) CustomDataRemove(key string) *FIELDSETElement {
 	}
 	e.CustomDataAttributes.Del(key)
 	return e
+}
+
+// If this Boolean attribute is set, all form controls that are descendants of the
+// <fieldset>, are disabled, meaning they are not editable and won't be submitted
+// along with the <form>
+// They won't receive any browsing events, like mouse clicks or focus-related
+// events
+// By default browsers display such controls grayed out
+// Note that form elements inside the <legend> element won't be disabled.
+func (e *FIELDSETElement) DISABLED() *FIELDSETElement {
+	e.DISABLEDSet(true)
+	return e
+}
+
+// If this Boolean attribute is set, all form controls that are descendants of the
+// <fieldset>, are disabled, meaning they are not editable and won't be submitted
+// along with the <form>
+// They won't receive any browsing events, like mouse clicks or focus-related
+// events
+// By default browsers display such controls grayed out
+// Note that form elements inside the <legend> element won't be disabled.
+func (e *FIELDSETElement) IfDISABLED(condition bool) *FIELDSETElement {
+	if condition {
+		e.DISABLEDSet(true)
+	}
+	return e
+}
+
+// If this Boolean attribute is set, all form controls that are descendants of the
+// <fieldset>, are disabled, meaning they are not editable and won't be submitted
+// along with the <form>
+// They won't receive any browsing events, like mouse clicks or focus-related
+// events
+// By default browsers display such controls grayed out
+// Note that form elements inside the <legend> element won't be disabled.
+// Set the attribute DISABLED to the value b explicitly.
+func (e *FIELDSETElement) DISABLEDSet(b bool) *FIELDSETElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set("disabled", b)
+	return e
+}
+
+// If this Boolean attribute is set, all form controls that are descendants of the
+// <fieldset>, are disabled, meaning they are not editable and won't be submitted
+// along with the <form>
+// They won't receive any browsing events, like mouse clicks or focus-related
+// events
+// By default browsers display such controls grayed out
+// Note that form elements inside the <legend> element won't be disabled.
+func (e *FIELDSETElement) IfSetDISABLED(condition bool, b bool) *FIELDSETElement {
+	if condition {
+		e.DISABLEDSet(b)
+	}
+	return e
+}
+
+// Remove the attribute DISABLED from the element.
+// If this Boolean attribute is set, all form controls that are descendants of the
+// <fieldset>, are disabled, meaning they are not editable and won't be submitted
+// along with the <form>
+// They won't receive any browsing events, like mouse clicks or focus-related
+// events
+// By default browsers display such controls grayed out
+// Note that form elements inside the <legend> element won't be disabled.
+func (e *FIELDSETElement) DISABLEDRemove(b bool) *FIELDSETElement {
+	if e.BoolAttributes == nil {
+		return e
+	}
+	e.BoolAttributes.Del("disabled")
+	return e
+}
+
+// This attribute takes the value of the id attribute of a <form> element you want
+// the <fieldset> to be part of, even if it is not inside the form
+// Please note that usage of this is confusing — if you want the <input>
+// elements inside the <fieldset> to be associated with the form, you need to use
+// the form attribute directly on those elements
+// You can check which elements are associated with a form via JavaScript, using
+// HTMLFormElement.elements.
+func (e *FIELDSETElement) FORM(s string) *FIELDSETElement {
+	if e.StringAttributes == nil {
+		e.StringAttributes = treemap.New[string, string]()
+	}
+	e.StringAttributes.Set("form", s)
+	return e
+}
+
+// This attribute takes the value of the id attribute of a <form> element you want
+// the <fieldset> to be part of, even if it is not inside the form
+// Please note that usage of this is confusing — if you want the <input>
+// elements inside the <fieldset> to be associated with the form, you need to use
+// the form attribute directly on those elements
+// You can check which elements are associated with a form via JavaScript, using
+// HTMLFormElement.elements.
+func (e *FIELDSETElement) FORMF(format string, args ...any) *FIELDSETElement {
+	return e.FORM(fmt.Sprintf(format, args...))
+}
+
+// This attribute takes the value of the id attribute of a <form> element you want
+// the <fieldset> to be part of, even if it is not inside the form
+// Please note that usage of this is confusing — if you want the <input>
+// elements inside the <fieldset> to be associated with the form, you need to use
+// the form attribute directly on those elements
+// You can check which elements are associated with a form via JavaScript, using
+// HTMLFormElement.elements.
+func (e *FIELDSETElement) IfFORM(condition bool, s string) *FIELDSETElement {
+	if condition {
+		e.FORM(s)
+	}
+	return e
+}
+
+// This attribute takes the value of the id attribute of a <form> element you want
+// the <fieldset> to be part of, even if it is not inside the form
+// Please note that usage of this is confusing — if you want the <input>
+// elements inside the <fieldset> to be associated with the form, you need to use
+// the form attribute directly on those elements
+// You can check which elements are associated with a form via JavaScript, using
+// HTMLFormElement.elements.
+func (e *FIELDSETElement) IfFORMF(condition bool, format string, args ...any) *FIELDSETElement {
+	if condition {
+		e.FORM(fmt.Sprintf(format, args...))
+	}
+	return e
+}
+
+// This attribute takes the value of the id attribute of a <form> element you want
+// the <fieldset> to be part of, even if it is not inside the form
+// Please note that usage of this is confusing — if you want the <input>
+// elements inside the <fieldset> to be associated with the form, you need to use
+// the form attribute directly on those elements
+// You can check which elements are associated with a form via JavaScript, using
+// HTMLFormElement.elements.
+// Remove the attribute FORM from the element.
+func (e *FIELDSETElement) FORMRemove(s string) *FIELDSETElement {
+	if e.StringAttributes == nil {
+		return e
+	}
+	e.StringAttributes.Del("form")
+	return e
+}
+
+// This attribute takes the value of the id attribute of a <form> element you want
+// the <fieldset> to be part of, even if it is not inside the form
+// Please note that usage of this is confusing — if you want the <input>
+// elements inside the <fieldset> to be associated with the form, you need to use
+// the form attribute directly on those elements
+// You can check which elements are associated with a form via JavaScript, using
+// HTMLFormElement.elements.
+func (e *FIELDSETElement) FORMRemoveF(format string, args ...any) *FIELDSETElement {
+	return e.FORMRemove(fmt.Sprintf(format, args...))
+}
+
+// The name associated with the group.
+func (e *FIELDSETElement) NAME(s string) *FIELDSETElement {
+	if e.StringAttributes == nil {
+		e.StringAttributes = treemap.New[string, string]()
+	}
+	e.StringAttributes.Set("name", s)
+	return e
+}
+
+// The name associated with the group.
+func (e *FIELDSETElement) NAMEF(format string, args ...any) *FIELDSETElement {
+	return e.NAME(fmt.Sprintf(format, args...))
+}
+
+// The name associated with the group.
+func (e *FIELDSETElement) IfNAME(condition bool, s string) *FIELDSETElement {
+	if condition {
+		e.NAME(s)
+	}
+	return e
+}
+
+// The name associated with the group.
+func (e *FIELDSETElement) IfNAMEF(condition bool, format string, args ...any) *FIELDSETElement {
+	if condition {
+		e.NAME(fmt.Sprintf(format, args...))
+	}
+	return e
+}
+
+// The name associated with the group.
+// Remove the attribute NAME from the element.
+func (e *FIELDSETElement) NAMERemove(s string) *FIELDSETElement {
+	if e.StringAttributes == nil {
+		return e
+	}
+	e.StringAttributes.Del("name")
+	return e
+}
+
+// The name associated with the group.
+func (e *FIELDSETElement) NAMERemoveF(format string, args ...any) *FIELDSETElement {
+	return e.NAMERemove(fmt.Sprintf(format, args...))
 }
 
 // The accesskey global attribute provides a hint for generating a keyboard
@@ -1729,28 +1949,28 @@ func (e *FIELDSETElement) PARTRemove(s ...string) *FIELDSETElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *FIELDSETElement) POPVER(c FieldsetPopverChoice) *FIELDSETElement {
+func (e *FIELDSETElement) POPOVER(c FieldsetPopoverChoice) *FIELDSETElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type FieldsetPopverChoice string
+type FieldsetPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	FieldsetPopver_auto FieldsetPopverChoice = "auto"
+	FieldsetPopover_auto FieldsetPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	FieldsetPopver_empty FieldsetPopverChoice = ""
+	FieldsetPopover_empty FieldsetPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	FieldsetPopver_manual FieldsetPopverChoice = "manual"
+	FieldsetPopover_manual FieldsetPopoverChoice = "manual"
 )
 
 // The popover global attribute is used to designate an element as a popover
@@ -1762,12 +1982,12 @@ const (
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-// Remove the attribute POPVER from the element.
-func (e *FIELDSETElement) POPVERRemove(c FieldsetPopverChoice) *FIELDSETElement {
+// Remove the attribute POPOVER from the element.
+func (e *FIELDSETElement) POPOVERRemove(c FieldsetPopoverChoice) *FIELDSETElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

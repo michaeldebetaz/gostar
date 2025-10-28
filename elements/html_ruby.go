@@ -49,11 +49,33 @@ func (e *RUBYElement) TernChildren(condition bool, trueChildren, falseChildren E
 	return e
 }
 
-func (e *RUBYElement) Attr(name string, value string) *RUBYElement {
+func (e *RUBYElement) BoolAttr(name string) *RUBYElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *RUBYElement) IfBoolAttr(condition bool, name string) *RUBYElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *RUBYElement) Attr(name, value string) *RUBYElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *RUBYElement) IfAttr(condition bool, name, value string) *RUBYElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 
@@ -1729,28 +1751,28 @@ func (e *RUBYElement) PARTRemove(s ...string) *RUBYElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *RUBYElement) POPVER(c RubyPopverChoice) *RUBYElement {
+func (e *RUBYElement) POPOVER(c RubyPopoverChoice) *RUBYElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type RubyPopverChoice string
+type RubyPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	RubyPopver_auto RubyPopverChoice = "auto"
+	RubyPopover_auto RubyPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	RubyPopver_empty RubyPopverChoice = ""
+	RubyPopover_empty RubyPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	RubyPopver_manual RubyPopverChoice = "manual"
+	RubyPopover_manual RubyPopoverChoice = "manual"
 )
 
 // The popover global attribute is used to designate an element as a popover
@@ -1762,12 +1784,12 @@ const (
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-// Remove the attribute POPVER from the element.
-func (e *RUBYElement) POPVERRemove(c RubyPopverChoice) *RUBYElement {
+// Remove the attribute POPOVER from the element.
+func (e *RUBYElement) POPOVERRemove(c RubyPopoverChoice) *RUBYElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

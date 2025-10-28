@@ -54,11 +54,33 @@ func (e *SVGSWITCHElement) TernChildren(condition bool, trueChildren, falseChild
 	return e
 }
 
-func (e *SVGSWITCHElement) Attr(name string, value string) *SVGSWITCHElement {
+func (e *SVGSWITCHElement) BoolAttr(name string) *SVGSWITCHElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *SVGSWITCHElement) IfBoolAttr(condition bool, name string) *SVGSWITCHElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *SVGSWITCHElement) Attr(name, value string) *SVGSWITCHElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *SVGSWITCHElement) IfAttr(condition bool, name, value string) *SVGSWITCHElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 

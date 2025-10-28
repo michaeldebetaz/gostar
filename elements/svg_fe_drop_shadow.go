@@ -50,11 +50,33 @@ func (e *SVGFEDROPSHADOWElement) TernChildren(condition bool, trueChildren, fals
 	return e
 }
 
-func (e *SVGFEDROPSHADOWElement) Attr(name string, value string) *SVGFEDROPSHADOWElement {
+func (e *SVGFEDROPSHADOWElement) BoolAttr(name string) *SVGFEDROPSHADOWElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *SVGFEDROPSHADOWElement) IfBoolAttr(condition bool, name string) *SVGFEDROPSHADOWElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *SVGFEDROPSHADOWElement) Attr(name, value string) *SVGFEDROPSHADOWElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *SVGFEDROPSHADOWElement) IfAttr(condition bool, name, value string) *SVGFEDROPSHADOWElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 

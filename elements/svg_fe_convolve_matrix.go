@@ -49,11 +49,33 @@ func (e *SVGFECONVOLVEMATRIXElement) TernChildren(condition bool, trueChildren, 
 	return e
 }
 
-func (e *SVGFECONVOLVEMATRIXElement) Attr(name string, value string) *SVGFECONVOLVEMATRIXElement {
+func (e *SVGFECONVOLVEMATRIXElement) BoolAttr(name string) *SVGFECONVOLVEMATRIXElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *SVGFECONVOLVEMATRIXElement) IfBoolAttr(condition bool, name string) *SVGFECONVOLVEMATRIXElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *SVGFECONVOLVEMATRIXElement) Attr(name, value string) *SVGFECONVOLVEMATRIXElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *SVGFECONVOLVEMATRIXElement) IfAttr(condition bool, name, value string) *SVGFECONVOLVEMATRIXElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 

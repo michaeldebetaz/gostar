@@ -158,7 +158,7 @@ func (e *Element) Render(w io.Writer) error {
 	}
 
 	if e.IsSelfClosing {
-		w.Write(spaceCloseBracket)
+		w.Write(closeBracket)
 		return nil
 	}
 	w.Write(closeBracket)

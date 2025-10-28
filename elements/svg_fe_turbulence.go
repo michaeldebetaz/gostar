@@ -50,11 +50,33 @@ func (e *SVGFETURBULENCEElement) TernChildren(condition bool, trueChildren, fals
 	return e
 }
 
-func (e *SVGFETURBULENCEElement) Attr(name string, value string) *SVGFETURBULENCEElement {
+func (e *SVGFETURBULENCEElement) BoolAttr(name string) *SVGFETURBULENCEElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *SVGFETURBULENCEElement) IfBoolAttr(condition bool, name string) *SVGFETURBULENCEElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *SVGFETURBULENCEElement) Attr(name, value string) *SVGFETURBULENCEElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *SVGFETURBULENCEElement) IfAttr(condition bool, name, value string) *SVGFETURBULENCEElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 

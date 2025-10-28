@@ -53,11 +53,33 @@ func (e *RBElement) TernChildren(condition bool, trueChildren, falseChildren Ele
 	return e
 }
 
-func (e *RBElement) Attr(name string, value string) *RBElement {
+func (e *RBElement) BoolAttr(name string) *RBElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *RBElement) IfBoolAttr(condition bool, name string) *RBElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *RBElement) Attr(name, value string) *RBElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *RBElement) IfAttr(condition bool, name, value string) *RBElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 
@@ -1733,28 +1755,28 @@ func (e *RBElement) PARTRemove(s ...string) *RBElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *RBElement) POPVER(c RbPopverChoice) *RBElement {
+func (e *RBElement) POPOVER(c RbPopoverChoice) *RBElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type RbPopverChoice string
+type RbPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	RbPopver_auto RbPopverChoice = "auto"
+	RbPopover_auto RbPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	RbPopver_empty RbPopverChoice = ""
+	RbPopover_empty RbPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	RbPopver_manual RbPopverChoice = "manual"
+	RbPopover_manual RbPopoverChoice = "manual"
 )
 
 // The popover global attribute is used to designate an element as a popover
@@ -1766,12 +1788,12 @@ const (
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-// Remove the attribute POPVER from the element.
-func (e *RBElement) POPVERRemove(c RbPopverChoice) *RBElement {
+// Remove the attribute POPOVER from the element.
+func (e *RBElement) POPOVERRemove(c RbPopoverChoice) *RBElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

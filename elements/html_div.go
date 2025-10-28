@@ -52,11 +52,33 @@ func (e *DIVElement) TernChildren(condition bool, trueChildren, falseChildren El
 	return e
 }
 
-func (e *DIVElement) Attr(name string, value string) *DIVElement {
+func (e *DIVElement) BoolAttr(name string) *DIVElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *DIVElement) IfBoolAttr(condition bool, name string) *DIVElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *DIVElement) Attr(name, value string) *DIVElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *DIVElement) IfAttr(condition bool, name, value string) *DIVElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 
@@ -1732,28 +1754,28 @@ func (e *DIVElement) PARTRemove(s ...string) *DIVElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *DIVElement) POPVER(c DivPopverChoice) *DIVElement {
+func (e *DIVElement) POPOVER(c DivPopoverChoice) *DIVElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type DivPopverChoice string
+type DivPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	DivPopver_auto DivPopverChoice = "auto"
+	DivPopover_auto DivPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	DivPopver_empty DivPopverChoice = ""
+	DivPopover_empty DivPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	DivPopver_manual DivPopverChoice = "manual"
+	DivPopover_manual DivPopoverChoice = "manual"
 )
 
 // The popover global attribute is used to designate an element as a popover
@@ -1765,12 +1787,12 @@ const (
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-// Remove the attribute POPVER from the element.
-func (e *DIVElement) POPVERRemove(c DivPopverChoice) *DIVElement {
+// Remove the attribute POPOVER from the element.
+func (e *DIVElement) POPOVERRemove(c DivPopoverChoice) *DIVElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

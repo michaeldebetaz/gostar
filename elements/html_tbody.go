@@ -49,11 +49,33 @@ func (e *TBODYElement) TernChildren(condition bool, trueChildren, falseChildren 
 	return e
 }
 
-func (e *TBODYElement) Attr(name string, value string) *TBODYElement {
+func (e *TBODYElement) BoolAttr(name string) *TBODYElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *TBODYElement) IfBoolAttr(condition bool, name string) *TBODYElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *TBODYElement) Attr(name, value string) *TBODYElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *TBODYElement) IfAttr(condition bool, name, value string) *TBODYElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 
@@ -1729,28 +1751,28 @@ func (e *TBODYElement) PARTRemove(s ...string) *TBODYElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *TBODYElement) POPVER(c TbodyPopverChoice) *TBODYElement {
+func (e *TBODYElement) POPOVER(c TbodyPopoverChoice) *TBODYElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type TbodyPopverChoice string
+type TbodyPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	TbodyPopver_auto TbodyPopverChoice = "auto"
+	TbodyPopover_auto TbodyPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	TbodyPopver_empty TbodyPopverChoice = ""
+	TbodyPopover_empty TbodyPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	TbodyPopver_manual TbodyPopverChoice = "manual"
+	TbodyPopover_manual TbodyPopoverChoice = "manual"
 )
 
 // The popover global attribute is used to designate an element as a popover
@@ -1762,12 +1784,12 @@ const (
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-// Remove the attribute POPVER from the element.
-func (e *TBODYElement) POPVERRemove(c TbodyPopverChoice) *TBODYElement {
+// Remove the attribute POPOVER from the element.
+func (e *TBODYElement) POPOVERRemove(c TbodyPopoverChoice) *TBODYElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

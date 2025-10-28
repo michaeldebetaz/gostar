@@ -54,11 +54,33 @@ func (e *SVGFESPECULARLIGHTINGElement) TernChildren(condition bool, trueChildren
 	return e
 }
 
-func (e *SVGFESPECULARLIGHTINGElement) Attr(name string, value string) *SVGFESPECULARLIGHTINGElement {
+func (e *SVGFESPECULARLIGHTINGElement) BoolAttr(name string) *SVGFESPECULARLIGHTINGElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *SVGFESPECULARLIGHTINGElement) IfBoolAttr(condition bool, name string) *SVGFESPECULARLIGHTINGElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *SVGFESPECULARLIGHTINGElement) Attr(name, value string) *SVGFESPECULARLIGHTINGElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *SVGFESPECULARLIGHTINGElement) IfAttr(condition bool, name, value string) *SVGFESPECULARLIGHTINGElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 

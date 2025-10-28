@@ -49,11 +49,33 @@ func (e *CAPTIONElement) TernChildren(condition bool, trueChildren, falseChildre
 	return e
 }
 
-func (e *CAPTIONElement) Attr(name string, value string) *CAPTIONElement {
+func (e *CAPTIONElement) BoolAttr(name string) *CAPTIONElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *CAPTIONElement) IfBoolAttr(condition bool, name string) *CAPTIONElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *CAPTIONElement) Attr(name, value string) *CAPTIONElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *CAPTIONElement) IfAttr(condition bool, name, value string) *CAPTIONElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 
@@ -1729,28 +1751,28 @@ func (e *CAPTIONElement) PARTRemove(s ...string) *CAPTIONElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *CAPTIONElement) POPVER(c CaptionPopverChoice) *CAPTIONElement {
+func (e *CAPTIONElement) POPOVER(c CaptionPopoverChoice) *CAPTIONElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type CaptionPopverChoice string
+type CaptionPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	CaptionPopver_auto CaptionPopverChoice = "auto"
+	CaptionPopover_auto CaptionPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	CaptionPopver_empty CaptionPopverChoice = ""
+	CaptionPopover_empty CaptionPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	CaptionPopver_manual CaptionPopverChoice = "manual"
+	CaptionPopover_manual CaptionPopoverChoice = "manual"
 )
 
 // The popover global attribute is used to designate an element as a popover
@@ -1762,12 +1784,12 @@ const (
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-// Remove the attribute POPVER from the element.
-func (e *CAPTIONElement) POPVERRemove(c CaptionPopverChoice) *CAPTIONElement {
+// Remove the attribute POPOVER from the element.
+func (e *CAPTIONElement) POPOVERRemove(c CaptionPopoverChoice) *CAPTIONElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

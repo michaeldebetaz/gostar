@@ -50,11 +50,33 @@ func (e *KBDElement) TernChildren(condition bool, trueChildren, falseChildren El
 	return e
 }
 
-func (e *KBDElement) Attr(name string, value string) *KBDElement {
+func (e *KBDElement) BoolAttr(name string) *KBDElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *KBDElement) IfBoolAttr(condition bool, name string) *KBDElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *KBDElement) Attr(name, value string) *KBDElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *KBDElement) IfAttr(condition bool, name, value string) *KBDElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 
@@ -1730,28 +1752,28 @@ func (e *KBDElement) PARTRemove(s ...string) *KBDElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *KBDElement) POPVER(c KbdPopverChoice) *KBDElement {
+func (e *KBDElement) POPOVER(c KbdPopoverChoice) *KBDElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type KbdPopverChoice string
+type KbdPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	KbdPopver_auto KbdPopverChoice = "auto"
+	KbdPopover_auto KbdPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	KbdPopver_empty KbdPopverChoice = ""
+	KbdPopover_empty KbdPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	KbdPopver_manual KbdPopverChoice = "manual"
+	KbdPopover_manual KbdPopoverChoice = "manual"
 )
 
 // The popover global attribute is used to designate an element as a popover
@@ -1763,12 +1785,12 @@ const (
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-// Remove the attribute POPVER from the element.
-func (e *KBDElement) POPVERRemove(c KbdPopverChoice) *KBDElement {
+// Remove the attribute POPOVER from the element.
+func (e *KBDElement) POPOVERRemove(c KbdPopoverChoice) *KBDElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

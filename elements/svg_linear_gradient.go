@@ -49,11 +49,33 @@ func (e *SVGLINEARGRADIENTElement) TernChildren(condition bool, trueChildren, fa
 	return e
 }
 
-func (e *SVGLINEARGRADIENTElement) Attr(name string, value string) *SVGLINEARGRADIENTElement {
+func (e *SVGLINEARGRADIENTElement) BoolAttr(name string) *SVGLINEARGRADIENTElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *SVGLINEARGRADIENTElement) IfBoolAttr(condition bool, name string) *SVGLINEARGRADIENTElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *SVGLINEARGRADIENTElement) Attr(name, value string) *SVGLINEARGRADIENTElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *SVGLINEARGRADIENTElement) IfAttr(condition bool, name, value string) *SVGLINEARGRADIENTElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 

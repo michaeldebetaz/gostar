@@ -48,11 +48,33 @@ func (e *MathMLMSElement) TernChildren(condition bool, trueChildren, falseChildr
 	return e
 }
 
-func (e *MathMLMSElement) Attr(name string, value string) *MathMLMSElement {
+func (e *MathMLMSElement) BoolAttr(name string) *MathMLMSElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *MathMLMSElement) IfBoolAttr(condition bool, name string) *MathMLMSElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *MathMLMSElement) Attr(name, value string) *MathMLMSElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *MathMLMSElement) IfAttr(condition bool, name, value string) *MathMLMSElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 

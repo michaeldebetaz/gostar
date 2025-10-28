@@ -49,11 +49,33 @@ func (e *STRIKEElement) TernChildren(condition bool, trueChildren, falseChildren
 	return e
 }
 
-func (e *STRIKEElement) Attr(name string, value string) *STRIKEElement {
+func (e *STRIKEElement) BoolAttr(name string) *STRIKEElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *STRIKEElement) IfBoolAttr(condition bool, name string) *STRIKEElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *STRIKEElement) Attr(name, value string) *STRIKEElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *STRIKEElement) IfAttr(condition bool, name, value string) *STRIKEElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 
@@ -1729,28 +1751,28 @@ func (e *STRIKEElement) PARTRemove(s ...string) *STRIKEElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *STRIKEElement) POPVER(c StrikePopverChoice) *STRIKEElement {
+func (e *STRIKEElement) POPOVER(c StrikePopoverChoice) *STRIKEElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type StrikePopverChoice string
+type StrikePopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	StrikePopver_auto StrikePopverChoice = "auto"
+	StrikePopover_auto StrikePopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	StrikePopver_empty StrikePopverChoice = ""
+	StrikePopover_empty StrikePopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	StrikePopver_manual StrikePopverChoice = "manual"
+	StrikePopover_manual StrikePopoverChoice = "manual"
 )
 
 // The popover global attribute is used to designate an element as a popover
@@ -1762,12 +1784,12 @@ const (
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-// Remove the attribute POPVER from the element.
-func (e *STRIKEElement) POPVERRemove(c StrikePopverChoice) *STRIKEElement {
+// Remove the attribute POPOVER from the element.
+func (e *STRIKEElement) POPOVERRemove(c StrikePopoverChoice) *STRIKEElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

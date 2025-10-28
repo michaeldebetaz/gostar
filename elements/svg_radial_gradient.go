@@ -49,11 +49,33 @@ func (e *SVGRADIALGRADIENTElement) TernChildren(condition bool, trueChildren, fa
 	return e
 }
 
-func (e *SVGRADIALGRADIENTElement) Attr(name string, value string) *SVGRADIALGRADIENTElement {
+func (e *SVGRADIALGRADIENTElement) BoolAttr(name string) *SVGRADIALGRADIENTElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *SVGRADIALGRADIENTElement) IfBoolAttr(condition bool, name string) *SVGRADIALGRADIENTElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *SVGRADIALGRADIENTElement) Attr(name, value string) *SVGRADIALGRADIENTElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *SVGRADIALGRADIENTElement) IfAttr(condition bool, name, value string) *SVGRADIALGRADIENTElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 

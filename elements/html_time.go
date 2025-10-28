@@ -50,11 +50,33 @@ func (e *TIMEElement) TernChildren(condition bool, trueChildren, falseChildren E
 	return e
 }
 
-func (e *TIMEElement) Attr(name string, value string) *TIMEElement {
+func (e *TIMEElement) BoolAttr(name string) *TIMEElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *TIMEElement) IfBoolAttr(condition bool, name string) *TIMEElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *TIMEElement) Attr(name, value string) *TIMEElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *TIMEElement) IfAttr(condition bool, name, value string) *TIMEElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 
@@ -1775,28 +1797,28 @@ func (e *TIMEElement) PARTRemove(s ...string) *TIMEElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *TIMEElement) POPVER(c TimePopverChoice) *TIMEElement {
+func (e *TIMEElement) POPOVER(c TimePopoverChoice) *TIMEElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type TimePopverChoice string
+type TimePopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	TimePopver_auto TimePopverChoice = "auto"
+	TimePopover_auto TimePopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	TimePopver_empty TimePopverChoice = ""
+	TimePopover_empty TimePopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	TimePopver_manual TimePopverChoice = "manual"
+	TimePopover_manual TimePopoverChoice = "manual"
 )
 
 // The popover global attribute is used to designate an element as a popover
@@ -1808,12 +1830,12 @@ const (
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-// Remove the attribute POPVER from the element.
-func (e *TIMEElement) POPVERRemove(c TimePopverChoice) *TIMEElement {
+// Remove the attribute POPOVER from the element.
+func (e *TIMEElement) POPOVERRemove(c TimePopoverChoice) *TIMEElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

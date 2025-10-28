@@ -51,11 +51,33 @@ func (e *CANVASElement) TernChildren(condition bool, trueChildren, falseChildren
 	return e
 }
 
-func (e *CANVASElement) Attr(name string, value string) *CANVASElement {
+func (e *CANVASElement) BoolAttr(name string) *CANVASElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *CANVASElement) IfBoolAttr(condition bool, name string) *CANVASElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *CANVASElement) Attr(name, value string) *CANVASElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *CANVASElement) IfAttr(condition bool, name, value string) *CANVASElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 
@@ -1785,28 +1807,28 @@ func (e *CANVASElement) PARTRemove(s ...string) *CANVASElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *CANVASElement) POPVER(c CanvasPopverChoice) *CANVASElement {
+func (e *CANVASElement) POPOVER(c CanvasPopoverChoice) *CANVASElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type CanvasPopverChoice string
+type CanvasPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	CanvasPopver_auto CanvasPopverChoice = "auto"
+	CanvasPopover_auto CanvasPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	CanvasPopver_empty CanvasPopverChoice = ""
+	CanvasPopover_empty CanvasPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	CanvasPopver_manual CanvasPopverChoice = "manual"
+	CanvasPopover_manual CanvasPopoverChoice = "manual"
 )
 
 // The popover global attribute is used to designate an element as a popover
@@ -1818,12 +1840,12 @@ const (
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-// Remove the attribute POPVER from the element.
-func (e *CANVASElement) POPVERRemove(c CanvasPopverChoice) *CANVASElement {
+// Remove the attribute POPOVER from the element.
+func (e *CANVASElement) POPOVERRemove(c CanvasPopoverChoice) *CANVASElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

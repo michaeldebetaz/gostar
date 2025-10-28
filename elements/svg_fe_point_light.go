@@ -49,11 +49,33 @@ func (e *SVGFEPOINTLIGHTElement) TernChildren(condition bool, trueChildren, fals
 	return e
 }
 
-func (e *SVGFEPOINTLIGHTElement) Attr(name string, value string) *SVGFEPOINTLIGHTElement {
+func (e *SVGFEPOINTLIGHTElement) BoolAttr(name string) *SVGFEPOINTLIGHTElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *SVGFEPOINTLIGHTElement) IfBoolAttr(condition bool, name string) *SVGFEPOINTLIGHTElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *SVGFEPOINTLIGHTElement) Attr(name, value string) *SVGFEPOINTLIGHTElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *SVGFEPOINTLIGHTElement) IfAttr(condition bool, name, value string) *SVGFEPOINTLIGHTElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 

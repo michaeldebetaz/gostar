@@ -49,11 +49,33 @@ func (e *METERElement) TernChildren(condition bool, trueChildren, falseChildren 
 	return e
 }
 
-func (e *METERElement) Attr(name string, value string) *METERElement {
+func (e *METERElement) BoolAttr(name string) *METERElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *METERElement) IfBoolAttr(condition bool, name string) *METERElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *METERElement) Attr(name, value string) *METERElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *METERElement) IfAttr(condition bool, name, value string) *METERElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 
@@ -1831,28 +1853,28 @@ func (e *METERElement) PARTRemove(s ...string) *METERElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *METERElement) POPVER(c MeterPopverChoice) *METERElement {
+func (e *METERElement) POPOVER(c MeterPopoverChoice) *METERElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type MeterPopverChoice string
+type MeterPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	MeterPopver_auto MeterPopverChoice = "auto"
+	MeterPopover_auto MeterPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	MeterPopver_empty MeterPopverChoice = ""
+	MeterPopover_empty MeterPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	MeterPopver_manual MeterPopverChoice = "manual"
+	MeterPopover_manual MeterPopoverChoice = "manual"
 )
 
 // The popover global attribute is used to designate an element as a popover
@@ -1864,12 +1886,12 @@ const (
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-// Remove the attribute POPVER from the element.
-func (e *METERElement) POPVERRemove(c MeterPopverChoice) *METERElement {
+// Remove the attribute POPOVER from the element.
+func (e *METERElement) POPOVERRemove(c MeterPopoverChoice) *METERElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

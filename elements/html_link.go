@@ -51,11 +51,33 @@ func (e *LINKElement) TernChildren(condition bool, trueChildren, falseChildren E
 	return e
 }
 
-func (e *LINKElement) Attr(name string, value string) *LINKElement {
+func (e *LINKElement) BoolAttr(name string) *LINKElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *LINKElement) IfBoolAttr(condition bool, name string) *LINKElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *LINKElement) Attr(name, value string) *LINKElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *LINKElement) IfAttr(condition bool, name, value string) *LINKElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 
@@ -2183,28 +2205,28 @@ func (e *LINKElement) PARTRemove(s ...string) *LINKElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *LINKElement) POPVER(c LinkPopverChoice) *LINKElement {
+func (e *LINKElement) POPOVER(c LinkPopoverChoice) *LINKElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type LinkPopverChoice string
+type LinkPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	LinkPopver_auto LinkPopverChoice = "auto"
+	LinkPopover_auto LinkPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	LinkPopver_empty LinkPopverChoice = ""
+	LinkPopover_empty LinkPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	LinkPopver_manual LinkPopverChoice = "manual"
+	LinkPopover_manual LinkPopoverChoice = "manual"
 )
 
 // The popover global attribute is used to designate an element as a popover
@@ -2216,12 +2238,12 @@ const (
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-// Remove the attribute POPVER from the element.
-func (e *LINKElement) POPVERRemove(c LinkPopverChoice) *LINKElement {
+// Remove the attribute POPOVER from the element.
+func (e *LINKElement) POPOVERRemove(c LinkPopoverChoice) *LINKElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

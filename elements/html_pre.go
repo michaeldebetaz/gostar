@@ -51,11 +51,33 @@ func (e *PREElement) TernChildren(condition bool, trueChildren, falseChildren El
 	return e
 }
 
-func (e *PREElement) Attr(name string, value string) *PREElement {
+func (e *PREElement) BoolAttr(name string) *PREElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *PREElement) IfBoolAttr(condition bool, name string) *PREElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *PREElement) Attr(name, value string) *PREElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *PREElement) IfAttr(condition bool, name, value string) *PREElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 
@@ -1731,28 +1753,28 @@ func (e *PREElement) PARTRemove(s ...string) *PREElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *PREElement) POPVER(c PrePopverChoice) *PREElement {
+func (e *PREElement) POPOVER(c PrePopoverChoice) *PREElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type PrePopverChoice string
+type PrePopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	PrePopver_auto PrePopverChoice = "auto"
+	PrePopover_auto PrePopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	PrePopver_empty PrePopverChoice = ""
+	PrePopover_empty PrePopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	PrePopver_manual PrePopverChoice = "manual"
+	PrePopover_manual PrePopoverChoice = "manual"
 )
 
 // The popover global attribute is used to designate an element as a popover
@@ -1764,12 +1786,12 @@ const (
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-// Remove the attribute POPVER from the element.
-func (e *PREElement) POPVERRemove(c PrePopverChoice) *PREElement {
+// Remove the attribute POPOVER from the element.
+func (e *PREElement) POPOVERRemove(c PrePopoverChoice) *PREElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

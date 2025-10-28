@@ -50,11 +50,33 @@ func (e *SVGFEDISTANTLIGHTElement) TernChildren(condition bool, trueChildren, fa
 	return e
 }
 
-func (e *SVGFEDISTANTLIGHTElement) Attr(name string, value string) *SVGFEDISTANTLIGHTElement {
+func (e *SVGFEDISTANTLIGHTElement) BoolAttr(name string) *SVGFEDISTANTLIGHTElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *SVGFEDISTANTLIGHTElement) IfBoolAttr(condition bool, name string) *SVGFEDISTANTLIGHTElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *SVGFEDISTANTLIGHTElement) Attr(name, value string) *SVGFEDISTANTLIGHTElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *SVGFEDISTANTLIGHTElement) IfAttr(condition bool, name, value string) *SVGFEDISTANTLIGHTElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 

@@ -50,11 +50,33 @@ func (e *TRElement) TernChildren(condition bool, trueChildren, falseChildren Ele
 	return e
 }
 
-func (e *TRElement) Attr(name string, value string) *TRElement {
+func (e *TRElement) BoolAttr(name string) *TRElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *TRElement) IfBoolAttr(condition bool, name string) *TRElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *TRElement) Attr(name, value string) *TRElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *TRElement) IfAttr(condition bool, name, value string) *TRElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 
@@ -1730,28 +1752,28 @@ func (e *TRElement) PARTRemove(s ...string) *TRElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *TRElement) POPVER(c TrPopverChoice) *TRElement {
+func (e *TRElement) POPOVER(c TrPopoverChoice) *TRElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type TrPopverChoice string
+type TrPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	TrPopver_auto TrPopverChoice = "auto"
+	TrPopover_auto TrPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	TrPopver_empty TrPopverChoice = ""
+	TrPopover_empty TrPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	TrPopver_manual TrPopverChoice = "manual"
+	TrPopover_manual TrPopoverChoice = "manual"
 )
 
 // The popover global attribute is used to designate an element as a popover
@@ -1763,12 +1785,12 @@ const (
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-// Remove the attribute POPVER from the element.
-func (e *TRElement) POPVERRemove(c TrPopverChoice) *TRElement {
+// Remove the attribute POPOVER from the element.
+func (e *TRElement) POPOVERRemove(c TrPopoverChoice) *TRElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

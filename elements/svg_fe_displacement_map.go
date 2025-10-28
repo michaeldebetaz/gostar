@@ -49,11 +49,33 @@ func (e *SVGFEDISPLACEMENTMAPElement) TernChildren(condition bool, trueChildren,
 	return e
 }
 
-func (e *SVGFEDISPLACEMENTMAPElement) Attr(name string, value string) *SVGFEDISPLACEMENTMAPElement {
+func (e *SVGFEDISPLACEMENTMAPElement) BoolAttr(name string) *SVGFEDISPLACEMENTMAPElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *SVGFEDISPLACEMENTMAPElement) IfBoolAttr(condition bool, name string) *SVGFEDISPLACEMENTMAPElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *SVGFEDISPLACEMENTMAPElement) Attr(name, value string) *SVGFEDISPLACEMENTMAPElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *SVGFEDISPLACEMENTMAPElement) IfAttr(condition bool, name, value string) *SVGFEDISPLACEMENTMAPElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 

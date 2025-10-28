@@ -49,11 +49,33 @@ func (e *HRElement) TernChildren(condition bool, trueChildren, falseChildren Ele
 	return e
 }
 
-func (e *HRElement) Attr(name string, value string) *HRElement {
+func (e *HRElement) BoolAttr(name string) *HRElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *HRElement) IfBoolAttr(condition bool, name string) *HRElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *HRElement) Attr(name, value string) *HRElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *HRElement) IfAttr(condition bool, name, value string) *HRElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 
@@ -1729,28 +1751,28 @@ func (e *HRElement) PARTRemove(s ...string) *HRElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *HRElement) POPVER(c HrPopverChoice) *HRElement {
+func (e *HRElement) POPOVER(c HrPopoverChoice) *HRElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type HrPopverChoice string
+type HrPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	HrPopver_auto HrPopverChoice = "auto"
+	HrPopover_auto HrPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	HrPopver_empty HrPopverChoice = ""
+	HrPopover_empty HrPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	HrPopver_manual HrPopverChoice = "manual"
+	HrPopover_manual HrPopoverChoice = "manual"
 )
 
 // The popover global attribute is used to designate an element as a popover
@@ -1762,12 +1784,12 @@ const (
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-// Remove the attribute POPVER from the element.
-func (e *HRElement) POPVERRemove(c HrPopverChoice) *HRElement {
+// Remove the attribute POPOVER from the element.
+func (e *HRElement) POPOVERRemove(c HrPopoverChoice) *HRElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

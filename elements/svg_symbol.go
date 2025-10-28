@@ -58,11 +58,33 @@ func (e *SVGSYMBOLElement) TernChildren(condition bool, trueChildren, falseChild
 	return e
 }
 
-func (e *SVGSYMBOLElement) Attr(name string, value string) *SVGSYMBOLElement {
+func (e *SVGSYMBOLElement) BoolAttr(name string) *SVGSYMBOLElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *SVGSYMBOLElement) IfBoolAttr(condition bool, name string) *SVGSYMBOLElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *SVGSYMBOLElement) Attr(name, value string) *SVGSYMBOLElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *SVGSYMBOLElement) IfAttr(condition bool, name, value string) *SVGSYMBOLElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 

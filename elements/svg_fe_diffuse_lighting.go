@@ -51,11 +51,33 @@ func (e *SVGFEDIFFUSELIGHTINGElement) TernChildren(condition bool, trueChildren,
 	return e
 }
 
-func (e *SVGFEDIFFUSELIGHTINGElement) Attr(name string, value string) *SVGFEDIFFUSELIGHTINGElement {
+func (e *SVGFEDIFFUSELIGHTINGElement) BoolAttr(name string) *SVGFEDIFFUSELIGHTINGElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *SVGFEDIFFUSELIGHTINGElement) IfBoolAttr(condition bool, name string) *SVGFEDIFFUSELIGHTINGElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *SVGFEDIFFUSELIGHTINGElement) Attr(name, value string) *SVGFEDIFFUSELIGHTINGElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *SVGFEDIFFUSELIGHTINGElement) IfAttr(condition bool, name, value string) *SVGFEDIFFUSELIGHTINGElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 

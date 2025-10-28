@@ -49,11 +49,33 @@ func (e *LEGENDElement) TernChildren(condition bool, trueChildren, falseChildren
 	return e
 }
 
-func (e *LEGENDElement) Attr(name string, value string) *LEGENDElement {
+func (e *LEGENDElement) BoolAttr(name string) *LEGENDElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *LEGENDElement) IfBoolAttr(condition bool, name string) *LEGENDElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *LEGENDElement) Attr(name, value string) *LEGENDElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *LEGENDElement) IfAttr(condition bool, name, value string) *LEGENDElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 
@@ -1729,28 +1751,28 @@ func (e *LEGENDElement) PARTRemove(s ...string) *LEGENDElement {
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-func (e *LEGENDElement) POPVER(c LegendPopverChoice) *LEGENDElement {
+func (e *LEGENDElement) POPOVER(c LegendPopoverChoice) *LEGENDElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
-	e.StringAttributes.Set("popver", string(c))
+	e.StringAttributes.Set("popover", string(c))
 	return e
 }
 
-type LegendPopverChoice string
+type LegendPopoverChoice string
 
 const (
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	LegendPopver_auto LegendPopverChoice = "auto"
+	LegendPopover_auto LegendPopoverChoice = "auto"
 	// Popovers that have the auto state can be "light dismissed" by selecting outside
 	// the popover area, and generally only allow one popover to be displayed
 	// on-screen at a time.
-	LegendPopver_empty LegendPopverChoice = ""
+	LegendPopover_empty LegendPopoverChoice = ""
 	// manual popovers must always be explicitly hidden, but allow for use cases such
 	// as nested popovers in menus.
-	LegendPopver_manual LegendPopverChoice = "manual"
+	LegendPopover_manual LegendPopoverChoice = "manual"
 )
 
 // The popover global attribute is used to designate an element as a popover
@@ -1762,12 +1784,12 @@ const (
 // When open, popover elements will appear above all other elements in the top
 // layer, and won't be influenced by parent elements' position or overflow
 // styling.
-// Remove the attribute POPVER from the element.
-func (e *LEGENDElement) POPVERRemove(c LegendPopverChoice) *LEGENDElement {
+// Remove the attribute POPOVER from the element.
+func (e *LEGENDElement) POPOVERRemove(c LegendPopoverChoice) *LEGENDElement {
 	if e.StringAttributes == nil {
 		return e
 	}
-	e.StringAttributes.Del("popver")
+	e.StringAttributes.Del("popover")
 	return e
 }
 

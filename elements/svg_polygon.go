@@ -49,11 +49,33 @@ func (e *SVGPOLYGONElement) TernChildren(condition bool, trueChildren, falseChil
 	return e
 }
 
-func (e *SVGPOLYGONElement) Attr(name string, value string) *SVGPOLYGONElement {
+func (e *SVGPOLYGONElement) BoolAttr(name string) *SVGPOLYGONElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *SVGPOLYGONElement) IfBoolAttr(condition bool, name string) *SVGPOLYGONElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *SVGPOLYGONElement) Attr(name, value string) *SVGPOLYGONElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *SVGPOLYGONElement) IfAttr(condition bool, name, value string) *SVGPOLYGONElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 

@@ -49,11 +49,33 @@ func (e *SVGCIRCLEElement) TernChildren(condition bool, trueChildren, falseChild
 	return e
 }
 
-func (e *SVGCIRCLEElement) Attr(name string, value string) *SVGCIRCLEElement {
+func (e *SVGCIRCLEElement) BoolAttr(name string) *SVGCIRCLEElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *SVGCIRCLEElement) IfBoolAttr(condition bool, name string) *SVGCIRCLEElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *SVGCIRCLEElement) Attr(name, value string) *SVGCIRCLEElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *SVGCIRCLEElement) IfAttr(condition bool, name, value string) *SVGCIRCLEElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 

@@ -51,11 +51,33 @@ func (e *MathMLANNOTATION_XMLElement) TernChildren(condition bool, trueChildren,
 	return e
 }
 
-func (e *MathMLANNOTATION_XMLElement) Attr(name string, value string) *MathMLANNOTATION_XMLElement {
+func (e *MathMLANNOTATION_XMLElement) BoolAttr(name string) *MathMLANNOTATION_XMLElement {
+	if e.BoolAttributes == nil {
+		e.BoolAttributes = treemap.New[string, bool]()
+	}
+	e.BoolAttributes.Set(name, true)
+	return e
+}
+
+func (e *MathMLANNOTATION_XMLElement) IfBoolAttr(condition bool, name string) *MathMLANNOTATION_XMLElement {
+	if condition {
+		e.AttrBool(name)
+	}
+	return e
+}
+
+func (e *MathMLANNOTATION_XMLElement) Attr(name, value string) *MathMLANNOTATION_XMLElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
 	}
 	e.StringAttributes.Set(name, value)
+	return e
+}
+
+func (e *MathMLANNOTATION_XMLElement) IfAttr(condition bool, name, value string) *MathMLANNOTATION_XMLElement {
+	if condition {
+		e.Attr(name, value)
+	}
 	return e
 }
 
