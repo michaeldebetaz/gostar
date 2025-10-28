@@ -65,3 +65,5 @@ require (
 	modernc.org/sqlite v1.27.0 // indirect
 	zombiezen.com/go/sqlite v0.13.1 // indirect
 )
+
+replace github.com/delaneyj/gostar => github.com/michaeldebetaz/gostar v0.0.0-20251024112618-b68683b9ef2d

@@ -79,7 +79,6 @@ func TestExample1(t *testing.T) {
 }
 
 func TestExample2(t *testing.T) {
-
 	x := DIV().STYLE("color", "rad").CLASS("foo", "aaaa").Text("bar")
 	x.STYLEPairs("color", "rad", "font-size", "12px")
 	x.STYLERemove("color")

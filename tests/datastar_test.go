@@ -5,14 +5,7 @@ import (
 	"time"
 
 	. "github.com/delaneyj/gostar/elements"
-	"github.com/stretchr/testify/assert"
-	"github.com/valyala/bytebufferpool"
 )
-
-type result struct {
-	Expected string
-	Actual   ElementRenderer
-}
 
 func TestDatastarAttr(t *testing.T) {
 	run(t, []result{
@@ -349,16 +342,4 @@ func TestDatastarText(t *testing.T) {
 			Actual:   DIV().DATASTAR_TEXT("$foo"),
 		},
 	})
-}
-
-func run(t *testing.T, results []result) {
-	for _, result := range results {
-		buf := bytebufferpool.Get()
-		e := result.Expected
-		err := result.Actual.Render(buf)
-		assert.NoError(t, err)
-		a := buf.String()
-		assert.Equal(t, e, a)
-		bytebufferpool.Put(buf)
-	}
 }
