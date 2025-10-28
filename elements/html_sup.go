@@ -59,7 +59,7 @@ func (e *SUPElement) BoolAttr(name string) *SUPElement {
 
 func (e *SUPElement) IfBoolAttr(condition bool, name string) *SUPElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

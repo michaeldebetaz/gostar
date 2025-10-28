@@ -61,7 +61,7 @@ func (e *MathMLANNOTATIONElement) BoolAttr(name string) *MathMLANNOTATIONElement
 
 func (e *MathMLANNOTATIONElement) IfBoolAttr(condition bool, name string) *MathMLANNOTATIONElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

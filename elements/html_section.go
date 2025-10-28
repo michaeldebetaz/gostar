@@ -61,7 +61,7 @@ func (e *SECTIONElement) BoolAttr(name string) *SECTIONElement {
 
 func (e *SECTIONElement) IfBoolAttr(condition bool, name string) *SECTIONElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

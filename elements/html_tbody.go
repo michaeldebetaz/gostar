@@ -59,7 +59,7 @@ func (e *TBODYElement) BoolAttr(name string) *TBODYElement {
 
 func (e *TBODYElement) IfBoolAttr(condition bool, name string) *TBODYElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

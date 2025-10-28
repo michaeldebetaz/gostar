@@ -60,7 +60,7 @@ func (e *TEXTAREAElement) BoolAttr(name string) *TEXTAREAElement {
 
 func (e *TEXTAREAElement) IfBoolAttr(condition bool, name string) *TEXTAREAElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

@@ -62,7 +62,7 @@ func (e *MENUElement) BoolAttr(name string) *MENUElement {
 
 func (e *MENUElement) IfBoolAttr(condition bool, name string) *MENUElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

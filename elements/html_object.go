@@ -60,7 +60,7 @@ func (e *OBJECTElement) BoolAttr(name string) *OBJECTElement {
 
 func (e *OBJECTElement) IfBoolAttr(condition bool, name string) *OBJECTElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

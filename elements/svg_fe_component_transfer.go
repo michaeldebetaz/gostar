@@ -61,7 +61,7 @@ func (e *SVGFECOMPONENTTRANSFERElement) BoolAttr(name string) *SVGFECOMPONENTTRA
 
 func (e *SVGFECOMPONENTTRANSFERElement) IfBoolAttr(condition bool, name string) *SVGFECOMPONENTTRANSFERElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

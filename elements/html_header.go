@@ -61,7 +61,7 @@ func (e *HEADERElement) BoolAttr(name string) *HEADERElement {
 
 func (e *HEADERElement) IfBoolAttr(condition bool, name string) *HEADERElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

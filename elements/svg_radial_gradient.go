@@ -59,7 +59,7 @@ func (e *SVGRADIALGRADIENTElement) BoolAttr(name string) *SVGRADIALGRADIENTEleme
 
 func (e *SVGRADIALGRADIENTElement) IfBoolAttr(condition bool, name string) *SVGRADIALGRADIENTElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

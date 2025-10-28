@@ -59,7 +59,7 @@ func (e *FIELDSETElement) BoolAttr(name string) *FIELDSETElement {
 
 func (e *FIELDSETElement) IfBoolAttr(condition bool, name string) *FIELDSETElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

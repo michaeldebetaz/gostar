@@ -59,7 +59,7 @@ func (e *OUTPUTElement) BoolAttr(name string) *OUTPUTElement {
 
 func (e *OUTPUTElement) IfBoolAttr(condition bool, name string) *OUTPUTElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

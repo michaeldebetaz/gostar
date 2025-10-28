@@ -61,7 +61,7 @@ func (e *RTCElement) BoolAttr(name string) *RTCElement {
 
 func (e *RTCElement) IfBoolAttr(condition bool, name string) *RTCElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

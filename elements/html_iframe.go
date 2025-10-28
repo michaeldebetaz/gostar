@@ -59,7 +59,7 @@ func (e *IFRAMEElement) BoolAttr(name string) *IFRAMEElement {
 
 func (e *IFRAMEElement) IfBoolAttr(condition bool, name string) *IFRAMEElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

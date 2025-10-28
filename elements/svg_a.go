@@ -62,7 +62,7 @@ func (e *SVGAElement) BoolAttr(name string) *SVGAElement {
 
 func (e *SVGAElement) IfBoolAttr(condition bool, name string) *SVGAElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

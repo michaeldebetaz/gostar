@@ -58,7 +58,7 @@ func (e *MathMLMPADDEDElement) BoolAttr(name string) *MathMLMPADDEDElement {
 
 func (e *MathMLMPADDEDElement) IfBoolAttr(condition bool, name string) *MathMLMPADDEDElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

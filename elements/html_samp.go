@@ -59,7 +59,7 @@ func (e *SAMPElement) BoolAttr(name string) *SAMPElement {
 
 func (e *SAMPElement) IfBoolAttr(condition bool, name string) *SAMPElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

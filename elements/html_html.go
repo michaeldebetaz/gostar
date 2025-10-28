@@ -60,7 +60,7 @@ func (e *HTMLElement) BoolAttr(name string) *HTMLElement {
 
 func (e *HTMLElement) IfBoolAttr(condition bool, name string) *HTMLElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

@@ -59,7 +59,7 @@ func (e *H1Element) BoolAttr(name string) *H1Element {
 
 func (e *H1Element) IfBoolAttr(condition bool, name string) *H1Element {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

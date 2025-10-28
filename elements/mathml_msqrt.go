@@ -58,7 +58,7 @@ func (e *MathMLMSQRTElement) BoolAttr(name string) *MathMLMSQRTElement {
 
 func (e *MathMLMSQRTElement) IfBoolAttr(condition bool, name string) *MathMLMSQRTElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

@@ -59,7 +59,7 @@ func (e *RUBYElement) BoolAttr(name string) *RUBYElement {
 
 func (e *RUBYElement) IfBoolAttr(condition bool, name string) *RUBYElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

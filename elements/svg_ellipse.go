@@ -59,7 +59,7 @@ func (e *SVGELLIPSEElement) BoolAttr(name string) *SVGELLIPSEElement {
 
 func (e *SVGELLIPSEElement) IfBoolAttr(condition bool, name string) *SVGELLIPSEElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

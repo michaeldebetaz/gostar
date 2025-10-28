@@ -60,7 +60,7 @@ func (e *NOSCRIPTElement) BoolAttr(name string) *NOSCRIPTElement {
 
 func (e *NOSCRIPTElement) IfBoolAttr(condition bool, name string) *NOSCRIPTElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

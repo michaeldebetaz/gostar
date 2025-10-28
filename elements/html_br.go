@@ -59,7 +59,7 @@ func (e *BRElement) BoolAttr(name string) *BRElement {
 
 func (e *BRElement) IfBoolAttr(condition bool, name string) *BRElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

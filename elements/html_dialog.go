@@ -61,7 +61,7 @@ func (e *DIALOGElement) BoolAttr(name string) *DIALOGElement {
 
 func (e *DIALOGElement) IfBoolAttr(condition bool, name string) *DIALOGElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

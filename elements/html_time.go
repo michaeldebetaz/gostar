@@ -60,7 +60,7 @@ func (e *TIMEElement) BoolAttr(name string) *TIMEElement {
 
 func (e *TIMEElement) IfBoolAttr(condition bool, name string) *TIMEElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

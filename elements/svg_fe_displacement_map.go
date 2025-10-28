@@ -59,7 +59,7 @@ func (e *SVGFEDISPLACEMENTMAPElement) BoolAttr(name string) *SVGFEDISPLACEMENTMA
 
 func (e *SVGFEDISPLACEMENTMAPElement) IfBoolAttr(condition bool, name string) *SVGFEDISPLACEMENTMAPElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

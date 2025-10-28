@@ -59,7 +59,7 @@ func (e *PROGRESSElement) BoolAttr(name string) *PROGRESSElement {
 
 func (e *PROGRESSElement) IfBoolAttr(condition bool, name string) *PROGRESSElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

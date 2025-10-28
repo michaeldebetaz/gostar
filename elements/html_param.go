@@ -57,7 +57,7 @@ func (e *PARAMElement) BoolAttr(name string) *PARAMElement {
 
 func (e *PARAMElement) IfBoolAttr(condition bool, name string) *PARAMElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

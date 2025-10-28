@@ -59,7 +59,7 @@ func (e *LEGENDElement) BoolAttr(name string) *LEGENDElement {
 
 func (e *LEGENDElement) IfBoolAttr(condition bool, name string) *LEGENDElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

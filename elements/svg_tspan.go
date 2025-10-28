@@ -59,7 +59,7 @@ func (e *SVGTSPANElement) BoolAttr(name string) *SVGTSPANElement {
 
 func (e *SVGTSPANElement) IfBoolAttr(condition bool, name string) *SVGTSPANElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

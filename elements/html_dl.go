@@ -62,7 +62,7 @@ func (e *DLElement) BoolAttr(name string) *DLElement {
 
 func (e *DLElement) IfBoolAttr(condition bool, name string) *DLElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

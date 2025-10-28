@@ -60,7 +60,7 @@ func (e *SVGMETADATAElement) BoolAttr(name string) *SVGMETADATAElement {
 
 func (e *SVGMETADATAElement) IfBoolAttr(condition bool, name string) *SVGMETADATAElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

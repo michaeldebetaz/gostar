@@ -62,7 +62,7 @@ func (e *DIVElement) BoolAttr(name string) *DIVElement {
 
 func (e *DIVElement) IfBoolAttr(condition bool, name string) *DIVElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

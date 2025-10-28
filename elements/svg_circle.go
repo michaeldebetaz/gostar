@@ -59,7 +59,7 @@ func (e *SVGCIRCLEElement) BoolAttr(name string) *SVGCIRCLEElement {
 
 func (e *SVGCIRCLEElement) IfBoolAttr(condition bool, name string) *SVGCIRCLEElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

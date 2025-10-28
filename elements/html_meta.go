@@ -58,7 +58,7 @@ func (e *METAElement) BoolAttr(name string) *METAElement {
 
 func (e *METAElement) IfBoolAttr(condition bool, name string) *METAElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

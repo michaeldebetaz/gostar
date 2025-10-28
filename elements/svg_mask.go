@@ -58,7 +58,7 @@ func (e *SVGMASKElement) BoolAttr(name string) *SVGMASKElement {
 
 func (e *SVGMASKElement) IfBoolAttr(condition bool, name string) *SVGMASKElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

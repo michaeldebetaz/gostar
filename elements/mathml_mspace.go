@@ -58,7 +58,7 @@ func (e *MathMLMSPACEElement) BoolAttr(name string) *MathMLMSPACEElement {
 
 func (e *MathMLMSPACEElement) IfBoolAttr(condition bool, name string) *MathMLMSPACEElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

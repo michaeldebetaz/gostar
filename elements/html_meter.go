@@ -59,7 +59,7 @@ func (e *METERElement) BoolAttr(name string) *METERElement {
 
 func (e *METERElement) IfBoolAttr(condition bool, name string) *METERElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

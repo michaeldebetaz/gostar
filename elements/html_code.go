@@ -61,7 +61,7 @@ func (e *CODEElement) BoolAttr(name string) *CODEElement {
 
 func (e *CODEElement) IfBoolAttr(condition bool, name string) *CODEElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

@@ -61,7 +61,7 @@ func (e *MathMLANNOTATION_XMLElement) BoolAttr(name string) *MathMLANNOTATION_XM
 
 func (e *MathMLANNOTATION_XMLElement) IfBoolAttr(condition bool, name string) *MathMLANNOTATION_XMLElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

@@ -60,7 +60,7 @@ func (e *EMElement) BoolAttr(name string) *EMElement {
 
 func (e *EMElement) IfBoolAttr(condition bool, name string) *EMElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

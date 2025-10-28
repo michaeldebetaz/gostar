@@ -59,7 +59,7 @@ func (e *OPTGROUPElement) BoolAttr(name string) *OPTGROUPElement {
 
 func (e *OPTGROUPElement) IfBoolAttr(condition bool, name string) *OPTGROUPElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

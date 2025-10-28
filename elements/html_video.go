@@ -58,7 +58,7 @@ func (e *VIDEOElement) BoolAttr(name string) *VIDEOElement {
 
 func (e *VIDEOElement) IfBoolAttr(condition bool, name string) *VIDEOElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

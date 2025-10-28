@@ -58,7 +58,7 @@ func (e *MathMLMROOTElement) BoolAttr(name string) *MathMLMROOTElement {
 
 func (e *MathMLMROOTElement) IfBoolAttr(condition bool, name string) *MathMLMROOTElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

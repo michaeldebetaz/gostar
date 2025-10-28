@@ -57,7 +57,7 @@ func (e *IMGElement) BoolAttr(name string) *IMGElement {
 
 func (e *IMGElement) IfBoolAttr(condition bool, name string) *IMGElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

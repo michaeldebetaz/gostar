@@ -60,7 +60,7 @@ func (e *SVGANIMATEMOTIONElement) BoolAttr(name string) *SVGANIMATEMOTIONElement
 
 func (e *SVGANIMATEMOTIONElement) IfBoolAttr(condition bool, name string) *SVGANIMATEMOTIONElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

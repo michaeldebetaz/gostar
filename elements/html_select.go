@@ -58,7 +58,7 @@ func (e *SELECTElement) BoolAttr(name string) *SELECTElement {
 
 func (e *SELECTElement) IfBoolAttr(condition bool, name string) *SELECTElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

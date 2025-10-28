@@ -60,7 +60,7 @@ func (e *ABBRElement) BoolAttr(name string) *ABBRElement {
 
 func (e *ABBRElement) IfBoolAttr(condition bool, name string) *ABBRElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

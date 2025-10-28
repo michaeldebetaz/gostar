@@ -58,7 +58,7 @@ func (e *LABELElement) BoolAttr(name string) *LABELElement {
 
 func (e *LABELElement) IfBoolAttr(condition bool, name string) *LABELElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

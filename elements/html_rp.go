@@ -59,7 +59,7 @@ func (e *RPElement) BoolAttr(name string) *RPElement {
 
 func (e *RPElement) IfBoolAttr(condition bool, name string) *RPElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

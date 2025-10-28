@@ -60,7 +60,7 @@ func (e *DATAElement) BoolAttr(name string) *DATAElement {
 
 func (e *DATAElement) IfBoolAttr(condition bool, name string) *DATAElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

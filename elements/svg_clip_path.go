@@ -59,7 +59,7 @@ func (e *SVGCLIPPATHElement) BoolAttr(name string) *SVGCLIPPATHElement {
 
 func (e *SVGCLIPPATHElement) IfBoolAttr(condition bool, name string) *SVGCLIPPATHElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

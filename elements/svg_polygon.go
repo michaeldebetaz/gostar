@@ -59,7 +59,7 @@ func (e *SVGPOLYGONElement) BoolAttr(name string) *SVGPOLYGONElement {
 
 func (e *SVGPOLYGONElement) IfBoolAttr(condition bool, name string) *SVGPOLYGONElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

@@ -60,7 +60,7 @@ func (e *SVGMARKERElement) BoolAttr(name string) *SVGMARKERElement {
 
 func (e *SVGMARKERElement) IfBoolAttr(condition bool, name string) *SVGMARKERElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

@@ -60,7 +60,7 @@ func (e *EMBEDElement) BoolAttr(name string) *EMBEDElement {
 
 func (e *EMBEDElement) IfBoolAttr(condition bool, name string) *EMBEDElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

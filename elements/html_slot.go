@@ -60,7 +60,7 @@ func (e *SLOTElement) BoolAttr(name string) *SLOTElement {
 
 func (e *SLOTElement) IfBoolAttr(condition bool, name string) *SLOTElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

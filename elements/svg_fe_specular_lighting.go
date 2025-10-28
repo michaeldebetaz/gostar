@@ -64,7 +64,7 @@ func (e *SVGFESPECULARLIGHTINGElement) BoolAttr(name string) *SVGFESPECULARLIGHT
 
 func (e *SVGFESPECULARLIGHTINGElement) IfBoolAttr(condition bool, name string) *SVGFESPECULARLIGHTINGElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

@@ -60,7 +60,7 @@ func (e *AREAElement) BoolAttr(name string) *AREAElement {
 
 func (e *AREAElement) IfBoolAttr(condition bool, name string) *AREAElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

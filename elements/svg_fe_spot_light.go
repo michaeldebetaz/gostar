@@ -59,7 +59,7 @@ func (e *SVGFESPOTLIGHTElement) BoolAttr(name string) *SVGFESPOTLIGHTElement {
 
 func (e *SVGFESPOTLIGHTElement) IfBoolAttr(condition bool, name string) *SVGFESPOTLIGHTElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

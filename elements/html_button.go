@@ -59,7 +59,7 @@ func (e *BUTTONElement) BoolAttr(name string) *BUTTONElement {
 
 func (e *BUTTONElement) IfBoolAttr(condition bool, name string) *BUTTONElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

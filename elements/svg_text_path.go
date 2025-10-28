@@ -59,7 +59,7 @@ func (e *SVGTEXTPATHElement) BoolAttr(name string) *SVGTEXTPATHElement {
 
 func (e *SVGTEXTPATHElement) IfBoolAttr(condition bool, name string) *SVGTEXTPATHElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

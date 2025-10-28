@@ -60,7 +60,7 @@ func (e *STRONGElement) BoolAttr(name string) *STRONGElement {
 
 func (e *STRONGElement) IfBoolAttr(condition bool, name string) *STRONGElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

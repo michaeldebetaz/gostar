@@ -61,7 +61,7 @@ func (e *SUMMARYElement) BoolAttr(name string) *SUMMARYElement {
 
 func (e *SUMMARYElement) IfBoolAttr(condition bool, name string) *SUMMARYElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

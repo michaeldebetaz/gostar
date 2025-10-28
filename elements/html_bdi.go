@@ -60,7 +60,7 @@ func (e *BDIElement) BoolAttr(name string) *BDIElement {
 
 func (e *BDIElement) IfBoolAttr(condition bool, name string) *BDIElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

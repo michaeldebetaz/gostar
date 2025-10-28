@@ -60,7 +60,7 @@ func (e *SVGSTOPElement) BoolAttr(name string) *SVGSTOPElement {
 
 func (e *SVGSTOPElement) IfBoolAttr(condition bool, name string) *SVGSTOPElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

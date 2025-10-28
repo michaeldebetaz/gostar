@@ -62,7 +62,7 @@ func (e *NAVElement) BoolAttr(name string) *NAVElement {
 
 func (e *NAVElement) IfBoolAttr(condition bool, name string) *NAVElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

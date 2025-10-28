@@ -61,7 +61,7 @@ func (e *LINKElement) BoolAttr(name string) *LINKElement {
 
 func (e *LINKElement) IfBoolAttr(condition bool, name string) *LINKElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

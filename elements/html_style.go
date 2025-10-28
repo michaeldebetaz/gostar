@@ -61,7 +61,7 @@ func (e *STYLEElement) BoolAttr(name string) *STYLEElement {
 
 func (e *STYLEElement) IfBoolAttr(condition bool, name string) *STYLEElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

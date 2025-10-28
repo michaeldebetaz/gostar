@@ -61,7 +61,7 @@ func (e *QElement) BoolAttr(name string) *QElement {
 
 func (e *QElement) IfBoolAttr(condition bool, name string) *QElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

@@ -59,7 +59,7 @@ func (e *SVGFEFUNCBElement) BoolAttr(name string) *SVGFEFUNCBElement {
 
 func (e *SVGFEFUNCBElement) IfBoolAttr(condition bool, name string) *SVGFEFUNCBElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

@@ -60,7 +60,7 @@ func (e *TRElement) BoolAttr(name string) *TRElement {
 
 func (e *TRElement) IfBoolAttr(condition bool, name string) *TRElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

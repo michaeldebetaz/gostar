@@ -59,7 +59,7 @@ func (e *SVGLINEARGRADIENTElement) BoolAttr(name string) *SVGLINEARGRADIENTEleme
 
 func (e *SVGLINEARGRADIENTElement) IfBoolAttr(condition bool, name string) *SVGLINEARGRADIENTElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

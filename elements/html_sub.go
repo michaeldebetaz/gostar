@@ -59,7 +59,7 @@ func (e *SUBElement) BoolAttr(name string) *SUBElement {
 
 func (e *SUBElement) IfBoolAttr(condition bool, name string) *SUBElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

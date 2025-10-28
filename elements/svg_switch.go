@@ -64,7 +64,7 @@ func (e *SVGSWITCHElement) BoolAttr(name string) *SVGSWITCHElement {
 
 func (e *SVGSWITCHElement) IfBoolAttr(condition bool, name string) *SVGSWITCHElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

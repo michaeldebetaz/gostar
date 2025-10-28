@@ -60,7 +60,7 @@ func (e *MARKElement) BoolAttr(name string) *MARKElement {
 
 func (e *MARKElement) IfBoolAttr(condition bool, name string) *MARKElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

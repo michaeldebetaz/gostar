@@ -60,7 +60,7 @@ func (e *SVGFEDROPSHADOWElement) BoolAttr(name string) *SVGFEDROPSHADOWElement {
 
 func (e *SVGFEDROPSHADOWElement) IfBoolAttr(condition bool, name string) *SVGFEDROPSHADOWElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

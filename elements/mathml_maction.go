@@ -61,7 +61,7 @@ func (e *MathMLMACTIONElement) BoolAttr(name string) *MathMLMACTIONElement {
 
 func (e *MathMLMACTIONElement) IfBoolAttr(condition bool, name string) *MathMLMACTIONElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

@@ -59,7 +59,7 @@ func (e *FORMElement) BoolAttr(name string) *FORMElement {
 
 func (e *FORMElement) IfBoolAttr(condition bool, name string) *FORMElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

@@ -59,7 +59,7 @@ func (e *SVGFEPOINTLIGHTElement) BoolAttr(name string) *SVGFEPOINTLIGHTElement {
 
 func (e *SVGFEPOINTLIGHTElement) IfBoolAttr(condition bool, name string) *SVGFEPOINTLIGHTElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

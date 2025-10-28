@@ -62,7 +62,7 @@ func (e *TRACKElement) BoolAttr(name string) *TRACKElement {
 
 func (e *TRACKElement) IfBoolAttr(condition bool, name string) *TRACKElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

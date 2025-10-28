@@ -59,7 +59,7 @@ func (e *STRIKEElement) BoolAttr(name string) *STRIKEElement {
 
 func (e *STRIKEElement) IfBoolAttr(condition bool, name string) *STRIKEElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

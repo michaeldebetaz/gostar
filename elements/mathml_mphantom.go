@@ -58,7 +58,7 @@ func (e *MathMLMPHANTOMElement) BoolAttr(name string) *MathMLMPHANTOMElement {
 
 func (e *MathMLMPHANTOMElement) IfBoolAttr(condition bool, name string) *MathMLMPHANTOMElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

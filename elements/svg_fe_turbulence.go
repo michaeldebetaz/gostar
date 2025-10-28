@@ -60,7 +60,7 @@ func (e *SVGFETURBULENCEElement) BoolAttr(name string) *SVGFETURBULENCEElement {
 
 func (e *SVGFETURBULENCEElement) IfBoolAttr(condition bool, name string) *SVGFETURBULENCEElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

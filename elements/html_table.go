@@ -60,7 +60,7 @@ func (e *TABLEElement) BoolAttr(name string) *TABLEElement {
 
 func (e *TABLEElement) IfBoolAttr(condition bool, name string) *TABLEElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

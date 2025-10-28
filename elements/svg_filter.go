@@ -62,7 +62,7 @@ func (e *SVGFILTERElement) BoolAttr(name string) *SVGFILTERElement {
 
 func (e *SVGFILTERElement) IfBoolAttr(condition bool, name string) *SVGFILTERElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

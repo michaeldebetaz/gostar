@@ -58,7 +58,7 @@ func (e *PElement) BoolAttr(name string) *PElement {
 
 func (e *PElement) IfBoolAttr(condition bool, name string) *PElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

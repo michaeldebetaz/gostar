@@ -59,7 +59,7 @@ func (e *SVGFECONVOLVEMATRIXElement) BoolAttr(name string) *SVGFECONVOLVEMATRIXE
 
 func (e *SVGFECONVOLVEMATRIXElement) IfBoolAttr(condition bool, name string) *SVGFECONVOLVEMATRIXElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

@@ -61,7 +61,7 @@ func (e *SVGFECOLORMATRIXElement) BoolAttr(name string) *SVGFECOLORMATRIXElement
 
 func (e *SVGFECOLORMATRIXElement) IfBoolAttr(condition bool, name string) *SVGFECOLORMATRIXElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

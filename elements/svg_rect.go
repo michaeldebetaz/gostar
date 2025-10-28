@@ -61,7 +61,7 @@ func (e *SVGRECTElement) BoolAttr(name string) *SVGRECTElement {
 
 func (e *SVGRECTElement) IfBoolAttr(condition bool, name string) *SVGRECTElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

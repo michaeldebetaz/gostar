@@ -61,7 +61,7 @@ func (e *PREElement) BoolAttr(name string) *PREElement {
 
 func (e *PREElement) IfBoolAttr(condition bool, name string) *PREElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

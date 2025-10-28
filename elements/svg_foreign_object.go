@@ -61,7 +61,7 @@ func (e *SVGFOREIGNOBJECTElement) BoolAttr(name string) *SVGFOREIGNOBJECTElement
 
 func (e *SVGFOREIGNOBJECTElement) IfBoolAttr(condition bool, name string) *SVGFOREIGNOBJECTElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

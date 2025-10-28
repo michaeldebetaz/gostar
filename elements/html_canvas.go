@@ -61,7 +61,7 @@ func (e *CANVASElement) BoolAttr(name string) *CANVASElement {
 
 func (e *CANVASElement) IfBoolAttr(condition bool, name string) *CANVASElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

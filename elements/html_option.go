@@ -61,7 +61,7 @@ func (e *OPTIONElement) BoolAttr(name string) *OPTIONElement {
 
 func (e *OPTIONElement) IfBoolAttr(condition bool, name string) *OPTIONElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

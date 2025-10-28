@@ -61,7 +61,7 @@ func (e *DFNElement) BoolAttr(name string) *DFNElement {
 
 func (e *DFNElement) IfBoolAttr(condition bool, name string) *DFNElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

@@ -58,7 +58,7 @@ func (e *MathMLSEMANTICSElement) BoolAttr(name string) *MathMLSEMANTICSElement {
 
 func (e *MathMLSEMANTICSElement) IfBoolAttr(condition bool, name string) *MathMLSEMANTICSElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

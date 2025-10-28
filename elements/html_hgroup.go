@@ -60,7 +60,7 @@ func (e *HGROUPElement) BoolAttr(name string) *HGROUPElement {
 
 func (e *HGROUPElement) IfBoolAttr(condition bool, name string) *HGROUPElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

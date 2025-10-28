@@ -60,7 +60,7 @@ func (e *KBDElement) BoolAttr(name string) *KBDElement {
 
 func (e *KBDElement) IfBoolAttr(condition bool, name string) *KBDElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

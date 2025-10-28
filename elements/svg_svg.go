@@ -61,7 +61,7 @@ func (e *SVGSVGElement) BoolAttr(name string) *SVGSVGElement {
 
 func (e *SVGSVGElement) IfBoolAttr(condition bool, name string) *SVGSVGElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

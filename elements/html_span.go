@@ -64,7 +64,7 @@ func (e *SPANElement) BoolAttr(name string) *SPANElement {
 
 func (e *SPANElement) IfBoolAttr(condition bool, name string) *SPANElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

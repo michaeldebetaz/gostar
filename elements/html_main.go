@@ -62,7 +62,7 @@ func (e *MAINElement) BoolAttr(name string) *MAINElement {
 
 func (e *MAINElement) IfBoolAttr(condition bool, name string) *MAINElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

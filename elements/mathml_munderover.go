@@ -59,7 +59,7 @@ func (e *MathMLMUNDEROVERElement) BoolAttr(name string) *MathMLMUNDEROVERElement
 
 func (e *MathMLMUNDEROVERElement) IfBoolAttr(condition bool, name string) *MathMLMUNDEROVERElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

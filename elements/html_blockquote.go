@@ -64,7 +64,7 @@ func (e *BLOCKQUOTEElement) BoolAttr(name string) *BLOCKQUOTEElement {
 
 func (e *BLOCKQUOTEElement) IfBoolAttr(condition bool, name string) *BLOCKQUOTEElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

@@ -62,7 +62,7 @@ func (e *SVGPOLYLINEElement) BoolAttr(name string) *SVGPOLYLINEElement {
 
 func (e *SVGPOLYLINEElement) IfBoolAttr(condition bool, name string) *SVGPOLYLINEElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

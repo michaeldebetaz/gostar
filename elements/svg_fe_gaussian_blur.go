@@ -59,7 +59,7 @@ func (e *SVGFEGAUSSIANBLURElement) BoolAttr(name string) *SVGFEGAUSSIANBLUREleme
 
 func (e *SVGFEGAUSSIANBLURElement) IfBoolAttr(condition bool, name string) *SVGFEGAUSSIANBLURElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

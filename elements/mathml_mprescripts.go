@@ -59,7 +59,7 @@ func (e *MathMLMPRESCRIPTSElement) BoolAttr(name string) *MathMLMPRESCRIPTSEleme
 
 func (e *MathMLMPRESCRIPTSElement) IfBoolAttr(condition bool, name string) *MathMLMPRESCRIPTSElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

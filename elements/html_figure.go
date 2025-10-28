@@ -60,7 +60,7 @@ func (e *FIGUREElement) BoolAttr(name string) *FIGUREElement {
 
 func (e *FIGUREElement) IfBoolAttr(condition bool, name string) *FIGUREElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

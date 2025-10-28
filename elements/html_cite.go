@@ -61,7 +61,7 @@ func (e *CITEElement) BoolAttr(name string) *CITEElement {
 
 func (e *CITEElement) IfBoolAttr(condition bool, name string) *CITEElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

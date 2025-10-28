@@ -59,7 +59,7 @@ func (e *SVGMPATHElement) BoolAttr(name string) *SVGMPATHElement {
 
 func (e *SVGMPATHElement) IfBoolAttr(condition bool, name string) *SVGMPATHElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

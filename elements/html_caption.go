@@ -59,7 +59,7 @@ func (e *CAPTIONElement) BoolAttr(name string) *CAPTIONElement {
 
 func (e *CAPTIONElement) IfBoolAttr(condition bool, name string) *CAPTIONElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

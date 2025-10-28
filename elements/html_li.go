@@ -58,7 +58,7 @@ func (e *LIElement) BoolAttr(name string) *LIElement {
 
 func (e *LIElement) IfBoolAttr(condition bool, name string) *LIElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

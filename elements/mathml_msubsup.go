@@ -59,7 +59,7 @@ func (e *MathMLMSUBSUPElement) BoolAttr(name string) *MathMLMSUBSUPElement {
 
 func (e *MathMLMSUBSUPElement) IfBoolAttr(condition bool, name string) *MathMLMSUBSUPElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

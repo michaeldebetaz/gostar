@@ -61,7 +61,7 @@ func (e *FOOTERElement) BoolAttr(name string) *FOOTERElement {
 
 func (e *FOOTERElement) IfBoolAttr(condition bool, name string) *FOOTERElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

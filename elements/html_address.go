@@ -59,7 +59,7 @@ func (e *ADDRESSElement) BoolAttr(name string) *ADDRESSElement {
 
 func (e *ADDRESSElement) IfBoolAttr(condition bool, name string) *ADDRESSElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

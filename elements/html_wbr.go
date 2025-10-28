@@ -59,7 +59,7 @@ func (e *WBRElement) BoolAttr(name string) *WBRElement {
 
 func (e *WBRElement) IfBoolAttr(condition bool, name string) *WBRElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

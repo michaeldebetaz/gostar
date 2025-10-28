@@ -60,7 +60,7 @@ func (e *SVGFEIMAGEElement) BoolAttr(name string) *SVGFEIMAGEElement {
 
 func (e *SVGFEIMAGEElement) IfBoolAttr(condition bool, name string) *SVGFEIMAGEElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

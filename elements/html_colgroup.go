@@ -58,7 +58,7 @@ func (e *COLGROUPElement) BoolAttr(name string) *COLGROUPElement {
 
 func (e *COLGROUPElement) IfBoolAttr(condition bool, name string) *COLGROUPElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

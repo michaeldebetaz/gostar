@@ -60,7 +60,7 @@ func (e *SVGFECOMPOSITEElement) BoolAttr(name string) *SVGFECOMPOSITEElement {
 
 func (e *SVGFECOMPOSITEElement) IfBoolAttr(condition bool, name string) *SVGFECOMPOSITEElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

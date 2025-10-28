@@ -60,7 +60,7 @@ func (e *SVGANIMATETRANSFORMElement) BoolAttr(name string) *SVGANIMATETRANSFORME
 
 func (e *SVGANIMATETRANSFORMElement) IfBoolAttr(condition bool, name string) *SVGANIMATETRANSFORMElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

@@ -59,7 +59,7 @@ func (e *SCRIPTElement) BoolAttr(name string) *SCRIPTElement {
 
 func (e *SCRIPTElement) IfBoolAttr(condition bool, name string) *SCRIPTElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

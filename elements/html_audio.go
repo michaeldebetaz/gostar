@@ -61,7 +61,7 @@ func (e *AUDIOElement) BoolAttr(name string) *AUDIOElement {
 
 func (e *AUDIOElement) IfBoolAttr(condition bool, name string) *AUDIOElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

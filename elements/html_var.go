@@ -59,7 +59,7 @@ func (e *VARElement) BoolAttr(name string) *VARElement {
 
 func (e *VARElement) IfBoolAttr(condition bool, name string) *VARElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

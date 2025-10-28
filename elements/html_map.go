@@ -59,7 +59,7 @@ func (e *MAPElement) BoolAttr(name string) *MAPElement {
 
 func (e *MAPElement) IfBoolAttr(condition bool, name string) *MAPElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

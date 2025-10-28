@@ -60,7 +60,7 @@ func (e *BDOElement) BoolAttr(name string) *BDOElement {
 
 func (e *BDOElement) IfBoolAttr(condition bool, name string) *BDOElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }

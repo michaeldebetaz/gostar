@@ -58,7 +58,7 @@ func (e *MathMLMOVERElement) BoolAttr(name string) *MathMLMOVERElement {
 
 func (e *MathMLMOVERElement) IfBoolAttr(condition bool, name string) *MathMLMOVERElement {
 	if condition {
-		e.AttrBool(name)
+		e.BoolAttr(name)
 	}
 	return e
 }
