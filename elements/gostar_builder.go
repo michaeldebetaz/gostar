@@ -209,7 +209,7 @@ func (d *DelimitedBuilder[T]) Render(w io.Writer) error {
 	count := 0
 	total := d.Values.Len()
 	for it := d.Values.Iterator(); it.Valid(); it.Next() {
-		b := []byte(fmt.Sprint(it.Key()))
+		b := fmt.Append(nil, it.Key())
 		if _, err := w.Write(b); err != nil {
 			return err
 		}
@@ -279,7 +279,7 @@ func Text(text string) *TextContent {
 	return (*TextContent)(&text)
 }
 
-func TextF(format string, args ...interface{}) *TextContent {
+func TextF(format string, args ...any) *TextContent {
 	return Text(fmt.Sprintf(format, args...))
 }
 
@@ -294,7 +294,7 @@ func Escaped(text string) *EscapedContent {
 	return (*EscapedContent)(&text)
 }
 
-func EscapedF(format string, args ...interface{}) *EscapedContent {
+func EscapedF(format string, args ...any) *EscapedContent {
 	return Escaped(fmt.Sprintf(format, args...))
 }
 

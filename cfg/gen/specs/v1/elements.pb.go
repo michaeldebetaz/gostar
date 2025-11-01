@@ -244,7 +244,7 @@ func (x *Namespace) GetAttributes() []*Attribute {
 type Namespaces struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Namespaces    []*Namespace           `protobuf:"bytes,1,rep,name=namespaces,proto3" json:"namespaces,omitempty"`
-	Attributes    []*Attribute           `protobuf:"bytes,5,rep,name=attributes,proto3" json:"attributes,omitempty"`
+	Attributes    []*Attribute           `protobuf:"bytes,2,rep,name=attributes,proto3" json:"attributes,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -687,7 +687,7 @@ const file_specs_v1_elements_proto_rawDesc = "" +
 	"namespaces\x18\x01 \x03(\v2\x13.specs.v1.NamespaceR\n" +
 	"namespaces\x123\n" +
 	"\n" +
-	"attributes\x18\x05 \x03(\v2\x13.specs.v1.AttributeR\n" +
+	"attributes\x18\x02 \x03(\v2\x13.specs.v1.AttributeR\n" +
 	"attributesBk\n" +
 	"\fcom.specs.v1B\rElementsProtoP\x01Z\vspecs/v1;pb\xa2\x02\x03SXX\xaa\x02\bSpecs.V1\xca\x02\bSpecs\\V1\xe2\x02\x14Specs\\V1\\GPBMetadata\xea\x02\tSpecs::V1b\x06proto3"
 
