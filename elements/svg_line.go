@@ -9,8 +9,8 @@ import (
 	"github.com/igrmk/treemap/v2"
 )
 
-// The <line> SVG element is an SVG basic shape, used to create a line connecting
-// two points.
+// The <line> SVG element is an SVG basic shape, used to create a line
+// connecting two points.
 type SVGLINEElement struct {
 	*Element
 }

@@ -9,17 +9,15 @@ import (
 	"github.com/igrmk/treemap/v2"
 )
 
-// The <symbol> SVG element is used to define graphical template objects which can
-// be instantiated by a <use> element
-// The use of symbol elements for graphics that are used multiple times in the
-// same document adds structure and semantics
-// Documents that are rich in structure may be rendered graphically, as speech, or
-// as Braille, and thus promote accessibility
-// note that a symbol element itself is not rendered
-// Only instances of a symbol element (i.e., a reference to a symbol by a <use>
-// element) are rendered
-// To render a 'stand-alone' graphic that has been defined using a symbol, a
-// reference to the symbol is referenced using a <use> element.
+// The <symbol> SVG element is used to define graphical template objects which
+// can be instantiated by a <use> element. The use of symbol elements for
+// graphics that are used multiple times in the same document adds structure and
+// semantics. Documents that are rich in structure may be rendered graphically,
+// as speech, or as Braille, and thus promote accessibility. note that a symbol
+// element itself is not rendered. Only instances of a symbol element (i.e., a
+// reference to a symbol by a <use> element) are rendered. To render a
+// 'stand-alone' graphic that has been defined using a symbol, a reference to
+// the symbol is referenced using a <use> element.
 type SVGSYMBOLElement struct {
 	*Element
 }
@@ -216,8 +214,8 @@ const (
 	// Align the image along the middle of the corresponding dimension of the
 	// viewPort.
 	SVGSymbolPreserveAspectRatio_xMinYMid SVGSymbolPreserveAspectRatioChoice = "xMinYMid"
-	// Scale the image to the smallest size such that it can completely fit inside the
-	// corresponding dimension of the viewPort.
+	// Scale the image to the smallest size such that it can completely fit inside
+	// the corresponding dimension of the viewPort.
 	SVGSymbolPreserveAspectRatio_xMidYMid SVGSymbolPreserveAspectRatioChoice = "xMidYMid"
 	// Align the image with the corresponding side of the viewPort.
 	SVGSymbolPreserveAspectRatio_xMaxYMid SVGSymbolPreserveAspectRatioChoice = "xMaxYMid"

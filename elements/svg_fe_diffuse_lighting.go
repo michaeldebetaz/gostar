@@ -10,9 +10,9 @@ import (
 )
 
 // The <feDiffuseLighting> SVG filter primitive lights an image using the alpha
-// channel as a bump map
-// The resulting image, which is an RGBA opaque image, depends on the light color,
-// light position and surface geometry of the input bump map.
+// channel as a bump map. The resulting image, which is an RGBA opaque image,
+// depends on the light color, light position and surface geometry of the input
+// bump map.
 type SVGFEDIFFUSELIGHTINGElement struct {
 	*Element
 }
@@ -229,8 +229,8 @@ func (e *SVGFEDIFFUSELIGHTINGElement) INRemoveF(format string, args ...any) *SVG
 	return e.INRemove(fmt.Sprintf(format, args...))
 }
 
-// The 'surfaceScale' attribute indicates the height of the surface when the alpha
-// channel is 1.0.
+// The 'surfaceScale' attribute indicates the height of the surface when the
+// alpha channel is 1.0.
 func (e *SVGFEDIFFUSELIGHTINGElement) SURFACE_SCALE(f float64) *SVGFEDIFFUSELIGHTINGElement {
 	if e.FloatAttributes == nil {
 		e.FloatAttributes = treemap.New[string, float64]()
@@ -239,8 +239,8 @@ func (e *SVGFEDIFFUSELIGHTINGElement) SURFACE_SCALE(f float64) *SVGFEDIFFUSELIGH
 	return e
 }
 
-// The 'surfaceScale' attribute indicates the height of the surface when the alpha
-// channel is 1.0.
+// The 'surfaceScale' attribute indicates the height of the surface when the
+// alpha channel is 1.0.
 func (e *SVGFEDIFFUSELIGHTINGElement) IfSURFACE_SCALE(condition bool, f float64) *SVGFEDIFFUSELIGHTINGElement {
 	if condition {
 		e.SURFACE_SCALE(f)
@@ -267,9 +267,9 @@ func (e *SVGFEDIFFUSELIGHTINGElement) IfDIFFUSE_CONSTANT(condition bool, f float
 	return e
 }
 
-// The kernelUnitLength attribute defines the intended distance in current filter
-// units (i.e., units as determined by the value of attribute 'primitiveUnits')
-// for dx and dy in the surface normal calculation formulas.
+// The kernelUnitLength attribute defines the intended distance in current
+// filter units (i.e., units as determined by the value of attribute
+// 'primitiveUnits') for dx and dy in the surface normal calculation formulas.
 func (e *SVGFEDIFFUSELIGHTINGElement) KERNEL_UNIT_LENGTH(s string) *SVGFEDIFFUSELIGHTINGElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -278,16 +278,16 @@ func (e *SVGFEDIFFUSELIGHTINGElement) KERNEL_UNIT_LENGTH(s string) *SVGFEDIFFUSE
 	return e
 }
 
-// The kernelUnitLength attribute defines the intended distance in current filter
-// units (i.e., units as determined by the value of attribute 'primitiveUnits')
-// for dx and dy in the surface normal calculation formulas.
+// The kernelUnitLength attribute defines the intended distance in current
+// filter units (i.e., units as determined by the value of attribute
+// 'primitiveUnits') for dx and dy in the surface normal calculation formulas.
 func (e *SVGFEDIFFUSELIGHTINGElement) KERNEL_UNIT_LENGTHF(format string, args ...any) *SVGFEDIFFUSELIGHTINGElement {
 	return e.KERNEL_UNIT_LENGTH(fmt.Sprintf(format, args...))
 }
 
-// The kernelUnitLength attribute defines the intended distance in current filter
-// units (i.e., units as determined by the value of attribute 'primitiveUnits')
-// for dx and dy in the surface normal calculation formulas.
+// The kernelUnitLength attribute defines the intended distance in current
+// filter units (i.e., units as determined by the value of attribute
+// 'primitiveUnits') for dx and dy in the surface normal calculation formulas.
 func (e *SVGFEDIFFUSELIGHTINGElement) IfKERNEL_UNIT_LENGTH(condition bool, s string) *SVGFEDIFFUSELIGHTINGElement {
 	if condition {
 		e.KERNEL_UNIT_LENGTH(s)
@@ -295,9 +295,9 @@ func (e *SVGFEDIFFUSELIGHTINGElement) IfKERNEL_UNIT_LENGTH(condition bool, s str
 	return e
 }
 
-// The kernelUnitLength attribute defines the intended distance in current filter
-// units (i.e., units as determined by the value of attribute 'primitiveUnits')
-// for dx and dy in the surface normal calculation formulas.
+// The kernelUnitLength attribute defines the intended distance in current
+// filter units (i.e., units as determined by the value of attribute
+// 'primitiveUnits') for dx and dy in the surface normal calculation formulas.
 func (e *SVGFEDIFFUSELIGHTINGElement) IfKERNEL_UNIT_LENGTHF(condition bool, format string, args ...any) *SVGFEDIFFUSELIGHTINGElement {
 	if condition {
 		e.KERNEL_UNIT_LENGTH(fmt.Sprintf(format, args...))
@@ -305,9 +305,9 @@ func (e *SVGFEDIFFUSELIGHTINGElement) IfKERNEL_UNIT_LENGTHF(condition bool, form
 	return e
 }
 
-// The kernelUnitLength attribute defines the intended distance in current filter
-// units (i.e., units as determined by the value of attribute 'primitiveUnits')
-// for dx and dy in the surface normal calculation formulas.
+// The kernelUnitLength attribute defines the intended distance in current
+// filter units (i.e., units as determined by the value of attribute
+// 'primitiveUnits') for dx and dy in the surface normal calculation formulas.
 // Remove the attribute KERNEL_UNIT_LENGTH from the element.
 func (e *SVGFEDIFFUSELIGHTINGElement) KERNEL_UNIT_LENGTHRemove(s string) *SVGFEDIFFUSELIGHTINGElement {
 	if e.StringAttributes == nil {
@@ -317,9 +317,9 @@ func (e *SVGFEDIFFUSELIGHTINGElement) KERNEL_UNIT_LENGTHRemove(s string) *SVGFED
 	return e
 }
 
-// The kernelUnitLength attribute defines the intended distance in current filter
-// units (i.e., units as determined by the value of attribute 'primitiveUnits')
-// for dx and dy in the surface normal calculation formulas.
+// The kernelUnitLength attribute defines the intended distance in current
+// filter units (i.e., units as determined by the value of attribute
+// 'primitiveUnits') for dx and dy in the surface normal calculation formulas.
 func (e *SVGFEDIFFUSELIGHTINGElement) KERNEL_UNIT_LENGTHRemoveF(format string, args ...any) *SVGFEDIFFUSELIGHTINGElement {
 	return e.KERNEL_UNIT_LENGTHRemove(fmt.Sprintf(format, args...))
 }

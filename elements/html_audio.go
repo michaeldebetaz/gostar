@@ -9,10 +9,10 @@ import (
 	"github.com/igrmk/treemap/v2"
 )
 
-// The HTML <audio> element is used to embed sound content in documents
-// It may contain one or more audio sources, represented using the src attribute
-// or the <source> element: the browser will choose the most suitable one
-// It can also be the destination for streamed media, using a MediaStream.
+// The HTML <audio> element is used to embed sound content in documents. It may
+// contain one or more audio sources, represented using the src attribute or the
+// <source> element: the browser will choose the most suitable one. It can also
+// be the destination for streamed media, using a MediaStream.
 type AUDIOElement struct {
 	*Element
 }
@@ -185,16 +185,16 @@ func (e *AUDIOElement) CustomDataRemove(key string) *AUDIOElement {
 }
 
 // A Boolean attribute; if specified (even if the value is "false"!), the audio
-// will automatically begin playback as soon as it can do so, without waiting for
-// the entire audio file to finish downloading.
+// will automatically begin playback as soon as it can do so, without waiting
+// for the entire audio file to finish downloading.
 func (e *AUDIOElement) AUTOPLAY() *AUDIOElement {
 	e.AUTOPLAYSet(true)
 	return e
 }
 
 // A Boolean attribute; if specified (even if the value is "false"!), the audio
-// will automatically begin playback as soon as it can do so, without waiting for
-// the entire audio file to finish downloading.
+// will automatically begin playback as soon as it can do so, without waiting
+// for the entire audio file to finish downloading.
 func (e *AUDIOElement) IfAUTOPLAY(condition bool) *AUDIOElement {
 	if condition {
 		e.AUTOPLAYSet(true)
@@ -203,8 +203,8 @@ func (e *AUDIOElement) IfAUTOPLAY(condition bool) *AUDIOElement {
 }
 
 // A Boolean attribute; if specified (even if the value is "false"!), the audio
-// will automatically begin playback as soon as it can do so, without waiting for
-// the entire audio file to finish downloading.
+// will automatically begin playback as soon as it can do so, without waiting
+// for the entire audio file to finish downloading.
 // Set the attribute AUTOPLAY to the value b explicitly.
 func (e *AUDIOElement) AUTOPLAYSet(b bool) *AUDIOElement {
 	if e.BoolAttributes == nil {
@@ -215,8 +215,8 @@ func (e *AUDIOElement) AUTOPLAYSet(b bool) *AUDIOElement {
 }
 
 // A Boolean attribute; if specified (even if the value is "false"!), the audio
-// will automatically begin playback as soon as it can do so, without waiting for
-// the entire audio file to finish downloading.
+// will automatically begin playback as soon as it can do so, without waiting
+// for the entire audio file to finish downloading.
 func (e *AUDIOElement) IfSetAUTOPLAY(condition bool, b bool) *AUDIOElement {
 	if condition {
 		e.AUTOPLAYSet(b)
@@ -226,8 +226,8 @@ func (e *AUDIOElement) IfSetAUTOPLAY(condition bool, b bool) *AUDIOElement {
 
 // Remove the attribute AUTOPLAY from the element.
 // A Boolean attribute; if specified (even if the value is "false"!), the audio
-// will automatically begin playback as soon as it can do so, without waiting for
-// the entire audio file to finish downloading.
+// will automatically begin playback as soon as it can do so, without waiting
+// for the entire audio file to finish downloading.
 func (e *AUDIOElement) AUTOPLAYRemove(b bool) *AUDIOElement {
 	if e.BoolAttributes == nil {
 		return e
@@ -236,16 +236,16 @@ func (e *AUDIOElement) AUTOPLAYRemove(b bool) *AUDIOElement {
 	return e
 }
 
-// If this attribute is present, the browser will offer controls to allow the user
-// to control audio playback, including volume, seeking, and pause/resume
+// If this attribute is present, the browser will offer controls to allow the
+// user to control audio playback, including volume, seeking, and pause/resume
 // playback.
 func (e *AUDIOElement) CONTROLS() *AUDIOElement {
 	e.CONTROLSSet(true)
 	return e
 }
 
-// If this attribute is present, the browser will offer controls to allow the user
-// to control audio playback, including volume, seeking, and pause/resume
+// If this attribute is present, the browser will offer controls to allow the
+// user to control audio playback, including volume, seeking, and pause/resume
 // playback.
 func (e *AUDIOElement) IfCONTROLS(condition bool) *AUDIOElement {
 	if condition {
@@ -254,8 +254,8 @@ func (e *AUDIOElement) IfCONTROLS(condition bool) *AUDIOElement {
 	return e
 }
 
-// If this attribute is present, the browser will offer controls to allow the user
-// to control audio playback, including volume, seeking, and pause/resume
+// If this attribute is present, the browser will offer controls to allow the
+// user to control audio playback, including volume, seeking, and pause/resume
 // playback.
 // Set the attribute CONTROLS to the value b explicitly.
 func (e *AUDIOElement) CONTROLSSet(b bool) *AUDIOElement {
@@ -266,8 +266,8 @@ func (e *AUDIOElement) CONTROLSSet(b bool) *AUDIOElement {
 	return e
 }
 
-// If this attribute is present, the browser will offer controls to allow the user
-// to control audio playback, including volume, seeking, and pause/resume
+// If this attribute is present, the browser will offer controls to allow the
+// user to control audio playback, including volume, seeking, and pause/resume
 // playback.
 func (e *AUDIOElement) IfSetCONTROLS(condition bool, b bool) *AUDIOElement {
 	if condition {
@@ -277,8 +277,8 @@ func (e *AUDIOElement) IfSetCONTROLS(condition bool, b bool) *AUDIOElement {
 }
 
 // Remove the attribute CONTROLS from the element.
-// If this attribute is present, the browser will offer controls to allow the user
-// to control audio playback, including volume, seeking, and pause/resume
+// If this attribute is present, the browser will offer controls to allow the
+// user to control audio playback, including volume, seeking, and pause/resume
 // playback.
 func (e *AUDIOElement) CONTROLSRemove(b bool) *AUDIOElement {
 	if e.BoolAttributes == nil {
@@ -336,18 +336,16 @@ func (e *AUDIOElement) LOOPRemove(b bool) *AUDIOElement {
 }
 
 // A Boolean attribute which indicates whether the audio will be initially
-// silenced
-// Its default value is false, meaning that the audio will be played when the
-// <audio> element is loaded.
+// silenced. Its default value is false, meaning that the audio will be played
+// when the <audio> element is loaded.
 func (e *AUDIOElement) MUTED() *AUDIOElement {
 	e.MUTEDSet(true)
 	return e
 }
 
 // A Boolean attribute which indicates whether the audio will be initially
-// silenced
-// Its default value is false, meaning that the audio will be played when the
-// <audio> element is loaded.
+// silenced. Its default value is false, meaning that the audio will be played
+// when the <audio> element is loaded.
 func (e *AUDIOElement) IfMUTED(condition bool) *AUDIOElement {
 	if condition {
 		e.MUTEDSet(true)
@@ -356,9 +354,8 @@ func (e *AUDIOElement) IfMUTED(condition bool) *AUDIOElement {
 }
 
 // A Boolean attribute which indicates whether the audio will be initially
-// silenced
-// Its default value is false, meaning that the audio will be played when the
-// <audio> element is loaded.
+// silenced. Its default value is false, meaning that the audio will be played
+// when the <audio> element is loaded.
 // Set the attribute MUTED to the value b explicitly.
 func (e *AUDIOElement) MUTEDSet(b bool) *AUDIOElement {
 	if e.BoolAttributes == nil {
@@ -369,9 +366,8 @@ func (e *AUDIOElement) MUTEDSet(b bool) *AUDIOElement {
 }
 
 // A Boolean attribute which indicates whether the audio will be initially
-// silenced
-// Its default value is false, meaning that the audio will be played when the
-// <audio> element is loaded.
+// silenced. Its default value is false, meaning that the audio will be played
+// when the <audio> element is loaded.
 func (e *AUDIOElement) IfSetMUTED(condition bool, b bool) *AUDIOElement {
 	if condition {
 		e.MUTEDSet(b)
@@ -381,9 +377,8 @@ func (e *AUDIOElement) IfSetMUTED(condition bool, b bool) *AUDIOElement {
 
 // Remove the attribute MUTED from the element.
 // A Boolean attribute which indicates whether the audio will be initially
-// silenced
-// Its default value is false, meaning that the audio will be played when the
-// <audio> element is loaded.
+// silenced. Its default value is false, meaning that the audio will be played
+// when the <audio> element is loaded.
 func (e *AUDIOElement) MUTEDRemove(b bool) *AUDIOElement {
 	if e.BoolAttributes == nil {
 		return e
@@ -393,8 +388,8 @@ func (e *AUDIOElement) MUTEDRemove(b bool) *AUDIOElement {
 }
 
 // This enumerated attribute is intended to provide a hint to the browser about
-// what the author thinks will lead to the best user experience
-// It may have one of the following values:
+// what the author thinks will lead to the best user experience. It may have one
+// of the following values:
 func (e *AUDIOElement) PRELOAD(c AudioPreloadChoice) *AUDIOElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -409,9 +404,9 @@ const (
 	// Hints to the browser that either the author does not expect the user to need
 	// the media resource, or that the server wants to minimize unnecessary traffic.
 	AudioPreload_none AudioPreloadChoice = "none"
-	// Hints to the browser that the author does not expect the user to need the media
-	// resource, but that fetching the resource metadata (dimensions, first frame,
-	// track list, duration, etc), is reasonable.
+	// Hints to the browser that the author does not expect the user to need the
+	// media resource, but that fetching the resource metadata (dimensions, first
+	// frame, track list, duration, etc), is reasonable.
 	AudioPreload_metadata AudioPreloadChoice = "metadata"
 	// Hints to the browser that the user is likely to need the media resource, and
 	// that fetching the entire media resource is reasonable.
@@ -419,8 +414,8 @@ const (
 )
 
 // This enumerated attribute is intended to provide a hint to the browser about
-// what the author thinks will lead to the best user experience
-// It may have one of the following values:
+// what the author thinks will lead to the best user experience. It may have one
+// of the following values:
 // Remove the attribute PRELOAD from the element.
 func (e *AUDIOElement) PRELOADRemove(c AudioPreloadChoice) *AUDIOElement {
 	if e.StringAttributes == nil {
@@ -476,9 +471,9 @@ func (e *AUDIOElement) SRCRemoveF(format string, args ...any) *AUDIOElement {
 }
 
 // The accesskey global attribute provides a hint for generating a keyboard
-// shortcut for the current element
-// The attribute value must consist of a single printable character (which
-// includes accented and other characters that can be generated by the keyboard).
+// shortcut for the current element. The attribute value must consist of a
+// single printable character (which includes accented and other characters that
+// can be generated by the keyboard).
 func (e *AUDIOElement) ACCESSKEY(r rune) *AUDIOElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -488,9 +483,9 @@ func (e *AUDIOElement) ACCESSKEY(r rune) *AUDIOElement {
 }
 
 // The accesskey global attribute provides a hint for generating a keyboard
-// shortcut for the current element
-// The attribute value must consist of a single printable character (which
-// includes accented and other characters that can be generated by the keyboard).
+// shortcut for the current element. The attribute value must consist of a
+// single printable character (which includes accented and other characters that
+// can be generated by the keyboard).
 func (e *AUDIOElement) IfACCESSKEY(condition bool, r rune) *AUDIOElement {
 	if condition {
 		e.ACCESSKEY(r)
@@ -499,9 +494,9 @@ func (e *AUDIOElement) IfACCESSKEY(condition bool, r rune) *AUDIOElement {
 }
 
 // The accesskey global attribute provides a hint for generating a keyboard
-// shortcut for the current element
-// The attribute value must consist of a single printable character (which
-// includes accented and other characters that can be generated by the keyboard).
+// shortcut for the current element. The attribute value must consist of a
+// single printable character (which includes accented and other characters that
+// can be generated by the keyboard).
 // Remove the attribute ACCESSKEY from the element.
 func (e *AUDIOElement) ACCESSKEYRemove() *AUDIOElement {
 	if e.StringAttributes == nil {
@@ -512,19 +507,16 @@ func (e *AUDIOElement) ACCESSKEYRemove() *AUDIOElement {
 }
 
 // The autocapitalize global attribute is an enumerated attribute that controls
-// whether and how text input is automatically capitalized as it is entered/edited
-// by the user
-// autocapitalize can be set on <input> and <textarea> elements, and on their
-// containing <form> elements
-// When autocapitalize is set on a <form> element, it sets the autocapitalize
+// whether and how text input is automatically capitalized as it is
+// entered/edited by the user. autocapitalize can be set on <input> and
+// <textarea> elements, and on their containing <form> elements. When
+// autocapitalize is set on a <form> element, it sets the autocapitalize
 // behavior for all contained <input>s and <textarea>s, overriding any
-// autocapitalize values set on contained elements
-// autocapitalize has no effect on the url, email, or password <input> types,
-// where autocapitalization is never enabled
-// Where autocapitalize is not specified, the adopted default behavior varies
-// between browsers
-// For example: Chrome and Safari default to on/sentences Firefox defaults to
-// off/none.
+// autocapitalize values set on contained elements. autocapitalize has no effect
+// on the url, email, or password <input> types, where autocapitalization is
+// never enabled. Where autocapitalize is not specified, the adopted default
+// behavior varies between browsers. For example: Chrome and Safari default to
+// on/sentences Firefox defaults to off/none.
 func (e *AUDIOElement) AUTOCAPITALIZE(c AudioAutocapitalizeChoice) *AUDIOElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -551,19 +543,16 @@ const (
 )
 
 // The autocapitalize global attribute is an enumerated attribute that controls
-// whether and how text input is automatically capitalized as it is entered/edited
-// by the user
-// autocapitalize can be set on <input> and <textarea> elements, and on their
-// containing <form> elements
-// When autocapitalize is set on a <form> element, it sets the autocapitalize
+// whether and how text input is automatically capitalized as it is
+// entered/edited by the user. autocapitalize can be set on <input> and
+// <textarea> elements, and on their containing <form> elements. When
+// autocapitalize is set on a <form> element, it sets the autocapitalize
 // behavior for all contained <input>s and <textarea>s, overriding any
-// autocapitalize values set on contained elements
-// autocapitalize has no effect on the url, email, or password <input> types,
-// where autocapitalization is never enabled
-// Where autocapitalize is not specified, the adopted default behavior varies
-// between browsers
-// For example: Chrome and Safari default to on/sentences Firefox defaults to
-// off/none.
+// autocapitalize values set on contained elements. autocapitalize has no effect
+// on the url, email, or password <input> types, where autocapitalization is
+// never enabled. Where autocapitalize is not specified, the adopted default
+// behavior varies between browsers. For example: Chrome and Safari default to
+// on/sentences Firefox defaults to off/none.
 // Remove the attribute AUTOCAPITALIZE from the element.
 func (e *AUDIOElement) AUTOCAPITALIZERemove(c AudioAutocapitalizeChoice) *AUDIOElement {
 	if e.StringAttributes == nil {
@@ -574,50 +563,38 @@ func (e *AUDIOElement) AUTOCAPITALIZERemove(c AudioAutocapitalizeChoice) *AUDIOE
 }
 
 // The autofocus global attribute is a Boolean attribute indicating that an
-// element should be focused on page load, or when the <dialog> that it is part of
-// is displayed.
-//
-//	Accessibility concerns Automatically focusing a form control can confuse
-//
+// element should be focused on page load, or when the <dialog> that it is part
+// of is displayed.
+// Accessibility concerns Automatically focusing a form control can confuse
 // visually-impaired people using screen-reading technology and people with
-// cognitive impairments
-// When autofocus is assigned, screen-readers "teleport" their user to the form
-// control without warning them beforehand.
-//
-//	Use careful consideration for accessibility when applying the autofocus
-//
-// attribute
-// Automatically focusing on a control can cause the page to scroll on load
-// The focus can also cause dynamic keyboards to display on some touch devices
-// While a screen reader will announce the label of the form control receiving
-// focus, the screen reader will not announce anything before the label, and the
-// sighted user on a small device will equally miss the context created by the
-// preceding content.
+// cognitive impairments. When autofocus is assigned, screen-readers "teleport"
+// their user to the form control without warning them beforehand.
+// Use careful consideration for accessibility when applying the autofocus
+// attribute. Automatically focusing on a control can cause the page to scroll
+// on load. The focus can also cause dynamic keyboards to display on some touch
+// devices. While a screen reader will announce the label of the form control
+// receiving focus, the screen reader will not announce anything before the
+// label, and the sighted user on a small device will equally miss the context
+// created by the preceding content.
 func (e *AUDIOElement) AUTOFOCUS() *AUDIOElement {
 	e.AUTOFOCUSSet(true)
 	return e
 }
 
 // The autofocus global attribute is a Boolean attribute indicating that an
-// element should be focused on page load, or when the <dialog> that it is part of
-// is displayed.
-//
-//	Accessibility concerns Automatically focusing a form control can confuse
-//
+// element should be focused on page load, or when the <dialog> that it is part
+// of is displayed.
+// Accessibility concerns Automatically focusing a form control can confuse
 // visually-impaired people using screen-reading technology and people with
-// cognitive impairments
-// When autofocus is assigned, screen-readers "teleport" their user to the form
-// control without warning them beforehand.
-//
-//	Use careful consideration for accessibility when applying the autofocus
-//
-// attribute
-// Automatically focusing on a control can cause the page to scroll on load
-// The focus can also cause dynamic keyboards to display on some touch devices
-// While a screen reader will announce the label of the form control receiving
-// focus, the screen reader will not announce anything before the label, and the
-// sighted user on a small device will equally miss the context created by the
-// preceding content.
+// cognitive impairments. When autofocus is assigned, screen-readers "teleport"
+// their user to the form control without warning them beforehand.
+// Use careful consideration for accessibility when applying the autofocus
+// attribute. Automatically focusing on a control can cause the page to scroll
+// on load. The focus can also cause dynamic keyboards to display on some touch
+// devices. While a screen reader will announce the label of the form control
+// receiving focus, the screen reader will not announce anything before the
+// label, and the sighted user on a small device will equally miss the context
+// created by the preceding content.
 func (e *AUDIOElement) IfAUTOFOCUS(condition bool) *AUDIOElement {
 	if condition {
 		e.AUTOFOCUSSet(true)
@@ -626,25 +603,19 @@ func (e *AUDIOElement) IfAUTOFOCUS(condition bool) *AUDIOElement {
 }
 
 // The autofocus global attribute is a Boolean attribute indicating that an
-// element should be focused on page load, or when the <dialog> that it is part of
-// is displayed.
-//
-//	Accessibility concerns Automatically focusing a form control can confuse
-//
+// element should be focused on page load, or when the <dialog> that it is part
+// of is displayed.
+// Accessibility concerns Automatically focusing a form control can confuse
 // visually-impaired people using screen-reading technology and people with
-// cognitive impairments
-// When autofocus is assigned, screen-readers "teleport" their user to the form
-// control without warning them beforehand.
-//
-//	Use careful consideration for accessibility when applying the autofocus
-//
-// attribute
-// Automatically focusing on a control can cause the page to scroll on load
-// The focus can also cause dynamic keyboards to display on some touch devices
-// While a screen reader will announce the label of the form control receiving
-// focus, the screen reader will not announce anything before the label, and the
-// sighted user on a small device will equally miss the context created by the
-// preceding content.
+// cognitive impairments. When autofocus is assigned, screen-readers "teleport"
+// their user to the form control without warning them beforehand.
+// Use careful consideration for accessibility when applying the autofocus
+// attribute. Automatically focusing on a control can cause the page to scroll
+// on load. The focus can also cause dynamic keyboards to display on some touch
+// devices. While a screen reader will announce the label of the form control
+// receiving focus, the screen reader will not announce anything before the
+// label, and the sighted user on a small device will equally miss the context
+// created by the preceding content.
 // Set the attribute AUTOFOCUS to the value b explicitly.
 func (e *AUDIOElement) AUTOFOCUSSet(b bool) *AUDIOElement {
 	if e.BoolAttributes == nil {
@@ -655,25 +626,19 @@ func (e *AUDIOElement) AUTOFOCUSSet(b bool) *AUDIOElement {
 }
 
 // The autofocus global attribute is a Boolean attribute indicating that an
-// element should be focused on page load, or when the <dialog> that it is part of
-// is displayed.
-//
-//	Accessibility concerns Automatically focusing a form control can confuse
-//
+// element should be focused on page load, or when the <dialog> that it is part
+// of is displayed.
+// Accessibility concerns Automatically focusing a form control can confuse
 // visually-impaired people using screen-reading technology and people with
-// cognitive impairments
-// When autofocus is assigned, screen-readers "teleport" their user to the form
-// control without warning them beforehand.
-//
-//	Use careful consideration for accessibility when applying the autofocus
-//
-// attribute
-// Automatically focusing on a control can cause the page to scroll on load
-// The focus can also cause dynamic keyboards to display on some touch devices
-// While a screen reader will announce the label of the form control receiving
-// focus, the screen reader will not announce anything before the label, and the
-// sighted user on a small device will equally miss the context created by the
-// preceding content.
+// cognitive impairments. When autofocus is assigned, screen-readers "teleport"
+// their user to the form control without warning them beforehand.
+// Use careful consideration for accessibility when applying the autofocus
+// attribute. Automatically focusing on a control can cause the page to scroll
+// on load. The focus can also cause dynamic keyboards to display on some touch
+// devices. While a screen reader will announce the label of the form control
+// receiving focus, the screen reader will not announce anything before the
+// label, and the sighted user on a small device will equally miss the context
+// created by the preceding content.
 func (e *AUDIOElement) IfSetAUTOFOCUS(condition bool, b bool) *AUDIOElement {
 	if condition {
 		e.AUTOFOCUSSet(b)
@@ -683,25 +648,19 @@ func (e *AUDIOElement) IfSetAUTOFOCUS(condition bool, b bool) *AUDIOElement {
 
 // Remove the attribute AUTOFOCUS from the element.
 // The autofocus global attribute is a Boolean attribute indicating that an
-// element should be focused on page load, or when the <dialog> that it is part of
-// is displayed.
-//
-//	Accessibility concerns Automatically focusing a form control can confuse
-//
+// element should be focused on page load, or when the <dialog> that it is part
+// of is displayed.
+// Accessibility concerns Automatically focusing a form control can confuse
 // visually-impaired people using screen-reading technology and people with
-// cognitive impairments
-// When autofocus is assigned, screen-readers "teleport" their user to the form
-// control without warning them beforehand.
-//
-//	Use careful consideration for accessibility when applying the autofocus
-//
-// attribute
-// Automatically focusing on a control can cause the page to scroll on load
-// The focus can also cause dynamic keyboards to display on some touch devices
-// While a screen reader will announce the label of the form control receiving
-// focus, the screen reader will not announce anything before the label, and the
-// sighted user on a small device will equally miss the context created by the
-// preceding content.
+// cognitive impairments. When autofocus is assigned, screen-readers "teleport"
+// their user to the form control without warning them beforehand.
+// Use careful consideration for accessibility when applying the autofocus
+// attribute. Automatically focusing on a control can cause the page to scroll
+// on load. The focus can also cause dynamic keyboards to display on some touch
+// devices. While a screen reader will announce the label of the form control
+// receiving focus, the screen reader will not announce anything before the
+// label, and the sighted user on a small device will equally miss the context
+// created by the preceding content.
 func (e *AUDIOElement) AUTOFOCUSRemove(b bool) *AUDIOElement {
 	if e.BoolAttributes == nil {
 		return e
@@ -711,9 +670,8 @@ func (e *AUDIOElement) AUTOFOCUSRemove(b bool) *AUDIOElement {
 }
 
 // The class global attribute is a space-separated list of the case-sensitive
-// classes of the element
-// Classes allow CSS and JavaScript to select and access specific elements via the
-// class selectors or functions like the DOM method
+// classes of the element. Classes allow CSS and JavaScript to select and access
+// specific elements via the class selectors or functions like the DOM method
 // document.getElementsByClassName.
 func (e *AUDIOElement) CLASS(s ...string) *AUDIOElement {
 	if e.DelimitedStrings == nil {
@@ -729,9 +687,8 @@ func (e *AUDIOElement) CLASS(s ...string) *AUDIOElement {
 }
 
 // The class global attribute is a space-separated list of the case-sensitive
-// classes of the element
-// Classes allow CSS and JavaScript to select and access specific elements via the
-// class selectors or functions like the DOM method
+// classes of the element. Classes allow CSS and JavaScript to select and access
+// specific elements via the class selectors or functions like the DOM method
 // document.getElementsByClassName.
 func (e *AUDIOElement) IfCLASS(condition bool, s ...string) *AUDIOElement {
 	if condition {
@@ -741,9 +698,8 @@ func (e *AUDIOElement) IfCLASS(condition bool, s ...string) *AUDIOElement {
 }
 
 // The class global attribute is a space-separated list of the case-sensitive
-// classes of the element
-// Classes allow CSS and JavaScript to select and access specific elements via the
-// class selectors or functions like the DOM method
+// classes of the element. Classes allow CSS and JavaScript to select and access
+// specific elements via the class selectors or functions like the DOM method
 // document.getElementsByClassName.
 // Remove the attribute CLASS from the element.
 func (e *AUDIOElement) CLASSRemove(s ...string) *AUDIOElement {
@@ -759,8 +715,8 @@ func (e *AUDIOElement) CLASSRemove(s ...string) *AUDIOElement {
 }
 
 // The contenteditable global attribute is an enumerated attribute indicating if
-// the element should be editable by the user
-// If so, the browser modifies its widget to allow editing.
+// the element should be editable by the user. If so, the browser modifies its
+// widget to allow editing.
 func (e *AUDIOElement) CONTENTEDITABLE(c AudioContenteditableChoice) *AUDIOElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -784,8 +740,8 @@ const (
 )
 
 // The contenteditable global attribute is an enumerated attribute indicating if
-// the element should be editable by the user
-// If so, the browser modifies its widget to allow editing.
+// the element should be editable by the user. If so, the browser modifies its
+// widget to allow editing.
 // Remove the attribute CONTENTEDITABLE from the element.
 func (e *AUDIOElement) CONTENTEDITABLERemove(c AudioContenteditableChoice) *AUDIOElement {
 	if e.StringAttributes == nil {
@@ -796,20 +752,18 @@ func (e *AUDIOElement) CONTENTEDITABLERemove(c AudioContenteditableChoice) *AUDI
 }
 
 // The dir global attribute is an enumerated attribute that indicates the
-// directionality of the element's text
-// Note: This attribute is mandatory for the <bdo> element where it has a
-// different semantic meaning
-// This attribute is not inherited by the <bdi> element
-// If not set, its value is auto
-// This attribute can be overridden by the CSS properties direction and
-// unicode-bidi, if a CSS page is active and the element supports these properties
-// As the directionality of the text is semantically related to its content and
-// not to its presentation, it is recommended that web developers use this
-// attribute instead of the related CSS properties when possible
-// That way, the text will display correctly even on a browser that doesn't
-// support CSS or has the CSS deactivated
-// The auto value should be used for data with an unknown directionality, like
-// data coming from user input, eventually stored in a database.
+// directionality of the element's text. Note: This attribute is mandatory for
+// the <bdo> element where it has a different semantic meaning. This attribute
+// is not inherited by the <bdi> element. If not set, its value is auto. This
+// attribute can be overridden by the CSS properties direction and unicode-bidi,
+// if a CSS page is active and the element supports these properties. As the
+// directionality of the text is semantically related to its content and not to
+// its presentation, it is recommended that web developers use this attribute
+// instead of the related CSS properties when possible. That way, the text will
+// display correctly even on a browser that doesn't support CSS or has the CSS
+// deactivated. The auto value should be used for data with an unknown
+// directionality, like data coming from user input, eventually stored in a
+// database.
 func (e *AUDIOElement) DIR(c AudioDirChoice) *AUDIOElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -821,34 +775,31 @@ func (e *AUDIOElement) DIR(c AudioDirChoice) *AUDIOElement {
 type AudioDirChoice string
 
 const (
-	// which means left to right and is to be used for languages that are written from
-	// the left to the right (like English);
+	// which means left to right and is to be used for languages that are written
+	// from the left to the right (like English);
 	AudioDir_ltr AudioDirChoice = "ltr"
-	// which means right to left and is to be used for languages that are written from
-	// the right to the left (like Arabic);
+	// which means right to left and is to be used for languages that are written
+	// from the right to the left (like Arabic);
 	AudioDir_rtl AudioDirChoice = "rtl"
-	// which lets the user agent decide
-	// It uses a basic algorithm as it parses the characters inside the element until
-	// it finds a character with a strong directionality, then it applies that
-	// directionality to the whole element.
+	// which lets the user agent decide. It uses a basic algorithm as it parses the
+	// characters inside the element until it finds a character with a strong
+	// directionality, then it applies that directionality to the whole element.
 	AudioDir_auto AudioDirChoice = "auto"
 )
 
 // The dir global attribute is an enumerated attribute that indicates the
-// directionality of the element's text
-// Note: This attribute is mandatory for the <bdo> element where it has a
-// different semantic meaning
-// This attribute is not inherited by the <bdi> element
-// If not set, its value is auto
-// This attribute can be overridden by the CSS properties direction and
-// unicode-bidi, if a CSS page is active and the element supports these properties
-// As the directionality of the text is semantically related to its content and
-// not to its presentation, it is recommended that web developers use this
-// attribute instead of the related CSS properties when possible
-// That way, the text will display correctly even on a browser that doesn't
-// support CSS or has the CSS deactivated
-// The auto value should be used for data with an unknown directionality, like
-// data coming from user input, eventually stored in a database.
+// directionality of the element's text. Note: This attribute is mandatory for
+// the <bdo> element where it has a different semantic meaning. This attribute
+// is not inherited by the <bdi> element. If not set, its value is auto. This
+// attribute can be overridden by the CSS properties direction and unicode-bidi,
+// if a CSS page is active and the element supports these properties. As the
+// directionality of the text is semantically related to its content and not to
+// its presentation, it is recommended that web developers use this attribute
+// instead of the related CSS properties when possible. That way, the text will
+// display correctly even on a browser that doesn't support CSS or has the CSS
+// deactivated. The auto value should be used for data with an unknown
+// directionality, like data coming from user input, eventually stored in a
+// database.
 // Remove the attribute DIR from the element.
 func (e *AUDIOElement) DIRRemove(c AudioDirChoice) *AUDIOElement {
 	if e.StringAttributes == nil {
@@ -859,8 +810,8 @@ func (e *AUDIOElement) DIRRemove(c AudioDirChoice) *AUDIOElement {
 }
 
 // The draggable global attribute is an enumerated attribute that indicates
-// whether the element can be dragged, either with native browser behavior or the
-// HTML Drag and Drop API.
+// whether the element can be dragged, either with native browser behavior or
+// the HTML Drag and Drop API.
 func (e *AUDIOElement) DRAGGABLE(c AudioDraggableChoice) *AUDIOElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -877,18 +828,18 @@ const (
 	// The element is not draggable.
 	AudioDraggable_false AudioDraggableChoice = "false"
 	// drag behavior is the default browser behavior: only text selections, images,
-	// and links can be dragged
-	// For other elements, the event ondragstart must be set for drag and drop to work
+	// and links can be dragged. For other elements, the event ondragstart must be
+	// set for drag and drop to work
 	AudioDraggable_empty AudioDraggableChoice = ""
 	// drag behavior is the default browser behavior: only text selections, images,
-	// and links can be dragged
-	// For other elements, the event ondragstart must be set for drag and drop to work
+	// and links can be dragged. For other elements, the event ondragstart must be
+	// set for drag and drop to work
 	AudioDraggable_auto AudioDraggableChoice = "auto"
 )
 
 // The draggable global attribute is an enumerated attribute that indicates
-// whether the element can be dragged, either with native browser behavior or the
-// HTML Drag and Drop API.
+// whether the element can be dragged, either with native browser behavior or
+// the HTML Drag and Drop API.
 // Remove the attribute DRAGGABLE from the element.
 func (e *AUDIOElement) DRAGGABLERemove(c AudioDraggableChoice) *AUDIOElement {
 	if e.StringAttributes == nil {
@@ -920,7 +871,8 @@ const (
 	AudioEnterkeyhint_go AudioEnterkeyhintChoice = "go"
 	// Typically meaning to take the user to the next field that will accept text.
 	AudioEnterkeyhint_next AudioEnterkeyhintChoice = "next"
-	// Typically meaning to take the user to the previous field that will accept text.
+	// Typically meaning to take the user to the previous field that will accept
+	// text.
 	AudioEnterkeyhint_previous AudioEnterkeyhintChoice = "previous"
 	// Typically taking the user to the results of searching for the text they have
 	// typed.
@@ -941,25 +893,22 @@ func (e *AUDIOElement) ENTERKEYHINTRemove(c AudioEnterkeyhintChoice) *AUDIOEleme
 }
 
 // The exportparts global attribute allows you to select and style elements
-// existing in nested shadow trees, by exporting their part names
-// The shadow tree is an isolated structure where identifiers, classes, and styles
-// cannot be reached by selectors or queries belonging to a regular DOM
-// To apply a style to an element living in a shadow tree, by CSS rule created
-// outside of it, part global attribute has to be used
-// It has to be assigned to an element present in Shadow Tree, and its value
-// should be some identifier
-// Rules present outside of the shadow tree, must use the ::part pseudo-element,
-// containing the same identifier as the argument
-// The global attribute part makes the element visible on just a single level of
-// depth
-// When the shadow tree is nested, parts will be visible only to the parent of the
-// shadow tree but not to its ancestor
-// Exporting parts further down is exactly what exportparts attribute is for
-// Attribute exportparts must be placed on a shadow Host, which is the element to
-// which the shadow tree is attached
-// The value of the attribute should be a comma-separated list of part names
-// present in the shadow tree and which should be made available via a DOM outside
-// of the current structure.
+// existing in nested shadow trees, by exporting their part names. The shadow
+// tree is an isolated structure where identifiers, classes, and styles cannot
+// be reached by selectors or queries belonging to a regular DOM. To apply a
+// style to an element living in a shadow tree, by CSS rule created outside of
+// it, part global attribute has to be used. It has to be assigned to an element
+// present in Shadow Tree, and its value should be some identifier. Rules
+// present outside of the shadow tree, must use the ::part pseudo-element,
+// containing the same identifier as the argument. The global attribute part
+// makes the element visible on just a single level of depth. When the shadow
+// tree is nested, parts will be visible only to the parent of the shadow tree
+// but not to its ancestor. Exporting parts further down is exactly what
+// exportparts attribute is for. Attribute exportparts must be placed on a
+// shadow Host, which is the element to which the shadow tree is attached. The
+// value of the attribute should be a comma-separated list of part names present
+// in the shadow tree and which should be made available via a DOM outside of
+// the current structure.
 func (e *AUDIOElement) EXPORTPARTS(s ...string) *AUDIOElement {
 	if e.DelimitedStrings == nil {
 		e.DelimitedStrings = treemap.New[string, *DelimitedBuilder[string]]()
@@ -974,25 +923,22 @@ func (e *AUDIOElement) EXPORTPARTS(s ...string) *AUDIOElement {
 }
 
 // The exportparts global attribute allows you to select and style elements
-// existing in nested shadow trees, by exporting their part names
-// The shadow tree is an isolated structure where identifiers, classes, and styles
-// cannot be reached by selectors or queries belonging to a regular DOM
-// To apply a style to an element living in a shadow tree, by CSS rule created
-// outside of it, part global attribute has to be used
-// It has to be assigned to an element present in Shadow Tree, and its value
-// should be some identifier
-// Rules present outside of the shadow tree, must use the ::part pseudo-element,
-// containing the same identifier as the argument
-// The global attribute part makes the element visible on just a single level of
-// depth
-// When the shadow tree is nested, parts will be visible only to the parent of the
-// shadow tree but not to its ancestor
-// Exporting parts further down is exactly what exportparts attribute is for
-// Attribute exportparts must be placed on a shadow Host, which is the element to
-// which the shadow tree is attached
-// The value of the attribute should be a comma-separated list of part names
-// present in the shadow tree and which should be made available via a DOM outside
-// of the current structure.
+// existing in nested shadow trees, by exporting their part names. The shadow
+// tree is an isolated structure where identifiers, classes, and styles cannot
+// be reached by selectors or queries belonging to a regular DOM. To apply a
+// style to an element living in a shadow tree, by CSS rule created outside of
+// it, part global attribute has to be used. It has to be assigned to an element
+// present in Shadow Tree, and its value should be some identifier. Rules
+// present outside of the shadow tree, must use the ::part pseudo-element,
+// containing the same identifier as the argument. The global attribute part
+// makes the element visible on just a single level of depth. When the shadow
+// tree is nested, parts will be visible only to the parent of the shadow tree
+// but not to its ancestor. Exporting parts further down is exactly what
+// exportparts attribute is for. Attribute exportparts must be placed on a
+// shadow Host, which is the element to which the shadow tree is attached. The
+// value of the attribute should be a comma-separated list of part names present
+// in the shadow tree and which should be made available via a DOM outside of
+// the current structure.
 func (e *AUDIOElement) IfEXPORTPARTS(condition bool, s ...string) *AUDIOElement {
 	if condition {
 		e.EXPORTPARTS(s...)
@@ -1001,25 +947,22 @@ func (e *AUDIOElement) IfEXPORTPARTS(condition bool, s ...string) *AUDIOElement 
 }
 
 // The exportparts global attribute allows you to select and style elements
-// existing in nested shadow trees, by exporting their part names
-// The shadow tree is an isolated structure where identifiers, classes, and styles
-// cannot be reached by selectors or queries belonging to a regular DOM
-// To apply a style to an element living in a shadow tree, by CSS rule created
-// outside of it, part global attribute has to be used
-// It has to be assigned to an element present in Shadow Tree, and its value
-// should be some identifier
-// Rules present outside of the shadow tree, must use the ::part pseudo-element,
-// containing the same identifier as the argument
-// The global attribute part makes the element visible on just a single level of
-// depth
-// When the shadow tree is nested, parts will be visible only to the parent of the
-// shadow tree but not to its ancestor
-// Exporting parts further down is exactly what exportparts attribute is for
-// Attribute exportparts must be placed on a shadow Host, which is the element to
-// which the shadow tree is attached
-// The value of the attribute should be a comma-separated list of part names
-// present in the shadow tree and which should be made available via a DOM outside
-// of the current structure.
+// existing in nested shadow trees, by exporting their part names. The shadow
+// tree is an isolated structure where identifiers, classes, and styles cannot
+// be reached by selectors or queries belonging to a regular DOM. To apply a
+// style to an element living in a shadow tree, by CSS rule created outside of
+// it, part global attribute has to be used. It has to be assigned to an element
+// present in Shadow Tree, and its value should be some identifier. Rules
+// present outside of the shadow tree, must use the ::part pseudo-element,
+// containing the same identifier as the argument. The global attribute part
+// makes the element visible on just a single level of depth. When the shadow
+// tree is nested, parts will be visible only to the parent of the shadow tree
+// but not to its ancestor. Exporting parts further down is exactly what
+// exportparts attribute is for. Attribute exportparts must be placed on a
+// shadow Host, which is the element to which the shadow tree is attached. The
+// value of the attribute should be a comma-separated list of part names present
+// in the shadow tree and which should be made available via a DOM outside of
+// the current structure.
 // Remove the attribute EXPORTPARTS from the element.
 func (e *AUDIOElement) EXPORTPARTSRemove(s ...string) *AUDIOElement {
 	if e.DelimitedStrings == nil {
@@ -1033,21 +976,18 @@ func (e *AUDIOElement) EXPORTPARTSRemove(s ...string) *AUDIOElement {
 	return e
 }
 
-// The hidden global attribute is a Boolean attribute indicating that the element
-// is not yet, or is no longer, relevant
-// For example, it can be used to hide elements of the page that can't be used
-// until the login process has been completed
-// Note that browsers typically implement hidden until found using
-// content-visibility: hidden
-// This means that unlike elements in the hidden state, elements in the hidden
-// until found state will have generated boxes, meaning that: the element will
-// participate in page layout margin, borders, padding, and background for the
-// element will be rendered
-// Also, the element needs to be affected by layout containment in order to be
-// revealed
-// This means that if the element in the hidden until found state has a display
-// value of none, contents, or inline, then the element will not be revealed by
-// find in page or fragment navigation.
+// The hidden global attribute is a Boolean attribute indicating that the
+// element is not yet, or is no longer, relevant. For example, it can be used to
+// hide elements of the page that can't be used until the login process has been
+// completed. Note that browsers typically implement hidden until found using
+// content-visibility: hidden. This means that unlike elements in the hidden
+// state, elements in the hidden until found state will have generated boxes,
+// meaning that: the element will participate in page layout margin, borders,
+// padding, and background for the element will be rendered. Also, the element
+// needs to be affected by layout containment in order to be revealed. This
+// means that if the element in the hidden until found state has a display value
+// of none, contents, or inline, then the element will not be revealed by find
+// in page or fragment navigation.
 func (e *AUDIOElement) HIDDEN(c AudioHiddenChoice) *AUDIOElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -1059,36 +999,33 @@ func (e *AUDIOElement) HIDDEN(c AudioHiddenChoice) *AUDIOElement {
 type AudioHiddenChoice string
 
 const (
-	// set the element to the hidden state
-	// Additionally, invalid values set the element to the hidden state.
+	// set the element to the hidden state. Additionally, invalid values set the
+	// element to the hidden state.
 	AudioHidden_empty AudioHiddenChoice = ""
-	// set the element to the hidden state
-	// Additionally, invalid values set the element to the hidden state.
+	// set the element to the hidden state. Additionally, invalid values set the
+	// element to the hidden state.
 	AudioHidden_hidden AudioHiddenChoice = "hidden"
-	// the element is hidden but its content will be accessible to the browser's "find
-	// in page" feature or to fragment navigation
-	// When these features cause a scroll to an element in a hidden until found
-	// subtree, the browser will fire a beforematch event on the hidden element remove
-	// the hidden attribute from the element scroll to the element
+	// the element is hidden but its content will be accessible to the browser's
+	// "find in page" feature or to fragment navigation. When these features cause a
+	// scroll to an element in a hidden until found subtree, the browser will fire a
+	// beforematch event on the hidden element remove the hidden attribute from the
+	// element scroll to the element
 	//
 	AudioHidden_until_found AudioHiddenChoice = "until-found"
 )
 
-// The hidden global attribute is a Boolean attribute indicating that the element
-// is not yet, or is no longer, relevant
-// For example, it can be used to hide elements of the page that can't be used
-// until the login process has been completed
-// Note that browsers typically implement hidden until found using
-// content-visibility: hidden
-// This means that unlike elements in the hidden state, elements in the hidden
-// until found state will have generated boxes, meaning that: the element will
-// participate in page layout margin, borders, padding, and background for the
-// element will be rendered
-// Also, the element needs to be affected by layout containment in order to be
-// revealed
-// This means that if the element in the hidden until found state has a display
-// value of none, contents, or inline, then the element will not be revealed by
-// find in page or fragment navigation.
+// The hidden global attribute is a Boolean attribute indicating that the
+// element is not yet, or is no longer, relevant. For example, it can be used to
+// hide elements of the page that can't be used until the login process has been
+// completed. Note that browsers typically implement hidden until found using
+// content-visibility: hidden. This means that unlike elements in the hidden
+// state, elements in the hidden until found state will have generated boxes,
+// meaning that: the element will participate in page layout margin, borders,
+// padding, and background for the element will be rendered. Also, the element
+// needs to be affected by layout containment in order to be revealed. This
+// means that if the element in the hidden until found state has a display value
+// of none, contents, or inline, then the element will not be revealed by find
+// in page or fragment navigation.
 // Remove the attribute HIDDEN from the element.
 func (e *AUDIOElement) HIDDENRemove(c AudioHiddenChoice) *AUDIOElement {
 	if e.StringAttributes == nil {
@@ -1099,9 +1036,8 @@ func (e *AUDIOElement) HIDDENRemove(c AudioHiddenChoice) *AUDIOElement {
 }
 
 // The id global attribute defines a unique identifier (ID) which must be unique
-// in the whole document
-// Its purpose is to identify the element when linking (using a fragment
-// identifier), scripting, or styling (with CSS).
+// in the whole document. Its purpose is to identify the element when linking
+// (using a fragment identifier), scripting, or styling (with CSS).
 func (e *AUDIOElement) ID(s string) *AUDIOElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -1111,17 +1047,15 @@ func (e *AUDIOElement) ID(s string) *AUDIOElement {
 }
 
 // The id global attribute defines a unique identifier (ID) which must be unique
-// in the whole document
-// Its purpose is to identify the element when linking (using a fragment
-// identifier), scripting, or styling (with CSS).
+// in the whole document. Its purpose is to identify the element when linking
+// (using a fragment identifier), scripting, or styling (with CSS).
 func (e *AUDIOElement) IDF(format string, args ...any) *AUDIOElement {
 	return e.ID(fmt.Sprintf(format, args...))
 }
 
 // The id global attribute defines a unique identifier (ID) which must be unique
-// in the whole document
-// Its purpose is to identify the element when linking (using a fragment
-// identifier), scripting, or styling (with CSS).
+// in the whole document. Its purpose is to identify the element when linking
+// (using a fragment identifier), scripting, or styling (with CSS).
 func (e *AUDIOElement) IfID(condition bool, s string) *AUDIOElement {
 	if condition {
 		e.ID(s)
@@ -1130,9 +1064,8 @@ func (e *AUDIOElement) IfID(condition bool, s string) *AUDIOElement {
 }
 
 // The id global attribute defines a unique identifier (ID) which must be unique
-// in the whole document
-// Its purpose is to identify the element when linking (using a fragment
-// identifier), scripting, or styling (with CSS).
+// in the whole document. Its purpose is to identify the element when linking
+// (using a fragment identifier), scripting, or styling (with CSS).
 func (e *AUDIOElement) IfIDF(condition bool, format string, args ...any) *AUDIOElement {
 	if condition {
 		e.ID(fmt.Sprintf(format, args...))
@@ -1141,9 +1074,8 @@ func (e *AUDIOElement) IfIDF(condition bool, format string, args ...any) *AUDIOE
 }
 
 // The id global attribute defines a unique identifier (ID) which must be unique
-// in the whole document
-// Its purpose is to identify the element when linking (using a fragment
-// identifier), scripting, or styling (with CSS).
+// in the whole document. Its purpose is to identify the element when linking
+// (using a fragment identifier), scripting, or styling (with CSS).
 // Remove the attribute ID from the element.
 func (e *AUDIOElement) IDRemove(s string) *AUDIOElement {
 	if e.StringAttributes == nil {
@@ -1154,42 +1086,37 @@ func (e *AUDIOElement) IDRemove(s string) *AUDIOElement {
 }
 
 // The id global attribute defines a unique identifier (ID) which must be unique
-// in the whole document
-// Its purpose is to identify the element when linking (using a fragment
-// identifier), scripting, or styling (with CSS).
+// in the whole document. Its purpose is to identify the element when linking
+// (using a fragment identifier), scripting, or styling (with CSS).
 func (e *AUDIOElement) IDRemoveF(format string, args ...any) *AUDIOElement {
 	return e.IDRemove(fmt.Sprintf(format, args...))
 }
 
 // The inert global attribute is a Boolean attribute indicating that the browser
-// will ignore the element
-// With the inert attribute, all of the element's flat tree descendants (such as
-// modal <dialog>s) that don't otherwise escape inertness are ignored
-// The inert attribute also makes the browser ignore input events sent by the
-// user, including focus-related events and events from assistive technologies
-// Specifically, inert does the following: Prevents the click event from being
-// fired when the user clicks on the element
-// Prevents the focus event from being raised by preventing the element from
-// gaining focus
-// Hides the element and its content from assistive technologies by excluding them
-// from the accessibility tree.
+// will ignore the element. With the inert attribute, all of the element's flat
+// tree descendants (such as modal <dialog>s) that don't otherwise escape
+// inertness are ignored. The inert attribute also makes the browser ignore
+// input events sent by the user, including focus-related events and events from
+// assistive technologies. Specifically, inert does the following: Prevents the
+// click event from being fired when the user clicks on the element. Prevents
+// the focus event from being raised by preventing the element from gaining
+// focus. Hides the element and its content from assistive technologies by
+// excluding them from the accessibility tree.
 func (e *AUDIOElement) INERT() *AUDIOElement {
 	e.INERTSet(true)
 	return e
 }
 
 // The inert global attribute is a Boolean attribute indicating that the browser
-// will ignore the element
-// With the inert attribute, all of the element's flat tree descendants (such as
-// modal <dialog>s) that don't otherwise escape inertness are ignored
-// The inert attribute also makes the browser ignore input events sent by the
-// user, including focus-related events and events from assistive technologies
-// Specifically, inert does the following: Prevents the click event from being
-// fired when the user clicks on the element
-// Prevents the focus event from being raised by preventing the element from
-// gaining focus
-// Hides the element and its content from assistive technologies by excluding them
-// from the accessibility tree.
+// will ignore the element. With the inert attribute, all of the element's flat
+// tree descendants (such as modal <dialog>s) that don't otherwise escape
+// inertness are ignored. The inert attribute also makes the browser ignore
+// input events sent by the user, including focus-related events and events from
+// assistive technologies. Specifically, inert does the following: Prevents the
+// click event from being fired when the user clicks on the element. Prevents
+// the focus event from being raised by preventing the element from gaining
+// focus. Hides the element and its content from assistive technologies by
+// excluding them from the accessibility tree.
 func (e *AUDIOElement) IfINERT(condition bool) *AUDIOElement {
 	if condition {
 		e.INERTSet(true)
@@ -1198,17 +1125,15 @@ func (e *AUDIOElement) IfINERT(condition bool) *AUDIOElement {
 }
 
 // The inert global attribute is a Boolean attribute indicating that the browser
-// will ignore the element
-// With the inert attribute, all of the element's flat tree descendants (such as
-// modal <dialog>s) that don't otherwise escape inertness are ignored
-// The inert attribute also makes the browser ignore input events sent by the
-// user, including focus-related events and events from assistive technologies
-// Specifically, inert does the following: Prevents the click event from being
-// fired when the user clicks on the element
-// Prevents the focus event from being raised by preventing the element from
-// gaining focus
-// Hides the element and its content from assistive technologies by excluding them
-// from the accessibility tree.
+// will ignore the element. With the inert attribute, all of the element's flat
+// tree descendants (such as modal <dialog>s) that don't otherwise escape
+// inertness are ignored. The inert attribute also makes the browser ignore
+// input events sent by the user, including focus-related events and events from
+// assistive technologies. Specifically, inert does the following: Prevents the
+// click event from being fired when the user clicks on the element. Prevents
+// the focus event from being raised by preventing the element from gaining
+// focus. Hides the element and its content from assistive technologies by
+// excluding them from the accessibility tree.
 // Set the attribute INERT to the value b explicitly.
 func (e *AUDIOElement) INERTSet(b bool) *AUDIOElement {
 	if e.BoolAttributes == nil {
@@ -1219,17 +1144,15 @@ func (e *AUDIOElement) INERTSet(b bool) *AUDIOElement {
 }
 
 // The inert global attribute is a Boolean attribute indicating that the browser
-// will ignore the element
-// With the inert attribute, all of the element's flat tree descendants (such as
-// modal <dialog>s) that don't otherwise escape inertness are ignored
-// The inert attribute also makes the browser ignore input events sent by the
-// user, including focus-related events and events from assistive technologies
-// Specifically, inert does the following: Prevents the click event from being
-// fired when the user clicks on the element
-// Prevents the focus event from being raised by preventing the element from
-// gaining focus
-// Hides the element and its content from assistive technologies by excluding them
-// from the accessibility tree.
+// will ignore the element. With the inert attribute, all of the element's flat
+// tree descendants (such as modal <dialog>s) that don't otherwise escape
+// inertness are ignored. The inert attribute also makes the browser ignore
+// input events sent by the user, including focus-related events and events from
+// assistive technologies. Specifically, inert does the following: Prevents the
+// click event from being fired when the user clicks on the element. Prevents
+// the focus event from being raised by preventing the element from gaining
+// focus. Hides the element and its content from assistive technologies by
+// excluding them from the accessibility tree.
 func (e *AUDIOElement) IfSetINERT(condition bool, b bool) *AUDIOElement {
 	if condition {
 		e.INERTSet(b)
@@ -1239,17 +1162,15 @@ func (e *AUDIOElement) IfSetINERT(condition bool, b bool) *AUDIOElement {
 
 // Remove the attribute INERT from the element.
 // The inert global attribute is a Boolean attribute indicating that the browser
-// will ignore the element
-// With the inert attribute, all of the element's flat tree descendants (such as
-// modal <dialog>s) that don't otherwise escape inertness are ignored
-// The inert attribute also makes the browser ignore input events sent by the
-// user, including focus-related events and events from assistive technologies
-// Specifically, inert does the following: Prevents the click event from being
-// fired when the user clicks on the element
-// Prevents the focus event from being raised by preventing the element from
-// gaining focus
-// Hides the element and its content from assistive technologies by excluding them
-// from the accessibility tree.
+// will ignore the element. With the inert attribute, all of the element's flat
+// tree descendants (such as modal <dialog>s) that don't otherwise escape
+// inertness are ignored. The inert attribute also makes the browser ignore
+// input events sent by the user, including focus-related events and events from
+// assistive technologies. Specifically, inert does the following: Prevents the
+// click event from being fired when the user clicks on the element. Prevents
+// the focus event from being raised by preventing the element from gaining
+// focus. Hides the element and its content from assistive technologies by
+// excluding them from the accessibility tree.
 func (e *AUDIOElement) INERTRemove(b bool) *AUDIOElement {
 	if e.BoolAttributes == nil {
 		return e
@@ -1259,16 +1180,14 @@ func (e *AUDIOElement) INERTRemove(b bool) *AUDIOElement {
 }
 
 // The inputmode global attribute is an enumerated attribute that hints at the
-// type of data that might be entered by the user while editing the element or its
-// contents
-// This allows a browser to display an appropriate virtual keyboard
-// It is used primarily on <input> elements, but is usable on any element in
-// contenteditable mode
-// It's important to understand that the inputmode attribute doesn't cause any
-// validity requirements to be enforced on input
-// To require that input conforms to a particular data type, choose an appropriate
-// <input> element type
-// For specific guidance on choosing <input> types, see the Values section.
+// type of data that might be entered by the user while editing the element or
+// its contents. This allows a browser to display an appropriate virtual
+// keyboard. It is used primarily on <input> elements, but is usable on any
+// element in contenteditable mode. It's important to understand that the
+// inputmode attribute doesn't cause any validity requirements to be enforced on
+// input. To require that input conforms to a particular data type, choose an
+// appropriate <input> element type. For specific guidance on choosing <input>
+// types, see the Values section.
 func (e *AUDIOElement) INPUTMODE(c AudioInputmodeChoice) *AUDIOElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -1280,55 +1199,48 @@ func (e *AUDIOElement) INPUTMODE(c AudioInputmodeChoice) *AUDIOElement {
 type AudioInputmodeChoice string
 
 const (
-	// No virtual keyboard
-	// For when the page implements its own keyboard input control.
+	// No virtual keyboard. For when the page implements its own keyboard input
+	// control.
 	AudioInputmode_none AudioInputmodeChoice = "none"
 	// Standard input keyboard for the user's current locale.
 	AudioInputmode_empty AudioInputmodeChoice = ""
 	// Standard input keyboard for the user's current locale.
 	AudioInputmode_text AudioInputmodeChoice = "text"
 	// Fractional numeric input keyboard containing the digits and decimal separator
-	// for the user's locale (typically
-	// or ,)
-	// Devices may or may not show a minus key (-).
+	// for the user's locale (typically . or ,). Devices may or may not show a minus
+	// key (-).
 	AudioInputmode_decimal AudioInputmodeChoice = "decimal"
-	// Numeric input keyboard, but only requires the digits 0–9
-	// Devices may or may not show a minus key.
+	// Numeric input keyboard, but only requires the digits 0–9. Devices may or
+	// may not show a minus key.
 	AudioInputmode_numeric AudioInputmodeChoice = "numeric"
-	// A telephone keypad input, including the digits 0–9, the asterisk (*), and the
-	// pound (#) key
-	// Inputs that *require* a telephone number should typically use <input
-	// type="tel"> instead.
+	// A telephone keypad input, including the digits 0–9, the asterisk (*), and
+	// the pound (#) key. Inputs that *require* a telephone number should typically
+	// use <input type="tel"> instead.
 	AudioInputmode_tel AudioInputmodeChoice = "tel"
-	// A virtual keyboard optimized for search input
-	// For instance, the return/submit key may be labeled "Search", along with
-	// possible other optimizations
-	// Inputs that require a search query should typically use <input type="search">
-	// instead.
+	// A virtual keyboard optimized for search input. For instance, the
+	// return/submit key may be labeled "Search", along with possible other
+	// optimizations. Inputs that require a search query should typically use <input
+	// type="search"> instead.
 	AudioInputmode_search AudioInputmodeChoice = "search"
-	// A virtual keyboard optimized for entering email addresses
-	// Typically includes the @character as well as other optimizations
-	// Inputs that require email addresses should typically use <input type="email">
-	// instead.
+	// A virtual keyboard optimized for entering email addresses. Typically includes
+	// the @character as well as other optimizations. Inputs that require email
+	// addresses should typically use <input type="email"> instead.
 	AudioInputmode_email AudioInputmodeChoice = "email"
-	// A keypad optimized for entering URLs
-	// This may have the / key more prominent, for example
-	// Enhanced features could include history access and so on
-	// Inputs that require a URL should typically use <input type="url"> instead.
+	// A keypad optimized for entering URLs. This may have the / key more prominent,
+	// for example. Enhanced features could include history access and so on. Inputs
+	// that require a URL should typically use <input type="url"> instead.
 	AudioInputmode_url AudioInputmodeChoice = "url"
 )
 
 // The inputmode global attribute is an enumerated attribute that hints at the
-// type of data that might be entered by the user while editing the element or its
-// contents
-// This allows a browser to display an appropriate virtual keyboard
-// It is used primarily on <input> elements, but is usable on any element in
-// contenteditable mode
-// It's important to understand that the inputmode attribute doesn't cause any
-// validity requirements to be enforced on input
-// To require that input conforms to a particular data type, choose an appropriate
-// <input> element type
-// For specific guidance on choosing <input> types, see the Values section.
+// type of data that might be entered by the user while editing the element or
+// its contents. This allows a browser to display an appropriate virtual
+// keyboard. It is used primarily on <input> elements, but is usable on any
+// element in contenteditable mode. It's important to understand that the
+// inputmode attribute doesn't cause any validity requirements to be enforced on
+// input. To require that input conforms to a particular data type, choose an
+// appropriate <input> element type. For specific guidance on choosing <input>
+// types, see the Values section.
 // Remove the attribute INPUTMODE from the element.
 func (e *AUDIOElement) INPUTMODERemove(c AudioInputmodeChoice) *AUDIOElement {
 	if e.StringAttributes == nil {
@@ -1339,11 +1251,10 @@ func (e *AUDIOElement) INPUTMODERemove(c AudioInputmodeChoice) *AUDIOElement {
 }
 
 // The is global attribute allows you to specify that a standard HTML element
-// should behave like a defined custom built-in element (see Using custom elements
-// for more details)
-// This attribute can only be used if the specified custom element name has been
-// successfully defined in the current document, and extends the element type it
-// is being applied to.
+// should behave like a defined custom built-in element (see Using custom
+// elements for more details). This attribute can only be used if the specified
+// custom element name has been successfully defined in the current document,
+// and extends the element type it is being applied to.
 func (e *AUDIOElement) IS(s string) *AUDIOElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -1353,21 +1264,19 @@ func (e *AUDIOElement) IS(s string) *AUDIOElement {
 }
 
 // The is global attribute allows you to specify that a standard HTML element
-// should behave like a defined custom built-in element (see Using custom elements
-// for more details)
-// This attribute can only be used if the specified custom element name has been
-// successfully defined in the current document, and extends the element type it
-// is being applied to.
+// should behave like a defined custom built-in element (see Using custom
+// elements for more details). This attribute can only be used if the specified
+// custom element name has been successfully defined in the current document,
+// and extends the element type it is being applied to.
 func (e *AUDIOElement) ISF(format string, args ...any) *AUDIOElement {
 	return e.IS(fmt.Sprintf(format, args...))
 }
 
 // The is global attribute allows you to specify that a standard HTML element
-// should behave like a defined custom built-in element (see Using custom elements
-// for more details)
-// This attribute can only be used if the specified custom element name has been
-// successfully defined in the current document, and extends the element type it
-// is being applied to.
+// should behave like a defined custom built-in element (see Using custom
+// elements for more details). This attribute can only be used if the specified
+// custom element name has been successfully defined in the current document,
+// and extends the element type it is being applied to.
 func (e *AUDIOElement) IfIS(condition bool, s string) *AUDIOElement {
 	if condition {
 		e.IS(s)
@@ -1376,11 +1285,10 @@ func (e *AUDIOElement) IfIS(condition bool, s string) *AUDIOElement {
 }
 
 // The is global attribute allows you to specify that a standard HTML element
-// should behave like a defined custom built-in element (see Using custom elements
-// for more details)
-// This attribute can only be used if the specified custom element name has been
-// successfully defined in the current document, and extends the element type it
-// is being applied to.
+// should behave like a defined custom built-in element (see Using custom
+// elements for more details). This attribute can only be used if the specified
+// custom element name has been successfully defined in the current document,
+// and extends the element type it is being applied to.
 func (e *AUDIOElement) IfISF(condition bool, format string, args ...any) *AUDIOElement {
 	if condition {
 		e.IS(fmt.Sprintf(format, args...))
@@ -1389,11 +1297,10 @@ func (e *AUDIOElement) IfISF(condition bool, format string, args ...any) *AUDIOE
 }
 
 // The is global attribute allows you to specify that a standard HTML element
-// should behave like a defined custom built-in element (see Using custom elements
-// for more details)
-// This attribute can only be used if the specified custom element name has been
-// successfully defined in the current document, and extends the element type it
-// is being applied to.
+// should behave like a defined custom built-in element (see Using custom
+// elements for more details). This attribute can only be used if the specified
+// custom element name has been successfully defined in the current document,
+// and extends the element type it is being applied to.
 // Remove the attribute IS from the element.
 func (e *AUDIOElement) ISRemove(s string) *AUDIOElement {
 	if e.StringAttributes == nil {
@@ -1404,28 +1311,25 @@ func (e *AUDIOElement) ISRemove(s string) *AUDIOElement {
 }
 
 // The is global attribute allows you to specify that a standard HTML element
-// should behave like a defined custom built-in element (see Using custom elements
-// for more details)
-// This attribute can only be used if the specified custom element name has been
-// successfully defined in the current document, and extends the element type it
-// is being applied to.
+// should behave like a defined custom built-in element (see Using custom
+// elements for more details). This attribute can only be used if the specified
+// custom element name has been successfully defined in the current document,
+// and extends the element type it is being applied to.
 func (e *AUDIOElement) ISRemoveF(format string, args ...any) *AUDIOElement {
 	return e.ISRemove(fmt.Sprintf(format, args...))
 }
 
-// The itemid global attribute provides microdata in the form of a unique, global
-// identifier of an item.
+// The itemid global attribute provides microdata in the form of a unique,
+// global identifier of an item.
 //
-//	An itemid attribute can only be specified for an element that has both
-//
-// itemscope and itemtype attributes
-// Also, itemid can only be specified on elements that possess an itemscope
-// attribute whose corresponding itemtype refers to or defines a vocabulary that
-// supports global identifiers
-// The exact meaning of an itemtype's global identifier is provided by the
-// definition of that identifier within the specified vocabulary
-// The vocabulary defines whether several items with the same global identifier
-// can coexist and, if so, how items with the same identifier are handled.
+// An itemid attribute can only be specified for an element that has both
+// itemscope and itemtype attributes. Also, itemid can only be specified on
+// elements that possess an itemscope attribute whose corresponding itemtype
+// refers to or defines a vocabulary that supports global identifiers. The exact
+// meaning of an itemtype's global identifier is provided by the definition of
+// that identifier within the specified vocabulary. The vocabulary defines
+// whether several items with the same global identifier can coexist and, if so,
+// how items with the same identifier are handled.
 func (e *AUDIOElement) ITEMID(s string) *AUDIOElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -1434,36 +1338,32 @@ func (e *AUDIOElement) ITEMID(s string) *AUDIOElement {
 	return e
 }
 
-// The itemid global attribute provides microdata in the form of a unique, global
-// identifier of an item.
+// The itemid global attribute provides microdata in the form of a unique,
+// global identifier of an item.
 //
-//	An itemid attribute can only be specified for an element that has both
-//
-// itemscope and itemtype attributes
-// Also, itemid can only be specified on elements that possess an itemscope
-// attribute whose corresponding itemtype refers to or defines a vocabulary that
-// supports global identifiers
-// The exact meaning of an itemtype's global identifier is provided by the
-// definition of that identifier within the specified vocabulary
-// The vocabulary defines whether several items with the same global identifier
-// can coexist and, if so, how items with the same identifier are handled.
+// An itemid attribute can only be specified for an element that has both
+// itemscope and itemtype attributes. Also, itemid can only be specified on
+// elements that possess an itemscope attribute whose corresponding itemtype
+// refers to or defines a vocabulary that supports global identifiers. The exact
+// meaning of an itemtype's global identifier is provided by the definition of
+// that identifier within the specified vocabulary. The vocabulary defines
+// whether several items with the same global identifier can coexist and, if so,
+// how items with the same identifier are handled.
 func (e *AUDIOElement) ITEMIDF(format string, args ...any) *AUDIOElement {
 	return e.ITEMID(fmt.Sprintf(format, args...))
 }
 
-// The itemid global attribute provides microdata in the form of a unique, global
-// identifier of an item.
+// The itemid global attribute provides microdata in the form of a unique,
+// global identifier of an item.
 //
-//	An itemid attribute can only be specified for an element that has both
-//
-// itemscope and itemtype attributes
-// Also, itemid can only be specified on elements that possess an itemscope
-// attribute whose corresponding itemtype refers to or defines a vocabulary that
-// supports global identifiers
-// The exact meaning of an itemtype's global identifier is provided by the
-// definition of that identifier within the specified vocabulary
-// The vocabulary defines whether several items with the same global identifier
-// can coexist and, if so, how items with the same identifier are handled.
+// An itemid attribute can only be specified for an element that has both
+// itemscope and itemtype attributes. Also, itemid can only be specified on
+// elements that possess an itemscope attribute whose corresponding itemtype
+// refers to or defines a vocabulary that supports global identifiers. The exact
+// meaning of an itemtype's global identifier is provided by the definition of
+// that identifier within the specified vocabulary. The vocabulary defines
+// whether several items with the same global identifier can coexist and, if so,
+// how items with the same identifier are handled.
 func (e *AUDIOElement) IfITEMID(condition bool, s string) *AUDIOElement {
 	if condition {
 		e.ITEMID(s)
@@ -1471,19 +1371,17 @@ func (e *AUDIOElement) IfITEMID(condition bool, s string) *AUDIOElement {
 	return e
 }
 
-// The itemid global attribute provides microdata in the form of a unique, global
-// identifier of an item.
+// The itemid global attribute provides microdata in the form of a unique,
+// global identifier of an item.
 //
-//	An itemid attribute can only be specified for an element that has both
-//
-// itemscope and itemtype attributes
-// Also, itemid can only be specified on elements that possess an itemscope
-// attribute whose corresponding itemtype refers to or defines a vocabulary that
-// supports global identifiers
-// The exact meaning of an itemtype's global identifier is provided by the
-// definition of that identifier within the specified vocabulary
-// The vocabulary defines whether several items with the same global identifier
-// can coexist and, if so, how items with the same identifier are handled.
+// An itemid attribute can only be specified for an element that has both
+// itemscope and itemtype attributes. Also, itemid can only be specified on
+// elements that possess an itemscope attribute whose corresponding itemtype
+// refers to or defines a vocabulary that supports global identifiers. The exact
+// meaning of an itemtype's global identifier is provided by the definition of
+// that identifier within the specified vocabulary. The vocabulary defines
+// whether several items with the same global identifier can coexist and, if so,
+// how items with the same identifier are handled.
 func (e *AUDIOElement) IfITEMIDF(condition bool, format string, args ...any) *AUDIOElement {
 	if condition {
 		e.ITEMID(fmt.Sprintf(format, args...))
@@ -1491,19 +1389,17 @@ func (e *AUDIOElement) IfITEMIDF(condition bool, format string, args ...any) *AU
 	return e
 }
 
-// The itemid global attribute provides microdata in the form of a unique, global
-// identifier of an item.
+// The itemid global attribute provides microdata in the form of a unique,
+// global identifier of an item.
 //
-//	An itemid attribute can only be specified for an element that has both
-//
-// itemscope and itemtype attributes
-// Also, itemid can only be specified on elements that possess an itemscope
-// attribute whose corresponding itemtype refers to or defines a vocabulary that
-// supports global identifiers
-// The exact meaning of an itemtype's global identifier is provided by the
-// definition of that identifier within the specified vocabulary
-// The vocabulary defines whether several items with the same global identifier
-// can coexist and, if so, how items with the same identifier are handled.
+// An itemid attribute can only be specified for an element that has both
+// itemscope and itemtype attributes. Also, itemid can only be specified on
+// elements that possess an itemscope attribute whose corresponding itemtype
+// refers to or defines a vocabulary that supports global identifiers. The exact
+// meaning of an itemtype's global identifier is provided by the definition of
+// that identifier within the specified vocabulary. The vocabulary defines
+// whether several items with the same global identifier can coexist and, if so,
+// how items with the same identifier are handled.
 // Remove the attribute ITEMID from the element.
 func (e *AUDIOElement) ITEMIDRemove(s string) *AUDIOElement {
 	if e.StringAttributes == nil {
@@ -1513,31 +1409,28 @@ func (e *AUDIOElement) ITEMIDRemove(s string) *AUDIOElement {
 	return e
 }
 
-// The itemid global attribute provides microdata in the form of a unique, global
-// identifier of an item.
+// The itemid global attribute provides microdata in the form of a unique,
+// global identifier of an item.
 //
-//	An itemid attribute can only be specified for an element that has both
-//
-// itemscope and itemtype attributes
-// Also, itemid can only be specified on elements that possess an itemscope
-// attribute whose corresponding itemtype refers to or defines a vocabulary that
-// supports global identifiers
-// The exact meaning of an itemtype's global identifier is provided by the
-// definition of that identifier within the specified vocabulary
-// The vocabulary defines whether several items with the same global identifier
-// can coexist and, if so, how items with the same identifier are handled.
+// An itemid attribute can only be specified for an element that has both
+// itemscope and itemtype attributes. Also, itemid can only be specified on
+// elements that possess an itemscope attribute whose corresponding itemtype
+// refers to or defines a vocabulary that supports global identifiers. The exact
+// meaning of an itemtype's global identifier is provided by the definition of
+// that identifier within the specified vocabulary. The vocabulary defines
+// whether several items with the same global identifier can coexist and, if so,
+// how items with the same identifier are handled.
 func (e *AUDIOElement) ITEMIDRemoveF(format string, args ...any) *AUDIOElement {
 	return e.ITEMIDRemove(fmt.Sprintf(format, args...))
 }
 
-// The itemprop global attribute is used to add properties to an item
-// Every HTML element can have an itemprop attribute specified, and an itemprop
-// consists of a name-value pair
-// Each name-value pair is called a property, and a group of one or more
-// properties forms an item
-// Property values are either a string or a URL and can be associated with a very
-// wide range of elements including <audio>, <embed>, <iframe>, <img>, <link>,
-// <object>, <source>, <track>, and <video>.
+// The itemprop global attribute is used to add properties to an item. Every
+// HTML element can have an itemprop attribute specified, and an itemprop
+// consists of a name-value pair. Each name-value pair is called a property, and
+// a group of one or more properties forms an item. Property values are either a
+// string or a URL and can be associated with a very wide range of elements
+// including <audio>, <embed>, <iframe>, <img>, <link>, <object>, <source>,
+// <track>, and <video>.
 func (e *AUDIOElement) ITEMPROP(s string) *AUDIOElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -1546,26 +1439,24 @@ func (e *AUDIOElement) ITEMPROP(s string) *AUDIOElement {
 	return e
 }
 
-// The itemprop global attribute is used to add properties to an item
-// Every HTML element can have an itemprop attribute specified, and an itemprop
-// consists of a name-value pair
-// Each name-value pair is called a property, and a group of one or more
-// properties forms an item
-// Property values are either a string or a URL and can be associated with a very
-// wide range of elements including <audio>, <embed>, <iframe>, <img>, <link>,
-// <object>, <source>, <track>, and <video>.
+// The itemprop global attribute is used to add properties to an item. Every
+// HTML element can have an itemprop attribute specified, and an itemprop
+// consists of a name-value pair. Each name-value pair is called a property, and
+// a group of one or more properties forms an item. Property values are either a
+// string or a URL and can be associated with a very wide range of elements
+// including <audio>, <embed>, <iframe>, <img>, <link>, <object>, <source>,
+// <track>, and <video>.
 func (e *AUDIOElement) ITEMPROPF(format string, args ...any) *AUDIOElement {
 	return e.ITEMPROP(fmt.Sprintf(format, args...))
 }
 
-// The itemprop global attribute is used to add properties to an item
-// Every HTML element can have an itemprop attribute specified, and an itemprop
-// consists of a name-value pair
-// Each name-value pair is called a property, and a group of one or more
-// properties forms an item
-// Property values are either a string or a URL and can be associated with a very
-// wide range of elements including <audio>, <embed>, <iframe>, <img>, <link>,
-// <object>, <source>, <track>, and <video>.
+// The itemprop global attribute is used to add properties to an item. Every
+// HTML element can have an itemprop attribute specified, and an itemprop
+// consists of a name-value pair. Each name-value pair is called a property, and
+// a group of one or more properties forms an item. Property values are either a
+// string or a URL and can be associated with a very wide range of elements
+// including <audio>, <embed>, <iframe>, <img>, <link>, <object>, <source>,
+// <track>, and <video>.
 func (e *AUDIOElement) IfITEMPROP(condition bool, s string) *AUDIOElement {
 	if condition {
 		e.ITEMPROP(s)
@@ -1573,14 +1464,13 @@ func (e *AUDIOElement) IfITEMPROP(condition bool, s string) *AUDIOElement {
 	return e
 }
 
-// The itemprop global attribute is used to add properties to an item
-// Every HTML element can have an itemprop attribute specified, and an itemprop
-// consists of a name-value pair
-// Each name-value pair is called a property, and a group of one or more
-// properties forms an item
-// Property values are either a string or a URL and can be associated with a very
-// wide range of elements including <audio>, <embed>, <iframe>, <img>, <link>,
-// <object>, <source>, <track>, and <video>.
+// The itemprop global attribute is used to add properties to an item. Every
+// HTML element can have an itemprop attribute specified, and an itemprop
+// consists of a name-value pair. Each name-value pair is called a property, and
+// a group of one or more properties forms an item. Property values are either a
+// string or a URL and can be associated with a very wide range of elements
+// including <audio>, <embed>, <iframe>, <img>, <link>, <object>, <source>,
+// <track>, and <video>.
 func (e *AUDIOElement) IfITEMPROPF(condition bool, format string, args ...any) *AUDIOElement {
 	if condition {
 		e.ITEMPROP(fmt.Sprintf(format, args...))
@@ -1588,14 +1478,13 @@ func (e *AUDIOElement) IfITEMPROPF(condition bool, format string, args ...any) *
 	return e
 }
 
-// The itemprop global attribute is used to add properties to an item
-// Every HTML element can have an itemprop attribute specified, and an itemprop
-// consists of a name-value pair
-// Each name-value pair is called a property, and a group of one or more
-// properties forms an item
-// Property values are either a string or a URL and can be associated with a very
-// wide range of elements including <audio>, <embed>, <iframe>, <img>, <link>,
-// <object>, <source>, <track>, and <video>.
+// The itemprop global attribute is used to add properties to an item. Every
+// HTML element can have an itemprop attribute specified, and an itemprop
+// consists of a name-value pair. Each name-value pair is called a property, and
+// a group of one or more properties forms an item. Property values are either a
+// string or a URL and can be associated with a very wide range of elements
+// including <audio>, <embed>, <iframe>, <img>, <link>, <object>, <source>,
+// <track>, and <video>.
 // Remove the attribute ITEMPROP from the element.
 func (e *AUDIOElement) ITEMPROPRemove(s string) *AUDIOElement {
 	if e.StringAttributes == nil {
@@ -1605,23 +1494,22 @@ func (e *AUDIOElement) ITEMPROPRemove(s string) *AUDIOElement {
 	return e
 }
 
-// The itemprop global attribute is used to add properties to an item
-// Every HTML element can have an itemprop attribute specified, and an itemprop
-// consists of a name-value pair
-// Each name-value pair is called a property, and a group of one or more
-// properties forms an item
-// Property values are either a string or a URL and can be associated with a very
-// wide range of elements including <audio>, <embed>, <iframe>, <img>, <link>,
-// <object>, <source>, <track>, and <video>.
+// The itemprop global attribute is used to add properties to an item. Every
+// HTML element can have an itemprop attribute specified, and an itemprop
+// consists of a name-value pair. Each name-value pair is called a property, and
+// a group of one or more properties forms an item. Property values are either a
+// string or a URL and can be associated with a very wide range of elements
+// including <audio>, <embed>, <iframe>, <img>, <link>, <object>, <source>,
+// <track>, and <video>.
 func (e *AUDIOElement) ITEMPROPRemoveF(format string, args ...any) *AUDIOElement {
 	return e.ITEMPROPRemove(fmt.Sprintf(format, args...))
 }
 
-// Properties that are not descendants of an element with the itemscope attribute
-// can be associated with an item using the global attribute itemref
-// itemref provides a list of element IDs (not itemids) elsewhere in the document,
-// with additional properties The itemref attribute can only be specified on
-// elements that have an itemscope attribute specified.
+// Properties that are not descendants of an element with the itemscope
+// attribute can be associated with an item using the global attribute itemref.
+// itemref provides a list of element IDs (not itemids) elsewhere in the
+// document, with additional properties The itemref attribute can only be
+// specified on elements that have an itemscope attribute specified.
 func (e *AUDIOElement) ITEMREF(s string) *AUDIOElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -1630,20 +1518,20 @@ func (e *AUDIOElement) ITEMREF(s string) *AUDIOElement {
 	return e
 }
 
-// Properties that are not descendants of an element with the itemscope attribute
-// can be associated with an item using the global attribute itemref
-// itemref provides a list of element IDs (not itemids) elsewhere in the document,
-// with additional properties The itemref attribute can only be specified on
-// elements that have an itemscope attribute specified.
+// Properties that are not descendants of an element with the itemscope
+// attribute can be associated with an item using the global attribute itemref.
+// itemref provides a list of element IDs (not itemids) elsewhere in the
+// document, with additional properties The itemref attribute can only be
+// specified on elements that have an itemscope attribute specified.
 func (e *AUDIOElement) ITEMREFF(format string, args ...any) *AUDIOElement {
 	return e.ITEMREF(fmt.Sprintf(format, args...))
 }
 
-// Properties that are not descendants of an element with the itemscope attribute
-// can be associated with an item using the global attribute itemref
-// itemref provides a list of element IDs (not itemids) elsewhere in the document,
-// with additional properties The itemref attribute can only be specified on
-// elements that have an itemscope attribute specified.
+// Properties that are not descendants of an element with the itemscope
+// attribute can be associated with an item using the global attribute itemref.
+// itemref provides a list of element IDs (not itemids) elsewhere in the
+// document, with additional properties The itemref attribute can only be
+// specified on elements that have an itemscope attribute specified.
 func (e *AUDIOElement) IfITEMREF(condition bool, s string) *AUDIOElement {
 	if condition {
 		e.ITEMREF(s)
@@ -1651,11 +1539,11 @@ func (e *AUDIOElement) IfITEMREF(condition bool, s string) *AUDIOElement {
 	return e
 }
 
-// Properties that are not descendants of an element with the itemscope attribute
-// can be associated with an item using the global attribute itemref
-// itemref provides a list of element IDs (not itemids) elsewhere in the document,
-// with additional properties The itemref attribute can only be specified on
-// elements that have an itemscope attribute specified.
+// Properties that are not descendants of an element with the itemscope
+// attribute can be associated with an item using the global attribute itemref.
+// itemref provides a list of element IDs (not itemids) elsewhere in the
+// document, with additional properties The itemref attribute can only be
+// specified on elements that have an itemscope attribute specified.
 func (e *AUDIOElement) IfITEMREFF(condition bool, format string, args ...any) *AUDIOElement {
 	if condition {
 		e.ITEMREF(fmt.Sprintf(format, args...))
@@ -1663,11 +1551,11 @@ func (e *AUDIOElement) IfITEMREFF(condition bool, format string, args ...any) *A
 	return e
 }
 
-// Properties that are not descendants of an element with the itemscope attribute
-// can be associated with an item using the global attribute itemref
-// itemref provides a list of element IDs (not itemids) elsewhere in the document,
-// with additional properties The itemref attribute can only be specified on
-// elements that have an itemscope attribute specified.
+// Properties that are not descendants of an element with the itemscope
+// attribute can be associated with an item using the global attribute itemref.
+// itemref provides a list of element IDs (not itemids) elsewhere in the
+// document, with additional properties The itemref attribute can only be
+// specified on elements that have an itemscope attribute specified.
 // Remove the attribute ITEMREF from the element.
 func (e *AUDIOElement) ITEMREFRemove(s string) *AUDIOElement {
 	if e.StringAttributes == nil {
@@ -1677,35 +1565,33 @@ func (e *AUDIOElement) ITEMREFRemove(s string) *AUDIOElement {
 	return e
 }
 
-// Properties that are not descendants of an element with the itemscope attribute
-// can be associated with an item using the global attribute itemref
-// itemref provides a list of element IDs (not itemids) elsewhere in the document,
-// with additional properties The itemref attribute can only be specified on
-// elements that have an itemscope attribute specified.
+// Properties that are not descendants of an element with the itemscope
+// attribute can be associated with an item using the global attribute itemref.
+// itemref provides a list of element IDs (not itemids) elsewhere in the
+// document, with additional properties The itemref attribute can only be
+// specified on elements that have an itemscope attribute specified.
 func (e *AUDIOElement) ITEMREFRemoveF(format string, args ...any) *AUDIOElement {
 	return e.ITEMREFRemove(fmt.Sprintf(format, args...))
 }
 
-// The itemscope global attribute is used to add an item to a microdata DOM tree
-// Every HTML element can have an itemscope attribute specified, and an itemscope
-// consists of a name-value pair
-// Each name-value pair is called a property, and a group of one or more
-// properties forms an item
-// Property values are either a string or a URL and can be associated with a very
-// wide range of elements including <audio>, <embed>, <iframe>, <img>, <link>,
+// The itemscope global attribute is used to add an item to a microdata DOM
+// tree. Every HTML element can have an itemscope attribute specified, and an
+// itemscope consists of a name-value pair. Each name-value pair is called a
+// property, and a group of one or more properties forms an item. Property
+// values are either a string or a URL and can be associated with a very wide
+// range of elements including <audio>, <embed>, <iframe>, <img>, <link>,
 // <object>, <source>, <track>, and <video>.
 func (e *AUDIOElement) ITEMSCOPE() *AUDIOElement {
 	e.ITEMSCOPESet(true)
 	return e
 }
 
-// The itemscope global attribute is used to add an item to a microdata DOM tree
-// Every HTML element can have an itemscope attribute specified, and an itemscope
-// consists of a name-value pair
-// Each name-value pair is called a property, and a group of one or more
-// properties forms an item
-// Property values are either a string or a URL and can be associated with a very
-// wide range of elements including <audio>, <embed>, <iframe>, <img>, <link>,
+// The itemscope global attribute is used to add an item to a microdata DOM
+// tree. Every HTML element can have an itemscope attribute specified, and an
+// itemscope consists of a name-value pair. Each name-value pair is called a
+// property, and a group of one or more properties forms an item. Property
+// values are either a string or a URL and can be associated with a very wide
+// range of elements including <audio>, <embed>, <iframe>, <img>, <link>,
 // <object>, <source>, <track>, and <video>.
 func (e *AUDIOElement) IfITEMSCOPE(condition bool) *AUDIOElement {
 	if condition {
@@ -1714,13 +1600,12 @@ func (e *AUDIOElement) IfITEMSCOPE(condition bool) *AUDIOElement {
 	return e
 }
 
-// The itemscope global attribute is used to add an item to a microdata DOM tree
-// Every HTML element can have an itemscope attribute specified, and an itemscope
-// consists of a name-value pair
-// Each name-value pair is called a property, and a group of one or more
-// properties forms an item
-// Property values are either a string or a URL and can be associated with a very
-// wide range of elements including <audio>, <embed>, <iframe>, <img>, <link>,
+// The itemscope global attribute is used to add an item to a microdata DOM
+// tree. Every HTML element can have an itemscope attribute specified, and an
+// itemscope consists of a name-value pair. Each name-value pair is called a
+// property, and a group of one or more properties forms an item. Property
+// values are either a string or a URL and can be associated with a very wide
+// range of elements including <audio>, <embed>, <iframe>, <img>, <link>,
 // <object>, <source>, <track>, and <video>.
 // Set the attribute ITEMSCOPE to the value b explicitly.
 func (e *AUDIOElement) ITEMSCOPESet(b bool) *AUDIOElement {
@@ -1731,13 +1616,12 @@ func (e *AUDIOElement) ITEMSCOPESet(b bool) *AUDIOElement {
 	return e
 }
 
-// The itemscope global attribute is used to add an item to a microdata DOM tree
-// Every HTML element can have an itemscope attribute specified, and an itemscope
-// consists of a name-value pair
-// Each name-value pair is called a property, and a group of one or more
-// properties forms an item
-// Property values are either a string or a URL and can be associated with a very
-// wide range of elements including <audio>, <embed>, <iframe>, <img>, <link>,
+// The itemscope global attribute is used to add an item to a microdata DOM
+// tree. Every HTML element can have an itemscope attribute specified, and an
+// itemscope consists of a name-value pair. Each name-value pair is called a
+// property, and a group of one or more properties forms an item. Property
+// values are either a string or a URL and can be associated with a very wide
+// range of elements including <audio>, <embed>, <iframe>, <img>, <link>,
 // <object>, <source>, <track>, and <video>.
 func (e *AUDIOElement) IfSetITEMSCOPE(condition bool, b bool) *AUDIOElement {
 	if condition {
@@ -1747,13 +1631,12 @@ func (e *AUDIOElement) IfSetITEMSCOPE(condition bool, b bool) *AUDIOElement {
 }
 
 // Remove the attribute ITEMSCOPE from the element.
-// The itemscope global attribute is used to add an item to a microdata DOM tree
-// Every HTML element can have an itemscope attribute specified, and an itemscope
-// consists of a name-value pair
-// Each name-value pair is called a property, and a group of one or more
-// properties forms an item
-// Property values are either a string or a URL and can be associated with a very
-// wide range of elements including <audio>, <embed>, <iframe>, <img>, <link>,
+// The itemscope global attribute is used to add an item to a microdata DOM
+// tree. Every HTML element can have an itemscope attribute specified, and an
+// itemscope consists of a name-value pair. Each name-value pair is called a
+// property, and a group of one or more properties forms an item. Property
+// values are either a string or a URL and can be associated with a very wide
+// range of elements including <audio>, <embed>, <iframe>, <img>, <link>,
 // <object>, <source>, <track>, and <video>.
 func (e *AUDIOElement) ITEMSCOPERemove(b bool) *AUDIOElement {
 	if e.BoolAttributes == nil {
@@ -1763,14 +1646,13 @@ func (e *AUDIOElement) ITEMSCOPERemove(b bool) *AUDIOElement {
 	return e
 }
 
-// The itemtype global attribute is used to add types to an item
-// Every HTML element can have an itemtype attribute specified, and an itemtype
-// consists of a name-value pair
-// Each name-value pair is called a property, and a group of one or more
-// properties forms an item
-// Property values are either a string or a URL and can be associated with a very
-// wide range of elements including <audio>, <embed>, <iframe>, <img>, <link>,
-// <object>, <source>, <track>, and <video>.
+// The itemtype global attribute is used to add types to an item. Every HTML
+// element can have an itemtype attribute specified, and an itemtype consists of
+// a name-value pair. Each name-value pair is called a property, and a group of
+// one or more properties forms an item. Property values are either a string or
+// a URL and can be associated with a very wide range of elements including
+// <audio>, <embed>, <iframe>, <img>, <link>, <object>, <source>, <track>, and
+// <video>.
 func (e *AUDIOElement) ITEMTYPE(s string) *AUDIOElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -1779,26 +1661,24 @@ func (e *AUDIOElement) ITEMTYPE(s string) *AUDIOElement {
 	return e
 }
 
-// The itemtype global attribute is used to add types to an item
-// Every HTML element can have an itemtype attribute specified, and an itemtype
-// consists of a name-value pair
-// Each name-value pair is called a property, and a group of one or more
-// properties forms an item
-// Property values are either a string or a URL and can be associated with a very
-// wide range of elements including <audio>, <embed>, <iframe>, <img>, <link>,
-// <object>, <source>, <track>, and <video>.
+// The itemtype global attribute is used to add types to an item. Every HTML
+// element can have an itemtype attribute specified, and an itemtype consists of
+// a name-value pair. Each name-value pair is called a property, and a group of
+// one or more properties forms an item. Property values are either a string or
+// a URL and can be associated with a very wide range of elements including
+// <audio>, <embed>, <iframe>, <img>, <link>, <object>, <source>, <track>, and
+// <video>.
 func (e *AUDIOElement) ITEMTYPEF(format string, args ...any) *AUDIOElement {
 	return e.ITEMTYPE(fmt.Sprintf(format, args...))
 }
 
-// The itemtype global attribute is used to add types to an item
-// Every HTML element can have an itemtype attribute specified, and an itemtype
-// consists of a name-value pair
-// Each name-value pair is called a property, and a group of one or more
-// properties forms an item
-// Property values are either a string or a URL and can be associated with a very
-// wide range of elements including <audio>, <embed>, <iframe>, <img>, <link>,
-// <object>, <source>, <track>, and <video>.
+// The itemtype global attribute is used to add types to an item. Every HTML
+// element can have an itemtype attribute specified, and an itemtype consists of
+// a name-value pair. Each name-value pair is called a property, and a group of
+// one or more properties forms an item. Property values are either a string or
+// a URL and can be associated with a very wide range of elements including
+// <audio>, <embed>, <iframe>, <img>, <link>, <object>, <source>, <track>, and
+// <video>.
 func (e *AUDIOElement) IfITEMTYPE(condition bool, s string) *AUDIOElement {
 	if condition {
 		e.ITEMTYPE(s)
@@ -1806,14 +1686,13 @@ func (e *AUDIOElement) IfITEMTYPE(condition bool, s string) *AUDIOElement {
 	return e
 }
 
-// The itemtype global attribute is used to add types to an item
-// Every HTML element can have an itemtype attribute specified, and an itemtype
-// consists of a name-value pair
-// Each name-value pair is called a property, and a group of one or more
-// properties forms an item
-// Property values are either a string or a URL and can be associated with a very
-// wide range of elements including <audio>, <embed>, <iframe>, <img>, <link>,
-// <object>, <source>, <track>, and <video>.
+// The itemtype global attribute is used to add types to an item. Every HTML
+// element can have an itemtype attribute specified, and an itemtype consists of
+// a name-value pair. Each name-value pair is called a property, and a group of
+// one or more properties forms an item. Property values are either a string or
+// a URL and can be associated with a very wide range of elements including
+// <audio>, <embed>, <iframe>, <img>, <link>, <object>, <source>, <track>, and
+// <video>.
 func (e *AUDIOElement) IfITEMTYPEF(condition bool, format string, args ...any) *AUDIOElement {
 	if condition {
 		e.ITEMTYPE(fmt.Sprintf(format, args...))
@@ -1821,14 +1700,13 @@ func (e *AUDIOElement) IfITEMTYPEF(condition bool, format string, args ...any) *
 	return e
 }
 
-// The itemtype global attribute is used to add types to an item
-// Every HTML element can have an itemtype attribute specified, and an itemtype
-// consists of a name-value pair
-// Each name-value pair is called a property, and a group of one or more
-// properties forms an item
-// Property values are either a string or a URL and can be associated with a very
-// wide range of elements including <audio>, <embed>, <iframe>, <img>, <link>,
-// <object>, <source>, <track>, and <video>.
+// The itemtype global attribute is used to add types to an item. Every HTML
+// element can have an itemtype attribute specified, and an itemtype consists of
+// a name-value pair. Each name-value pair is called a property, and a group of
+// one or more properties forms an item. Property values are either a string or
+// a URL and can be associated with a very wide range of elements including
+// <audio>, <embed>, <iframe>, <img>, <link>, <object>, <source>, <track>, and
+// <video>.
 // Remove the attribute ITEMTYPE from the element.
 func (e *AUDIOElement) ITEMTYPERemove(s string) *AUDIOElement {
 	if e.StringAttributes == nil {
@@ -1838,24 +1716,22 @@ func (e *AUDIOElement) ITEMTYPERemove(s string) *AUDIOElement {
 	return e
 }
 
-// The itemtype global attribute is used to add types to an item
-// Every HTML element can have an itemtype attribute specified, and an itemtype
-// consists of a name-value pair
-// Each name-value pair is called a property, and a group of one or more
-// properties forms an item
-// Property values are either a string or a URL and can be associated with a very
-// wide range of elements including <audio>, <embed>, <iframe>, <img>, <link>,
-// <object>, <source>, <track>, and <video>.
+// The itemtype global attribute is used to add types to an item. Every HTML
+// element can have an itemtype attribute specified, and an itemtype consists of
+// a name-value pair. Each name-value pair is called a property, and a group of
+// one or more properties forms an item. Property values are either a string or
+// a URL and can be associated with a very wide range of elements including
+// <audio>, <embed>, <iframe>, <img>, <link>, <object>, <source>, <track>, and
+// <video>.
 func (e *AUDIOElement) ITEMTYPERemoveF(format string, args ...any) *AUDIOElement {
 	return e.ITEMTYPERemove(fmt.Sprintf(format, args...))
 }
 
-// The lang global attribute helps define the language of an element: the language
-// that non-editable elements are written in or the language that editable
-// elements should be written in by the user
-// The tag contains one single entry value in the format defines in the Tags for
-// Identifying Languages (BCP47) IETF document
-// xml:lang has priority over it.
+// The lang global attribute helps define the language of an element: the
+// language that non-editable elements are written in or the language that
+// editable elements should be written in by the user. The tag contains one
+// single entry value in the format defines in the Tags for Identifying
+// Languages (BCP47) IETF document. xml:lang has priority over it.
 func (e *AUDIOElement) LANG(s string) *AUDIOElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -1864,22 +1740,20 @@ func (e *AUDIOElement) LANG(s string) *AUDIOElement {
 	return e
 }
 
-// The lang global attribute helps define the language of an element: the language
-// that non-editable elements are written in or the language that editable
-// elements should be written in by the user
-// The tag contains one single entry value in the format defines in the Tags for
-// Identifying Languages (BCP47) IETF document
-// xml:lang has priority over it.
+// The lang global attribute helps define the language of an element: the
+// language that non-editable elements are written in or the language that
+// editable elements should be written in by the user. The tag contains one
+// single entry value in the format defines in the Tags for Identifying
+// Languages (BCP47) IETF document. xml:lang has priority over it.
 func (e *AUDIOElement) LANGF(format string, args ...any) *AUDIOElement {
 	return e.LANG(fmt.Sprintf(format, args...))
 }
 
-// The lang global attribute helps define the language of an element: the language
-// that non-editable elements are written in or the language that editable
-// elements should be written in by the user
-// The tag contains one single entry value in the format defines in the Tags for
-// Identifying Languages (BCP47) IETF document
-// xml:lang has priority over it.
+// The lang global attribute helps define the language of an element: the
+// language that non-editable elements are written in or the language that
+// editable elements should be written in by the user. The tag contains one
+// single entry value in the format defines in the Tags for Identifying
+// Languages (BCP47) IETF document. xml:lang has priority over it.
 func (e *AUDIOElement) IfLANG(condition bool, s string) *AUDIOElement {
 	if condition {
 		e.LANG(s)
@@ -1887,12 +1761,11 @@ func (e *AUDIOElement) IfLANG(condition bool, s string) *AUDIOElement {
 	return e
 }
 
-// The lang global attribute helps define the language of an element: the language
-// that non-editable elements are written in or the language that editable
-// elements should be written in by the user
-// The tag contains one single entry value in the format defines in the Tags for
-// Identifying Languages (BCP47) IETF document
-// xml:lang has priority over it.
+// The lang global attribute helps define the language of an element: the
+// language that non-editable elements are written in or the language that
+// editable elements should be written in by the user. The tag contains one
+// single entry value in the format defines in the Tags for Identifying
+// Languages (BCP47) IETF document. xml:lang has priority over it.
 func (e *AUDIOElement) IfLANGF(condition bool, format string, args ...any) *AUDIOElement {
 	if condition {
 		e.LANG(fmt.Sprintf(format, args...))
@@ -1900,12 +1773,11 @@ func (e *AUDIOElement) IfLANGF(condition bool, format string, args ...any) *AUDI
 	return e
 }
 
-// The lang global attribute helps define the language of an element: the language
-// that non-editable elements are written in or the language that editable
-// elements should be written in by the user
-// The tag contains one single entry value in the format defines in the Tags for
-// Identifying Languages (BCP47) IETF document
-// xml:lang has priority over it.
+// The lang global attribute helps define the language of an element: the
+// language that non-editable elements are written in or the language that
+// editable elements should be written in by the user. The tag contains one
+// single entry value in the format defines in the Tags for Identifying
+// Languages (BCP47) IETF document. xml:lang has priority over it.
 // Remove the attribute LANG from the element.
 func (e *AUDIOElement) LANGRemove(s string) *AUDIOElement {
 	if e.StringAttributes == nil {
@@ -1915,20 +1787,20 @@ func (e *AUDIOElement) LANGRemove(s string) *AUDIOElement {
 	return e
 }
 
-// The lang global attribute helps define the language of an element: the language
-// that non-editable elements are written in or the language that editable
-// elements should be written in by the user
-// The tag contains one single entry value in the format defines in the Tags for
-// Identifying Languages (BCP47) IETF document
-// xml:lang has priority over it.
+// The lang global attribute helps define the language of an element: the
+// language that non-editable elements are written in or the language that
+// editable elements should be written in by the user. The tag contains one
+// single entry value in the format defines in the Tags for Identifying
+// Languages (BCP47) IETF document. xml:lang has priority over it.
 func (e *AUDIOElement) LANGRemoveF(format string, args ...any) *AUDIOElement {
 	return e.LANGRemove(fmt.Sprintf(format, args...))
 }
 
 // The nonce global attribute is a unique identifier used to declare inline
-// scripts and style elements to be used in a specific document
-// It is a cryptographic nonce (number used once) that is used by Content Security
-// Policy to determine whether or not a given inline script is allowed to execute.
+// scripts and style elements to be used in a specific document. It is a
+// cryptographic nonce (number used once) that is used by Content Security
+// Policy to determine whether or not a given inline script is allowed to
+// execute.
 func (e *AUDIOElement) NONCE(s string) *AUDIOElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -1938,17 +1810,19 @@ func (e *AUDIOElement) NONCE(s string) *AUDIOElement {
 }
 
 // The nonce global attribute is a unique identifier used to declare inline
-// scripts and style elements to be used in a specific document
-// It is a cryptographic nonce (number used once) that is used by Content Security
-// Policy to determine whether or not a given inline script is allowed to execute.
+// scripts and style elements to be used in a specific document. It is a
+// cryptographic nonce (number used once) that is used by Content Security
+// Policy to determine whether or not a given inline script is allowed to
+// execute.
 func (e *AUDIOElement) NONCEF(format string, args ...any) *AUDIOElement {
 	return e.NONCE(fmt.Sprintf(format, args...))
 }
 
 // The nonce global attribute is a unique identifier used to declare inline
-// scripts and style elements to be used in a specific document
-// It is a cryptographic nonce (number used once) that is used by Content Security
-// Policy to determine whether or not a given inline script is allowed to execute.
+// scripts and style elements to be used in a specific document. It is a
+// cryptographic nonce (number used once) that is used by Content Security
+// Policy to determine whether or not a given inline script is allowed to
+// execute.
 func (e *AUDIOElement) IfNONCE(condition bool, s string) *AUDIOElement {
 	if condition {
 		e.NONCE(s)
@@ -1957,9 +1831,10 @@ func (e *AUDIOElement) IfNONCE(condition bool, s string) *AUDIOElement {
 }
 
 // The nonce global attribute is a unique identifier used to declare inline
-// scripts and style elements to be used in a specific document
-// It is a cryptographic nonce (number used once) that is used by Content Security
-// Policy to determine whether or not a given inline script is allowed to execute.
+// scripts and style elements to be used in a specific document. It is a
+// cryptographic nonce (number used once) that is used by Content Security
+// Policy to determine whether or not a given inline script is allowed to
+// execute.
 func (e *AUDIOElement) IfNONCEF(condition bool, format string, args ...any) *AUDIOElement {
 	if condition {
 		e.NONCE(fmt.Sprintf(format, args...))
@@ -1968,9 +1843,10 @@ func (e *AUDIOElement) IfNONCEF(condition bool, format string, args ...any) *AUD
 }
 
 // The nonce global attribute is a unique identifier used to declare inline
-// scripts and style elements to be used in a specific document
-// It is a cryptographic nonce (number used once) that is used by Content Security
-// Policy to determine whether or not a given inline script is allowed to execute.
+// scripts and style elements to be used in a specific document. It is a
+// cryptographic nonce (number used once) that is used by Content Security
+// Policy to determine whether or not a given inline script is allowed to
+// execute.
 // Remove the attribute NONCE from the element.
 func (e *AUDIOElement) NONCERemove(s string) *AUDIOElement {
 	if e.StringAttributes == nil {
@@ -1981,17 +1857,17 @@ func (e *AUDIOElement) NONCERemove(s string) *AUDIOElement {
 }
 
 // The nonce global attribute is a unique identifier used to declare inline
-// scripts and style elements to be used in a specific document
-// It is a cryptographic nonce (number used once) that is used by Content Security
-// Policy to determine whether or not a given inline script is allowed to execute.
+// scripts and style elements to be used in a specific document. It is a
+// cryptographic nonce (number used once) that is used by Content Security
+// Policy to determine whether or not a given inline script is allowed to
+// execute.
 func (e *AUDIOElement) NONCERemoveF(format string, args ...any) *AUDIOElement {
 	return e.NONCERemove(fmt.Sprintf(format, args...))
 }
 
-// The part global attribute contains a space-separated list of the part names of
-// the element
-// Part names allows CSS to select and style specific elements in a shadow tree
-// via the ::part pseudo-element.
+// The part global attribute contains a space-separated list of the part names
+// of the element. Part names allows CSS to select and style specific elements
+// in a shadow tree via the ::part pseudo-element.
 func (e *AUDIOElement) PART(s ...string) *AUDIOElement {
 	if e.DelimitedStrings == nil {
 		e.DelimitedStrings = treemap.New[string, *DelimitedBuilder[string]]()
@@ -2005,10 +1881,9 @@ func (e *AUDIOElement) PART(s ...string) *AUDIOElement {
 	return e
 }
 
-// The part global attribute contains a space-separated list of the part names of
-// the element
-// Part names allows CSS to select and style specific elements in a shadow tree
-// via the ::part pseudo-element.
+// The part global attribute contains a space-separated list of the part names
+// of the element. Part names allows CSS to select and style specific elements
+// in a shadow tree via the ::part pseudo-element.
 func (e *AUDIOElement) IfPART(condition bool, s ...string) *AUDIOElement {
 	if condition {
 		e.PART(s...)
@@ -2016,10 +1891,9 @@ func (e *AUDIOElement) IfPART(condition bool, s ...string) *AUDIOElement {
 	return e
 }
 
-// The part global attribute contains a space-separated list of the part names of
-// the element
-// Part names allows CSS to select and style specific elements in a shadow tree
-// via the ::part pseudo-element.
+// The part global attribute contains a space-separated list of the part names
+// of the element. Part names allows CSS to select and style specific elements
+// in a shadow tree via the ::part pseudo-element.
 // Remove the attribute PART from the element.
 func (e *AUDIOElement) PARTRemove(s ...string) *AUDIOElement {
 	if e.DelimitedStrings == nil {
@@ -2034,14 +1908,11 @@ func (e *AUDIOElement) PARTRemove(s ...string) *AUDIOElement {
 }
 
 // The popover global attribute is used to designate an element as a popover
-// element
-// Popover elements are hidden via display: none until opened via an
-// invoking/control element (i.e
-// a <button> or <input type="button"> with a popovertarget attribute) or a
-// HTMLElement.showPopover() call
-// When open, popover elements will appear above all other elements in the top
-// layer, and won't be influenced by parent elements' position or overflow
-// styling.
+// element. Popover elements are hidden via display: none until opened via an
+// invoking/control element (i.e. a <button> or <input type="button"> with a
+// popovertarget attribute) or a HTMLElement.showPopover() call. When open,
+// popover elements will appear above all other elements in the top layer, and
+// won't be influenced by parent elements' position or overflow styling.
 func (e *AUDIOElement) POPOVER(c AudioPopoverChoice) *AUDIOElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -2053,28 +1924,25 @@ func (e *AUDIOElement) POPOVER(c AudioPopoverChoice) *AUDIOElement {
 type AudioPopoverChoice string
 
 const (
-	// Popovers that have the auto state can be "light dismissed" by selecting outside
-	// the popover area, and generally only allow one popover to be displayed
-	// on-screen at a time.
+	// Popovers that have the auto state can be "light dismissed" by selecting
+	// outside the popover area, and generally only allow one popover to be
+	// displayed on-screen at a time.
 	AudioPopover_auto AudioPopoverChoice = "auto"
-	// Popovers that have the auto state can be "light dismissed" by selecting outside
-	// the popover area, and generally only allow one popover to be displayed
-	// on-screen at a time.
+	// Popovers that have the auto state can be "light dismissed" by selecting
+	// outside the popover area, and generally only allow one popover to be
+	// displayed on-screen at a time.
 	AudioPopover_empty AudioPopoverChoice = ""
-	// manual popovers must always be explicitly hidden, but allow for use cases such
-	// as nested popovers in menus.
+	// manual popovers must always be explicitly hidden, but allow for use cases
+	// such as nested popovers in menus.
 	AudioPopover_manual AudioPopoverChoice = "manual"
 )
 
 // The popover global attribute is used to designate an element as a popover
-// element
-// Popover elements are hidden via display: none until opened via an
-// invoking/control element (i.e
-// a <button> or <input type="button"> with a popovertarget attribute) or a
-// HTMLElement.showPopover() call
-// When open, popover elements will appear above all other elements in the top
-// layer, and won't be influenced by parent elements' position or overflow
-// styling.
+// element. Popover elements are hidden via display: none until opened via an
+// invoking/control element (i.e. a <button> or <input type="button"> with a
+// popovertarget attribute) or a HTMLElement.showPopover() call. When open,
+// popover elements will appear above all other elements in the top layer, and
+// won't be influenced by parent elements' position or overflow styling.
 // Remove the attribute POPOVER from the element.
 func (e *AUDIOElement) POPOVERRemove(c AudioPopoverChoice) *AUDIOElement {
 	if e.StringAttributes == nil {
@@ -2084,11 +1952,10 @@ func (e *AUDIOElement) POPOVERRemove(c AudioPopoverChoice) *AUDIOElement {
 	return e
 }
 
-// The role global attribute is used to define the purpose or state of an element
-// to the browser, in order to facilitate assistive technology such as screen
-// readers
-// It is a simple string value that can be used to describe the role of an
-// element.
+// The role global attribute is used to define the purpose or state of an
+// element to the browser, in order to facilitate assistive technology such as
+// screen readers. It is a simple string value that can be used to describe the
+// role of an element.
 func (e *AUDIOElement) ROLE(s string) *AUDIOElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -2097,20 +1964,18 @@ func (e *AUDIOElement) ROLE(s string) *AUDIOElement {
 	return e
 }
 
-// The role global attribute is used to define the purpose or state of an element
-// to the browser, in order to facilitate assistive technology such as screen
-// readers
-// It is a simple string value that can be used to describe the role of an
-// element.
+// The role global attribute is used to define the purpose or state of an
+// element to the browser, in order to facilitate assistive technology such as
+// screen readers. It is a simple string value that can be used to describe the
+// role of an element.
 func (e *AUDIOElement) ROLEF(format string, args ...any) *AUDIOElement {
 	return e.ROLE(fmt.Sprintf(format, args...))
 }
 
-// The role global attribute is used to define the purpose or state of an element
-// to the browser, in order to facilitate assistive technology such as screen
-// readers
-// It is a simple string value that can be used to describe the role of an
-// element.
+// The role global attribute is used to define the purpose or state of an
+// element to the browser, in order to facilitate assistive technology such as
+// screen readers. It is a simple string value that can be used to describe the
+// role of an element.
 func (e *AUDIOElement) IfROLE(condition bool, s string) *AUDIOElement {
 	if condition {
 		e.ROLE(s)
@@ -2118,11 +1983,10 @@ func (e *AUDIOElement) IfROLE(condition bool, s string) *AUDIOElement {
 	return e
 }
 
-// The role global attribute is used to define the purpose or state of an element
-// to the browser, in order to facilitate assistive technology such as screen
-// readers
-// It is a simple string value that can be used to describe the role of an
-// element.
+// The role global attribute is used to define the purpose or state of an
+// element to the browser, in order to facilitate assistive technology such as
+// screen readers. It is a simple string value that can be used to describe the
+// role of an element.
 func (e *AUDIOElement) IfROLEF(condition bool, format string, args ...any) *AUDIOElement {
 	if condition {
 		e.ROLE(fmt.Sprintf(format, args...))
@@ -2130,11 +1994,10 @@ func (e *AUDIOElement) IfROLEF(condition bool, format string, args ...any) *AUDI
 	return e
 }
 
-// The role global attribute is used to define the purpose or state of an element
-// to the browser, in order to facilitate assistive technology such as screen
-// readers
-// It is a simple string value that can be used to describe the role of an
-// element.
+// The role global attribute is used to define the purpose or state of an
+// element to the browser, in order to facilitate assistive technology such as
+// screen readers. It is a simple string value that can be used to describe the
+// role of an element.
 // Remove the attribute ROLE from the element.
 func (e *AUDIOElement) ROLERemove(s string) *AUDIOElement {
 	if e.StringAttributes == nil {
@@ -2144,11 +2007,10 @@ func (e *AUDIOElement) ROLERemove(s string) *AUDIOElement {
 	return e
 }
 
-// The role global attribute is used to define the purpose or state of an element
-// to the browser, in order to facilitate assistive technology such as screen
-// readers
-// It is a simple string value that can be used to describe the role of an
-// element.
+// The role global attribute is used to define the purpose or state of an
+// element to the browser, in order to facilitate assistive technology such as
+// screen readers. It is a simple string value that can be used to describe the
+// role of an element.
 func (e *AUDIOElement) ROLERemoveF(format string, args ...any) *AUDIOElement {
 	return e.ROLERemove(fmt.Sprintf(format, args...))
 }
@@ -2216,20 +2078,17 @@ func (e *AUDIOElement) SLOTRemoveF(format string, args ...any) *AUDIOElement {
 	return e.SLOTRemove(fmt.Sprintf(format, args...))
 }
 
-// The spellcheck global attribute is an enumerated attribute that defines whether
-// the element may be checked for spelling errors
-// If this attribute is not set, its default value is element-type and
-// browser-defined
-// This default value may also be inherited, which means that the element content
-// will be checked for spelling errors only if its nearest ancestor has a
-// spellcheck state of true
-// Security and privacy concerns Using spellchecking can have consequences for
-// users' security and privacy
-// The specification does not regulate how spellchecking is done and the content
-// of the element may be sent to a third party for spellchecking results (see
-// enhanced spellchecking and "spell-jacking")
-// You should consider setting spellcheck to false for elements that can contain
-// sensitive information.
+// The spellcheck global attribute is an enumerated attribute that defines
+// whether the element may be checked for spelling errors. If this attribute is
+// not set, its default value is element-type and browser-defined. This default
+// value may also be inherited, which means that the element content will be
+// checked for spelling errors only if its nearest ancestor has a spellcheck
+// state of true. Security and privacy concerns Using spellchecking can have
+// consequences for users' security and privacy. The specification does not
+// regulate how spellchecking is done and the content of the element may be sent
+// to a third party for spellchecking results (see enhanced spellchecking and
+// "spell-jacking"). You should consider setting spellcheck to false for
+// elements that can contain sensitive information.
 func (e *AUDIOElement) SPELLCHECK(c AudioSpellcheckChoice) *AUDIOElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -2249,20 +2108,17 @@ const (
 	AudioSpellcheck_false AudioSpellcheckChoice = "false"
 )
 
-// The spellcheck global attribute is an enumerated attribute that defines whether
-// the element may be checked for spelling errors
-// If this attribute is not set, its default value is element-type and
-// browser-defined
-// This default value may also be inherited, which means that the element content
-// will be checked for spelling errors only if its nearest ancestor has a
-// spellcheck state of true
-// Security and privacy concerns Using spellchecking can have consequences for
-// users' security and privacy
-// The specification does not regulate how spellchecking is done and the content
-// of the element may be sent to a third party for spellchecking results (see
-// enhanced spellchecking and "spell-jacking")
-// You should consider setting spellcheck to false for elements that can contain
-// sensitive information.
+// The spellcheck global attribute is an enumerated attribute that defines
+// whether the element may be checked for spelling errors. If this attribute is
+// not set, its default value is element-type and browser-defined. This default
+// value may also be inherited, which means that the element content will be
+// checked for spelling errors only if its nearest ancestor has a spellcheck
+// state of true. Security and privacy concerns Using spellchecking can have
+// consequences for users' security and privacy. The specification does not
+// regulate how spellchecking is done and the content of the element may be sent
+// to a third party for spellchecking results (see enhanced spellchecking and
+// "spell-jacking"). You should consider setting spellcheck to false for
+// elements that can contain sensitive information.
 // Remove the attribute SPELLCHECK from the element.
 func (e *AUDIOElement) SPELLCHECKRemove(c AudioSpellcheckChoice) *AUDIOElement {
 	if e.StringAttributes == nil {
@@ -2272,16 +2128,14 @@ func (e *AUDIOElement) SPELLCHECKRemove(c AudioSpellcheckChoice) *AUDIOElement {
 	return e
 }
 
-// The style global attribute is used to add styles to an element, such as color,
-// font, size, and more
-// Styles are written in CSS.
+// The style global attribute is used to add styles to an element, such as
+// color, font, size, and more. Styles are written in CSS.
 func (e *AUDIOElement) STYLEF(k string, format string, args ...any) *AUDIOElement {
 	return e.STYLE(k, fmt.Sprintf(format, args...))
 }
 
-// The style global attribute is used to add styles to an element, such as color,
-// font, size, and more
-// Styles are written in CSS.
+// The style global attribute is used to add styles to an element, such as
+// color, font, size, and more. Styles are written in CSS.
 func (e *AUDIOElement) IfSTYLE(condition bool, k string, v string) *AUDIOElement {
 	if condition {
 		e.STYLE(k, v)
@@ -2289,9 +2143,8 @@ func (e *AUDIOElement) IfSTYLE(condition bool, k string, v string) *AUDIOElement
 	return e
 }
 
-// The style global attribute is used to add styles to an element, such as color,
-// font, size, and more
-// Styles are written in CSS.
+// The style global attribute is used to add styles to an element, such as
+// color, font, size, and more. Styles are written in CSS.
 func (e *AUDIOElement) STYLE(k string, v string) *AUDIOElement {
 	if e.KVStrings == nil {
 		e.KVStrings = treemap.New[string, *KVBuilder]()
@@ -2305,9 +2158,8 @@ func (e *AUDIOElement) STYLE(k string, v string) *AUDIOElement {
 	return e
 }
 
-// The style global attribute is used to add styles to an element, such as color,
-// font, size, and more
-// Styles are written in CSS.
+// The style global attribute is used to add styles to an element, such as
+// color, font, size, and more. Styles are written in CSS.
 func (e *AUDIOElement) IfSTYLEF(condition bool, k string, format string, args ...any) *AUDIOElement {
 	if condition {
 		e.STYLE(k, fmt.Sprintf(format, args...))
@@ -2315,9 +2167,8 @@ func (e *AUDIOElement) IfSTYLEF(condition bool, k string, format string, args ..
 	return e
 }
 
-// The style global attribute is used to add styles to an element, such as color,
-// font, size, and more
-// Styles are written in CSS.
+// The style global attribute is used to add styles to an element, such as
+// color, font, size, and more. Styles are written in CSS.
 // Add the attributes in the map to the element.
 func (e *AUDIOElement) STYLEMap(m map[string]string) *AUDIOElement {
 	if e.KVStrings == nil {
@@ -2334,9 +2185,8 @@ func (e *AUDIOElement) STYLEMap(m map[string]string) *AUDIOElement {
 	return e
 }
 
-// The style global attribute is used to add styles to an element, such as color,
-// font, size, and more
-// Styles are written in CSS.
+// The style global attribute is used to add styles to an element, such as
+// color, font, size, and more. Styles are written in CSS.
 // Add pairs of attributes to the element.
 func (e *AUDIOElement) STYLEPairs(pairs ...string) *AUDIOElement {
 	if len(pairs)%2 != 0 {
@@ -2358,9 +2208,8 @@ func (e *AUDIOElement) STYLEPairs(pairs ...string) *AUDIOElement {
 	return e
 }
 
-// The style global attribute is used to add styles to an element, such as color,
-// font, size, and more
-// Styles are written in CSS.
+// The style global attribute is used to add styles to an element, such as
+// color, font, size, and more. Styles are written in CSS.
 func (e *AUDIOElement) IfSTYLEPairs(condition bool, pairs ...string) *AUDIOElement {
 	if condition {
 		e.STYLEPairs(pairs...)
@@ -2368,9 +2217,8 @@ func (e *AUDIOElement) IfSTYLEPairs(condition bool, pairs ...string) *AUDIOEleme
 	return e
 }
 
-// The style global attribute is used to add styles to an element, such as color,
-// font, size, and more
-// Styles are written in CSS.
+// The style global attribute is used to add styles to an element, such as
+// color, font, size, and more. Styles are written in CSS.
 // Remove the attribute STYLE from the element.
 func (e *AUDIOElement) STYLERemove(keys ...string) *AUDIOElement {
 	if e.KVStrings == nil {
@@ -2388,18 +2236,17 @@ func (e *AUDIOElement) STYLERemove(keys ...string) *AUDIOElement {
 
 // The tabindex global attribute indicates if its element can be focused, and
 // if/where it participates in sequential keyboard navigation (usually with the
-// Tab key, hence the name)
-// It accepts an integer as a value, with different results depending on the
-// integer's value: a negative value (usually tabindex="-1") means that the
-// element should be focusable, but should not be reachable via sequential
-// keyboard navigation; a value of 0 (tabindex="0") means that the element should
-// be focusable and reachable via sequential keyboard navigation, but its relative
-// order is defined by the platform convention; a positive value means should be
-// focusable and reachable via sequential keyboard navigation; its relative order
-// is defined by the value of the attribute: the sequential follow the increasing
-// number of the tabindex
-// If several elements share the same tabindex, their relative order follows their
-// relative position in the document.
+// Tab key, hence the name). It accepts an integer as a value, with different
+// results depending on the integer's value: a negative value (usually
+// tabindex="-1") means that the element should be focusable, but should not be
+// reachable via sequential keyboard navigation; a value of 0 (tabindex="0")
+// means that the element should be focusable and reachable via sequential
+// keyboard navigation, but its relative order is defined by the platform
+// convention; a positive value means should be focusable and reachable via
+// sequential keyboard navigation; its relative order is defined by the value of
+// the attribute: the sequential follow the increasing number of the tabindex.
+// If several elements share the same tabindex, their relative order follows
+// their relative position in the document.
 func (e *AUDIOElement) TABINDEX(i int) *AUDIOElement {
 	if e.IntAttributes == nil {
 		e.IntAttributes = treemap.New[string, int]()
@@ -2410,18 +2257,17 @@ func (e *AUDIOElement) TABINDEX(i int) *AUDIOElement {
 
 // The tabindex global attribute indicates if its element can be focused, and
 // if/where it participates in sequential keyboard navigation (usually with the
-// Tab key, hence the name)
-// It accepts an integer as a value, with different results depending on the
-// integer's value: a negative value (usually tabindex="-1") means that the
-// element should be focusable, but should not be reachable via sequential
-// keyboard navigation; a value of 0 (tabindex="0") means that the element should
-// be focusable and reachable via sequential keyboard navigation, but its relative
-// order is defined by the platform convention; a positive value means should be
-// focusable and reachable via sequential keyboard navigation; its relative order
-// is defined by the value of the attribute: the sequential follow the increasing
-// number of the tabindex
-// If several elements share the same tabindex, their relative order follows their
-// relative position in the document.
+// Tab key, hence the name). It accepts an integer as a value, with different
+// results depending on the integer's value: a negative value (usually
+// tabindex="-1") means that the element should be focusable, but should not be
+// reachable via sequential keyboard navigation; a value of 0 (tabindex="0")
+// means that the element should be focusable and reachable via sequential
+// keyboard navigation, but its relative order is defined by the platform
+// convention; a positive value means should be focusable and reachable via
+// sequential keyboard navigation; its relative order is defined by the value of
+// the attribute: the sequential follow the increasing number of the tabindex.
+// If several elements share the same tabindex, their relative order follows
+// their relative position in the document.
 func (e *AUDIOElement) IfTABINDEX(condition bool, i int) *AUDIOElement {
 	if condition {
 		e.TABINDEX(i)
@@ -2431,18 +2277,17 @@ func (e *AUDIOElement) IfTABINDEX(condition bool, i int) *AUDIOElement {
 
 // The tabindex global attribute indicates if its element can be focused, and
 // if/where it participates in sequential keyboard navigation (usually with the
-// Tab key, hence the name)
-// It accepts an integer as a value, with different results depending on the
-// integer's value: a negative value (usually tabindex="-1") means that the
-// element should be focusable, but should not be reachable via sequential
-// keyboard navigation; a value of 0 (tabindex="0") means that the element should
-// be focusable and reachable via sequential keyboard navigation, but its relative
-// order is defined by the platform convention; a positive value means should be
-// focusable and reachable via sequential keyboard navigation; its relative order
-// is defined by the value of the attribute: the sequential follow the increasing
-// number of the tabindex
-// If several elements share the same tabindex, their relative order follows their
-// relative position in the document.
+// Tab key, hence the name). It accepts an integer as a value, with different
+// results depending on the integer's value: a negative value (usually
+// tabindex="-1") means that the element should be focusable, but should not be
+// reachable via sequential keyboard navigation; a value of 0 (tabindex="0")
+// means that the element should be focusable and reachable via sequential
+// keyboard navigation, but its relative order is defined by the platform
+// convention; a positive value means should be focusable and reachable via
+// sequential keyboard navigation; its relative order is defined by the value of
+// the attribute: the sequential follow the increasing number of the tabindex.
+// If several elements share the same tabindex, their relative order follows
+// their relative position in the document.
 // Remove the attribute TABINDEX from the element.
 func (e *AUDIOElement) TABINDEXRemove(i int) *AUDIOElement {
 	if e.IntAttributes == nil {
@@ -2453,26 +2298,21 @@ func (e *AUDIOElement) TABINDEXRemove(i int) *AUDIOElement {
 }
 
 // The title global attribute contains text representing advisory information
-// related to the element it belongs to
-// Such information can typically, but not necessarily, be presented to the user
-// as a tooltip
-// The main use of the title attribute is to label <iframe> elements for assistive
-// technology
-// The title attribute may also be used to label controls in data tables
-// The title attribute, when added to <link rel="stylesheet">, creates an
-// alternate stylesheet
-// When defining an alternative style sheet with <link rel="alternate"> the
-// attribute is required and must be set to a non-empty string
-// If included on the <abbr> opening tag, the title must be a full expansion of
-// the abbreviation or acronym
-// Instead of using title, when possible, provide an expansion of the abbreviation
-// or acronym in plain text on first use, using the <abbr> to mark up the
-// abbreviation
-// This enables all users know what name or term the abbreviation or acronym
-// shortens while providing a hint to user agents on how to announce the content
-// While title can be used to provide a programmatically associated label for an
-// <input> element, this is not good practice
-// Use a <label> instead.
+// related to the element it belongs to. Such information can typically, but not
+// necessarily, be presented to the user as a tooltip. The main use of the title
+// attribute is to label <iframe> elements for assistive technology. The title
+// attribute may also be used to label controls in data tables. The title
+// attribute, when added to <link rel="stylesheet">, creates an alternate
+// stylesheet. When defining an alternative style sheet with <link
+// rel="alternate"> the attribute is required and must be set to a non-empty
+// string. If included on the <abbr> opening tag, the title must be a full
+// expansion of the abbreviation or acronym. Instead of using title, when
+// possible, provide an expansion of the abbreviation or acronym in plain text
+// on first use, using the <abbr> to mark up the abbreviation. This enables all
+// users know what name or term the abbreviation or acronym shortens while
+// providing a hint to user agents on how to announce the content. While title
+// can be used to provide a programmatically associated label for an <input>
+// element, this is not good practice. Use a <label> instead.
 func (e *AUDIOElement) TITLE(s string) *AUDIOElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -2482,51 +2322,41 @@ func (e *AUDIOElement) TITLE(s string) *AUDIOElement {
 }
 
 // The title global attribute contains text representing advisory information
-// related to the element it belongs to
-// Such information can typically, but not necessarily, be presented to the user
-// as a tooltip
-// The main use of the title attribute is to label <iframe> elements for assistive
-// technology
-// The title attribute may also be used to label controls in data tables
-// The title attribute, when added to <link rel="stylesheet">, creates an
-// alternate stylesheet
-// When defining an alternative style sheet with <link rel="alternate"> the
-// attribute is required and must be set to a non-empty string
-// If included on the <abbr> opening tag, the title must be a full expansion of
-// the abbreviation or acronym
-// Instead of using title, when possible, provide an expansion of the abbreviation
-// or acronym in plain text on first use, using the <abbr> to mark up the
-// abbreviation
-// This enables all users know what name or term the abbreviation or acronym
-// shortens while providing a hint to user agents on how to announce the content
-// While title can be used to provide a programmatically associated label for an
-// <input> element, this is not good practice
-// Use a <label> instead.
+// related to the element it belongs to. Such information can typically, but not
+// necessarily, be presented to the user as a tooltip. The main use of the title
+// attribute is to label <iframe> elements for assistive technology. The title
+// attribute may also be used to label controls in data tables. The title
+// attribute, when added to <link rel="stylesheet">, creates an alternate
+// stylesheet. When defining an alternative style sheet with <link
+// rel="alternate"> the attribute is required and must be set to a non-empty
+// string. If included on the <abbr> opening tag, the title must be a full
+// expansion of the abbreviation or acronym. Instead of using title, when
+// possible, provide an expansion of the abbreviation or acronym in plain text
+// on first use, using the <abbr> to mark up the abbreviation. This enables all
+// users know what name or term the abbreviation or acronym shortens while
+// providing a hint to user agents on how to announce the content. While title
+// can be used to provide a programmatically associated label for an <input>
+// element, this is not good practice. Use a <label> instead.
 func (e *AUDIOElement) TITLEF(format string, args ...any) *AUDIOElement {
 	return e.TITLE(fmt.Sprintf(format, args...))
 }
 
 // The title global attribute contains text representing advisory information
-// related to the element it belongs to
-// Such information can typically, but not necessarily, be presented to the user
-// as a tooltip
-// The main use of the title attribute is to label <iframe> elements for assistive
-// technology
-// The title attribute may also be used to label controls in data tables
-// The title attribute, when added to <link rel="stylesheet">, creates an
-// alternate stylesheet
-// When defining an alternative style sheet with <link rel="alternate"> the
-// attribute is required and must be set to a non-empty string
-// If included on the <abbr> opening tag, the title must be a full expansion of
-// the abbreviation or acronym
-// Instead of using title, when possible, provide an expansion of the abbreviation
-// or acronym in plain text on first use, using the <abbr> to mark up the
-// abbreviation
-// This enables all users know what name or term the abbreviation or acronym
-// shortens while providing a hint to user agents on how to announce the content
-// While title can be used to provide a programmatically associated label for an
-// <input> element, this is not good practice
-// Use a <label> instead.
+// related to the element it belongs to. Such information can typically, but not
+// necessarily, be presented to the user as a tooltip. The main use of the title
+// attribute is to label <iframe> elements for assistive technology. The title
+// attribute may also be used to label controls in data tables. The title
+// attribute, when added to <link rel="stylesheet">, creates an alternate
+// stylesheet. When defining an alternative style sheet with <link
+// rel="alternate"> the attribute is required and must be set to a non-empty
+// string. If included on the <abbr> opening tag, the title must be a full
+// expansion of the abbreviation or acronym. Instead of using title, when
+// possible, provide an expansion of the abbreviation or acronym in plain text
+// on first use, using the <abbr> to mark up the abbreviation. This enables all
+// users know what name or term the abbreviation or acronym shortens while
+// providing a hint to user agents on how to announce the content. While title
+// can be used to provide a programmatically associated label for an <input>
+// element, this is not good practice. Use a <label> instead.
 func (e *AUDIOElement) IfTITLE(condition bool, s string) *AUDIOElement {
 	if condition {
 		e.TITLE(s)
@@ -2535,26 +2365,21 @@ func (e *AUDIOElement) IfTITLE(condition bool, s string) *AUDIOElement {
 }
 
 // The title global attribute contains text representing advisory information
-// related to the element it belongs to
-// Such information can typically, but not necessarily, be presented to the user
-// as a tooltip
-// The main use of the title attribute is to label <iframe> elements for assistive
-// technology
-// The title attribute may also be used to label controls in data tables
-// The title attribute, when added to <link rel="stylesheet">, creates an
-// alternate stylesheet
-// When defining an alternative style sheet with <link rel="alternate"> the
-// attribute is required and must be set to a non-empty string
-// If included on the <abbr> opening tag, the title must be a full expansion of
-// the abbreviation or acronym
-// Instead of using title, when possible, provide an expansion of the abbreviation
-// or acronym in plain text on first use, using the <abbr> to mark up the
-// abbreviation
-// This enables all users know what name or term the abbreviation or acronym
-// shortens while providing a hint to user agents on how to announce the content
-// While title can be used to provide a programmatically associated label for an
-// <input> element, this is not good practice
-// Use a <label> instead.
+// related to the element it belongs to. Such information can typically, but not
+// necessarily, be presented to the user as a tooltip. The main use of the title
+// attribute is to label <iframe> elements for assistive technology. The title
+// attribute may also be used to label controls in data tables. The title
+// attribute, when added to <link rel="stylesheet">, creates an alternate
+// stylesheet. When defining an alternative style sheet with <link
+// rel="alternate"> the attribute is required and must be set to a non-empty
+// string. If included on the <abbr> opening tag, the title must be a full
+// expansion of the abbreviation or acronym. Instead of using title, when
+// possible, provide an expansion of the abbreviation or acronym in plain text
+// on first use, using the <abbr> to mark up the abbreviation. This enables all
+// users know what name or term the abbreviation or acronym shortens while
+// providing a hint to user agents on how to announce the content. While title
+// can be used to provide a programmatically associated label for an <input>
+// element, this is not good practice. Use a <label> instead.
 func (e *AUDIOElement) IfTITLEF(condition bool, format string, args ...any) *AUDIOElement {
 	if condition {
 		e.TITLE(fmt.Sprintf(format, args...))
@@ -2563,26 +2388,21 @@ func (e *AUDIOElement) IfTITLEF(condition bool, format string, args ...any) *AUD
 }
 
 // The title global attribute contains text representing advisory information
-// related to the element it belongs to
-// Such information can typically, but not necessarily, be presented to the user
-// as a tooltip
-// The main use of the title attribute is to label <iframe> elements for assistive
-// technology
-// The title attribute may also be used to label controls in data tables
-// The title attribute, when added to <link rel="stylesheet">, creates an
-// alternate stylesheet
-// When defining an alternative style sheet with <link rel="alternate"> the
-// attribute is required and must be set to a non-empty string
-// If included on the <abbr> opening tag, the title must be a full expansion of
-// the abbreviation or acronym
-// Instead of using title, when possible, provide an expansion of the abbreviation
-// or acronym in plain text on first use, using the <abbr> to mark up the
-// abbreviation
-// This enables all users know what name or term the abbreviation or acronym
-// shortens while providing a hint to user agents on how to announce the content
-// While title can be used to provide a programmatically associated label for an
-// <input> element, this is not good practice
-// Use a <label> instead.
+// related to the element it belongs to. Such information can typically, but not
+// necessarily, be presented to the user as a tooltip. The main use of the title
+// attribute is to label <iframe> elements for assistive technology. The title
+// attribute may also be used to label controls in data tables. The title
+// attribute, when added to <link rel="stylesheet">, creates an alternate
+// stylesheet. When defining an alternative style sheet with <link
+// rel="alternate"> the attribute is required and must be set to a non-empty
+// string. If included on the <abbr> opening tag, the title must be a full
+// expansion of the abbreviation or acronym. Instead of using title, when
+// possible, provide an expansion of the abbreviation or acronym in plain text
+// on first use, using the <abbr> to mark up the abbreviation. This enables all
+// users know what name or term the abbreviation or acronym shortens while
+// providing a hint to user agents on how to announce the content. While title
+// can be used to provide a programmatically associated label for an <input>
+// element, this is not good practice. Use a <label> instead.
 // Remove the attribute TITLE from the element.
 func (e *AUDIOElement) TITLERemove(s string) *AUDIOElement {
 	if e.StringAttributes == nil {
@@ -2593,26 +2413,21 @@ func (e *AUDIOElement) TITLERemove(s string) *AUDIOElement {
 }
 
 // The title global attribute contains text representing advisory information
-// related to the element it belongs to
-// Such information can typically, but not necessarily, be presented to the user
-// as a tooltip
-// The main use of the title attribute is to label <iframe> elements for assistive
-// technology
-// The title attribute may also be used to label controls in data tables
-// The title attribute, when added to <link rel="stylesheet">, creates an
-// alternate stylesheet
-// When defining an alternative style sheet with <link rel="alternate"> the
-// attribute is required and must be set to a non-empty string
-// If included on the <abbr> opening tag, the title must be a full expansion of
-// the abbreviation or acronym
-// Instead of using title, when possible, provide an expansion of the abbreviation
-// or acronym in plain text on first use, using the <abbr> to mark up the
-// abbreviation
-// This enables all users know what name or term the abbreviation or acronym
-// shortens while providing a hint to user agents on how to announce the content
-// While title can be used to provide a programmatically associated label for an
-// <input> element, this is not good practice
-// Use a <label> instead.
+// related to the element it belongs to. Such information can typically, but not
+// necessarily, be presented to the user as a tooltip. The main use of the title
+// attribute is to label <iframe> elements for assistive technology. The title
+// attribute may also be used to label controls in data tables. The title
+// attribute, when added to <link rel="stylesheet">, creates an alternate
+// stylesheet. When defining an alternative style sheet with <link
+// rel="alternate"> the attribute is required and must be set to a non-empty
+// string. If included on the <abbr> opening tag, the title must be a full
+// expansion of the abbreviation or acronym. Instead of using title, when
+// possible, provide an expansion of the abbreviation or acronym in plain text
+// on first use, using the <abbr> to mark up the abbreviation. This enables all
+// users know what name or term the abbreviation or acronym shortens while
+// providing a hint to user agents on how to announce the content. While title
+// can be used to provide a programmatically associated label for an <input>
+// element, this is not good practice. Use a <label> instead.
 func (e *AUDIOElement) TITLERemoveF(format string, args ...any) *AUDIOElement {
 	return e.TITLERemove(fmt.Sprintf(format, args...))
 }

@@ -183,9 +183,9 @@ func (e *SVGFEFLOODElement) CustomDataRemove(key string) *SVGFEFLOODElement {
 }
 
 // The flood-color attribute indicates what color to use to flood the current
-// filter primitive subregion defined through the <feFlood> element
-// If attribute 'flood-color' is not specified, then the effect is as if a value
-// of black were specified.
+// filter primitive subregion defined through the <feFlood> element. If
+// attribute 'flood-color' is not specified, then the effect is as if a value of
+// black were specified.
 func (e *SVGFEFLOODElement) FLOOD_COLOR(s string) *SVGFEFLOODElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -195,17 +195,17 @@ func (e *SVGFEFLOODElement) FLOOD_COLOR(s string) *SVGFEFLOODElement {
 }
 
 // The flood-color attribute indicates what color to use to flood the current
-// filter primitive subregion defined through the <feFlood> element
-// If attribute 'flood-color' is not specified, then the effect is as if a value
-// of black were specified.
+// filter primitive subregion defined through the <feFlood> element. If
+// attribute 'flood-color' is not specified, then the effect is as if a value of
+// black were specified.
 func (e *SVGFEFLOODElement) FLOOD_COLORF(format string, args ...any) *SVGFEFLOODElement {
 	return e.FLOOD_COLOR(fmt.Sprintf(format, args...))
 }
 
 // The flood-color attribute indicates what color to use to flood the current
-// filter primitive subregion defined through the <feFlood> element
-// If attribute 'flood-color' is not specified, then the effect is as if a value
-// of black were specified.
+// filter primitive subregion defined through the <feFlood> element. If
+// attribute 'flood-color' is not specified, then the effect is as if a value of
+// black were specified.
 func (e *SVGFEFLOODElement) IfFLOOD_COLOR(condition bool, s string) *SVGFEFLOODElement {
 	if condition {
 		e.FLOOD_COLOR(s)
@@ -214,9 +214,9 @@ func (e *SVGFEFLOODElement) IfFLOOD_COLOR(condition bool, s string) *SVGFEFLOODE
 }
 
 // The flood-color attribute indicates what color to use to flood the current
-// filter primitive subregion defined through the <feFlood> element
-// If attribute 'flood-color' is not specified, then the effect is as if a value
-// of black were specified.
+// filter primitive subregion defined through the <feFlood> element. If
+// attribute 'flood-color' is not specified, then the effect is as if a value of
+// black were specified.
 func (e *SVGFEFLOODElement) IfFLOOD_COLORF(condition bool, format string, args ...any) *SVGFEFLOODElement {
 	if condition {
 		e.FLOOD_COLOR(fmt.Sprintf(format, args...))
@@ -225,9 +225,9 @@ func (e *SVGFEFLOODElement) IfFLOOD_COLORF(condition bool, format string, args .
 }
 
 // The flood-color attribute indicates what color to use to flood the current
-// filter primitive subregion defined through the <feFlood> element
-// If attribute 'flood-color' is not specified, then the effect is as if a value
-// of black were specified.
+// filter primitive subregion defined through the <feFlood> element. If
+// attribute 'flood-color' is not specified, then the effect is as if a value of
+// black were specified.
 // Remove the attribute FLOOD_COLOR from the element.
 func (e *SVGFEFLOODElement) FLOOD_COLORRemove(s string) *SVGFEFLOODElement {
 	if e.StringAttributes == nil {
@@ -238,9 +238,9 @@ func (e *SVGFEFLOODElement) FLOOD_COLORRemove(s string) *SVGFEFLOODElement {
 }
 
 // The flood-color attribute indicates what color to use to flood the current
-// filter primitive subregion defined through the <feFlood> element
-// If attribute 'flood-color' is not specified, then the effect is as if a value
-// of black were specified.
+// filter primitive subregion defined through the <feFlood> element. If
+// attribute 'flood-color' is not specified, then the effect is as if a value of
+// black were specified.
 func (e *SVGFEFLOODElement) FLOOD_COLORRemoveF(format string, args ...any) *SVGFEFLOODElement {
 	return e.FLOOD_COLORRemove(fmt.Sprintf(format, args...))
 }

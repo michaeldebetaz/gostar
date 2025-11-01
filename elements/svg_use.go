@@ -10,9 +10,9 @@ import (
 )
 
 // The <use> SVG element includes a reference to a <symbol> element and attempts
-// to display the referenced content
-// The reference is drawn exactly as it was defined
-// It can be reused as often as needed and can be programmatically manipulated.
+// to display the referenced content. The reference is drawn exactly as it was
+// defined. It can be reused as often as needed and can be programmatically
+// manipulated.
 type SVGUSEElement struct {
 	*Element
 }
@@ -229,8 +229,8 @@ func (e *SVGUSEElement) HREFRemoveF(format string, args ...any) *SVGUSEElement {
 	return e.HREFRemove(fmt.Sprintf(format, args...))
 }
 
-// The x-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The x-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGUSEElement) X(f float64) *SVGUSEElement {
 	if e.FloatAttributes == nil {
 		e.FloatAttributes = treemap.New[string, float64]()
@@ -239,8 +239,8 @@ func (e *SVGUSEElement) X(f float64) *SVGUSEElement {
 	return e
 }
 
-// The x-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The x-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGUSEElement) IfX(condition bool, f float64) *SVGUSEElement {
 	if condition {
 		e.X(f)
@@ -248,8 +248,8 @@ func (e *SVGUSEElement) IfX(condition bool, f float64) *SVGUSEElement {
 	return e
 }
 
-// The y-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The y-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGUSEElement) Y(f float64) *SVGUSEElement {
 	if e.FloatAttributes == nil {
 		e.FloatAttributes = treemap.New[string, float64]()
@@ -258,8 +258,8 @@ func (e *SVGUSEElement) Y(f float64) *SVGUSEElement {
 	return e
 }
 
-// The y-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The y-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGUSEElement) IfY(condition bool, f float64) *SVGUSEElement {
 	if condition {
 		e.Y(f)

@@ -10,9 +10,8 @@ import (
 )
 
 // The <rect> SVG element is a basic SVG shape that draws rectangles, defined by
-// their position, width, and height
-// The shape is created by connecting a line from one point to the other three
-// points.
+// their position, width, and height. The shape is created by connecting a line
+// from one point to the other three points.
 type SVGRECTElement struct {
 	*Element
 }
@@ -184,8 +183,8 @@ func (e *SVGRECTElement) CustomDataRemove(key string) *SVGRECTElement {
 	return e
 }
 
-// The x-axis coordinate of the side of the rectangle which has the smaller x-axis
-// value.
+// The x-axis coordinate of the side of the rectangle which has the smaller
+// x-axis value.
 func (e *SVGRECTElement) X(f float64) *SVGRECTElement {
 	if e.FloatAttributes == nil {
 		e.FloatAttributes = treemap.New[string, float64]()
@@ -194,8 +193,8 @@ func (e *SVGRECTElement) X(f float64) *SVGRECTElement {
 	return e
 }
 
-// The x-axis coordinate of the side of the rectangle which has the smaller x-axis
-// value.
+// The x-axis coordinate of the side of the rectangle which has the smaller
+// x-axis value.
 func (e *SVGRECTElement) IfX(condition bool, f float64) *SVGRECTElement {
 	if condition {
 		e.X(f)
@@ -203,8 +202,8 @@ func (e *SVGRECTElement) IfX(condition bool, f float64) *SVGRECTElement {
 	return e
 }
 
-// The y-axis coordinate of the side of the rectangle which has the smaller y-axis
-// value.
+// The y-axis coordinate of the side of the rectangle which has the smaller
+// y-axis value.
 func (e *SVGRECTElement) Y(f float64) *SVGRECTElement {
 	if e.FloatAttributes == nil {
 		e.FloatAttributes = treemap.New[string, float64]()
@@ -213,8 +212,8 @@ func (e *SVGRECTElement) Y(f float64) *SVGRECTElement {
 	return e
 }
 
-// The y-axis coordinate of the side of the rectangle which has the smaller y-axis
-// value.
+// The y-axis coordinate of the side of the rectangle which has the smaller
+// y-axis value.
 func (e *SVGRECTElement) IfY(condition bool, f float64) *SVGRECTElement {
 	if condition {
 		e.Y(f)

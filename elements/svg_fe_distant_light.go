@@ -183,8 +183,8 @@ func (e *SVGFEDISTANTLIGHTElement) CustomDataRemove(key string) *SVGFEDISTANTLIG
 	return e
 }
 
-// The azimuth attribute represent the direction vector of the light source in the
-// XY plane (clockwise), in degrees from the x axis.
+// The azimuth attribute represent the direction vector of the light source in
+// the XY plane (clockwise), in degrees from the x axis.
 func (e *SVGFEDISTANTLIGHTElement) AZIMUTH(f float64) *SVGFEDISTANTLIGHTElement {
 	if e.FloatAttributes == nil {
 		e.FloatAttributes = treemap.New[string, float64]()
@@ -193,8 +193,8 @@ func (e *SVGFEDISTANTLIGHTElement) AZIMUTH(f float64) *SVGFEDISTANTLIGHTElement 
 	return e
 }
 
-// The azimuth attribute represent the direction vector of the light source in the
-// XY plane (clockwise), in degrees from the x axis.
+// The azimuth attribute represent the direction vector of the light source in
+// the XY plane (clockwise), in degrees from the x axis.
 func (e *SVGFEDISTANTLIGHTElement) IfAZIMUTH(condition bool, f float64) *SVGFEDISTANTLIGHTElement {
 	if condition {
 		e.AZIMUTH(f)
@@ -203,8 +203,8 @@ func (e *SVGFEDISTANTLIGHTElement) IfAZIMUTH(condition bool, f float64) *SVGFEDI
 }
 
 // The elevation attribute represent the direction vector of the light source
-// perpendicular to the XY plane, in degrees from the XY plane towards the z axis
-// (clockwise).
+// perpendicular to the XY plane, in degrees from the XY plane towards the z
+// axis (clockwise).
 func (e *SVGFEDISTANTLIGHTElement) ELEVATION(f float64) *SVGFEDISTANTLIGHTElement {
 	if e.FloatAttributes == nil {
 		e.FloatAttributes = treemap.New[string, float64]()
@@ -214,8 +214,8 @@ func (e *SVGFEDISTANTLIGHTElement) ELEVATION(f float64) *SVGFEDISTANTLIGHTElemen
 }
 
 // The elevation attribute represent the direction vector of the light source
-// perpendicular to the XY plane, in degrees from the XY plane towards the z axis
-// (clockwise).
+// perpendicular to the XY plane, in degrees from the XY plane towards the z
+// axis (clockwise).
 func (e *SVGFEDISTANTLIGHTElement) IfELEVATION(condition bool, f float64) *SVGFEDISTANTLIGHTElement {
 	if condition {
 		e.ELEVATION(f)

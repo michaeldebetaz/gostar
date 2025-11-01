@@ -289,8 +289,8 @@ func (e *SVGPATTERNElement) PATTERN_TRANSFORMRemoveF(format string, args ...any)
 	return e.PATTERN_TRANSFORMRemove(fmt.Sprintf(format, args...))
 }
 
-// The x-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The x-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGPATTERNElement) X(f float64) *SVGPATTERNElement {
 	if e.FloatAttributes == nil {
 		e.FloatAttributes = treemap.New[string, float64]()
@@ -299,8 +299,8 @@ func (e *SVGPATTERNElement) X(f float64) *SVGPATTERNElement {
 	return e
 }
 
-// The x-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The x-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGPATTERNElement) IfX(condition bool, f float64) *SVGPATTERNElement {
 	if condition {
 		e.X(f)
@@ -308,8 +308,8 @@ func (e *SVGPATTERNElement) IfX(condition bool, f float64) *SVGPATTERNElement {
 	return e
 }
 
-// The y-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The y-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGPATTERNElement) Y(f float64) *SVGPATTERNElement {
 	if e.FloatAttributes == nil {
 		e.FloatAttributes = treemap.New[string, float64]()
@@ -318,8 +318,8 @@ func (e *SVGPATTERNElement) Y(f float64) *SVGPATTERNElement {
 	return e
 }
 
-// The y-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The y-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGPATTERNElement) IfY(condition bool, f float64) *SVGPATTERNElement {
 	if condition {
 		e.Y(f)

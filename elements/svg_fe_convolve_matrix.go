@@ -9,8 +9,8 @@ import (
 	"github.com/igrmk/treemap/v2"
 )
 
-// The <feConvolveMatrix> SVG filter primitive applies a matrix convolution filter
-// effect.
+// The <feConvolveMatrix> SVG filter primitive applies a matrix convolution
+// filter effect.
 type SVGFECONVOLVEMATRIXElement struct {
 	*Element
 }
@@ -336,9 +336,8 @@ func (e *SVGFECONVOLVEMATRIXElement) IfDIVISOR(condition bool, f float64) *SVGFE
 	return e
 }
 
-// The bias attribute shifts the range of the filter
-// After applying the matrix operation, this bias value is added to each
-// component.
+// The bias attribute shifts the range of the filter. After applying the matrix
+// operation, this bias value is added to each component.
 func (e *SVGFECONVOLVEMATRIXElement) BIAS(f float64) *SVGFECONVOLVEMATRIXElement {
 	if e.FloatAttributes == nil {
 		e.FloatAttributes = treemap.New[string, float64]()
@@ -347,9 +346,8 @@ func (e *SVGFECONVOLVEMATRIXElement) BIAS(f float64) *SVGFECONVOLVEMATRIXElement
 	return e
 }
 
-// The bias attribute shifts the range of the filter
-// After applying the matrix operation, this bias value is added to each
-// component.
+// The bias attribute shifts the range of the filter. After applying the matrix
+// operation, this bias value is added to each component.
 func (e *SVGFECONVOLVEMATRIXElement) IfBIAS(condition bool, f float64) *SVGFECONVOLVEMATRIXElement {
 	if condition {
 		e.BIAS(f)
@@ -357,8 +355,8 @@ func (e *SVGFECONVOLVEMATRIXElement) IfBIAS(condition bool, f float64) *SVGFECON
 	return e
 }
 
-// The targetX attribute determines the positioning in X of the convolution matrix
-// relative to a given target pixel in the input image.
+// The targetX attribute determines the positioning in X of the convolution
+// matrix relative to a given target pixel in the input image.
 func (e *SVGFECONVOLVEMATRIXElement) TARGET_X(f float64) *SVGFECONVOLVEMATRIXElement {
 	if e.FloatAttributes == nil {
 		e.FloatAttributes = treemap.New[string, float64]()
@@ -367,8 +365,8 @@ func (e *SVGFECONVOLVEMATRIXElement) TARGET_X(f float64) *SVGFECONVOLVEMATRIXEle
 	return e
 }
 
-// The targetX attribute determines the positioning in X of the convolution matrix
-// relative to a given target pixel in the input image.
+// The targetX attribute determines the positioning in X of the convolution
+// matrix relative to a given target pixel in the input image.
 func (e *SVGFECONVOLVEMATRIXElement) IfTARGET_X(condition bool, f float64) *SVGFECONVOLVEMATRIXElement {
 	if condition {
 		e.TARGET_X(f)
@@ -376,8 +374,8 @@ func (e *SVGFECONVOLVEMATRIXElement) IfTARGET_X(condition bool, f float64) *SVGF
 	return e
 }
 
-// The targetY attribute determines the positioning in Y of the convolution matrix
-// relative to a given target pixel in the input image.
+// The targetY attribute determines the positioning in Y of the convolution
+// matrix relative to a given target pixel in the input image.
 func (e *SVGFECONVOLVEMATRIXElement) TARGET_Y(f float64) *SVGFECONVOLVEMATRIXElement {
 	if e.FloatAttributes == nil {
 		e.FloatAttributes = treemap.New[string, float64]()
@@ -386,8 +384,8 @@ func (e *SVGFECONVOLVEMATRIXElement) TARGET_Y(f float64) *SVGFECONVOLVEMATRIXEle
 	return e
 }
 
-// The targetY attribute determines the positioning in Y of the convolution matrix
-// relative to a given target pixel in the input image.
+// The targetY attribute determines the positioning in Y of the convolution
+// matrix relative to a given target pixel in the input image.
 func (e *SVGFECONVOLVEMATRIXElement) IfTARGET_Y(condition bool, f float64) *SVGFECONVOLVEMATRIXElement {
 	if condition {
 		e.TARGET_Y(f)
@@ -396,8 +394,8 @@ func (e *SVGFECONVOLVEMATRIXElement) IfTARGET_Y(condition bool, f float64) *SVGF
 }
 
 // The edgeMode attribute determines how to extend the input image as necessary
-// with color values so that the matrix operations can be applied when the kernel
-// is positioned at or near the edge of the input image.
+// with color values so that the matrix operations can be applied when the
+// kernel is positioned at or near the edge of the input image.
 func (e *SVGFECONVOLVEMATRIXElement) EDGE_MODE(c SVGFeConvolveMatrixEdgeModeChoice) *SVGFECONVOLVEMATRIXElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -420,8 +418,8 @@ const (
 )
 
 // The edgeMode attribute determines how to extend the input image as necessary
-// with color values so that the matrix operations can be applied when the kernel
-// is positioned at or near the edge of the input image.
+// with color values so that the matrix operations can be applied when the
+// kernel is positioned at or near the edge of the input image.
 // Remove the attribute EDGE_MODE from the element.
 func (e *SVGFECONVOLVEMATRIXElement) EDGE_MODERemove(c SVGFeConvolveMatrixEdgeModeChoice) *SVGFECONVOLVEMATRIXElement {
 	if e.StringAttributes == nil {
@@ -431,9 +429,9 @@ func (e *SVGFECONVOLVEMATRIXElement) EDGE_MODERemove(c SVGFeConvolveMatrixEdgeMo
 	return e
 }
 
-// The kernelUnitLength attribute defines the intended distance in current filter
-// units (i.e., units as determined by the value of attribute 'primitiveUnits')
-// for dx and dy in the surface normal calculation formulas.
+// The kernelUnitLength attribute defines the intended distance in current
+// filter units (i.e., units as determined by the value of attribute
+// 'primitiveUnits') for dx and dy in the surface normal calculation formulas.
 func (e *SVGFECONVOLVEMATRIXElement) KERNEL_UNIT_LENGTH(s string) *SVGFECONVOLVEMATRIXElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -442,16 +440,16 @@ func (e *SVGFECONVOLVEMATRIXElement) KERNEL_UNIT_LENGTH(s string) *SVGFECONVOLVE
 	return e
 }
 
-// The kernelUnitLength attribute defines the intended distance in current filter
-// units (i.e., units as determined by the value of attribute 'primitiveUnits')
-// for dx and dy in the surface normal calculation formulas.
+// The kernelUnitLength attribute defines the intended distance in current
+// filter units (i.e., units as determined by the value of attribute
+// 'primitiveUnits') for dx and dy in the surface normal calculation formulas.
 func (e *SVGFECONVOLVEMATRIXElement) KERNEL_UNIT_LENGTHF(format string, args ...any) *SVGFECONVOLVEMATRIXElement {
 	return e.KERNEL_UNIT_LENGTH(fmt.Sprintf(format, args...))
 }
 
-// The kernelUnitLength attribute defines the intended distance in current filter
-// units (i.e., units as determined by the value of attribute 'primitiveUnits')
-// for dx and dy in the surface normal calculation formulas.
+// The kernelUnitLength attribute defines the intended distance in current
+// filter units (i.e., units as determined by the value of attribute
+// 'primitiveUnits') for dx and dy in the surface normal calculation formulas.
 func (e *SVGFECONVOLVEMATRIXElement) IfKERNEL_UNIT_LENGTH(condition bool, s string) *SVGFECONVOLVEMATRIXElement {
 	if condition {
 		e.KERNEL_UNIT_LENGTH(s)
@@ -459,9 +457,9 @@ func (e *SVGFECONVOLVEMATRIXElement) IfKERNEL_UNIT_LENGTH(condition bool, s stri
 	return e
 }
 
-// The kernelUnitLength attribute defines the intended distance in current filter
-// units (i.e., units as determined by the value of attribute 'primitiveUnits')
-// for dx and dy in the surface normal calculation formulas.
+// The kernelUnitLength attribute defines the intended distance in current
+// filter units (i.e., units as determined by the value of attribute
+// 'primitiveUnits') for dx and dy in the surface normal calculation formulas.
 func (e *SVGFECONVOLVEMATRIXElement) IfKERNEL_UNIT_LENGTHF(condition bool, format string, args ...any) *SVGFECONVOLVEMATRIXElement {
 	if condition {
 		e.KERNEL_UNIT_LENGTH(fmt.Sprintf(format, args...))
@@ -469,9 +467,9 @@ func (e *SVGFECONVOLVEMATRIXElement) IfKERNEL_UNIT_LENGTHF(condition bool, forma
 	return e
 }
 
-// The kernelUnitLength attribute defines the intended distance in current filter
-// units (i.e., units as determined by the value of attribute 'primitiveUnits')
-// for dx and dy in the surface normal calculation formulas.
+// The kernelUnitLength attribute defines the intended distance in current
+// filter units (i.e., units as determined by the value of attribute
+// 'primitiveUnits') for dx and dy in the surface normal calculation formulas.
 // Remove the attribute KERNEL_UNIT_LENGTH from the element.
 func (e *SVGFECONVOLVEMATRIXElement) KERNEL_UNIT_LENGTHRemove(s string) *SVGFECONVOLVEMATRIXElement {
 	if e.StringAttributes == nil {
@@ -481,22 +479,22 @@ func (e *SVGFECONVOLVEMATRIXElement) KERNEL_UNIT_LENGTHRemove(s string) *SVGFECO
 	return e
 }
 
-// The kernelUnitLength attribute defines the intended distance in current filter
-// units (i.e., units as determined by the value of attribute 'primitiveUnits')
-// for dx and dy in the surface normal calculation formulas.
+// The kernelUnitLength attribute defines the intended distance in current
+// filter units (i.e., units as determined by the value of attribute
+// 'primitiveUnits') for dx and dy in the surface normal calculation formulas.
 func (e *SVGFECONVOLVEMATRIXElement) KERNEL_UNIT_LENGTHRemoveF(format string, args ...any) *SVGFECONVOLVEMATRIXElement {
 	return e.KERNEL_UNIT_LENGTHRemove(fmt.Sprintf(format, args...))
 }
 
-// The preserveAlpha attribute indicates how the convolution will handle the alpha
-// channel of the input image.
+// The preserveAlpha attribute indicates how the convolution will handle the
+// alpha channel of the input image.
 func (e *SVGFECONVOLVEMATRIXElement) PRESERVE_ALPHA() *SVGFECONVOLVEMATRIXElement {
 	e.PRESERVE_ALPHASet(true)
 	return e
 }
 
-// The preserveAlpha attribute indicates how the convolution will handle the alpha
-// channel of the input image.
+// The preserveAlpha attribute indicates how the convolution will handle the
+// alpha channel of the input image.
 func (e *SVGFECONVOLVEMATRIXElement) IfPRESERVE_ALPHA(condition bool) *SVGFECONVOLVEMATRIXElement {
 	if condition {
 		e.PRESERVE_ALPHASet(true)
@@ -504,8 +502,8 @@ func (e *SVGFECONVOLVEMATRIXElement) IfPRESERVE_ALPHA(condition bool) *SVGFECONV
 	return e
 }
 
-// The preserveAlpha attribute indicates how the convolution will handle the alpha
-// channel of the input image.
+// The preserveAlpha attribute indicates how the convolution will handle the
+// alpha channel of the input image.
 // Set the attribute PRESERVE_ALPHA to the value b explicitly.
 func (e *SVGFECONVOLVEMATRIXElement) PRESERVE_ALPHASet(b bool) *SVGFECONVOLVEMATRIXElement {
 	if e.BoolAttributes == nil {
@@ -515,8 +513,8 @@ func (e *SVGFECONVOLVEMATRIXElement) PRESERVE_ALPHASet(b bool) *SVGFECONVOLVEMAT
 	return e
 }
 
-// The preserveAlpha attribute indicates how the convolution will handle the alpha
-// channel of the input image.
+// The preserveAlpha attribute indicates how the convolution will handle the
+// alpha channel of the input image.
 func (e *SVGFECONVOLVEMATRIXElement) IfSetPRESERVE_ALPHA(condition bool, b bool) *SVGFECONVOLVEMATRIXElement {
 	if condition {
 		e.PRESERVE_ALPHASet(b)
@@ -525,8 +523,8 @@ func (e *SVGFECONVOLVEMATRIXElement) IfSetPRESERVE_ALPHA(condition bool, b bool)
 }
 
 // Remove the attribute PRESERVE_ALPHA from the element.
-// The preserveAlpha attribute indicates how the convolution will handle the alpha
-// channel of the input image.
+// The preserveAlpha attribute indicates how the convolution will handle the
+// alpha channel of the input image.
 func (e *SVGFECONVOLVEMATRIXElement) PRESERVE_ALPHARemove(b bool) *SVGFECONVOLVEMATRIXElement {
 	if e.BoolAttributes == nil {
 		return e

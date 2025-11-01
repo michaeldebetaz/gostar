@@ -9,8 +9,8 @@ import (
 	"github.com/igrmk/treemap/v2"
 )
 
-// The <ellipse> SVG element is an SVG basic shape, used to create ellipses based
-// on a center coordinate, and both their x and y radius.
+// The <ellipse> SVG element is an SVG basic shape, used to create ellipses
+// based on a center coordinate, and both their x and y radius.
 type SVGELLIPSEElement struct {
 	*Element
 }

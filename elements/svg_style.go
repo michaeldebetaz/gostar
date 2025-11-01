@@ -9,10 +9,9 @@ import (
 	"github.com/igrmk/treemap/v2"
 )
 
-// The <style> SVG element allows style sheets to be embedded directly within SVG
-// content
-// SVG's style element has the same attributes as the corresponding element in
-// HTML (see HTML's <style> element).
+// The <style> SVG element allows style sheets to be embedded directly within
+// SVG content. SVG's style element has the same attributes as the corresponding
+// element in HTML (see HTML's <style> element).
 type SVGSTYLEElement struct {
 	*Element
 }

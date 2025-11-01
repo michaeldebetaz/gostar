@@ -10,12 +10,10 @@ import (
 )
 
 // The <set> SVG element provides a simple means of just setting the value of an
-// attribute for a specified duration
-// It supports all attribute types, including those that cannot reasonably be
-// interpolated, such as string and boolean values
-// The <set> element is non-additive
-// The additive and accumulate attributes are not allowed, and will be ignored if
-// specified.
+// attribute for a specified duration. It supports all attribute types,
+// including those that cannot reasonably be interpolated, such as string and
+// boolean values. The <set> element is non-additive. The additive and
+// accumulate attributes are not allowed, and will be ignored if specified.
 type SVGSETElement struct {
 	*Element
 }

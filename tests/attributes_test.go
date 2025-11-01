@@ -70,6 +70,14 @@ func TestKVAttributes(t *testing.T) {
 			Expected: "<div style=\"display:none\"></div>",
 			Actual:   DIV().STYLE("display", "none"),
 		},
+		{
+			Expected: "<span style=\"color:red;display:block\"></span>",
+			Actual: SPAN().STYLE("color", "red").STYLEMap(map[string]string{
+				"display":     "block",
+				"font-size":   "12px",
+				"font-weight": "bold",
+			}).STYLERemove("font-size", "font-weight"),
+		},
 	})
 }
 

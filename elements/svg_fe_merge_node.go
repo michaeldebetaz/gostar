@@ -10,9 +10,8 @@ import (
 )
 
 // The <feMergeNode> SVG element allows a series of filter primitives to be
-// connected together graphically
-// Incoming nodes are blended into the background via the defined compositing
-// operator.
+// connected together graphically. Incoming nodes are blended into the
+// background via the defined compositing operator.
 type SVGFEMERGENODEElement struct {
 	*Element
 }

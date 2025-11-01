@@ -10,9 +10,9 @@ import (
 )
 
 // The <feTile> SVG filter primitive allows to fill a target rectangle with a
-// repeated, tiled pattern of an input image
-// The effect is similar to the one of a <pattern> element, but <feTile> can use
-// complex (i.e., filter) tree as input, and can be animated.
+// repeated, tiled pattern of an input image. The effect is similar to the one
+// of a <pattern> element, but <feTile> can use complex (i.e., filter) tree as
+// input, and can be animated.
 type SVGFETILEElement struct {
 	*Element
 }

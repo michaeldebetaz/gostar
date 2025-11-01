@@ -194,12 +194,11 @@ func (e *SVGANIMATEElement) ACCUMULATE(c SVGAnimateAccumulateChoice) *SVGANIMATE
 type SVGAnimateAccumulateChoice string
 
 const (
-	// The animation is not cumulative
-	// Each iteration starts over from the beginning.
+	// The animation is not cumulative. Each iteration starts over from the
+	// beginning.
 	SVGAnimateAccumulate_none SVGAnimateAccumulateChoice = "none"
-	// The animation is cumulative
-	// Each iteration the animation picks up where it left off in the previous
-	// iteration.
+	// The animation is cumulative. Each iteration the animation picks up where it
+	// left off in the previous iteration.
 	SVGAnimateAccumulate_sum SVGAnimateAccumulateChoice = "sum"
 )
 
@@ -225,11 +224,9 @@ func (e *SVGANIMATEElement) ADDITIVE(c SVGAnimateAdditiveChoice) *SVGANIMATEElem
 type SVGAnimateAdditiveChoice string
 
 const (
-	// The animation is not additive
-	// The animation replaces the underlying value.
+	// The animation is not additive. The animation replaces the underlying value.
 	SVGAnimateAdditive_replace SVGAnimateAdditiveChoice = "replace"
-	// The animation is additive
-	// The animation adds to the underlying value.
+	// The animation is additive. The animation adds to the underlying value.
 	SVGAnimateAdditive_sum SVGAnimateAdditiveChoice = "sum"
 )
 
@@ -300,10 +297,10 @@ func (e *SVGANIMATEElement) ATTRIBUTE_TYPE(c SVGAnimateAttributeTypeChoice) *SVG
 type SVGAnimateAttributeTypeChoice string
 
 const (
-	// If the attribute is a presentation attribute, the animation will use the target
-	// element's corresponding baseVal
-	// If the attribute is not a presentation attribute, the animation will use the
-	// target element's corresponding animVal.
+	// If the attribute is a presentation attribute, the animation will use the
+	// target element's corresponding baseVal. If the attribute is not a
+	// presentation attribute, the animation will use the target element's
+	// corresponding animVal.
 	SVGAnimateAttributeType_auto SVGAnimateAttributeTypeChoice = "auto"
 	// The animation will use the CSS namespace.
 	SVGAnimateAttributeType_CSS SVGAnimateAttributeTypeChoice = "CSS"
@@ -429,8 +426,8 @@ func (e *SVGANIMATEElement) CALC_MODE(c SVGAnimateCalcModeChoice) *SVGANIMATEEle
 type SVGAnimateCalcModeChoice string
 
 const (
-	// The animation is not paced
-	// Each iteration of the animation is displayed as fast as possible.
+	// The animation is not paced. Each iteration of the animation is displayed as
+	// fast as possible.
 	SVGAnimateCalcMode_discrete SVGAnimateCalcModeChoice = "discrete"
 	// The animation is paced such that it takes the same amount of time to go from
 	// the start value to the end value throughout the animation.
@@ -615,7 +612,8 @@ func (e *SVGANIMATEElement) FROMRemoveF(format string, args ...any) *SVGANIMATEE
 	return e.FROMRemove(fmt.Sprintf(format, args...))
 }
 
-// Defines the values for a cubic Bézier function that controls interval pacing.
+// Defines the values for a cubic Bézier function that controls interval
+// pacing.
 func (e *SVGANIMATEElement) KEY_SPLINES(s string) *SVGANIMATEElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -624,12 +622,14 @@ func (e *SVGANIMATEElement) KEY_SPLINES(s string) *SVGANIMATEElement {
 	return e
 }
 
-// Defines the values for a cubic Bézier function that controls interval pacing.
+// Defines the values for a cubic Bézier function that controls interval
+// pacing.
 func (e *SVGANIMATEElement) KEY_SPLINESF(format string, args ...any) *SVGANIMATEElement {
 	return e.KEY_SPLINES(fmt.Sprintf(format, args...))
 }
 
-// Defines the values for a cubic Bézier function that controls interval pacing.
+// Defines the values for a cubic Bézier function that controls interval
+// pacing.
 func (e *SVGANIMATEElement) IfKEY_SPLINES(condition bool, s string) *SVGANIMATEElement {
 	if condition {
 		e.KEY_SPLINES(s)
@@ -637,7 +637,8 @@ func (e *SVGANIMATEElement) IfKEY_SPLINES(condition bool, s string) *SVGANIMATEE
 	return e
 }
 
-// Defines the values for a cubic Bézier function that controls interval pacing.
+// Defines the values for a cubic Bézier function that controls interval
+// pacing.
 func (e *SVGANIMATEElement) IfKEY_SPLINESF(condition bool, format string, args ...any) *SVGANIMATEElement {
 	if condition {
 		e.KEY_SPLINES(fmt.Sprintf(format, args...))
@@ -645,7 +646,8 @@ func (e *SVGANIMATEElement) IfKEY_SPLINESF(condition bool, format string, args .
 	return e
 }
 
-// Defines the values for a cubic Bézier function that controls interval pacing.
+// Defines the values for a cubic Bézier function that controls interval
+// pacing.
 // Remove the attribute KEY_SPLINES from the element.
 func (e *SVGANIMATEElement) KEY_SPLINESRemove(s string) *SVGANIMATEElement {
 	if e.StringAttributes == nil {
@@ -655,7 +657,8 @@ func (e *SVGANIMATEElement) KEY_SPLINESRemove(s string) *SVGANIMATEElement {
 	return e
 }
 
-// Defines the values for a cubic Bézier function that controls interval pacing.
+// Defines the values for a cubic Bézier function that controls interval
+// pacing.
 func (e *SVGANIMATEElement) KEY_SPLINESRemoveF(format string, args ...any) *SVGANIMATEElement {
 	return e.KEY_SPLINESRemove(fmt.Sprintf(format, args...))
 }
@@ -901,8 +904,8 @@ const (
 	SVGAnimateRestart_always SVGAnimateRestartChoice = "always"
 	// The animation will not restart after it completes.
 	SVGAnimateRestart_never SVGAnimateRestartChoice = "never"
-	// The animation will restart after it completes if the animation is not currently
-	// active.
+	// The animation will restart after it completes if the animation is not
+	// currently active.
 	SVGAnimateRestart_whenNotActive SVGAnimateRestartChoice = "whenNotActive"
 )
 

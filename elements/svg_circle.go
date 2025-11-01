@@ -9,8 +9,8 @@ import (
 	"github.com/igrmk/treemap/v2"
 )
 
-// The <circle> SVG element is an SVG basic shape, used to create circles based on
-// a center point and a radius.
+// The <circle> SVG element is an SVG basic shape, used to create circles based
+// on a center point and a radius.
 type SVGCIRCLEElement struct {
 	*Element
 }

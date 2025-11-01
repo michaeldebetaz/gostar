@@ -9,13 +9,11 @@ import (
 	"github.com/igrmk/treemap/v2"
 )
 
-// The <feSpecularLighting> SVG filter primitive lights a source graphic using the
-// alpha channel as a bump map
-// The resulting image is an RGBA image based on the light color
-// The lighting calculation follows the standard specular component of the Phong
-// lighting model
-// The resulting image depends on the light color, light position and surface
-// geometry of the input bump map.
+// The <feSpecularLighting> SVG filter primitive lights a source graphic using
+// the alpha channel as a bump map. The resulting image is an RGBA image based
+// on the light color. The lighting calculation follows the standard specular
+// component of the Phong lighting model. The resulting image depends on the
+// light color, light position and surface geometry of the input bump map.
 type SVGFESPECULARLIGHTINGElement struct {
 	*Element
 }
@@ -232,8 +230,8 @@ func (e *SVGFESPECULARLIGHTINGElement) INRemoveF(format string, args ...any) *SV
 	return e.INRemove(fmt.Sprintf(format, args...))
 }
 
-// The 'surfaceScale' attribute indicates the height of the surface when the alpha
-// channel is 1.0.
+// The 'surfaceScale' attribute indicates the height of the surface when the
+// alpha channel is 1.0.
 func (e *SVGFESPECULARLIGHTINGElement) SURFACE_SCALE(f float64) *SVGFESPECULARLIGHTINGElement {
 	if e.FloatAttributes == nil {
 		e.FloatAttributes = treemap.New[string, float64]()
@@ -242,8 +240,8 @@ func (e *SVGFESPECULARLIGHTINGElement) SURFACE_SCALE(f float64) *SVGFESPECULARLI
 	return e
 }
 
-// The 'surfaceScale' attribute indicates the height of the surface when the alpha
-// channel is 1.0.
+// The 'surfaceScale' attribute indicates the height of the surface when the
+// alpha channel is 1.0.
 func (e *SVGFESPECULARLIGHTINGElement) IfSURFACE_SCALE(condition bool, f float64) *SVGFESPECULARLIGHTINGElement {
 	if condition {
 		e.SURFACE_SCALE(f)
@@ -285,9 +283,9 @@ func (e *SVGFESPECULARLIGHTINGElement) IfSPECULAR_EXPONENT(condition bool, f flo
 	return e
 }
 
-// The kernelUnitLength attribute defines the intended distance in current filter
-// units (i.e., units as determined by the value of attribute 'primitiveUnits')
-// for dx and dy in the surface normal calculation formulas.
+// The kernelUnitLength attribute defines the intended distance in current
+// filter units (i.e., units as determined by the value of attribute
+// 'primitiveUnits') for dx and dy in the surface normal calculation formulas.
 func (e *SVGFESPECULARLIGHTINGElement) KERNEL_UNIT_LENGTH(s string) *SVGFESPECULARLIGHTINGElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -296,16 +294,16 @@ func (e *SVGFESPECULARLIGHTINGElement) KERNEL_UNIT_LENGTH(s string) *SVGFESPECUL
 	return e
 }
 
-// The kernelUnitLength attribute defines the intended distance in current filter
-// units (i.e., units as determined by the value of attribute 'primitiveUnits')
-// for dx and dy in the surface normal calculation formulas.
+// The kernelUnitLength attribute defines the intended distance in current
+// filter units (i.e., units as determined by the value of attribute
+// 'primitiveUnits') for dx and dy in the surface normal calculation formulas.
 func (e *SVGFESPECULARLIGHTINGElement) KERNEL_UNIT_LENGTHF(format string, args ...any) *SVGFESPECULARLIGHTINGElement {
 	return e.KERNEL_UNIT_LENGTH(fmt.Sprintf(format, args...))
 }
 
-// The kernelUnitLength attribute defines the intended distance in current filter
-// units (i.e., units as determined by the value of attribute 'primitiveUnits')
-// for dx and dy in the surface normal calculation formulas.
+// The kernelUnitLength attribute defines the intended distance in current
+// filter units (i.e., units as determined by the value of attribute
+// 'primitiveUnits') for dx and dy in the surface normal calculation formulas.
 func (e *SVGFESPECULARLIGHTINGElement) IfKERNEL_UNIT_LENGTH(condition bool, s string) *SVGFESPECULARLIGHTINGElement {
 	if condition {
 		e.KERNEL_UNIT_LENGTH(s)
@@ -313,9 +311,9 @@ func (e *SVGFESPECULARLIGHTINGElement) IfKERNEL_UNIT_LENGTH(condition bool, s st
 	return e
 }
 
-// The kernelUnitLength attribute defines the intended distance in current filter
-// units (i.e., units as determined by the value of attribute 'primitiveUnits')
-// for dx and dy in the surface normal calculation formulas.
+// The kernelUnitLength attribute defines the intended distance in current
+// filter units (i.e., units as determined by the value of attribute
+// 'primitiveUnits') for dx and dy in the surface normal calculation formulas.
 func (e *SVGFESPECULARLIGHTINGElement) IfKERNEL_UNIT_LENGTHF(condition bool, format string, args ...any) *SVGFESPECULARLIGHTINGElement {
 	if condition {
 		e.KERNEL_UNIT_LENGTH(fmt.Sprintf(format, args...))
@@ -323,9 +321,9 @@ func (e *SVGFESPECULARLIGHTINGElement) IfKERNEL_UNIT_LENGTHF(condition bool, for
 	return e
 }
 
-// The kernelUnitLength attribute defines the intended distance in current filter
-// units (i.e., units as determined by the value of attribute 'primitiveUnits')
-// for dx and dy in the surface normal calculation formulas.
+// The kernelUnitLength attribute defines the intended distance in current
+// filter units (i.e., units as determined by the value of attribute
+// 'primitiveUnits') for dx and dy in the surface normal calculation formulas.
 // Remove the attribute KERNEL_UNIT_LENGTH from the element.
 func (e *SVGFESPECULARLIGHTINGElement) KERNEL_UNIT_LENGTHRemove(s string) *SVGFESPECULARLIGHTINGElement {
 	if e.StringAttributes == nil {
@@ -335,9 +333,9 @@ func (e *SVGFESPECULARLIGHTINGElement) KERNEL_UNIT_LENGTHRemove(s string) *SVGFE
 	return e
 }
 
-// The kernelUnitLength attribute defines the intended distance in current filter
-// units (i.e., units as determined by the value of attribute 'primitiveUnits')
-// for dx and dy in the surface normal calculation formulas.
+// The kernelUnitLength attribute defines the intended distance in current
+// filter units (i.e., units as determined by the value of attribute
+// 'primitiveUnits') for dx and dy in the surface normal calculation formulas.
 func (e *SVGFESPECULARLIGHTINGElement) KERNEL_UNIT_LENGTHRemoveF(format string, args ...any) *SVGFESPECULARLIGHTINGElement {
 	return e.KERNEL_UNIT_LENGTHRemove(fmt.Sprintf(format, args...))
 }

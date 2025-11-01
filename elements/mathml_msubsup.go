@@ -182,10 +182,9 @@ func (e *MathMLMSUBSUPElement) CustomDataRemove(key string) *MathMLMSUBSUPElemen
 	return e
 }
 
-// Assigns a class name or set of class names to an element
-// You may assign the same class name or names to any number of elements
-// If you specify multiple class names, they must be separated by whitespace
-// characters.
+// Assigns a class name or set of class names to an element. You may assign the
+// same class name or names to any number of elements. If you specify multiple
+// class names, they must be separated by whitespace characters.
 func (e *MathMLMSUBSUPElement) CLASS(s ...string) *MathMLMSUBSUPElement {
 	if e.DelimitedStrings == nil {
 		e.DelimitedStrings = treemap.New[string, *DelimitedBuilder[string]]()
@@ -199,10 +198,9 @@ func (e *MathMLMSUBSUPElement) CLASS(s ...string) *MathMLMSUBSUPElement {
 	return e
 }
 
-// Assigns a class name or set of class names to an element
-// You may assign the same class name or names to any number of elements
-// If you specify multiple class names, they must be separated by whitespace
-// characters.
+// Assigns a class name or set of class names to an element. You may assign the
+// same class name or names to any number of elements. If you specify multiple
+// class names, they must be separated by whitespace characters.
 func (e *MathMLMSUBSUPElement) IfCLASS(condition bool, s ...string) *MathMLMSUBSUPElement {
 	if condition {
 		e.CLASS(s...)
@@ -210,10 +208,9 @@ func (e *MathMLMSUBSUPElement) IfCLASS(condition bool, s ...string) *MathMLMSUBS
 	return e
 }
 
-// Assigns a class name or set of class names to an element
-// You may assign the same class name or names to any number of elements
-// If you specify multiple class names, they must be separated by whitespace
-// characters.
+// Assigns a class name or set of class names to an element. You may assign the
+// same class name or names to any number of elements. If you specify multiple
+// class names, they must be separated by whitespace characters.
 // Remove the attribute CLASS from the element.
 func (e *MathMLMSUBSUPElement) CLASSRemove(s ...string) *MathMLMSUBSUPElement {
 	if e.DelimitedStrings == nil {
@@ -228,9 +225,9 @@ func (e *MathMLMSUBSUPElement) CLASSRemove(s ...string) *MathMLMSUBSUPElement {
 }
 
 // This attribute specifies the text directionality of the element, merely
-// indicating what direction the text flows when surrounded by text with inherent
-// directionality (such as Arabic or Hebrew)
-// Possible values are ltr (left-to-right) and rtl (right-to-left).
+// indicating what direction the text flows when surrounded by text with
+// inherent directionality (such as Arabic or Hebrew). Possible values are ltr
+// (left-to-right) and rtl (right-to-left).
 func (e *MathMLMSUBSUPElement) DIR(c MathMLMsubsupDirChoice) *MathMLMSUBSUPElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -249,9 +246,9 @@ const (
 )
 
 // This attribute specifies the text directionality of the element, merely
-// indicating what direction the text flows when surrounded by text with inherent
-// directionality (such as Arabic or Hebrew)
-// Possible values are ltr (left-to-right) and rtl (right-to-left).
+// indicating what direction the text flows when surrounded by text with
+// inherent directionality (such as Arabic or Hebrew). Possible values are ltr
+// (left-to-right) and rtl (right-to-left).
 // Remove the attribute DIR from the element.
 func (e *MathMLMSUBSUPElement) DIRRemove(c MathMLMsubsupDirChoice) *MathMLMSUBSUPElement {
 	if e.StringAttributes == nil {
@@ -262,8 +259,7 @@ func (e *MathMLMSUBSUPElement) DIRRemove(c MathMLMsubsupDirChoice) *MathMLMSUBSU
 }
 
 // This attribute specifies whether the element should be rendered using
-// displaystyle rules or not
-// Possible values are true and false.
+// displaystyle rules or not. Possible values are true and false.
 func (e *MathMLMSUBSUPElement) DISPLAYSTYLE(c MathMLMsubsupDisplaystyleChoice) *MathMLMSUBSUPElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -282,8 +278,7 @@ const (
 )
 
 // This attribute specifies whether the element should be rendered using
-// displaystyle rules or not
-// Possible values are true and false.
+// displaystyle rules or not. Possible values are true and false.
 // Remove the attribute DISPLAYSTYLE from the element.
 func (e *MathMLMSUBSUPElement) DISPLAYSTYLERemove(c MathMLMsubsupDisplaystyleChoice) *MathMLMSUBSUPElement {
 	if e.StringAttributes == nil {
@@ -293,8 +288,8 @@ func (e *MathMLMSUBSUPElement) DISPLAYSTYLERemove(c MathMLMsubsupDisplaystyleCho
 	return e
 }
 
-// This attribute assigns a name to an element
-// This name must be unique in a document.
+// This attribute assigns a name to an element. This name must be unique in a
+// document.
 func (e *MathMLMSUBSUPElement) ID(s string) *MathMLMSUBSUPElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -303,14 +298,14 @@ func (e *MathMLMSUBSUPElement) ID(s string) *MathMLMSUBSUPElement {
 	return e
 }
 
-// This attribute assigns a name to an element
-// This name must be unique in a document.
+// This attribute assigns a name to an element. This name must be unique in a
+// document.
 func (e *MathMLMSUBSUPElement) IDF(format string, args ...any) *MathMLMSUBSUPElement {
 	return e.ID(fmt.Sprintf(format, args...))
 }
 
-// This attribute assigns a name to an element
-// This name must be unique in a document.
+// This attribute assigns a name to an element. This name must be unique in a
+// document.
 func (e *MathMLMSUBSUPElement) IfID(condition bool, s string) *MathMLMSUBSUPElement {
 	if condition {
 		e.ID(s)
@@ -318,8 +313,8 @@ func (e *MathMLMSUBSUPElement) IfID(condition bool, s string) *MathMLMSUBSUPElem
 	return e
 }
 
-// This attribute assigns a name to an element
-// This name must be unique in a document.
+// This attribute assigns a name to an element. This name must be unique in a
+// document.
 func (e *MathMLMSUBSUPElement) IfIDF(condition bool, format string, args ...any) *MathMLMSUBSUPElement {
 	if condition {
 		e.ID(fmt.Sprintf(format, args...))
@@ -327,8 +322,8 @@ func (e *MathMLMSUBSUPElement) IfIDF(condition bool, format string, args ...any)
 	return e
 }
 
-// This attribute assigns a name to an element
-// This name must be unique in a document.
+// This attribute assigns a name to an element. This name must be unique in a
+// document.
 // Remove the attribute ID from the element.
 func (e *MathMLMSUBSUPElement) IDRemove(s string) *MathMLMSUBSUPElement {
 	if e.StringAttributes == nil {
@@ -338,15 +333,15 @@ func (e *MathMLMSUBSUPElement) IDRemove(s string) *MathMLMSUBSUPElement {
 	return e
 }
 
-// This attribute assigns a name to an element
-// This name must be unique in a document.
+// This attribute assigns a name to an element. This name must be unique in a
+// document.
 func (e *MathMLMSUBSUPElement) IDRemoveF(format string, args ...any) *MathMLMSUBSUPElement {
 	return e.IDRemove(fmt.Sprintf(format, args...))
 }
 
-// This attribute specifies the background color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the background color of the element. Possible values
+// are a color name or a color specification in the format defined in the CSS3
+// Color Module [CSS3COLOR].
 func (e *MathMLMSUBSUPElement) MATHBACKGROUND(s string) *MathMLMSUBSUPElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -355,16 +350,16 @@ func (e *MathMLMSUBSUPElement) MATHBACKGROUND(s string) *MathMLMSUBSUPElement {
 	return e
 }
 
-// This attribute specifies the background color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the background color of the element. Possible values
+// are a color name or a color specification in the format defined in the CSS3
+// Color Module [CSS3COLOR].
 func (e *MathMLMSUBSUPElement) MATHBACKGROUNDF(format string, args ...any) *MathMLMSUBSUPElement {
 	return e.MATHBACKGROUND(fmt.Sprintf(format, args...))
 }
 
-// This attribute specifies the background color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the background color of the element. Possible values
+// are a color name or a color specification in the format defined in the CSS3
+// Color Module [CSS3COLOR].
 func (e *MathMLMSUBSUPElement) IfMATHBACKGROUND(condition bool, s string) *MathMLMSUBSUPElement {
 	if condition {
 		e.MATHBACKGROUND(s)
@@ -372,9 +367,9 @@ func (e *MathMLMSUBSUPElement) IfMATHBACKGROUND(condition bool, s string) *MathM
 	return e
 }
 
-// This attribute specifies the background color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the background color of the element. Possible values
+// are a color name or a color specification in the format defined in the CSS3
+// Color Module [CSS3COLOR].
 func (e *MathMLMSUBSUPElement) IfMATHBACKGROUNDF(condition bool, format string, args ...any) *MathMLMSUBSUPElement {
 	if condition {
 		e.MATHBACKGROUND(fmt.Sprintf(format, args...))
@@ -382,9 +377,9 @@ func (e *MathMLMSUBSUPElement) IfMATHBACKGROUNDF(condition bool, format string, 
 	return e
 }
 
-// This attribute specifies the background color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the background color of the element. Possible values
+// are a color name or a color specification in the format defined in the CSS3
+// Color Module [CSS3COLOR].
 // Remove the attribute MATHBACKGROUND from the element.
 func (e *MathMLMSUBSUPElement) MATHBACKGROUNDRemove(s string) *MathMLMSUBSUPElement {
 	if e.StringAttributes == nil {
@@ -394,16 +389,16 @@ func (e *MathMLMSUBSUPElement) MATHBACKGROUNDRemove(s string) *MathMLMSUBSUPElem
 	return e
 }
 
-// This attribute specifies the background color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the background color of the element. Possible values
+// are a color name or a color specification in the format defined in the CSS3
+// Color Module [CSS3COLOR].
 func (e *MathMLMSUBSUPElement) MATHBACKGROUNDRemoveF(format string, args ...any) *MathMLMSUBSUPElement {
 	return e.MATHBACKGROUNDRemove(fmt.Sprintf(format, args...))
 }
 
-// This attribute specifies the color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the color of the element. Possible values are a
+// color name or a color specification in the format defined in the CSS3 Color
+// Module [CSS3COLOR].
 func (e *MathMLMSUBSUPElement) MATHCOLOR(s string) *MathMLMSUBSUPElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -412,16 +407,16 @@ func (e *MathMLMSUBSUPElement) MATHCOLOR(s string) *MathMLMSUBSUPElement {
 	return e
 }
 
-// This attribute specifies the color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the color of the element. Possible values are a
+// color name or a color specification in the format defined in the CSS3 Color
+// Module [CSS3COLOR].
 func (e *MathMLMSUBSUPElement) MATHCOLORF(format string, args ...any) *MathMLMSUBSUPElement {
 	return e.MATHCOLOR(fmt.Sprintf(format, args...))
 }
 
-// This attribute specifies the color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the color of the element. Possible values are a
+// color name or a color specification in the format defined in the CSS3 Color
+// Module [CSS3COLOR].
 func (e *MathMLMSUBSUPElement) IfMATHCOLOR(condition bool, s string) *MathMLMSUBSUPElement {
 	if condition {
 		e.MATHCOLOR(s)
@@ -429,9 +424,9 @@ func (e *MathMLMSUBSUPElement) IfMATHCOLOR(condition bool, s string) *MathMLMSUB
 	return e
 }
 
-// This attribute specifies the color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the color of the element. Possible values are a
+// color name or a color specification in the format defined in the CSS3 Color
+// Module [CSS3COLOR].
 func (e *MathMLMSUBSUPElement) IfMATHCOLORF(condition bool, format string, args ...any) *MathMLMSUBSUPElement {
 	if condition {
 		e.MATHCOLOR(fmt.Sprintf(format, args...))
@@ -439,9 +434,9 @@ func (e *MathMLMSUBSUPElement) IfMATHCOLORF(condition bool, format string, args 
 	return e
 }
 
-// This attribute specifies the color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the color of the element. Possible values are a
+// color name or a color specification in the format defined in the CSS3 Color
+// Module [CSS3COLOR].
 // Remove the attribute MATHCOLOR from the element.
 func (e *MathMLMSUBSUPElement) MATHCOLORRemove(s string) *MathMLMSUBSUPElement {
 	if e.StringAttributes == nil {
@@ -451,15 +446,15 @@ func (e *MathMLMSUBSUPElement) MATHCOLORRemove(s string) *MathMLMSUBSUPElement {
 	return e
 }
 
-// This attribute specifies the color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the color of the element. Possible values are a
+// color name or a color specification in the format defined in the CSS3 Color
+// Module [CSS3COLOR].
 func (e *MathMLMSUBSUPElement) MATHCOLORRemoveF(format string, args ...any) *MathMLMSUBSUPElement {
 	return e.MATHCOLORRemove(fmt.Sprintf(format, args...))
 }
 
-// This attribute specifies the size of the element
-// Possible values are a dimension or a dimensionless number.
+// This attribute specifies the size of the element. Possible values are a
+// dimension or a dimensionless number.
 func (e *MathMLMSUBSUPElement) MATHSIZE_STR(s string) *MathMLMSUBSUPElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -468,14 +463,14 @@ func (e *MathMLMSUBSUPElement) MATHSIZE_STR(s string) *MathMLMSUBSUPElement {
 	return e
 }
 
-// This attribute specifies the size of the element
-// Possible values are a dimension or a dimensionless number.
+// This attribute specifies the size of the element. Possible values are a
+// dimension or a dimensionless number.
 func (e *MathMLMSUBSUPElement) MATHSIZE_STRF(format string, args ...any) *MathMLMSUBSUPElement {
 	return e.MATHSIZE_STR(fmt.Sprintf(format, args...))
 }
 
-// This attribute specifies the size of the element
-// Possible values are a dimension or a dimensionless number.
+// This attribute specifies the size of the element. Possible values are a
+// dimension or a dimensionless number.
 func (e *MathMLMSUBSUPElement) IfMATHSIZE_STR(condition bool, s string) *MathMLMSUBSUPElement {
 	if condition {
 		e.MATHSIZE_STR(s)
@@ -483,8 +478,8 @@ func (e *MathMLMSUBSUPElement) IfMATHSIZE_STR(condition bool, s string) *MathMLM
 	return e
 }
 
-// This attribute specifies the size of the element
-// Possible values are a dimension or a dimensionless number.
+// This attribute specifies the size of the element. Possible values are a
+// dimension or a dimensionless number.
 func (e *MathMLMSUBSUPElement) IfMATHSIZE_STRF(condition bool, format string, args ...any) *MathMLMSUBSUPElement {
 	if condition {
 		e.MATHSIZE_STR(fmt.Sprintf(format, args...))
@@ -492,8 +487,8 @@ func (e *MathMLMSUBSUPElement) IfMATHSIZE_STRF(condition bool, format string, ar
 	return e
 }
 
-// This attribute specifies the size of the element
-// Possible values are a dimension or a dimensionless number.
+// This attribute specifies the size of the element. Possible values are a
+// dimension or a dimensionless number.
 // Remove the attribute MATHSIZE_STR from the element.
 func (e *MathMLMSUBSUPElement) MATHSIZE_STRRemove(s string) *MathMLMSUBSUPElement {
 	if e.StringAttributes == nil {
@@ -503,16 +498,16 @@ func (e *MathMLMSUBSUPElement) MATHSIZE_STRRemove(s string) *MathMLMSUBSUPElemen
 	return e
 }
 
-// This attribute specifies the size of the element
-// Possible values are a dimension or a dimensionless number.
+// This attribute specifies the size of the element. Possible values are a
+// dimension or a dimensionless number.
 func (e *MathMLMSUBSUPElement) MATHSIZE_STRRemoveF(format string, args ...any) *MathMLMSUBSUPElement {
 	return e.MATHSIZE_STRRemove(fmt.Sprintf(format, args...))
 }
 
-// This attribute declares a cryptographic nonce (number used once) that should be
-// used by the server processing the element’s submission, and the resulting
-// resource must be delivered with a Content-Security-Policy nonce attribute
-// matching the value of the nonce attribute.
+// This attribute declares a cryptographic nonce (number used once) that should
+// be used by the server processing the element’s submission, and the
+// resulting resource must be delivered with a Content-Security-Policy nonce
+// attribute matching the value of the nonce attribute.
 func (e *MathMLMSUBSUPElement) NONCE(s string) *MathMLMSUBSUPElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -521,18 +516,18 @@ func (e *MathMLMSUBSUPElement) NONCE(s string) *MathMLMSUBSUPElement {
 	return e
 }
 
-// This attribute declares a cryptographic nonce (number used once) that should be
-// used by the server processing the element’s submission, and the resulting
-// resource must be delivered with a Content-Security-Policy nonce attribute
-// matching the value of the nonce attribute.
+// This attribute declares a cryptographic nonce (number used once) that should
+// be used by the server processing the element’s submission, and the
+// resulting resource must be delivered with a Content-Security-Policy nonce
+// attribute matching the value of the nonce attribute.
 func (e *MathMLMSUBSUPElement) NONCEF(format string, args ...any) *MathMLMSUBSUPElement {
 	return e.NONCE(fmt.Sprintf(format, args...))
 }
 
-// This attribute declares a cryptographic nonce (number used once) that should be
-// used by the server processing the element’s submission, and the resulting
-// resource must be delivered with a Content-Security-Policy nonce attribute
-// matching the value of the nonce attribute.
+// This attribute declares a cryptographic nonce (number used once) that should
+// be used by the server processing the element’s submission, and the
+// resulting resource must be delivered with a Content-Security-Policy nonce
+// attribute matching the value of the nonce attribute.
 func (e *MathMLMSUBSUPElement) IfNONCE(condition bool, s string) *MathMLMSUBSUPElement {
 	if condition {
 		e.NONCE(s)
@@ -540,10 +535,10 @@ func (e *MathMLMSUBSUPElement) IfNONCE(condition bool, s string) *MathMLMSUBSUPE
 	return e
 }
 
-// This attribute declares a cryptographic nonce (number used once) that should be
-// used by the server processing the element’s submission, and the resulting
-// resource must be delivered with a Content-Security-Policy nonce attribute
-// matching the value of the nonce attribute.
+// This attribute declares a cryptographic nonce (number used once) that should
+// be used by the server processing the element’s submission, and the
+// resulting resource must be delivered with a Content-Security-Policy nonce
+// attribute matching the value of the nonce attribute.
 func (e *MathMLMSUBSUPElement) IfNONCEF(condition bool, format string, args ...any) *MathMLMSUBSUPElement {
 	if condition {
 		e.NONCE(fmt.Sprintf(format, args...))
@@ -551,10 +546,10 @@ func (e *MathMLMSUBSUPElement) IfNONCEF(condition bool, format string, args ...a
 	return e
 }
 
-// This attribute declares a cryptographic nonce (number used once) that should be
-// used by the server processing the element’s submission, and the resulting
-// resource must be delivered with a Content-Security-Policy nonce attribute
-// matching the value of the nonce attribute.
+// This attribute declares a cryptographic nonce (number used once) that should
+// be used by the server processing the element’s submission, and the
+// resulting resource must be delivered with a Content-Security-Policy nonce
+// attribute matching the value of the nonce attribute.
 // Remove the attribute NONCE from the element.
 func (e *MathMLMSUBSUPElement) NONCERemove(s string) *MathMLMSUBSUPElement {
 	if e.StringAttributes == nil {
@@ -564,16 +559,16 @@ func (e *MathMLMSUBSUPElement) NONCERemove(s string) *MathMLMSUBSUPElement {
 	return e
 }
 
-// This attribute declares a cryptographic nonce (number used once) that should be
-// used by the server processing the element’s submission, and the resulting
-// resource must be delivered with a Content-Security-Policy nonce attribute
-// matching the value of the nonce attribute.
+// This attribute declares a cryptographic nonce (number used once) that should
+// be used by the server processing the element’s submission, and the
+// resulting resource must be delivered with a Content-Security-Policy nonce
+// attribute matching the value of the nonce attribute.
 func (e *MathMLMSUBSUPElement) NONCERemoveF(format string, args ...any) *MathMLMSUBSUPElement {
 	return e.NONCERemove(fmt.Sprintf(format, args...))
 }
 
-// This attribute specifies the script level of the element
-// Possible values are an integer between 0 and 7, inclusive.
+// This attribute specifies the script level of the element. Possible values are
+// an integer between 0 and 7, inclusive.
 func (e *MathMLMSUBSUPElement) SCRIPTLEVEL(i int) *MathMLMSUBSUPElement {
 	if e.IntAttributes == nil {
 		e.IntAttributes = treemap.New[string, int]()
@@ -582,8 +577,8 @@ func (e *MathMLMSUBSUPElement) SCRIPTLEVEL(i int) *MathMLMSUBSUPElement {
 	return e
 }
 
-// This attribute specifies the script level of the element
-// Possible values are an integer between 0 and 7, inclusive.
+// This attribute specifies the script level of the element. Possible values are
+// an integer between 0 and 7, inclusive.
 func (e *MathMLMSUBSUPElement) IfSCRIPTLEVEL(condition bool, i int) *MathMLMSUBSUPElement {
 	if condition {
 		e.SCRIPTLEVEL(i)
@@ -591,8 +586,8 @@ func (e *MathMLMSUBSUPElement) IfSCRIPTLEVEL(condition bool, i int) *MathMLMSUBS
 	return e
 }
 
-// This attribute specifies the script level of the element
-// Possible values are an integer between 0 and 7, inclusive.
+// This attribute specifies the script level of the element. Possible values are
+// an integer between 0 and 7, inclusive.
 // Remove the attribute SCRIPTLEVEL from the element.
 func (e *MathMLMSUBSUPElement) SCRIPTLEVELRemove(i int) *MathMLMSUBSUPElement {
 	if e.IntAttributes == nil {
@@ -709,9 +704,8 @@ func (e *MathMLMSUBSUPElement) STYLERemove(keys ...string) *MathMLMSUBSUPElement
 }
 
 // This attribute specifies the position of the current element in the tabbing
-// order for the current document
-// This value must be a number between 0 and 32767
-// User agents should ignore leading zeros.
+// order for the current document. This value must be a number between 0 and
+// 32767. User agents should ignore leading zeros.
 func (e *MathMLMSUBSUPElement) TABINDEX(i int) *MathMLMSUBSUPElement {
 	if e.IntAttributes == nil {
 		e.IntAttributes = treemap.New[string, int]()
@@ -721,9 +715,8 @@ func (e *MathMLMSUBSUPElement) TABINDEX(i int) *MathMLMSUBSUPElement {
 }
 
 // This attribute specifies the position of the current element in the tabbing
-// order for the current document
-// This value must be a number between 0 and 32767
-// User agents should ignore leading zeros.
+// order for the current document. This value must be a number between 0 and
+// 32767. User agents should ignore leading zeros.
 func (e *MathMLMSUBSUPElement) IfTABINDEX(condition bool, i int) *MathMLMSUBSUPElement {
 	if condition {
 		e.TABINDEX(i)
@@ -732,9 +725,8 @@ func (e *MathMLMSUBSUPElement) IfTABINDEX(condition bool, i int) *MathMLMSUBSUPE
 }
 
 // This attribute specifies the position of the current element in the tabbing
-// order for the current document
-// This value must be a number between 0 and 32767
-// User agents should ignore leading zeros.
+// order for the current document. This value must be a number between 0 and
+// 32767. User agents should ignore leading zeros.
 // Remove the attribute TABINDEX from the element.
 func (e *MathMLMSUBSUPElement) TABINDEXRemove(i int) *MathMLMSUBSUPElement {
 	if e.IntAttributes == nil {

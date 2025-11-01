@@ -9,9 +9,9 @@ import (
 	"github.com/igrmk/treemap/v2"
 )
 
-// The <metadata> SVG element allows to add metadata to SVG content
-// Metadata is structured information about data
-// In XML, metadata can be added to an element using for example attributes.
+// The <metadata> SVG element allows to add metadata to SVG content. Metadata is
+// structured information about data. In XML, metadata can be added to an
+// element using for example attributes.
 type SVGMETADATAElement struct {
 	*Element
 }

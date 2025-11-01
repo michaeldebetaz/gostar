@@ -216,9 +216,8 @@ func (e *SVGFEFUNCBElement) TYPERemove(c SVGFeFuncBTypeChoice) *SVGFEFUNCBElemen
 	return e
 }
 
-// Contains the list of <number>s that define the lookup table
-// Values must be in the 0-1 range and be equally spaced
-// There must be at least two values.
+// Contains the list of <number>s that define the lookup table. Values must be
+// in the 0-1 range and be equally spaced. There must be at least two values.
 func (e *SVGFEFUNCBElement) TABLE_VALUES(s string) *SVGFEFUNCBElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -227,16 +226,14 @@ func (e *SVGFEFUNCBElement) TABLE_VALUES(s string) *SVGFEFUNCBElement {
 	return e
 }
 
-// Contains the list of <number>s that define the lookup table
-// Values must be in the 0-1 range and be equally spaced
-// There must be at least two values.
+// Contains the list of <number>s that define the lookup table. Values must be
+// in the 0-1 range and be equally spaced. There must be at least two values.
 func (e *SVGFEFUNCBElement) TABLE_VALUESF(format string, args ...any) *SVGFEFUNCBElement {
 	return e.TABLE_VALUES(fmt.Sprintf(format, args...))
 }
 
-// Contains the list of <number>s that define the lookup table
-// Values must be in the 0-1 range and be equally spaced
-// There must be at least two values.
+// Contains the list of <number>s that define the lookup table. Values must be
+// in the 0-1 range and be equally spaced. There must be at least two values.
 func (e *SVGFEFUNCBElement) IfTABLE_VALUES(condition bool, s string) *SVGFEFUNCBElement {
 	if condition {
 		e.TABLE_VALUES(s)
@@ -244,9 +241,8 @@ func (e *SVGFEFUNCBElement) IfTABLE_VALUES(condition bool, s string) *SVGFEFUNCB
 	return e
 }
 
-// Contains the list of <number>s that define the lookup table
-// Values must be in the 0-1 range and be equally spaced
-// There must be at least two values.
+// Contains the list of <number>s that define the lookup table. Values must be
+// in the 0-1 range and be equally spaced. There must be at least two values.
 func (e *SVGFEFUNCBElement) IfTABLE_VALUESF(condition bool, format string, args ...any) *SVGFEFUNCBElement {
 	if condition {
 		e.TABLE_VALUES(fmt.Sprintf(format, args...))
@@ -254,9 +250,8 @@ func (e *SVGFEFUNCBElement) IfTABLE_VALUESF(condition bool, format string, args 
 	return e
 }
 
-// Contains the list of <number>s that define the lookup table
-// Values must be in the 0-1 range and be equally spaced
-// There must be at least two values.
+// Contains the list of <number>s that define the lookup table. Values must be
+// in the 0-1 range and be equally spaced. There must be at least two values.
 // Remove the attribute TABLE_VALUES from the element.
 func (e *SVGFEFUNCBElement) TABLE_VALUESRemove(s string) *SVGFEFUNCBElement {
 	if e.StringAttributes == nil {
@@ -266,9 +261,8 @@ func (e *SVGFEFUNCBElement) TABLE_VALUESRemove(s string) *SVGFEFUNCBElement {
 	return e
 }
 
-// Contains the list of <number>s that define the lookup table
-// Values must be in the 0-1 range and be equally spaced
-// There must be at least two values.
+// Contains the list of <number>s that define the lookup table. Values must be
+// in the 0-1 range and be equally spaced. There must be at least two values.
 func (e *SVGFEFUNCBElement) TABLE_VALUESRemoveF(format string, args ...any) *SVGFEFUNCBElement {
 	return e.TABLE_VALUESRemove(fmt.Sprintf(format, args...))
 }

@@ -9,13 +9,12 @@ import (
 	"github.com/igrmk/treemap/v2"
 )
 
-// The <switch> SVG element evaluates the requiredFeatures, requiredExtensions and
-// systemLanguage attributes on its direct child elements in order, and then
+// The <switch> SVG element evaluates the requiredFeatures, requiredExtensions
+// and systemLanguage attributes on its direct child elements in order, and then
 // processes and renders the first child for which these attributes evaluate to
-// true
-// All others will be bypassed and therefore not rendered
-// If the child element is a container element such as a <g>, then the entire
-// subtree is either processed/rendered or bypassed/not rendered.
+// true. All others will be bypassed and therefore not rendered. If the child
+// element is a container element such as a <g>, then the entire subtree is
+// either processed/rendered or bypassed/not rendered.
 type SVGSWITCHElement struct {
 	*Element
 }

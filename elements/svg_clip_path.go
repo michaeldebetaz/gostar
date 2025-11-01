@@ -9,8 +9,8 @@ import (
 	"github.com/igrmk/treemap/v2"
 )
 
-// The <clipPath> SVG element defines a clipping path
-// A clipping path is used/referenced using the clip-path property.
+// The <clipPath> SVG element defines a clipping path. A clipping path is
+// used/referenced using the clip-path property.
 type SVGCLIPPATHElement struct {
 	*Element
 }
@@ -198,10 +198,10 @@ const (
 	// coordinate system.
 	SVGClipPathClipPathUnits_userSpaceOnUse SVGClipPathClipPathUnitsChoice = "userSpaceOnUse"
 	// The contents of the <clipPath> element represent values in the coordinate
-	// system that results from taking the current user coordinate system in place at
-	// the time when the <clipPath> element is referenced (i.e., the user coordinate
-	// system for the element referencing the <clipPath> element via a clip-path
-	// property).
+	// system that results from taking the current user coordinate system in place
+	// at the time when the <clipPath> element is referenced (i.e., the user
+	// coordinate system for the element referencing the <clipPath> element via a
+	// clip-path property).
 	SVGClipPathClipPathUnits_objectBoundingBox SVGClipPathClipPathUnitsChoice = "objectBoundingBox"
 )
 

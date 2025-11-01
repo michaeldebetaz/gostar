@@ -206,8 +206,8 @@ const (
 	// Align the image along the middle of the corresponding dimension of the
 	// viewPort.
 	SVGImagePreserveAspectRatio_xMinYMid SVGImagePreserveAspectRatioChoice = "xMinYMid"
-	// Scale the image to the smallest size such that it can completely fit inside the
-	// corresponding dimension of the viewPort.
+	// Scale the image to the smallest size such that it can completely fit inside
+	// the corresponding dimension of the viewPort.
 	SVGImagePreserveAspectRatio_xMidYMid SVGImagePreserveAspectRatioChoice = "xMidYMid"
 	// Align the image with the corresponding side of the viewPort.
 	SVGImagePreserveAspectRatio_xMaxYMid SVGImagePreserveAspectRatioChoice = "xMaxYMid"
@@ -231,8 +231,8 @@ func (e *SVGIMAGEElement) PRESERVE_ASPECT_RATIORemove(c SVGImagePreserveAspectRa
 	return e
 }
 
-// The x-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The x-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGIMAGEElement) X(f float64) *SVGIMAGEElement {
 	if e.FloatAttributes == nil {
 		e.FloatAttributes = treemap.New[string, float64]()
@@ -241,8 +241,8 @@ func (e *SVGIMAGEElement) X(f float64) *SVGIMAGEElement {
 	return e
 }
 
-// The x-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The x-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGIMAGEElement) IfX(condition bool, f float64) *SVGIMAGEElement {
 	if condition {
 		e.X(f)
@@ -250,8 +250,8 @@ func (e *SVGIMAGEElement) IfX(condition bool, f float64) *SVGIMAGEElement {
 	return e
 }
 
-// The y-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The y-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGIMAGEElement) Y(f float64) *SVGIMAGEElement {
 	if e.FloatAttributes == nil {
 		e.FloatAttributes = treemap.New[string, float64]()
@@ -260,8 +260,8 @@ func (e *SVGIMAGEElement) Y(f float64) *SVGIMAGEElement {
 	return e
 }
 
-// The y-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The y-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGIMAGEElement) IfY(condition bool, f float64) *SVGIMAGEElement {
 	if condition {
 		e.Y(f)

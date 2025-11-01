@@ -9,9 +9,9 @@ import (
 	"github.com/igrmk/treemap/v2"
 )
 
-// This element is the root element of a MathML expression
-// It is used to identify the document as a MathML document, and to specify the
-// namespaces used in the document.
+// This element is the root element of a MathML expression. It is used to
+// identify the document as a MathML document, and to specify the namespaces
+// used in the document.
 type MathMLMATHElement struct {
 	*Element
 }
@@ -184,8 +184,7 @@ func (e *MathMLMATHElement) CustomDataRemove(key string) *MathMLMATHElement {
 }
 
 // This attribute specifies the default namespace for elements and attributes in
-// the document
-// Possible values are http://www.w3.org/1998/Math/MathML and
+// the document. Possible values are http://www.w3.org/1998/Math/MathML and
 // http://www.w3.org/1999/xhtml.
 func (e *MathMLMATHElement) XMLNS(c MathMLMathXmlnsChoice) *MathMLMATHElement {
 	if e.StringAttributes == nil {
@@ -204,8 +203,7 @@ const (
 )
 
 // This attribute specifies the default namespace for elements and attributes in
-// the document
-// Possible values are http://www.w3.org/1998/Math/MathML and
+// the document. Possible values are http://www.w3.org/1998/Math/MathML and
 // http://www.w3.org/1999/xhtml.
 // Remove the attribute XMLNS from the element.
 func (e *MathMLMATHElement) XMLNSRemove(c MathMLMathXmlnsChoice) *MathMLMATHElement {
@@ -217,9 +215,8 @@ func (e *MathMLMATHElement) XMLNSRemove(c MathMLMathXmlnsChoice) *MathMLMATHElem
 }
 
 // This attribute specifies the namespace for elements and attributes in the
-// document whose names start with the letter m
-// Possible values are http://www.w3.org/1998/Math/MathML and
-// http://www.w3.org/1999/xhtml.
+// document whose names start with the letter m. Possible values are
+// http://www.w3.org/1998/Math/MathML and http://www.w3.org/1999/xhtml.
 func (e *MathMLMATHElement) XMLNS_M(c MathMLMathXmlnsmChoice) *MathMLMATHElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -237,9 +234,8 @@ const (
 )
 
 // This attribute specifies the namespace for elements and attributes in the
-// document whose names start with the letter m
-// Possible values are http://www.w3.org/1998/Math/MathML and
-// http://www.w3.org/1999/xhtml.
+// document whose names start with the letter m. Possible values are
+// http://www.w3.org/1998/Math/MathML and http://www.w3.org/1999/xhtml.
 // Remove the attribute XMLNS_M from the element.
 func (e *MathMLMATHElement) XMLNS_MRemove(c MathMLMathXmlnsmChoice) *MathMLMATHElement {
 	if e.StringAttributes == nil {
@@ -250,9 +246,8 @@ func (e *MathMLMATHElement) XMLNS_MRemove(c MathMLMathXmlnsmChoice) *MathMLMATHE
 }
 
 // This attribute specifies the namespace for elements and attributes in the
-// document whose names start with the letters xlink
-// Possible values are http://www.w3.org/1999/xlink and
-// http://www.w3.org/1999/xhtml.
+// document whose names start with the letters xlink. Possible values are
+// http://www.w3.org/1999/xlink and http://www.w3.org/1999/xhtml.
 func (e *MathMLMATHElement) XMLNS_XLINK(c MathMLMathXmlnsxlinkChoice) *MathMLMATHElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -270,9 +265,8 @@ const (
 )
 
 // This attribute specifies the namespace for elements and attributes in the
-// document whose names start with the letters xlink
-// Possible values are http://www.w3.org/1999/xlink and
-// http://www.w3.org/1999/xhtml.
+// document whose names start with the letters xlink. Possible values are
+// http://www.w3.org/1999/xlink and http://www.w3.org/1999/xhtml.
 // Remove the attribute XMLNS_XLINK from the element.
 func (e *MathMLMATHElement) XMLNS_XLINKRemove(c MathMLMathXmlnsxlinkChoice) *MathMLMATHElement {
 	if e.StringAttributes == nil {
@@ -283,9 +277,8 @@ func (e *MathMLMATHElement) XMLNS_XLINKRemove(c MathMLMathXmlnsxlinkChoice) *Mat
 }
 
 // This attribute specifies the namespace for elements and attributes in the
-// document whose names start with the letters xml
-// Possible values are http://www.w3.org/XML/1998/namespace and
-// http://www.w3.org/1999/xhtml.
+// document whose names start with the letters xml. Possible values are
+// http://www.w3.org/XML/1998/namespace and http://www.w3.org/1999/xhtml.
 func (e *MathMLMATHElement) XMLNS_XML(c MathMLMathXmlnsxmlChoice) *MathMLMATHElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -303,9 +296,8 @@ const (
 )
 
 // This attribute specifies the namespace for elements and attributes in the
-// document whose names start with the letters xml
-// Possible values are http://www.w3.org/XML/1998/namespace and
-// http://www.w3.org/1999/xhtml.
+// document whose names start with the letters xml. Possible values are
+// http://www.w3.org/XML/1998/namespace and http://www.w3.org/1999/xhtml.
 // Remove the attribute XMLNS_XML from the element.
 func (e *MathMLMATHElement) XMLNS_XMLRemove(c MathMLMathXmlnsxmlChoice) *MathMLMATHElement {
 	if e.StringAttributes == nil {
@@ -315,10 +307,9 @@ func (e *MathMLMATHElement) XMLNS_XMLRemove(c MathMLMathXmlnsxmlChoice) *MathMLM
 	return e
 }
 
-// Assigns a class name or set of class names to an element
-// You may assign the same class name or names to any number of elements
-// If you specify multiple class names, they must be separated by whitespace
-// characters.
+// Assigns a class name or set of class names to an element. You may assign the
+// same class name or names to any number of elements. If you specify multiple
+// class names, they must be separated by whitespace characters.
 func (e *MathMLMATHElement) CLASS(s ...string) *MathMLMATHElement {
 	if e.DelimitedStrings == nil {
 		e.DelimitedStrings = treemap.New[string, *DelimitedBuilder[string]]()
@@ -332,10 +323,9 @@ func (e *MathMLMATHElement) CLASS(s ...string) *MathMLMATHElement {
 	return e
 }
 
-// Assigns a class name or set of class names to an element
-// You may assign the same class name or names to any number of elements
-// If you specify multiple class names, they must be separated by whitespace
-// characters.
+// Assigns a class name or set of class names to an element. You may assign the
+// same class name or names to any number of elements. If you specify multiple
+// class names, they must be separated by whitespace characters.
 func (e *MathMLMATHElement) IfCLASS(condition bool, s ...string) *MathMLMATHElement {
 	if condition {
 		e.CLASS(s...)
@@ -343,10 +333,9 @@ func (e *MathMLMATHElement) IfCLASS(condition bool, s ...string) *MathMLMATHElem
 	return e
 }
 
-// Assigns a class name or set of class names to an element
-// You may assign the same class name or names to any number of elements
-// If you specify multiple class names, they must be separated by whitespace
-// characters.
+// Assigns a class name or set of class names to an element. You may assign the
+// same class name or names to any number of elements. If you specify multiple
+// class names, they must be separated by whitespace characters.
 // Remove the attribute CLASS from the element.
 func (e *MathMLMATHElement) CLASSRemove(s ...string) *MathMLMATHElement {
 	if e.DelimitedStrings == nil {
@@ -361,9 +350,9 @@ func (e *MathMLMATHElement) CLASSRemove(s ...string) *MathMLMATHElement {
 }
 
 // This attribute specifies the text directionality of the element, merely
-// indicating what direction the text flows when surrounded by text with inherent
-// directionality (such as Arabic or Hebrew)
-// Possible values are ltr (left-to-right) and rtl (right-to-left).
+// indicating what direction the text flows when surrounded by text with
+// inherent directionality (such as Arabic or Hebrew). Possible values are ltr
+// (left-to-right) and rtl (right-to-left).
 func (e *MathMLMATHElement) DIR(c MathMLMathDirChoice) *MathMLMATHElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -382,9 +371,9 @@ const (
 )
 
 // This attribute specifies the text directionality of the element, merely
-// indicating what direction the text flows when surrounded by text with inherent
-// directionality (such as Arabic or Hebrew)
-// Possible values are ltr (left-to-right) and rtl (right-to-left).
+// indicating what direction the text flows when surrounded by text with
+// inherent directionality (such as Arabic or Hebrew). Possible values are ltr
+// (left-to-right) and rtl (right-to-left).
 // Remove the attribute DIR from the element.
 func (e *MathMLMATHElement) DIRRemove(c MathMLMathDirChoice) *MathMLMATHElement {
 	if e.StringAttributes == nil {
@@ -395,8 +384,7 @@ func (e *MathMLMATHElement) DIRRemove(c MathMLMathDirChoice) *MathMLMATHElement 
 }
 
 // This attribute specifies whether the element should be rendered using
-// displaystyle rules or not
-// Possible values are true and false.
+// displaystyle rules or not. Possible values are true and false.
 func (e *MathMLMATHElement) DISPLAYSTYLE(c MathMLMathDisplaystyleChoice) *MathMLMATHElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -415,8 +403,7 @@ const (
 )
 
 // This attribute specifies whether the element should be rendered using
-// displaystyle rules or not
-// Possible values are true and false.
+// displaystyle rules or not. Possible values are true and false.
 // Remove the attribute DISPLAYSTYLE from the element.
 func (e *MathMLMATHElement) DISPLAYSTYLERemove(c MathMLMathDisplaystyleChoice) *MathMLMATHElement {
 	if e.StringAttributes == nil {
@@ -426,8 +413,8 @@ func (e *MathMLMATHElement) DISPLAYSTYLERemove(c MathMLMathDisplaystyleChoice) *
 	return e
 }
 
-// This attribute assigns a name to an element
-// This name must be unique in a document.
+// This attribute assigns a name to an element. This name must be unique in a
+// document.
 func (e *MathMLMATHElement) ID(s string) *MathMLMATHElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -436,14 +423,14 @@ func (e *MathMLMATHElement) ID(s string) *MathMLMATHElement {
 	return e
 }
 
-// This attribute assigns a name to an element
-// This name must be unique in a document.
+// This attribute assigns a name to an element. This name must be unique in a
+// document.
 func (e *MathMLMATHElement) IDF(format string, args ...any) *MathMLMATHElement {
 	return e.ID(fmt.Sprintf(format, args...))
 }
 
-// This attribute assigns a name to an element
-// This name must be unique in a document.
+// This attribute assigns a name to an element. This name must be unique in a
+// document.
 func (e *MathMLMATHElement) IfID(condition bool, s string) *MathMLMATHElement {
 	if condition {
 		e.ID(s)
@@ -451,8 +438,8 @@ func (e *MathMLMATHElement) IfID(condition bool, s string) *MathMLMATHElement {
 	return e
 }
 
-// This attribute assigns a name to an element
-// This name must be unique in a document.
+// This attribute assigns a name to an element. This name must be unique in a
+// document.
 func (e *MathMLMATHElement) IfIDF(condition bool, format string, args ...any) *MathMLMATHElement {
 	if condition {
 		e.ID(fmt.Sprintf(format, args...))
@@ -460,8 +447,8 @@ func (e *MathMLMATHElement) IfIDF(condition bool, format string, args ...any) *M
 	return e
 }
 
-// This attribute assigns a name to an element
-// This name must be unique in a document.
+// This attribute assigns a name to an element. This name must be unique in a
+// document.
 // Remove the attribute ID from the element.
 func (e *MathMLMATHElement) IDRemove(s string) *MathMLMATHElement {
 	if e.StringAttributes == nil {
@@ -471,15 +458,15 @@ func (e *MathMLMATHElement) IDRemove(s string) *MathMLMATHElement {
 	return e
 }
 
-// This attribute assigns a name to an element
-// This name must be unique in a document.
+// This attribute assigns a name to an element. This name must be unique in a
+// document.
 func (e *MathMLMATHElement) IDRemoveF(format string, args ...any) *MathMLMATHElement {
 	return e.IDRemove(fmt.Sprintf(format, args...))
 }
 
-// This attribute specifies the background color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the background color of the element. Possible values
+// are a color name or a color specification in the format defined in the CSS3
+// Color Module [CSS3COLOR].
 func (e *MathMLMATHElement) MATHBACKGROUND(s string) *MathMLMATHElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -488,16 +475,16 @@ func (e *MathMLMATHElement) MATHBACKGROUND(s string) *MathMLMATHElement {
 	return e
 }
 
-// This attribute specifies the background color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the background color of the element. Possible values
+// are a color name or a color specification in the format defined in the CSS3
+// Color Module [CSS3COLOR].
 func (e *MathMLMATHElement) MATHBACKGROUNDF(format string, args ...any) *MathMLMATHElement {
 	return e.MATHBACKGROUND(fmt.Sprintf(format, args...))
 }
 
-// This attribute specifies the background color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the background color of the element. Possible values
+// are a color name or a color specification in the format defined in the CSS3
+// Color Module [CSS3COLOR].
 func (e *MathMLMATHElement) IfMATHBACKGROUND(condition bool, s string) *MathMLMATHElement {
 	if condition {
 		e.MATHBACKGROUND(s)
@@ -505,9 +492,9 @@ func (e *MathMLMATHElement) IfMATHBACKGROUND(condition bool, s string) *MathMLMA
 	return e
 }
 
-// This attribute specifies the background color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the background color of the element. Possible values
+// are a color name or a color specification in the format defined in the CSS3
+// Color Module [CSS3COLOR].
 func (e *MathMLMATHElement) IfMATHBACKGROUNDF(condition bool, format string, args ...any) *MathMLMATHElement {
 	if condition {
 		e.MATHBACKGROUND(fmt.Sprintf(format, args...))
@@ -515,9 +502,9 @@ func (e *MathMLMATHElement) IfMATHBACKGROUNDF(condition bool, format string, arg
 	return e
 }
 
-// This attribute specifies the background color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the background color of the element. Possible values
+// are a color name or a color specification in the format defined in the CSS3
+// Color Module [CSS3COLOR].
 // Remove the attribute MATHBACKGROUND from the element.
 func (e *MathMLMATHElement) MATHBACKGROUNDRemove(s string) *MathMLMATHElement {
 	if e.StringAttributes == nil {
@@ -527,16 +514,16 @@ func (e *MathMLMATHElement) MATHBACKGROUNDRemove(s string) *MathMLMATHElement {
 	return e
 }
 
-// This attribute specifies the background color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the background color of the element. Possible values
+// are a color name or a color specification in the format defined in the CSS3
+// Color Module [CSS3COLOR].
 func (e *MathMLMATHElement) MATHBACKGROUNDRemoveF(format string, args ...any) *MathMLMATHElement {
 	return e.MATHBACKGROUNDRemove(fmt.Sprintf(format, args...))
 }
 
-// This attribute specifies the color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the color of the element. Possible values are a
+// color name or a color specification in the format defined in the CSS3 Color
+// Module [CSS3COLOR].
 func (e *MathMLMATHElement) MATHCOLOR(s string) *MathMLMATHElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -545,16 +532,16 @@ func (e *MathMLMATHElement) MATHCOLOR(s string) *MathMLMATHElement {
 	return e
 }
 
-// This attribute specifies the color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the color of the element. Possible values are a
+// color name or a color specification in the format defined in the CSS3 Color
+// Module [CSS3COLOR].
 func (e *MathMLMATHElement) MATHCOLORF(format string, args ...any) *MathMLMATHElement {
 	return e.MATHCOLOR(fmt.Sprintf(format, args...))
 }
 
-// This attribute specifies the color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the color of the element. Possible values are a
+// color name or a color specification in the format defined in the CSS3 Color
+// Module [CSS3COLOR].
 func (e *MathMLMATHElement) IfMATHCOLOR(condition bool, s string) *MathMLMATHElement {
 	if condition {
 		e.MATHCOLOR(s)
@@ -562,9 +549,9 @@ func (e *MathMLMATHElement) IfMATHCOLOR(condition bool, s string) *MathMLMATHEle
 	return e
 }
 
-// This attribute specifies the color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the color of the element. Possible values are a
+// color name or a color specification in the format defined in the CSS3 Color
+// Module [CSS3COLOR].
 func (e *MathMLMATHElement) IfMATHCOLORF(condition bool, format string, args ...any) *MathMLMATHElement {
 	if condition {
 		e.MATHCOLOR(fmt.Sprintf(format, args...))
@@ -572,9 +559,9 @@ func (e *MathMLMATHElement) IfMATHCOLORF(condition bool, format string, args ...
 	return e
 }
 
-// This attribute specifies the color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the color of the element. Possible values are a
+// color name or a color specification in the format defined in the CSS3 Color
+// Module [CSS3COLOR].
 // Remove the attribute MATHCOLOR from the element.
 func (e *MathMLMATHElement) MATHCOLORRemove(s string) *MathMLMATHElement {
 	if e.StringAttributes == nil {
@@ -584,15 +571,15 @@ func (e *MathMLMATHElement) MATHCOLORRemove(s string) *MathMLMATHElement {
 	return e
 }
 
-// This attribute specifies the color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the color of the element. Possible values are a
+// color name or a color specification in the format defined in the CSS3 Color
+// Module [CSS3COLOR].
 func (e *MathMLMATHElement) MATHCOLORRemoveF(format string, args ...any) *MathMLMATHElement {
 	return e.MATHCOLORRemove(fmt.Sprintf(format, args...))
 }
 
-// This attribute specifies the size of the element
-// Possible values are a dimension or a dimensionless number.
+// This attribute specifies the size of the element. Possible values are a
+// dimension or a dimensionless number.
 func (e *MathMLMATHElement) MATHSIZE_STR(s string) *MathMLMATHElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -601,14 +588,14 @@ func (e *MathMLMATHElement) MATHSIZE_STR(s string) *MathMLMATHElement {
 	return e
 }
 
-// This attribute specifies the size of the element
-// Possible values are a dimension or a dimensionless number.
+// This attribute specifies the size of the element. Possible values are a
+// dimension or a dimensionless number.
 func (e *MathMLMATHElement) MATHSIZE_STRF(format string, args ...any) *MathMLMATHElement {
 	return e.MATHSIZE_STR(fmt.Sprintf(format, args...))
 }
 
-// This attribute specifies the size of the element
-// Possible values are a dimension or a dimensionless number.
+// This attribute specifies the size of the element. Possible values are a
+// dimension or a dimensionless number.
 func (e *MathMLMATHElement) IfMATHSIZE_STR(condition bool, s string) *MathMLMATHElement {
 	if condition {
 		e.MATHSIZE_STR(s)
@@ -616,8 +603,8 @@ func (e *MathMLMATHElement) IfMATHSIZE_STR(condition bool, s string) *MathMLMATH
 	return e
 }
 
-// This attribute specifies the size of the element
-// Possible values are a dimension or a dimensionless number.
+// This attribute specifies the size of the element. Possible values are a
+// dimension or a dimensionless number.
 func (e *MathMLMATHElement) IfMATHSIZE_STRF(condition bool, format string, args ...any) *MathMLMATHElement {
 	if condition {
 		e.MATHSIZE_STR(fmt.Sprintf(format, args...))
@@ -625,8 +612,8 @@ func (e *MathMLMATHElement) IfMATHSIZE_STRF(condition bool, format string, args 
 	return e
 }
 
-// This attribute specifies the size of the element
-// Possible values are a dimension or a dimensionless number.
+// This attribute specifies the size of the element. Possible values are a
+// dimension or a dimensionless number.
 // Remove the attribute MATHSIZE_STR from the element.
 func (e *MathMLMATHElement) MATHSIZE_STRRemove(s string) *MathMLMATHElement {
 	if e.StringAttributes == nil {
@@ -636,16 +623,16 @@ func (e *MathMLMATHElement) MATHSIZE_STRRemove(s string) *MathMLMATHElement {
 	return e
 }
 
-// This attribute specifies the size of the element
-// Possible values are a dimension or a dimensionless number.
+// This attribute specifies the size of the element. Possible values are a
+// dimension or a dimensionless number.
 func (e *MathMLMATHElement) MATHSIZE_STRRemoveF(format string, args ...any) *MathMLMATHElement {
 	return e.MATHSIZE_STRRemove(fmt.Sprintf(format, args...))
 }
 
-// This attribute declares a cryptographic nonce (number used once) that should be
-// used by the server processing the element’s submission, and the resulting
-// resource must be delivered with a Content-Security-Policy nonce attribute
-// matching the value of the nonce attribute.
+// This attribute declares a cryptographic nonce (number used once) that should
+// be used by the server processing the element’s submission, and the
+// resulting resource must be delivered with a Content-Security-Policy nonce
+// attribute matching the value of the nonce attribute.
 func (e *MathMLMATHElement) NONCE(s string) *MathMLMATHElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -654,18 +641,18 @@ func (e *MathMLMATHElement) NONCE(s string) *MathMLMATHElement {
 	return e
 }
 
-// This attribute declares a cryptographic nonce (number used once) that should be
-// used by the server processing the element’s submission, and the resulting
-// resource must be delivered with a Content-Security-Policy nonce attribute
-// matching the value of the nonce attribute.
+// This attribute declares a cryptographic nonce (number used once) that should
+// be used by the server processing the element’s submission, and the
+// resulting resource must be delivered with a Content-Security-Policy nonce
+// attribute matching the value of the nonce attribute.
 func (e *MathMLMATHElement) NONCEF(format string, args ...any) *MathMLMATHElement {
 	return e.NONCE(fmt.Sprintf(format, args...))
 }
 
-// This attribute declares a cryptographic nonce (number used once) that should be
-// used by the server processing the element’s submission, and the resulting
-// resource must be delivered with a Content-Security-Policy nonce attribute
-// matching the value of the nonce attribute.
+// This attribute declares a cryptographic nonce (number used once) that should
+// be used by the server processing the element’s submission, and the
+// resulting resource must be delivered with a Content-Security-Policy nonce
+// attribute matching the value of the nonce attribute.
 func (e *MathMLMATHElement) IfNONCE(condition bool, s string) *MathMLMATHElement {
 	if condition {
 		e.NONCE(s)
@@ -673,10 +660,10 @@ func (e *MathMLMATHElement) IfNONCE(condition bool, s string) *MathMLMATHElement
 	return e
 }
 
-// This attribute declares a cryptographic nonce (number used once) that should be
-// used by the server processing the element’s submission, and the resulting
-// resource must be delivered with a Content-Security-Policy nonce attribute
-// matching the value of the nonce attribute.
+// This attribute declares a cryptographic nonce (number used once) that should
+// be used by the server processing the element’s submission, and the
+// resulting resource must be delivered with a Content-Security-Policy nonce
+// attribute matching the value of the nonce attribute.
 func (e *MathMLMATHElement) IfNONCEF(condition bool, format string, args ...any) *MathMLMATHElement {
 	if condition {
 		e.NONCE(fmt.Sprintf(format, args...))
@@ -684,10 +671,10 @@ func (e *MathMLMATHElement) IfNONCEF(condition bool, format string, args ...any)
 	return e
 }
 
-// This attribute declares a cryptographic nonce (number used once) that should be
-// used by the server processing the element’s submission, and the resulting
-// resource must be delivered with a Content-Security-Policy nonce attribute
-// matching the value of the nonce attribute.
+// This attribute declares a cryptographic nonce (number used once) that should
+// be used by the server processing the element’s submission, and the
+// resulting resource must be delivered with a Content-Security-Policy nonce
+// attribute matching the value of the nonce attribute.
 // Remove the attribute NONCE from the element.
 func (e *MathMLMATHElement) NONCERemove(s string) *MathMLMATHElement {
 	if e.StringAttributes == nil {
@@ -697,16 +684,16 @@ func (e *MathMLMATHElement) NONCERemove(s string) *MathMLMATHElement {
 	return e
 }
 
-// This attribute declares a cryptographic nonce (number used once) that should be
-// used by the server processing the element’s submission, and the resulting
-// resource must be delivered with a Content-Security-Policy nonce attribute
-// matching the value of the nonce attribute.
+// This attribute declares a cryptographic nonce (number used once) that should
+// be used by the server processing the element’s submission, and the
+// resulting resource must be delivered with a Content-Security-Policy nonce
+// attribute matching the value of the nonce attribute.
 func (e *MathMLMATHElement) NONCERemoveF(format string, args ...any) *MathMLMATHElement {
 	return e.NONCERemove(fmt.Sprintf(format, args...))
 }
 
-// This attribute specifies the script level of the element
-// Possible values are an integer between 0 and 7, inclusive.
+// This attribute specifies the script level of the element. Possible values are
+// an integer between 0 and 7, inclusive.
 func (e *MathMLMATHElement) SCRIPTLEVEL(i int) *MathMLMATHElement {
 	if e.IntAttributes == nil {
 		e.IntAttributes = treemap.New[string, int]()
@@ -715,8 +702,8 @@ func (e *MathMLMATHElement) SCRIPTLEVEL(i int) *MathMLMATHElement {
 	return e
 }
 
-// This attribute specifies the script level of the element
-// Possible values are an integer between 0 and 7, inclusive.
+// This attribute specifies the script level of the element. Possible values are
+// an integer between 0 and 7, inclusive.
 func (e *MathMLMATHElement) IfSCRIPTLEVEL(condition bool, i int) *MathMLMATHElement {
 	if condition {
 		e.SCRIPTLEVEL(i)
@@ -724,8 +711,8 @@ func (e *MathMLMATHElement) IfSCRIPTLEVEL(condition bool, i int) *MathMLMATHElem
 	return e
 }
 
-// This attribute specifies the script level of the element
-// Possible values are an integer between 0 and 7, inclusive.
+// This attribute specifies the script level of the element. Possible values are
+// an integer between 0 and 7, inclusive.
 // Remove the attribute SCRIPTLEVEL from the element.
 func (e *MathMLMATHElement) SCRIPTLEVELRemove(i int) *MathMLMATHElement {
 	if e.IntAttributes == nil {
@@ -842,9 +829,8 @@ func (e *MathMLMATHElement) STYLERemove(keys ...string) *MathMLMATHElement {
 }
 
 // This attribute specifies the position of the current element in the tabbing
-// order for the current document
-// This value must be a number between 0 and 32767
-// User agents should ignore leading zeros.
+// order for the current document. This value must be a number between 0 and
+// 32767. User agents should ignore leading zeros.
 func (e *MathMLMATHElement) TABINDEX(i int) *MathMLMATHElement {
 	if e.IntAttributes == nil {
 		e.IntAttributes = treemap.New[string, int]()
@@ -854,9 +840,8 @@ func (e *MathMLMATHElement) TABINDEX(i int) *MathMLMATHElement {
 }
 
 // This attribute specifies the position of the current element in the tabbing
-// order for the current document
-// This value must be a number between 0 and 32767
-// User agents should ignore leading zeros.
+// order for the current document. This value must be a number between 0 and
+// 32767. User agents should ignore leading zeros.
 func (e *MathMLMATHElement) IfTABINDEX(condition bool, i int) *MathMLMATHElement {
 	if condition {
 		e.TABINDEX(i)
@@ -865,9 +850,8 @@ func (e *MathMLMATHElement) IfTABINDEX(condition bool, i int) *MathMLMATHElement
 }
 
 // This attribute specifies the position of the current element in the tabbing
-// order for the current document
-// This value must be a number between 0 and 32767
-// User agents should ignore leading zeros.
+// order for the current document. This value must be a number between 0 and
+// 32767. User agents should ignore leading zeros.
 // Remove the attribute TABINDEX from the element.
 func (e *MathMLMATHElement) TABINDEXRemove(i int) *MathMLMATHElement {
 	if e.IntAttributes == nil {

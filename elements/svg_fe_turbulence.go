@@ -10,8 +10,8 @@ import (
 )
 
 // The <feTurbulence> SVG filter primitive creates an image using the Perlin
-// turbulence function
-// It allows the synthesis of artificial textures like clouds or marble.
+// turbulence function. It allows the synthesis of artificial textures like
+// clouds or marble.
 type SVGFETURBULENCEElement struct {
 	*Element
 }
@@ -273,8 +273,7 @@ func (e *SVGFETURBULENCEElement) IfSEED(condition bool, f float64) *SVGFETURBULE
 }
 
 // The stitchTiles attribute indicates how the Perlin noise function should be
-// tiled
-// It is ignored if type is not set to 'turbulence'.
+// tiled. It is ignored if type is not set to 'turbulence'.
 func (e *SVGFETURBULENCEElement) STITCH_TILES(c SVGFeTurbulenceStitchTilesChoice) *SVGFETURBULENCEElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -287,18 +286,17 @@ type SVGFeTurbulenceStitchTilesChoice string
 
 const (
 	// The <feTurbulence> SVG filter primitive creates an image using the Perlin
-	// turbulence function
-	// It allows the synthesis of artificial textures like clouds or marble.
+	// turbulence function. It allows the synthesis of artificial textures like
+	// clouds or marble.
 	SVGFeTurbulenceStitchTiles_noStitch SVGFeTurbulenceStitchTilesChoice = "noStitch"
 	// The <feTurbulence> SVG filter primitive creates an image using the Perlin
-	// turbulence function
-	// It allows the synthesis of artificial textures like clouds or marble.
+	// turbulence function. It allows the synthesis of artificial textures like
+	// clouds or marble.
 	SVGFeTurbulenceStitchTiles_stitch SVGFeTurbulenceStitchTilesChoice = "stitch"
 )
 
 // The stitchTiles attribute indicates how the Perlin noise function should be
-// tiled
-// It is ignored if type is not set to 'turbulence'.
+// tiled. It is ignored if type is not set to 'turbulence'.
 // Remove the attribute STITCH_TILES from the element.
 func (e *SVGFETURBULENCEElement) STITCH_TILESRemove(c SVGFeTurbulenceStitchTilesChoice) *SVGFETURBULENCEElement {
 	if e.StringAttributes == nil {

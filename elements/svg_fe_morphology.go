@@ -10,8 +10,7 @@ import (
 )
 
 // The <feMorphology> SVG filter primitive is used to erode or dilate the input
-// image
-// It's usefulness lies especially in fattening or thinning effects.
+// image. It's usefulness lies especially in fattening or thinning effects.
 type SVGFEMORPHOLOGYElement struct {
 	*Element
 }

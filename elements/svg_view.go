@@ -9,7 +9,7 @@ import (
 	"github.com/igrmk/treemap/v2"
 )
 
-// The <view> SVG element is used to define a view into a &lt;svg&gt; element
+// The <view> SVG element is used to define a view into a &lt;svg&gt; element.
 // It is partially deprecated in SVG 2.0 and should generally not be used.
 type SVGVIEWElement struct {
 	*Element

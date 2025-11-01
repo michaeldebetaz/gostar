@@ -10,8 +10,8 @@ import (
 )
 
 // The <feImage> SVG filter primitive fetches image data from an external source
-// and provides the pixel data as output (meaning if the external source is an SVG
-// image, it is rasterized.)
+// and provides the pixel data as output (meaning if the external source is an
+// SVG image, it is rasterized.)
 type SVGFEIMAGEElement struct {
 	*Element
 }
@@ -250,8 +250,8 @@ const (
 	// Align the image along the middle of the corresponding dimension of the
 	// viewPort.
 	SVGFeImagePreserveAspectRatio_xMinYMid SVGFeImagePreserveAspectRatioChoice = "xMinYMid"
-	// Scale the image to the smallest size such that it can completely fit inside the
-	// corresponding dimension of the viewPort.
+	// Scale the image to the smallest size such that it can completely fit inside
+	// the corresponding dimension of the viewPort.
 	SVGFeImagePreserveAspectRatio_xMidYMid SVGFeImagePreserveAspectRatioChoice = "xMidYMid"
 	// Align the image with the corresponding side of the viewPort.
 	SVGFeImagePreserveAspectRatio_xMaxYMid SVGFeImagePreserveAspectRatioChoice = "xMaxYMid"

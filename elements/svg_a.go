@@ -9,11 +9,10 @@ import (
 	"github.com/igrmk/treemap/v2"
 )
 
-// The <a> SVG element creates a hyperlink to other web pages, files, locations in
-// the same page, email addresses, or any other URL
-// It is very similar to HTML's <a> element
-// SVG's <a> element is a container, which means you can create a link around text
-// (like in HTML) but also around any shape.
+// The <a> SVG element creates a hyperlink to other web pages, files, locations
+// in the same page, email addresses, or any other URL. It is very similar to
+// HTML's <a> element. SVG's <a> element is a container, which means you can
+// create a link around text (like in HTML) but also around any shape.
 type SVGAElement struct {
 	*Element
 }
@@ -185,11 +184,11 @@ func (e *SVGAElement) CustomDataRemove(key string) *SVGAElement {
 	return e
 }
 
-// Indicates that the hyperlink is to be used for downloading a resource
-// When used together with the download attribute, the value of the attribute is
-// used as the file name of the downloaded file
-// There are no restrictions on allowed values, though / and \ will be converted
-// to underscores and leading spaces in filenames will be removed.
+// Indicates that the hyperlink is to be used for downloading a resource. When
+// used together with the download attribute, the value of the attribute is used
+// as the file name of the downloaded file. There are no restrictions on allowed
+// values, though / and \ will be converted to underscores and leading spaces in
+// filenames will be removed.
 func (e *SVGAElement) DOWNLOAD(s string) *SVGAElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -198,20 +197,20 @@ func (e *SVGAElement) DOWNLOAD(s string) *SVGAElement {
 	return e
 }
 
-// Indicates that the hyperlink is to be used for downloading a resource
-// When used together with the download attribute, the value of the attribute is
-// used as the file name of the downloaded file
-// There are no restrictions on allowed values, though / and \ will be converted
-// to underscores and leading spaces in filenames will be removed.
+// Indicates that the hyperlink is to be used for downloading a resource. When
+// used together with the download attribute, the value of the attribute is used
+// as the file name of the downloaded file. There are no restrictions on allowed
+// values, though / and \ will be converted to underscores and leading spaces in
+// filenames will be removed.
 func (e *SVGAElement) DOWNLOADF(format string, args ...any) *SVGAElement {
 	return e.DOWNLOAD(fmt.Sprintf(format, args...))
 }
 
-// Indicates that the hyperlink is to be used for downloading a resource
-// When used together with the download attribute, the value of the attribute is
-// used as the file name of the downloaded file
-// There are no restrictions on allowed values, though / and \ will be converted
-// to underscores and leading spaces in filenames will be removed.
+// Indicates that the hyperlink is to be used for downloading a resource. When
+// used together with the download attribute, the value of the attribute is used
+// as the file name of the downloaded file. There are no restrictions on allowed
+// values, though / and \ will be converted to underscores and leading spaces in
+// filenames will be removed.
 func (e *SVGAElement) IfDOWNLOAD(condition bool, s string) *SVGAElement {
 	if condition {
 		e.DOWNLOAD(s)
@@ -219,11 +218,11 @@ func (e *SVGAElement) IfDOWNLOAD(condition bool, s string) *SVGAElement {
 	return e
 }
 
-// Indicates that the hyperlink is to be used for downloading a resource
-// When used together with the download attribute, the value of the attribute is
-// used as the file name of the downloaded file
-// There are no restrictions on allowed values, though / and \ will be converted
-// to underscores and leading spaces in filenames will be removed.
+// Indicates that the hyperlink is to be used for downloading a resource. When
+// used together with the download attribute, the value of the attribute is used
+// as the file name of the downloaded file. There are no restrictions on allowed
+// values, though / and \ will be converted to underscores and leading spaces in
+// filenames will be removed.
 func (e *SVGAElement) IfDOWNLOADF(condition bool, format string, args ...any) *SVGAElement {
 	if condition {
 		e.DOWNLOAD(fmt.Sprintf(format, args...))
@@ -231,11 +230,11 @@ func (e *SVGAElement) IfDOWNLOADF(condition bool, format string, args ...any) *S
 	return e
 }
 
-// Indicates that the hyperlink is to be used for downloading a resource
-// When used together with the download attribute, the value of the attribute is
-// used as the file name of the downloaded file
-// There are no restrictions on allowed values, though / and \ will be converted
-// to underscores and leading spaces in filenames will be removed.
+// Indicates that the hyperlink is to be used for downloading a resource. When
+// used together with the download attribute, the value of the attribute is used
+// as the file name of the downloaded file. There are no restrictions on allowed
+// values, though / and \ will be converted to underscores and leading spaces in
+// filenames will be removed.
 // Remove the attribute DOWNLOAD from the element.
 func (e *SVGAElement) DOWNLOADRemove(s string) *SVGAElement {
 	if e.StringAttributes == nil {
@@ -245,11 +244,11 @@ func (e *SVGAElement) DOWNLOADRemove(s string) *SVGAElement {
 	return e
 }
 
-// Indicates that the hyperlink is to be used for downloading a resource
-// When used together with the download attribute, the value of the attribute is
-// used as the file name of the downloaded file
-// There are no restrictions on allowed values, though / and \ will be converted
-// to underscores and leading spaces in filenames will be removed.
+// Indicates that the hyperlink is to be used for downloading a resource. When
+// used together with the download attribute, the value of the attribute is used
+// as the file name of the downloaded file. There are no restrictions on allowed
+// values, though / and \ will be converted to underscores and leading spaces in
+// filenames will be removed.
 func (e *SVGAElement) DOWNLOADRemoveF(format string, args ...any) *SVGAElement {
 	return e.DOWNLOADRemove(fmt.Sprintf(format, args...))
 }
@@ -344,10 +343,8 @@ func (e *SVGAElement) HREFLANGRemoveF(format string, args ...any) *SVGAElement {
 	return e.HREFLANGRemove(fmt.Sprintf(format, args...))
 }
 
-// A space-separated list of URLs
-// When the link is followed, the browser should send POST requests with the body
-// PING to the URLs
-// Typically for tracking.
+// A space-separated list of URLs. When the link is followed, the browser should
+// send POST requests with the body PING to the URLs. Typically for tracking.
 func (e *SVGAElement) PING(s ...string) *SVGAElement {
 	if e.DelimitedStrings == nil {
 		e.DelimitedStrings = treemap.New[string, *DelimitedBuilder[string]]()
@@ -361,10 +358,8 @@ func (e *SVGAElement) PING(s ...string) *SVGAElement {
 	return e
 }
 
-// A space-separated list of URLs
-// When the link is followed, the browser should send POST requests with the body
-// PING to the URLs
-// Typically for tracking.
+// A space-separated list of URLs. When the link is followed, the browser should
+// send POST requests with the body PING to the URLs. Typically for tracking.
 func (e *SVGAElement) IfPING(condition bool, s ...string) *SVGAElement {
 	if condition {
 		e.PING(s...)
@@ -372,10 +367,8 @@ func (e *SVGAElement) IfPING(condition bool, s ...string) *SVGAElement {
 	return e
 }
 
-// A space-separated list of URLs
-// When the link is followed, the browser should send POST requests with the body
-// PING to the URLs
-// Typically for tracking.
+// A space-separated list of URLs. When the link is followed, the browser should
+// send POST requests with the body PING to the URLs. Typically for tracking.
 // Remove the attribute PING from the element.
 func (e *SVGAElement) PINGRemove(s ...string) *SVGAElement {
 	if e.DelimitedStrings == nil {
@@ -446,8 +439,8 @@ func (e *SVGAElement) REL(c SVGARelChoice) *SVGAElement {
 type SVGARelChoice string
 
 const (
-	// Links to an alternate version of the document (i.e
-	// print page, translated or mirror).
+	// Links to an alternate version of the document (i.e. print page, translated or
+	// mirror).
 	SVGARel_alternate SVGARelChoice = "alternate"
 	// Links to the author of the document.
 	SVGARel_author SVGARelChoice = "author"
@@ -471,23 +464,23 @@ const (
 	SVGARel_manifest SVGARelChoice = "manifest"
 	// Links to a resource that is the primary topic of the document.
 	SVGARel_me SVGARelChoice = "me"
-	// Specifies that the target resource should be preemptively fetched and cached by
-	// the browser for later use.
+	// Specifies that the target resource should be preemptively fetched and cached
+	// by the browser for later use.
 	SVGARel_modulepreload SVGARelChoice = "modulepreload"
 	// The next document in a selection.
 	SVGARel_next SVGARelChoice = "next"
-	// Links to an unendorsed document, like a paid link
-	// ("nofollow" is used by Google, to specify that the Google search spider should
-	// not follow that link.)
+	// Links to an unendorsed document, like a paid link. ("nofollow" is used by
+	// Google, to specify that the Google search spider should not follow that
+	// link.)
 	SVGARel_nofollow SVGARelChoice = "nofollow"
-	// Specifies that the browser should not open the linked document in a new tab or
-	// window.
+	// Specifies that the browser should not open the linked document in a new tab
+	// or window.
 	SVGARel_noopener SVGARelChoice = "noopener"
 	// Specifies that the browser should not send a HTTP referer header if the user
 	// follows the hyperlink.
 	SVGARel_noreferrer SVGARelChoice = "noreferrer"
-	// Specifies that the target URL should be opened in a top-level browsing context
-	// (that is, in the current tab or window).
+	// Specifies that the target URL should be opened in a top-level browsing
+	// context (that is, in the current tab or window).
 	SVGARel_opener SVGARelChoice = "opener"
 	// Links to the Pingback server of the current document.
 	SVGARel_pingback SVGARelChoice = "pingback"
@@ -529,8 +522,7 @@ func (e *SVGAElement) TARGET(c SVGATargetChoice) *SVGAElement {
 type SVGATargetChoice string
 
 const (
-	// Default
-	// Opens the document in the same frame as it was clicked.
+	// Default. Opens the document in the same frame as it was clicked.
 	SVGATarget__self SVGATargetChoice = "_self"
 	// Opens the document in a new window or tab.
 	SVGATarget__blank SVGATargetChoice = "_blank"

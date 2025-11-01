@@ -9,9 +9,9 @@ import (
 	"github.com/igrmk/treemap/v2"
 )
 
-// The <text> SVG element renders the first character at the initial current text
-// position
-// This position is modified by the lengthAdjust and textLength attributes.
+// The <text> SVG element renders the first character at the initial current
+// text position. This position is modified by the lengthAdjust and textLength
+// attributes.
 type SVGTEXTElement struct {
 	*Element
 }
@@ -268,11 +268,11 @@ func (e *SVGTEXTElement) IfROTATE(condition bool, f float64) *SVGTEXTElement {
 	return e
 }
 
-// The total sum of all of the advance values from rendering all of the characters
-// within this element, including the advance value on the glyph (horizontal or
-// vertical), the effect of properties 'kerning', 'letter-spacing' and
-// 'word-spacing' and adjustments due to attributes 'x' and 'y' on the <text>
-// element.
+// The total sum of all of the advance values from rendering all of the
+// characters within this element, including the advance value on the glyph
+// (horizontal or vertical), the effect of properties 'kerning',
+// 'letter-spacing' and 'word-spacing' and adjustments due to attributes 'x' and
+// 'y' on the <text> element.
 func (e *SVGTEXTElement) TEXT_LENGTH(f float64) *SVGTEXTElement {
 	if e.FloatAttributes == nil {
 		e.FloatAttributes = treemap.New[string, float64]()
@@ -281,11 +281,11 @@ func (e *SVGTEXTElement) TEXT_LENGTH(f float64) *SVGTEXTElement {
 	return e
 }
 
-// The total sum of all of the advance values from rendering all of the characters
-// within this element, including the advance value on the glyph (horizontal or
-// vertical), the effect of properties 'kerning', 'letter-spacing' and
-// 'word-spacing' and adjustments due to attributes 'x' and 'y' on the <text>
-// element.
+// The total sum of all of the advance values from rendering all of the
+// characters within this element, including the advance value on the glyph
+// (horizontal or vertical), the effect of properties 'kerning',
+// 'letter-spacing' and 'word-spacing' and adjustments due to attributes 'x' and
+// 'y' on the <text> element.
 func (e *SVGTEXTElement) IfTEXT_LENGTH(condition bool, f float64) *SVGTEXTElement {
 	if condition {
 		e.TEXT_LENGTH(f)

@@ -227,15 +227,13 @@ func (e *SVGFEGAUSSIANBLURElement) INRemoveF(format string, args ...any) *SVGFEG
 	return e.INRemove(fmt.Sprintf(format, args...))
 }
 
-// The standard deviation for the blur operation
-// If two <numbers> are provided, the first number represents a standard deviation
-// value along the x-axis of the coordinate system established by attribute
-// 'primitiveUnits' on the <filter> element
-// The second value represents a standard deviation in Y
-// If one number is provided, then that value is used for both X and Y
-// Negative values are not allowed
-// A value of zero disables the effect of the given filter primitive (i.e., the
-// result is a transparent black image).
+// The standard deviation for the blur operation. If two <numbers> are provided,
+// the first number represents a standard deviation value along the x-axis of
+// the coordinate system established by attribute 'primitiveUnits' on the
+// <filter> element. The second value represents a standard deviation in Y. If
+// one number is provided, then that value is used for both X and Y. Negative
+// values are not allowed. A value of zero disables the effect of the given
+// filter primitive (i.e., the result is a transparent black image).
 func (e *SVGFEGAUSSIANBLURElement) STD_DEVIATION(f float64) *SVGFEGAUSSIANBLURElement {
 	if e.FloatAttributes == nil {
 		e.FloatAttributes = treemap.New[string, float64]()
@@ -244,15 +242,13 @@ func (e *SVGFEGAUSSIANBLURElement) STD_DEVIATION(f float64) *SVGFEGAUSSIANBLUREl
 	return e
 }
 
-// The standard deviation for the blur operation
-// If two <numbers> are provided, the first number represents a standard deviation
-// value along the x-axis of the coordinate system established by attribute
-// 'primitiveUnits' on the <filter> element
-// The second value represents a standard deviation in Y
-// If one number is provided, then that value is used for both X and Y
-// Negative values are not allowed
-// A value of zero disables the effect of the given filter primitive (i.e., the
-// result is a transparent black image).
+// The standard deviation for the blur operation. If two <numbers> are provided,
+// the first number represents a standard deviation value along the x-axis of
+// the coordinate system established by attribute 'primitiveUnits' on the
+// <filter> element. The second value represents a standard deviation in Y. If
+// one number is provided, then that value is used for both X and Y. Negative
+// values are not allowed. A value of zero disables the effect of the given
+// filter primitive (i.e., the result is a transparent black image).
 func (e *SVGFEGAUSSIANBLURElement) IfSTD_DEVIATION(condition bool, f float64) *SVGFEGAUSSIANBLURElement {
 	if condition {
 		e.STD_DEVIATION(f)

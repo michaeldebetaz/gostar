@@ -10,9 +10,8 @@ import (
 )
 
 // The <feComponentTransfer> SVG filter primitive performs color-component-wise
-// remapping of data for each pixel
-// It allows operations like brightness adjustment, contrast adjustment, color
-// balance or thresholding.
+// remapping of data for each pixel. It allows operations like brightness
+// adjustment, contrast adjustment, color balance or thresholding.
 type SVGFECOMPONENTTRANSFERElement struct {
 	*Element
 }

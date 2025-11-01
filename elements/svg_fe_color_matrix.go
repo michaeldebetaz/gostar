@@ -9,10 +9,9 @@ import (
 	"github.com/igrmk/treemap/v2"
 )
 
-// The <feColorMatrix> SVG filter element changes colors based on a transformation
-// matrix
-// Every pixel's color value (represented by an [R,G,B,A] vector) is matrix
-// multiplied to create a new color.
+// The <feColorMatrix> SVG filter element changes colors based on a
+// transformation matrix. Every pixel's color value (represented by an [R,G,B,A]
+// vector) is matrix multiplied to create a new color.
 type SVGFECOLORMATRIXElement struct {
 	*Element
 }

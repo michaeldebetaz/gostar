@@ -9,7 +9,7 @@ import (
 	"github.com/igrmk/treemap/v2"
 )
 
-// The <feDropShadow> filter primitive creates a drop shadow of the input image
+// The <feDropShadow> filter primitive creates a drop shadow of the input image.
 // It is a shorthand filter, and is defined in terms of the <feGaussianBlur> and
 // <feOffset> filter primitives.
 type SVGFEDROPSHADOWElement struct {
@@ -183,8 +183,8 @@ func (e *SVGFEDROPSHADOWElement) CustomDataRemove(key string) *SVGFEDROPSHADOWEl
 	return e
 }
 
-// The amount of offset in the x direction
-// If the <length> is 0, the shadow is placed at the same position as the input.
+// The amount of offset in the x direction. If the <length> is 0, the shadow is
+// placed at the same position as the input.
 func (e *SVGFEDROPSHADOWElement) DX(f float64) *SVGFEDROPSHADOWElement {
 	if e.FloatAttributes == nil {
 		e.FloatAttributes = treemap.New[string, float64]()
@@ -193,8 +193,8 @@ func (e *SVGFEDROPSHADOWElement) DX(f float64) *SVGFEDROPSHADOWElement {
 	return e
 }
 
-// The amount of offset in the x direction
-// If the <length> is 0, the shadow is placed at the same position as the input.
+// The amount of offset in the x direction. If the <length> is 0, the shadow is
+// placed at the same position as the input.
 func (e *SVGFEDROPSHADOWElement) IfDX(condition bool, f float64) *SVGFEDROPSHADOWElement {
 	if condition {
 		e.DX(f)
@@ -202,8 +202,8 @@ func (e *SVGFEDROPSHADOWElement) IfDX(condition bool, f float64) *SVGFEDROPSHADO
 	return e
 }
 
-// The amount of offset in the y direction
-// If the <length> is 0, the shadow is placed at the same position as the input.
+// The amount of offset in the y direction. If the <length> is 0, the shadow is
+// placed at the same position as the input.
 func (e *SVGFEDROPSHADOWElement) DY(f float64) *SVGFEDROPSHADOWElement {
 	if e.FloatAttributes == nil {
 		e.FloatAttributes = treemap.New[string, float64]()
@@ -212,8 +212,8 @@ func (e *SVGFEDROPSHADOWElement) DY(f float64) *SVGFEDROPSHADOWElement {
 	return e
 }
 
-// The amount of offset in the y direction
-// If the <length> is 0, the shadow is placed at the same position as the input.
+// The amount of offset in the y direction. If the <length> is 0, the shadow is
+// placed at the same position as the input.
 func (e *SVGFEDROPSHADOWElement) IfDY(condition bool, f float64) *SVGFEDROPSHADOWElement {
 	if condition {
 		e.DY(f)
@@ -221,15 +221,13 @@ func (e *SVGFEDROPSHADOWElement) IfDY(condition bool, f float64) *SVGFEDROPSHADO
 	return e
 }
 
-// The standard deviation for the blur operation
-// If two <numbers> are provided, the first number represents a standard deviation
-// value along the x-axis of the coordinate system established by attribute
-// 'primitiveUnits' on the <filter> element
-// The second value represents a standard deviation in Y
-// If one number is provided, then that value is used for both X and Y
-// Negative values are not allowed
-// A value of zero disables the effect of the given filter primitive (i.e., the
-// result is a transparent black image).
+// The standard deviation for the blur operation. If two <numbers> are provided,
+// the first number represents a standard deviation value along the x-axis of
+// the coordinate system established by attribute 'primitiveUnits' on the
+// <filter> element. The second value represents a standard deviation in Y. If
+// one number is provided, then that value is used for both X and Y. Negative
+// values are not allowed. A value of zero disables the effect of the given
+// filter primitive (i.e., the result is a transparent black image).
 func (e *SVGFEDROPSHADOWElement) STD_DEVIATION(f float64) *SVGFEDROPSHADOWElement {
 	if e.FloatAttributes == nil {
 		e.FloatAttributes = treemap.New[string, float64]()
@@ -238,15 +236,13 @@ func (e *SVGFEDROPSHADOWElement) STD_DEVIATION(f float64) *SVGFEDROPSHADOWElemen
 	return e
 }
 
-// The standard deviation for the blur operation
-// If two <numbers> are provided, the first number represents a standard deviation
-// value along the x-axis of the coordinate system established by attribute
-// 'primitiveUnits' on the <filter> element
-// The second value represents a standard deviation in Y
-// If one number is provided, then that value is used for both X and Y
-// Negative values are not allowed
-// A value of zero disables the effect of the given filter primitive (i.e., the
-// result is a transparent black image).
+// The standard deviation for the blur operation. If two <numbers> are provided,
+// the first number represents a standard deviation value along the x-axis of
+// the coordinate system established by attribute 'primitiveUnits' on the
+// <filter> element. The second value represents a standard deviation in Y. If
+// one number is provided, then that value is used for both X and Y. Negative
+// values are not allowed. A value of zero disables the effect of the given
+// filter primitive (i.e., the result is a transparent black image).
 func (e *SVGFEDROPSHADOWElement) IfSTD_DEVIATION(condition bool, f float64) *SVGFEDROPSHADOWElement {
 	if condition {
 		e.STD_DEVIATION(f)
@@ -255,9 +251,9 @@ func (e *SVGFEDROPSHADOWElement) IfSTD_DEVIATION(condition bool, f float64) *SVG
 }
 
 // The flood-color attribute indicates what color to use to flood the current
-// filter primitive subregion defined through the <feFlood> element
-// If attribute 'flood-color' is not specified, then the effect is as if a value
-// of black were specified.
+// filter primitive subregion defined through the <feFlood> element. If
+// attribute 'flood-color' is not specified, then the effect is as if a value of
+// black were specified.
 func (e *SVGFEDROPSHADOWElement) FLOOD_COLOR(s string) *SVGFEDROPSHADOWElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -267,17 +263,17 @@ func (e *SVGFEDROPSHADOWElement) FLOOD_COLOR(s string) *SVGFEDROPSHADOWElement {
 }
 
 // The flood-color attribute indicates what color to use to flood the current
-// filter primitive subregion defined through the <feFlood> element
-// If attribute 'flood-color' is not specified, then the effect is as if a value
-// of black were specified.
+// filter primitive subregion defined through the <feFlood> element. If
+// attribute 'flood-color' is not specified, then the effect is as if a value of
+// black were specified.
 func (e *SVGFEDROPSHADOWElement) FLOOD_COLORF(format string, args ...any) *SVGFEDROPSHADOWElement {
 	return e.FLOOD_COLOR(fmt.Sprintf(format, args...))
 }
 
 // The flood-color attribute indicates what color to use to flood the current
-// filter primitive subregion defined through the <feFlood> element
-// If attribute 'flood-color' is not specified, then the effect is as if a value
-// of black were specified.
+// filter primitive subregion defined through the <feFlood> element. If
+// attribute 'flood-color' is not specified, then the effect is as if a value of
+// black were specified.
 func (e *SVGFEDROPSHADOWElement) IfFLOOD_COLOR(condition bool, s string) *SVGFEDROPSHADOWElement {
 	if condition {
 		e.FLOOD_COLOR(s)
@@ -286,9 +282,9 @@ func (e *SVGFEDROPSHADOWElement) IfFLOOD_COLOR(condition bool, s string) *SVGFED
 }
 
 // The flood-color attribute indicates what color to use to flood the current
-// filter primitive subregion defined through the <feFlood> element
-// If attribute 'flood-color' is not specified, then the effect is as if a value
-// of black were specified.
+// filter primitive subregion defined through the <feFlood> element. If
+// attribute 'flood-color' is not specified, then the effect is as if a value of
+// black were specified.
 func (e *SVGFEDROPSHADOWElement) IfFLOOD_COLORF(condition bool, format string, args ...any) *SVGFEDROPSHADOWElement {
 	if condition {
 		e.FLOOD_COLOR(fmt.Sprintf(format, args...))
@@ -297,9 +293,9 @@ func (e *SVGFEDROPSHADOWElement) IfFLOOD_COLORF(condition bool, format string, a
 }
 
 // The flood-color attribute indicates what color to use to flood the current
-// filter primitive subregion defined through the <feFlood> element
-// If attribute 'flood-color' is not specified, then the effect is as if a value
-// of black were specified.
+// filter primitive subregion defined through the <feFlood> element. If
+// attribute 'flood-color' is not specified, then the effect is as if a value of
+// black were specified.
 // Remove the attribute FLOOD_COLOR from the element.
 func (e *SVGFEDROPSHADOWElement) FLOOD_COLORRemove(s string) *SVGFEDROPSHADOWElement {
 	if e.StringAttributes == nil {
@@ -310,9 +306,9 @@ func (e *SVGFEDROPSHADOWElement) FLOOD_COLORRemove(s string) *SVGFEDROPSHADOWEle
 }
 
 // The flood-color attribute indicates what color to use to flood the current
-// filter primitive subregion defined through the <feFlood> element
-// If attribute 'flood-color' is not specified, then the effect is as if a value
-// of black were specified.
+// filter primitive subregion defined through the <feFlood> element. If
+// attribute 'flood-color' is not specified, then the effect is as if a value of
+// black were specified.
 func (e *SVGFEDROPSHADOWElement) FLOOD_COLORRemoveF(format string, args ...any) *SVGFEDROPSHADOWElement {
 	return e.FLOOD_COLORRemove(fmt.Sprintf(format, args...))
 }

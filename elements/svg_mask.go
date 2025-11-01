@@ -237,8 +237,8 @@ func (e *SVGMASKElement) MASK_UNITSRemove(c SVGMaskMaskUnitsChoice) *SVGMASKElem
 	return e
 }
 
-// The x-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The x-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGMASKElement) X(s string) *SVGMASKElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -247,14 +247,14 @@ func (e *SVGMASKElement) X(s string) *SVGMASKElement {
 	return e
 }
 
-// The x-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The x-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGMASKElement) XF(format string, args ...any) *SVGMASKElement {
 	return e.X(fmt.Sprintf(format, args...))
 }
 
-// The x-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The x-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGMASKElement) IfX(condition bool, s string) *SVGMASKElement {
 	if condition {
 		e.X(s)
@@ -262,8 +262,8 @@ func (e *SVGMASKElement) IfX(condition bool, s string) *SVGMASKElement {
 	return e
 }
 
-// The x-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The x-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGMASKElement) IfXF(condition bool, format string, args ...any) *SVGMASKElement {
 	if condition {
 		e.X(fmt.Sprintf(format, args...))
@@ -271,8 +271,8 @@ func (e *SVGMASKElement) IfXF(condition bool, format string, args ...any) *SVGMA
 	return e
 }
 
-// The x-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The x-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 // Remove the attribute X from the element.
 func (e *SVGMASKElement) XRemove(s string) *SVGMASKElement {
 	if e.StringAttributes == nil {
@@ -282,14 +282,14 @@ func (e *SVGMASKElement) XRemove(s string) *SVGMASKElement {
 	return e
 }
 
-// The x-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The x-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGMASKElement) XRemoveF(format string, args ...any) *SVGMASKElement {
 	return e.XRemove(fmt.Sprintf(format, args...))
 }
 
-// The y-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The y-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGMASKElement) Y(s string) *SVGMASKElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -298,14 +298,14 @@ func (e *SVGMASKElement) Y(s string) *SVGMASKElement {
 	return e
 }
 
-// The y-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The y-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGMASKElement) YF(format string, args ...any) *SVGMASKElement {
 	return e.Y(fmt.Sprintf(format, args...))
 }
 
-// The y-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The y-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGMASKElement) IfY(condition bool, s string) *SVGMASKElement {
 	if condition {
 		e.Y(s)
@@ -313,8 +313,8 @@ func (e *SVGMASKElement) IfY(condition bool, s string) *SVGMASKElement {
 	return e
 }
 
-// The y-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The y-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGMASKElement) IfYF(condition bool, format string, args ...any) *SVGMASKElement {
 	if condition {
 		e.Y(fmt.Sprintf(format, args...))
@@ -322,8 +322,8 @@ func (e *SVGMASKElement) IfYF(condition bool, format string, args ...any) *SVGMA
 	return e
 }
 
-// The y-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The y-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 // Remove the attribute Y from the element.
 func (e *SVGMASKElement) YRemove(s string) *SVGMASKElement {
 	if e.StringAttributes == nil {
@@ -333,8 +333,8 @@ func (e *SVGMASKElement) YRemove(s string) *SVGMASKElement {
 	return e
 }
 
-// The y-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The y-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGMASKElement) YRemoveF(format string, args ...any) *SVGMASKElement {
 	return e.YRemove(fmt.Sprintf(format, args...))
 }

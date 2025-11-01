@@ -9,8 +9,8 @@ import (
 	"github.com/igrmk/treemap/v2"
 )
 
-// The <path> SVG element is the generic element to define a shape
-// All the basic shapes can be created with a path element.
+// The <path> SVG element is the generic element to define a shape. All the
+// basic shapes can be created with a path element.
 type SVGPATHElement struct {
 	*Element
 }
@@ -227,8 +227,8 @@ func (e *SVGPATHElement) DRemoveF(format string, args ...any) *SVGPATHElement {
 	return e.DRemove(fmt.Sprintf(format, args...))
 }
 
-// The <path> SVG element is the generic element to define a shape
-// All the basic shapes can be created with a path element.
+// The <path> SVG element is the generic element to define a shape. All the
+// basic shapes can be created with a path element.
 func (e *SVGPATHElement) FILL(s string) *SVGPATHElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -237,14 +237,14 @@ func (e *SVGPATHElement) FILL(s string) *SVGPATHElement {
 	return e
 }
 
-// The <path> SVG element is the generic element to define a shape
-// All the basic shapes can be created with a path element.
+// The <path> SVG element is the generic element to define a shape. All the
+// basic shapes can be created with a path element.
 func (e *SVGPATHElement) FILLF(format string, args ...any) *SVGPATHElement {
 	return e.FILL(fmt.Sprintf(format, args...))
 }
 
-// The <path> SVG element is the generic element to define a shape
-// All the basic shapes can be created with a path element.
+// The <path> SVG element is the generic element to define a shape. All the
+// basic shapes can be created with a path element.
 func (e *SVGPATHElement) IfFILL(condition bool, s string) *SVGPATHElement {
 	if condition {
 		e.FILL(s)
@@ -252,8 +252,8 @@ func (e *SVGPATHElement) IfFILL(condition bool, s string) *SVGPATHElement {
 	return e
 }
 
-// The <path> SVG element is the generic element to define a shape
-// All the basic shapes can be created with a path element.
+// The <path> SVG element is the generic element to define a shape. All the
+// basic shapes can be created with a path element.
 func (e *SVGPATHElement) IfFILLF(condition bool, format string, args ...any) *SVGPATHElement {
 	if condition {
 		e.FILL(fmt.Sprintf(format, args...))
@@ -261,8 +261,8 @@ func (e *SVGPATHElement) IfFILLF(condition bool, format string, args ...any) *SV
 	return e
 }
 
-// The <path> SVG element is the generic element to define a shape
-// All the basic shapes can be created with a path element.
+// The <path> SVG element is the generic element to define a shape. All the
+// basic shapes can be created with a path element.
 // Remove the attribute FILL from the element.
 func (e *SVGPATHElement) FILLRemove(s string) *SVGPATHElement {
 	if e.StringAttributes == nil {
@@ -272,14 +272,14 @@ func (e *SVGPATHElement) FILLRemove(s string) *SVGPATHElement {
 	return e
 }
 
-// The <path> SVG element is the generic element to define a shape
-// All the basic shapes can be created with a path element.
+// The <path> SVG element is the generic element to define a shape. All the
+// basic shapes can be created with a path element.
 func (e *SVGPATHElement) FILLRemoveF(format string, args ...any) *SVGPATHElement {
 	return e.FILLRemove(fmt.Sprintf(format, args...))
 }
 
-// The <path> SVG element is the generic element to define a shape
-// All the basic shapes can be created with a path element.
+// The <path> SVG element is the generic element to define a shape. All the
+// basic shapes can be created with a path element.
 func (e *SVGPATHElement) FILL_OPACITY(f float64) *SVGPATHElement {
 	if e.FloatAttributes == nil {
 		e.FloatAttributes = treemap.New[string, float64]()
@@ -288,8 +288,8 @@ func (e *SVGPATHElement) FILL_OPACITY(f float64) *SVGPATHElement {
 	return e
 }
 
-// The <path> SVG element is the generic element to define a shape
-// All the basic shapes can be created with a path element.
+// The <path> SVG element is the generic element to define a shape. All the
+// basic shapes can be created with a path element.
 func (e *SVGPATHElement) IfFILL_OPACITY(condition bool, f float64) *SVGPATHElement {
 	if condition {
 		e.FILL_OPACITY(f)

@@ -10,9 +10,8 @@ import (
 )
 
 // This element is used to include comments or annotations within a MathML
-// expression
-// It can be used to provide additional information about the expression, or to
-// include comments for the author of the expression.
+// expression. It can be used to provide additional information about the
+// expression, or to include comments for the author of the expression.
 type MathMLANNOTATION_XMLElement struct {
 	*Element
 }
@@ -184,8 +183,8 @@ func (e *MathMLANNOTATION_XMLElement) CustomDataRemove(key string) *MathMLANNOTA
 	return e
 }
 
-// This attribute specifies the encoding used for the text content of the element
-// Possible values are text/plain, text/html, and application/x-tex.
+// This attribute specifies the encoding used for the text content of the
+// element. Possible values are text/plain, text/html, and application/x-tex.
 func (e *MathMLANNOTATION_XMLElement) ENCODING(c MathMLAnnotationXmlEncodingChoice) *MathMLANNOTATION_XMLElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -204,8 +203,8 @@ const (
 	MathMLAnnotationXmlEncoding_application_x_tex MathMLAnnotationXmlEncodingChoice = "application/x-tex"
 )
 
-// This attribute specifies the encoding used for the text content of the element
-// Possible values are text/plain, text/html, and application/x-tex.
+// This attribute specifies the encoding used for the text content of the
+// element. Possible values are text/plain, text/html, and application/x-tex.
 // Remove the attribute ENCODING from the element.
 func (e *MathMLANNOTATION_XMLElement) ENCODINGRemove(c MathMLAnnotationXmlEncodingChoice) *MathMLANNOTATION_XMLElement {
 	if e.StringAttributes == nil {
@@ -260,10 +259,9 @@ func (e *MathMLANNOTATION_XMLElement) NAMERemoveF(format string, args ...any) *M
 	return e.NAMERemove(fmt.Sprintf(format, args...))
 }
 
-// Assigns a class name or set of class names to an element
-// You may assign the same class name or names to any number of elements
-// If you specify multiple class names, they must be separated by whitespace
-// characters.
+// Assigns a class name or set of class names to an element. You may assign the
+// same class name or names to any number of elements. If you specify multiple
+// class names, they must be separated by whitespace characters.
 func (e *MathMLANNOTATION_XMLElement) CLASS(s ...string) *MathMLANNOTATION_XMLElement {
 	if e.DelimitedStrings == nil {
 		e.DelimitedStrings = treemap.New[string, *DelimitedBuilder[string]]()
@@ -277,10 +275,9 @@ func (e *MathMLANNOTATION_XMLElement) CLASS(s ...string) *MathMLANNOTATION_XMLEl
 	return e
 }
 
-// Assigns a class name or set of class names to an element
-// You may assign the same class name or names to any number of elements
-// If you specify multiple class names, they must be separated by whitespace
-// characters.
+// Assigns a class name or set of class names to an element. You may assign the
+// same class name or names to any number of elements. If you specify multiple
+// class names, they must be separated by whitespace characters.
 func (e *MathMLANNOTATION_XMLElement) IfCLASS(condition bool, s ...string) *MathMLANNOTATION_XMLElement {
 	if condition {
 		e.CLASS(s...)
@@ -288,10 +285,9 @@ func (e *MathMLANNOTATION_XMLElement) IfCLASS(condition bool, s ...string) *Math
 	return e
 }
 
-// Assigns a class name or set of class names to an element
-// You may assign the same class name or names to any number of elements
-// If you specify multiple class names, they must be separated by whitespace
-// characters.
+// Assigns a class name or set of class names to an element. You may assign the
+// same class name or names to any number of elements. If you specify multiple
+// class names, they must be separated by whitespace characters.
 // Remove the attribute CLASS from the element.
 func (e *MathMLANNOTATION_XMLElement) CLASSRemove(s ...string) *MathMLANNOTATION_XMLElement {
 	if e.DelimitedStrings == nil {
@@ -306,9 +302,9 @@ func (e *MathMLANNOTATION_XMLElement) CLASSRemove(s ...string) *MathMLANNOTATION
 }
 
 // This attribute specifies the text directionality of the element, merely
-// indicating what direction the text flows when surrounded by text with inherent
-// directionality (such as Arabic or Hebrew)
-// Possible values are ltr (left-to-right) and rtl (right-to-left).
+// indicating what direction the text flows when surrounded by text with
+// inherent directionality (such as Arabic or Hebrew). Possible values are ltr
+// (left-to-right) and rtl (right-to-left).
 func (e *MathMLANNOTATION_XMLElement) DIR(c MathMLAnnotationXmlDirChoice) *MathMLANNOTATION_XMLElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -327,9 +323,9 @@ const (
 )
 
 // This attribute specifies the text directionality of the element, merely
-// indicating what direction the text flows when surrounded by text with inherent
-// directionality (such as Arabic or Hebrew)
-// Possible values are ltr (left-to-right) and rtl (right-to-left).
+// indicating what direction the text flows when surrounded by text with
+// inherent directionality (such as Arabic or Hebrew). Possible values are ltr
+// (left-to-right) and rtl (right-to-left).
 // Remove the attribute DIR from the element.
 func (e *MathMLANNOTATION_XMLElement) DIRRemove(c MathMLAnnotationXmlDirChoice) *MathMLANNOTATION_XMLElement {
 	if e.StringAttributes == nil {
@@ -340,8 +336,7 @@ func (e *MathMLANNOTATION_XMLElement) DIRRemove(c MathMLAnnotationXmlDirChoice) 
 }
 
 // This attribute specifies whether the element should be rendered using
-// displaystyle rules or not
-// Possible values are true and false.
+// displaystyle rules or not. Possible values are true and false.
 func (e *MathMLANNOTATION_XMLElement) DISPLAYSTYLE(c MathMLAnnotationXmlDisplaystyleChoice) *MathMLANNOTATION_XMLElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -360,8 +355,7 @@ const (
 )
 
 // This attribute specifies whether the element should be rendered using
-// displaystyle rules or not
-// Possible values are true and false.
+// displaystyle rules or not. Possible values are true and false.
 // Remove the attribute DISPLAYSTYLE from the element.
 func (e *MathMLANNOTATION_XMLElement) DISPLAYSTYLERemove(c MathMLAnnotationXmlDisplaystyleChoice) *MathMLANNOTATION_XMLElement {
 	if e.StringAttributes == nil {
@@ -371,8 +365,8 @@ func (e *MathMLANNOTATION_XMLElement) DISPLAYSTYLERemove(c MathMLAnnotationXmlDi
 	return e
 }
 
-// This attribute assigns a name to an element
-// This name must be unique in a document.
+// This attribute assigns a name to an element. This name must be unique in a
+// document.
 func (e *MathMLANNOTATION_XMLElement) ID(s string) *MathMLANNOTATION_XMLElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -381,14 +375,14 @@ func (e *MathMLANNOTATION_XMLElement) ID(s string) *MathMLANNOTATION_XMLElement 
 	return e
 }
 
-// This attribute assigns a name to an element
-// This name must be unique in a document.
+// This attribute assigns a name to an element. This name must be unique in a
+// document.
 func (e *MathMLANNOTATION_XMLElement) IDF(format string, args ...any) *MathMLANNOTATION_XMLElement {
 	return e.ID(fmt.Sprintf(format, args...))
 }
 
-// This attribute assigns a name to an element
-// This name must be unique in a document.
+// This attribute assigns a name to an element. This name must be unique in a
+// document.
 func (e *MathMLANNOTATION_XMLElement) IfID(condition bool, s string) *MathMLANNOTATION_XMLElement {
 	if condition {
 		e.ID(s)
@@ -396,8 +390,8 @@ func (e *MathMLANNOTATION_XMLElement) IfID(condition bool, s string) *MathMLANNO
 	return e
 }
 
-// This attribute assigns a name to an element
-// This name must be unique in a document.
+// This attribute assigns a name to an element. This name must be unique in a
+// document.
 func (e *MathMLANNOTATION_XMLElement) IfIDF(condition bool, format string, args ...any) *MathMLANNOTATION_XMLElement {
 	if condition {
 		e.ID(fmt.Sprintf(format, args...))
@@ -405,8 +399,8 @@ func (e *MathMLANNOTATION_XMLElement) IfIDF(condition bool, format string, args 
 	return e
 }
 
-// This attribute assigns a name to an element
-// This name must be unique in a document.
+// This attribute assigns a name to an element. This name must be unique in a
+// document.
 // Remove the attribute ID from the element.
 func (e *MathMLANNOTATION_XMLElement) IDRemove(s string) *MathMLANNOTATION_XMLElement {
 	if e.StringAttributes == nil {
@@ -416,15 +410,15 @@ func (e *MathMLANNOTATION_XMLElement) IDRemove(s string) *MathMLANNOTATION_XMLEl
 	return e
 }
 
-// This attribute assigns a name to an element
-// This name must be unique in a document.
+// This attribute assigns a name to an element. This name must be unique in a
+// document.
 func (e *MathMLANNOTATION_XMLElement) IDRemoveF(format string, args ...any) *MathMLANNOTATION_XMLElement {
 	return e.IDRemove(fmt.Sprintf(format, args...))
 }
 
-// This attribute specifies the background color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the background color of the element. Possible values
+// are a color name or a color specification in the format defined in the CSS3
+// Color Module [CSS3COLOR].
 func (e *MathMLANNOTATION_XMLElement) MATHBACKGROUND(s string) *MathMLANNOTATION_XMLElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -433,16 +427,16 @@ func (e *MathMLANNOTATION_XMLElement) MATHBACKGROUND(s string) *MathMLANNOTATION
 	return e
 }
 
-// This attribute specifies the background color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the background color of the element. Possible values
+// are a color name or a color specification in the format defined in the CSS3
+// Color Module [CSS3COLOR].
 func (e *MathMLANNOTATION_XMLElement) MATHBACKGROUNDF(format string, args ...any) *MathMLANNOTATION_XMLElement {
 	return e.MATHBACKGROUND(fmt.Sprintf(format, args...))
 }
 
-// This attribute specifies the background color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the background color of the element. Possible values
+// are a color name or a color specification in the format defined in the CSS3
+// Color Module [CSS3COLOR].
 func (e *MathMLANNOTATION_XMLElement) IfMATHBACKGROUND(condition bool, s string) *MathMLANNOTATION_XMLElement {
 	if condition {
 		e.MATHBACKGROUND(s)
@@ -450,9 +444,9 @@ func (e *MathMLANNOTATION_XMLElement) IfMATHBACKGROUND(condition bool, s string)
 	return e
 }
 
-// This attribute specifies the background color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the background color of the element. Possible values
+// are a color name or a color specification in the format defined in the CSS3
+// Color Module [CSS3COLOR].
 func (e *MathMLANNOTATION_XMLElement) IfMATHBACKGROUNDF(condition bool, format string, args ...any) *MathMLANNOTATION_XMLElement {
 	if condition {
 		e.MATHBACKGROUND(fmt.Sprintf(format, args...))
@@ -460,9 +454,9 @@ func (e *MathMLANNOTATION_XMLElement) IfMATHBACKGROUNDF(condition bool, format s
 	return e
 }
 
-// This attribute specifies the background color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the background color of the element. Possible values
+// are a color name or a color specification in the format defined in the CSS3
+// Color Module [CSS3COLOR].
 // Remove the attribute MATHBACKGROUND from the element.
 func (e *MathMLANNOTATION_XMLElement) MATHBACKGROUNDRemove(s string) *MathMLANNOTATION_XMLElement {
 	if e.StringAttributes == nil {
@@ -472,16 +466,16 @@ func (e *MathMLANNOTATION_XMLElement) MATHBACKGROUNDRemove(s string) *MathMLANNO
 	return e
 }
 
-// This attribute specifies the background color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the background color of the element. Possible values
+// are a color name or a color specification in the format defined in the CSS3
+// Color Module [CSS3COLOR].
 func (e *MathMLANNOTATION_XMLElement) MATHBACKGROUNDRemoveF(format string, args ...any) *MathMLANNOTATION_XMLElement {
 	return e.MATHBACKGROUNDRemove(fmt.Sprintf(format, args...))
 }
 
-// This attribute specifies the color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the color of the element. Possible values are a
+// color name or a color specification in the format defined in the CSS3 Color
+// Module [CSS3COLOR].
 func (e *MathMLANNOTATION_XMLElement) MATHCOLOR(s string) *MathMLANNOTATION_XMLElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -490,16 +484,16 @@ func (e *MathMLANNOTATION_XMLElement) MATHCOLOR(s string) *MathMLANNOTATION_XMLE
 	return e
 }
 
-// This attribute specifies the color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the color of the element. Possible values are a
+// color name or a color specification in the format defined in the CSS3 Color
+// Module [CSS3COLOR].
 func (e *MathMLANNOTATION_XMLElement) MATHCOLORF(format string, args ...any) *MathMLANNOTATION_XMLElement {
 	return e.MATHCOLOR(fmt.Sprintf(format, args...))
 }
 
-// This attribute specifies the color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the color of the element. Possible values are a
+// color name or a color specification in the format defined in the CSS3 Color
+// Module [CSS3COLOR].
 func (e *MathMLANNOTATION_XMLElement) IfMATHCOLOR(condition bool, s string) *MathMLANNOTATION_XMLElement {
 	if condition {
 		e.MATHCOLOR(s)
@@ -507,9 +501,9 @@ func (e *MathMLANNOTATION_XMLElement) IfMATHCOLOR(condition bool, s string) *Mat
 	return e
 }
 
-// This attribute specifies the color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the color of the element. Possible values are a
+// color name or a color specification in the format defined in the CSS3 Color
+// Module [CSS3COLOR].
 func (e *MathMLANNOTATION_XMLElement) IfMATHCOLORF(condition bool, format string, args ...any) *MathMLANNOTATION_XMLElement {
 	if condition {
 		e.MATHCOLOR(fmt.Sprintf(format, args...))
@@ -517,9 +511,9 @@ func (e *MathMLANNOTATION_XMLElement) IfMATHCOLORF(condition bool, format string
 	return e
 }
 
-// This attribute specifies the color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the color of the element. Possible values are a
+// color name or a color specification in the format defined in the CSS3 Color
+// Module [CSS3COLOR].
 // Remove the attribute MATHCOLOR from the element.
 func (e *MathMLANNOTATION_XMLElement) MATHCOLORRemove(s string) *MathMLANNOTATION_XMLElement {
 	if e.StringAttributes == nil {
@@ -529,15 +523,15 @@ func (e *MathMLANNOTATION_XMLElement) MATHCOLORRemove(s string) *MathMLANNOTATIO
 	return e
 }
 
-// This attribute specifies the color of the element
-// Possible values are a color name or a color specification in the format defined
-// in the CSS3 Color Module [CSS3COLOR].
+// This attribute specifies the color of the element. Possible values are a
+// color name or a color specification in the format defined in the CSS3 Color
+// Module [CSS3COLOR].
 func (e *MathMLANNOTATION_XMLElement) MATHCOLORRemoveF(format string, args ...any) *MathMLANNOTATION_XMLElement {
 	return e.MATHCOLORRemove(fmt.Sprintf(format, args...))
 }
 
-// This attribute specifies the size of the element
-// Possible values are a dimension or a dimensionless number.
+// This attribute specifies the size of the element. Possible values are a
+// dimension or a dimensionless number.
 func (e *MathMLANNOTATION_XMLElement) MATHSIZE_STR(s string) *MathMLANNOTATION_XMLElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -546,14 +540,14 @@ func (e *MathMLANNOTATION_XMLElement) MATHSIZE_STR(s string) *MathMLANNOTATION_X
 	return e
 }
 
-// This attribute specifies the size of the element
-// Possible values are a dimension or a dimensionless number.
+// This attribute specifies the size of the element. Possible values are a
+// dimension or a dimensionless number.
 func (e *MathMLANNOTATION_XMLElement) MATHSIZE_STRF(format string, args ...any) *MathMLANNOTATION_XMLElement {
 	return e.MATHSIZE_STR(fmt.Sprintf(format, args...))
 }
 
-// This attribute specifies the size of the element
-// Possible values are a dimension or a dimensionless number.
+// This attribute specifies the size of the element. Possible values are a
+// dimension or a dimensionless number.
 func (e *MathMLANNOTATION_XMLElement) IfMATHSIZE_STR(condition bool, s string) *MathMLANNOTATION_XMLElement {
 	if condition {
 		e.MATHSIZE_STR(s)
@@ -561,8 +555,8 @@ func (e *MathMLANNOTATION_XMLElement) IfMATHSIZE_STR(condition bool, s string) *
 	return e
 }
 
-// This attribute specifies the size of the element
-// Possible values are a dimension or a dimensionless number.
+// This attribute specifies the size of the element. Possible values are a
+// dimension or a dimensionless number.
 func (e *MathMLANNOTATION_XMLElement) IfMATHSIZE_STRF(condition bool, format string, args ...any) *MathMLANNOTATION_XMLElement {
 	if condition {
 		e.MATHSIZE_STR(fmt.Sprintf(format, args...))
@@ -570,8 +564,8 @@ func (e *MathMLANNOTATION_XMLElement) IfMATHSIZE_STRF(condition bool, format str
 	return e
 }
 
-// This attribute specifies the size of the element
-// Possible values are a dimension or a dimensionless number.
+// This attribute specifies the size of the element. Possible values are a
+// dimension or a dimensionless number.
 // Remove the attribute MATHSIZE_STR from the element.
 func (e *MathMLANNOTATION_XMLElement) MATHSIZE_STRRemove(s string) *MathMLANNOTATION_XMLElement {
 	if e.StringAttributes == nil {
@@ -581,16 +575,16 @@ func (e *MathMLANNOTATION_XMLElement) MATHSIZE_STRRemove(s string) *MathMLANNOTA
 	return e
 }
 
-// This attribute specifies the size of the element
-// Possible values are a dimension or a dimensionless number.
+// This attribute specifies the size of the element. Possible values are a
+// dimension or a dimensionless number.
 func (e *MathMLANNOTATION_XMLElement) MATHSIZE_STRRemoveF(format string, args ...any) *MathMLANNOTATION_XMLElement {
 	return e.MATHSIZE_STRRemove(fmt.Sprintf(format, args...))
 }
 
-// This attribute declares a cryptographic nonce (number used once) that should be
-// used by the server processing the element’s submission, and the resulting
-// resource must be delivered with a Content-Security-Policy nonce attribute
-// matching the value of the nonce attribute.
+// This attribute declares a cryptographic nonce (number used once) that should
+// be used by the server processing the element’s submission, and the
+// resulting resource must be delivered with a Content-Security-Policy nonce
+// attribute matching the value of the nonce attribute.
 func (e *MathMLANNOTATION_XMLElement) NONCE(s string) *MathMLANNOTATION_XMLElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -599,18 +593,18 @@ func (e *MathMLANNOTATION_XMLElement) NONCE(s string) *MathMLANNOTATION_XMLEleme
 	return e
 }
 
-// This attribute declares a cryptographic nonce (number used once) that should be
-// used by the server processing the element’s submission, and the resulting
-// resource must be delivered with a Content-Security-Policy nonce attribute
-// matching the value of the nonce attribute.
+// This attribute declares a cryptographic nonce (number used once) that should
+// be used by the server processing the element’s submission, and the
+// resulting resource must be delivered with a Content-Security-Policy nonce
+// attribute matching the value of the nonce attribute.
 func (e *MathMLANNOTATION_XMLElement) NONCEF(format string, args ...any) *MathMLANNOTATION_XMLElement {
 	return e.NONCE(fmt.Sprintf(format, args...))
 }
 
-// This attribute declares a cryptographic nonce (number used once) that should be
-// used by the server processing the element’s submission, and the resulting
-// resource must be delivered with a Content-Security-Policy nonce attribute
-// matching the value of the nonce attribute.
+// This attribute declares a cryptographic nonce (number used once) that should
+// be used by the server processing the element’s submission, and the
+// resulting resource must be delivered with a Content-Security-Policy nonce
+// attribute matching the value of the nonce attribute.
 func (e *MathMLANNOTATION_XMLElement) IfNONCE(condition bool, s string) *MathMLANNOTATION_XMLElement {
 	if condition {
 		e.NONCE(s)
@@ -618,10 +612,10 @@ func (e *MathMLANNOTATION_XMLElement) IfNONCE(condition bool, s string) *MathMLA
 	return e
 }
 
-// This attribute declares a cryptographic nonce (number used once) that should be
-// used by the server processing the element’s submission, and the resulting
-// resource must be delivered with a Content-Security-Policy nonce attribute
-// matching the value of the nonce attribute.
+// This attribute declares a cryptographic nonce (number used once) that should
+// be used by the server processing the element’s submission, and the
+// resulting resource must be delivered with a Content-Security-Policy nonce
+// attribute matching the value of the nonce attribute.
 func (e *MathMLANNOTATION_XMLElement) IfNONCEF(condition bool, format string, args ...any) *MathMLANNOTATION_XMLElement {
 	if condition {
 		e.NONCE(fmt.Sprintf(format, args...))
@@ -629,10 +623,10 @@ func (e *MathMLANNOTATION_XMLElement) IfNONCEF(condition bool, format string, ar
 	return e
 }
 
-// This attribute declares a cryptographic nonce (number used once) that should be
-// used by the server processing the element’s submission, and the resulting
-// resource must be delivered with a Content-Security-Policy nonce attribute
-// matching the value of the nonce attribute.
+// This attribute declares a cryptographic nonce (number used once) that should
+// be used by the server processing the element’s submission, and the
+// resulting resource must be delivered with a Content-Security-Policy nonce
+// attribute matching the value of the nonce attribute.
 // Remove the attribute NONCE from the element.
 func (e *MathMLANNOTATION_XMLElement) NONCERemove(s string) *MathMLANNOTATION_XMLElement {
 	if e.StringAttributes == nil {
@@ -642,16 +636,16 @@ func (e *MathMLANNOTATION_XMLElement) NONCERemove(s string) *MathMLANNOTATION_XM
 	return e
 }
 
-// This attribute declares a cryptographic nonce (number used once) that should be
-// used by the server processing the element’s submission, and the resulting
-// resource must be delivered with a Content-Security-Policy nonce attribute
-// matching the value of the nonce attribute.
+// This attribute declares a cryptographic nonce (number used once) that should
+// be used by the server processing the element’s submission, and the
+// resulting resource must be delivered with a Content-Security-Policy nonce
+// attribute matching the value of the nonce attribute.
 func (e *MathMLANNOTATION_XMLElement) NONCERemoveF(format string, args ...any) *MathMLANNOTATION_XMLElement {
 	return e.NONCERemove(fmt.Sprintf(format, args...))
 }
 
-// This attribute specifies the script level of the element
-// Possible values are an integer between 0 and 7, inclusive.
+// This attribute specifies the script level of the element. Possible values are
+// an integer between 0 and 7, inclusive.
 func (e *MathMLANNOTATION_XMLElement) SCRIPTLEVEL(i int) *MathMLANNOTATION_XMLElement {
 	if e.IntAttributes == nil {
 		e.IntAttributes = treemap.New[string, int]()
@@ -660,8 +654,8 @@ func (e *MathMLANNOTATION_XMLElement) SCRIPTLEVEL(i int) *MathMLANNOTATION_XMLEl
 	return e
 }
 
-// This attribute specifies the script level of the element
-// Possible values are an integer between 0 and 7, inclusive.
+// This attribute specifies the script level of the element. Possible values are
+// an integer between 0 and 7, inclusive.
 func (e *MathMLANNOTATION_XMLElement) IfSCRIPTLEVEL(condition bool, i int) *MathMLANNOTATION_XMLElement {
 	if condition {
 		e.SCRIPTLEVEL(i)
@@ -669,8 +663,8 @@ func (e *MathMLANNOTATION_XMLElement) IfSCRIPTLEVEL(condition bool, i int) *Math
 	return e
 }
 
-// This attribute specifies the script level of the element
-// Possible values are an integer between 0 and 7, inclusive.
+// This attribute specifies the script level of the element. Possible values are
+// an integer between 0 and 7, inclusive.
 // Remove the attribute SCRIPTLEVEL from the element.
 func (e *MathMLANNOTATION_XMLElement) SCRIPTLEVELRemove(i int) *MathMLANNOTATION_XMLElement {
 	if e.IntAttributes == nil {
@@ -787,9 +781,8 @@ func (e *MathMLANNOTATION_XMLElement) STYLERemove(keys ...string) *MathMLANNOTAT
 }
 
 // This attribute specifies the position of the current element in the tabbing
-// order for the current document
-// This value must be a number between 0 and 32767
-// User agents should ignore leading zeros.
+// order for the current document. This value must be a number between 0 and
+// 32767. User agents should ignore leading zeros.
 func (e *MathMLANNOTATION_XMLElement) TABINDEX(i int) *MathMLANNOTATION_XMLElement {
 	if e.IntAttributes == nil {
 		e.IntAttributes = treemap.New[string, int]()
@@ -799,9 +792,8 @@ func (e *MathMLANNOTATION_XMLElement) TABINDEX(i int) *MathMLANNOTATION_XMLEleme
 }
 
 // This attribute specifies the position of the current element in the tabbing
-// order for the current document
-// This value must be a number between 0 and 32767
-// User agents should ignore leading zeros.
+// order for the current document. This value must be a number between 0 and
+// 32767. User agents should ignore leading zeros.
 func (e *MathMLANNOTATION_XMLElement) IfTABINDEX(condition bool, i int) *MathMLANNOTATION_XMLElement {
 	if condition {
 		e.TABINDEX(i)
@@ -810,9 +802,8 @@ func (e *MathMLANNOTATION_XMLElement) IfTABINDEX(condition bool, i int) *MathMLA
 }
 
 // This attribute specifies the position of the current element in the tabbing
-// order for the current document
-// This value must be a number between 0 and 32767
-// User agents should ignore leading zeros.
+// order for the current document. This value must be a number between 0 and
+// 32767. User agents should ignore leading zeros.
 // Remove the attribute TABINDEX from the element.
 func (e *MathMLANNOTATION_XMLElement) TABINDEXRemove(i int) *MathMLANNOTATION_XMLElement {
 	if e.IntAttributes == nil {

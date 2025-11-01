@@ -10,9 +10,8 @@ import (
 )
 
 // The <svg> element is a container that defines a new coordinate system and
-// viewport
-// It is used as the outermost element of SVG documents, but it can also be used
-// to embed a SVG fragment inside an SVG or HTML document.
+// viewport. It is used as the outermost element of SVG documents, but it can
+// also be used to embed a SVG fragment inside an SVG or HTML document.
 type SVGSVGElement struct {
 	*Element
 }
@@ -184,8 +183,8 @@ func (e *SVGSVGElement) CustomDataRemove(key string) *SVGSVGElement {
 	return e
 }
 
-// The x-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The x-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGSVGElement) X(s string) *SVGSVGElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -194,14 +193,14 @@ func (e *SVGSVGElement) X(s string) *SVGSVGElement {
 	return e
 }
 
-// The x-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The x-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGSVGElement) XF(format string, args ...any) *SVGSVGElement {
 	return e.X(fmt.Sprintf(format, args...))
 }
 
-// The x-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The x-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGSVGElement) IfX(condition bool, s string) *SVGSVGElement {
 	if condition {
 		e.X(s)
@@ -209,8 +208,8 @@ func (e *SVGSVGElement) IfX(condition bool, s string) *SVGSVGElement {
 	return e
 }
 
-// The x-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The x-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGSVGElement) IfXF(condition bool, format string, args ...any) *SVGSVGElement {
 	if condition {
 		e.X(fmt.Sprintf(format, args...))
@@ -218,8 +217,8 @@ func (e *SVGSVGElement) IfXF(condition bool, format string, args ...any) *SVGSVG
 	return e
 }
 
-// The x-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The x-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 // Remove the attribute X from the element.
 func (e *SVGSVGElement) XRemove(s string) *SVGSVGElement {
 	if e.StringAttributes == nil {
@@ -229,14 +228,14 @@ func (e *SVGSVGElement) XRemove(s string) *SVGSVGElement {
 	return e
 }
 
-// The x-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The x-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGSVGElement) XRemoveF(format string, args ...any) *SVGSVGElement {
 	return e.XRemove(fmt.Sprintf(format, args...))
 }
 
-// The y-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The y-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGSVGElement) Y(s string) *SVGSVGElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -245,14 +244,14 @@ func (e *SVGSVGElement) Y(s string) *SVGSVGElement {
 	return e
 }
 
-// The y-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The y-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGSVGElement) YF(format string, args ...any) *SVGSVGElement {
 	return e.Y(fmt.Sprintf(format, args...))
 }
 
-// The y-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The y-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGSVGElement) IfY(condition bool, s string) *SVGSVGElement {
 	if condition {
 		e.Y(s)
@@ -260,8 +259,8 @@ func (e *SVGSVGElement) IfY(condition bool, s string) *SVGSVGElement {
 	return e
 }
 
-// The y-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The y-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGSVGElement) IfYF(condition bool, format string, args ...any) *SVGSVGElement {
 	if condition {
 		e.Y(fmt.Sprintf(format, args...))
@@ -269,8 +268,8 @@ func (e *SVGSVGElement) IfYF(condition bool, format string, args ...any) *SVGSVG
 	return e
 }
 
-// The y-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The y-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 // Remove the attribute Y from the element.
 func (e *SVGSVGElement) YRemove(s string) *SVGSVGElement {
 	if e.StringAttributes == nil {
@@ -280,8 +279,8 @@ func (e *SVGSVGElement) YRemove(s string) *SVGSVGElement {
 	return e
 }
 
-// The y-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The y-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGSVGElement) YRemoveF(format string, args ...any) *SVGSVGElement {
 	return e.YRemove(fmt.Sprintf(format, args...))
 }
@@ -453,8 +452,8 @@ const (
 	// Align the image along the middle of the corresponding dimension of the
 	// viewPort.
 	SVGSvgPreserveAspectRatio_xMinYMid SVGSvgPreserveAspectRatioChoice = "xMinYMid"
-	// Scale the image to the smallest size such that it can completely fit inside the
-	// corresponding dimension of the viewPort.
+	// Scale the image to the smallest size such that it can completely fit inside
+	// the corresponding dimension of the viewPort.
 	SVGSvgPreserveAspectRatio_xMidYMid SVGSvgPreserveAspectRatioChoice = "xMidYMid"
 	// Align the image with the corresponding side of the viewPort.
 	SVGSvgPreserveAspectRatio_xMaxYMid SVGSvgPreserveAspectRatioChoice = "xMaxYMid"

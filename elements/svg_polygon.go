@@ -9,8 +9,8 @@ import (
 	"github.com/igrmk/treemap/v2"
 )
 
-// The <polygon> SVG element is an SVG basic shape, used to create a vector-based
-// polygonal shape.
+// The <polygon> SVG element is an SVG basic shape, used to create a
+// vector-based polygonal shape.
 type SVGPOLYGONElement struct {
 	*Element
 }

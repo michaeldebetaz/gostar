@@ -9,8 +9,8 @@ import (
 	"github.com/igrmk/treemap/v2"
 )
 
-// The <feOffset> SVG filter primitive allows to offset the input image
-// The amount of offset can be controlled by attributes dx and dy.
+// The <feOffset> SVG filter primitive allows to offset the input image. The
+// amount of offset can be controlled by attributes dx and dy.
 type SVGFEOFFSETElement struct {
 	*Element
 }

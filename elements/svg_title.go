@@ -10,8 +10,7 @@ import (
 )
 
 // The <title> SVG element represents a text container used for the context
-// information
-// This element is usually nested inside a <desc> element.
+// information. This element is usually nested inside a <desc> element.
 type SVGTITLEElement struct {
 	*Element
 }

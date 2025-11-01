@@ -186,22 +186,25 @@ func strToComments(s string) string {
 	lines := []string{}
 
 	for _, row := range strings.Split(s, "\n") {
-		splitOnSentences := strings.Split(row, ". ")
-		for _, sentence := range splitOnSentences {
-			words := strings.Split(sentence, " ")
-			line := ""
-			for _, word := range words {
-				if len(line)+len(word)+1 > maxLen {
-					lines = append(lines, line)
-					line = ""
-				}
-				line += word + " "
-			}
-			lines = append(lines, line)
+		row = strings.TrimSpace(row)
+
+		if row == "" {
+			lines = append(lines, "//")
+			continue
 		}
-	}
-	for i, line := range lines {
-		lines[i] = "// " + line
+
+		words := strings.Fields(row)
+		lineStart := "// "
+		line := lineStart
+
+		for _, word := range words {
+			if len(line)+len(word) > maxLen {
+				lines = append(lines, line)
+				line = lineStart
+			}
+			line += word + " "
+		}
+		lines = append(lines, line)
 	}
 
 	return strings.Join(lines, "\n")

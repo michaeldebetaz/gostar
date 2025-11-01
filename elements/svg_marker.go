@@ -183,8 +183,8 @@ func (e *SVGMARKERElement) CustomDataRemove(key string) *SVGMARKERElement {
 	return e
 }
 
-// The x-axis coordinate of the reference point which is to be aligned exactly at
-// the marker position.
+// The x-axis coordinate of the reference point which is to be aligned exactly
+// at the marker position.
 func (e *SVGMARKERElement) REF_X(f float64) *SVGMARKERElement {
 	if e.FloatAttributes == nil {
 		e.FloatAttributes = treemap.New[string, float64]()
@@ -193,8 +193,8 @@ func (e *SVGMARKERElement) REF_X(f float64) *SVGMARKERElement {
 	return e
 }
 
-// The x-axis coordinate of the reference point which is to be aligned exactly at
-// the marker position.
+// The x-axis coordinate of the reference point which is to be aligned exactly
+// at the marker position.
 func (e *SVGMARKERElement) IfREF_X(condition bool, f float64) *SVGMARKERElement {
 	if condition {
 		e.REF_X(f)
@@ -202,8 +202,8 @@ func (e *SVGMARKERElement) IfREF_X(condition bool, f float64) *SVGMARKERElement 
 	return e
 }
 
-// The y-axis coordinate of the reference point which is to be aligned exactly at
-// the marker position.
+// The y-axis coordinate of the reference point which is to be aligned exactly
+// at the marker position.
 func (e *SVGMARKERElement) REF_Y(f float64) *SVGMARKERElement {
 	if e.FloatAttributes == nil {
 		e.FloatAttributes = treemap.New[string, float64]()
@@ -212,8 +212,8 @@ func (e *SVGMARKERElement) REF_Y(f float64) *SVGMARKERElement {
 	return e
 }
 
-// The y-axis coordinate of the reference point which is to be aligned exactly at
-// the marker position.
+// The y-axis coordinate of the reference point which is to be aligned exactly
+// at the marker position.
 func (e *SVGMARKERElement) IfREF_Y(condition bool, f float64) *SVGMARKERElement {
 	if condition {
 		e.REF_Y(f)

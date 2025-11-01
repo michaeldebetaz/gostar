@@ -9,8 +9,8 @@ import (
 	"github.com/igrmk/treemap/v2"
 )
 
-// The <foreignObject> SVG element allows for inclusion of a foreign XML namespace
-// which has its graphical content drawn by a different user agent
+// The <foreignObject> SVG element allows for inclusion of a foreign XML
+// namespace which has its graphical content drawn by a different user agent.
 // The included foreign graphical content is subject to SVG transformations and
 // compositing.
 type SVGFOREIGNOBJECTElement struct {
@@ -184,8 +184,8 @@ func (e *SVGFOREIGNOBJECTElement) CustomDataRemove(key string) *SVGFOREIGNOBJECT
 	return e
 }
 
-// The x-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The x-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGFOREIGNOBJECTElement) X(s string) *SVGFOREIGNOBJECTElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -194,14 +194,14 @@ func (e *SVGFOREIGNOBJECTElement) X(s string) *SVGFOREIGNOBJECTElement {
 	return e
 }
 
-// The x-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The x-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGFOREIGNOBJECTElement) XF(format string, args ...any) *SVGFOREIGNOBJECTElement {
 	return e.X(fmt.Sprintf(format, args...))
 }
 
-// The x-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The x-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGFOREIGNOBJECTElement) IfX(condition bool, s string) *SVGFOREIGNOBJECTElement {
 	if condition {
 		e.X(s)
@@ -209,8 +209,8 @@ func (e *SVGFOREIGNOBJECTElement) IfX(condition bool, s string) *SVGFOREIGNOBJEC
 	return e
 }
 
-// The x-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The x-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGFOREIGNOBJECTElement) IfXF(condition bool, format string, args ...any) *SVGFOREIGNOBJECTElement {
 	if condition {
 		e.X(fmt.Sprintf(format, args...))
@@ -218,8 +218,8 @@ func (e *SVGFOREIGNOBJECTElement) IfXF(condition bool, format string, args ...an
 	return e
 }
 
-// The x-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The x-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 // Remove the attribute X from the element.
 func (e *SVGFOREIGNOBJECTElement) XRemove(s string) *SVGFOREIGNOBJECTElement {
 	if e.StringAttributes == nil {
@@ -229,14 +229,14 @@ func (e *SVGFOREIGNOBJECTElement) XRemove(s string) *SVGFOREIGNOBJECTElement {
 	return e
 }
 
-// The x-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The x-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGFOREIGNOBJECTElement) XRemoveF(format string, args ...any) *SVGFOREIGNOBJECTElement {
 	return e.XRemove(fmt.Sprintf(format, args...))
 }
 
-// The y-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The y-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGFOREIGNOBJECTElement) Y(s string) *SVGFOREIGNOBJECTElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -245,14 +245,14 @@ func (e *SVGFOREIGNOBJECTElement) Y(s string) *SVGFOREIGNOBJECTElement {
 	return e
 }
 
-// The y-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The y-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGFOREIGNOBJECTElement) YF(format string, args ...any) *SVGFOREIGNOBJECTElement {
 	return e.Y(fmt.Sprintf(format, args...))
 }
 
-// The y-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The y-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGFOREIGNOBJECTElement) IfY(condition bool, s string) *SVGFOREIGNOBJECTElement {
 	if condition {
 		e.Y(s)
@@ -260,8 +260,8 @@ func (e *SVGFOREIGNOBJECTElement) IfY(condition bool, s string) *SVGFOREIGNOBJEC
 	return e
 }
 
-// The y-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The y-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGFOREIGNOBJECTElement) IfYF(condition bool, format string, args ...any) *SVGFOREIGNOBJECTElement {
 	if condition {
 		e.Y(fmt.Sprintf(format, args...))
@@ -269,8 +269,8 @@ func (e *SVGFOREIGNOBJECTElement) IfYF(condition bool, format string, args ...an
 	return e
 }
 
-// The y-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The y-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 // Remove the attribute Y from the element.
 func (e *SVGFOREIGNOBJECTElement) YRemove(s string) *SVGFOREIGNOBJECTElement {
 	if e.StringAttributes == nil {
@@ -280,8 +280,8 @@ func (e *SVGFOREIGNOBJECTElement) YRemove(s string) *SVGFOREIGNOBJECTElement {
 	return e
 }
 
-// The y-axis coordinate of the side of the rectangular region which is closest to
-// the user.
+// The y-axis coordinate of the side of the rectangular region which is closest
+// to the user.
 func (e *SVGFOREIGNOBJECTElement) YRemoveF(format string, args ...any) *SVGFOREIGNOBJECTElement {
 	return e.YRemove(fmt.Sprintf(format, args...))
 }

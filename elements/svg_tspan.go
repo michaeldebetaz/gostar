@@ -9,8 +9,8 @@ import (
 	"github.com/igrmk/treemap/v2"
 )
 
-// The <tspan> SVG element lets authors explicitly specify the location of a glyph
-// along the given path via the attributes.
+// The <tspan> SVG element lets authors explicitly specify the location of a
+// glyph along the given path via the attributes.
 type SVGTSPANElement struct {
 	*Element
 }

@@ -227,8 +227,8 @@ func (e *SVGFEDISPLACEMENTMAPElement) INRemoveF(format string, args ...any) *SVG
 	return e.INRemove(fmt.Sprintf(format, args...))
 }
 
-// The displacement map
-// This attribute can take on the same values as the 'in' attribute.
+// The displacement map. This attribute can take on the same values as the 'in'
+// attribute.
 func (e *SVGFEDISPLACEMENTMAPElement) IN_2(s string) *SVGFEDISPLACEMENTMAPElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -237,14 +237,14 @@ func (e *SVGFEDISPLACEMENTMAPElement) IN_2(s string) *SVGFEDISPLACEMENTMAPElemen
 	return e
 }
 
-// The displacement map
-// This attribute can take on the same values as the 'in' attribute.
+// The displacement map. This attribute can take on the same values as the 'in'
+// attribute.
 func (e *SVGFEDISPLACEMENTMAPElement) IN_2F(format string, args ...any) *SVGFEDISPLACEMENTMAPElement {
 	return e.IN_2(fmt.Sprintf(format, args...))
 }
 
-// The displacement map
-// This attribute can take on the same values as the 'in' attribute.
+// The displacement map. This attribute can take on the same values as the 'in'
+// attribute.
 func (e *SVGFEDISPLACEMENTMAPElement) IfIN_2(condition bool, s string) *SVGFEDISPLACEMENTMAPElement {
 	if condition {
 		e.IN_2(s)
@@ -252,8 +252,8 @@ func (e *SVGFEDISPLACEMENTMAPElement) IfIN_2(condition bool, s string) *SVGFEDIS
 	return e
 }
 
-// The displacement map
-// This attribute can take on the same values as the 'in' attribute.
+// The displacement map. This attribute can take on the same values as the 'in'
+// attribute.
 func (e *SVGFEDISPLACEMENTMAPElement) IfIN_2F(condition bool, format string, args ...any) *SVGFEDISPLACEMENTMAPElement {
 	if condition {
 		e.IN_2(fmt.Sprintf(format, args...))
@@ -261,8 +261,8 @@ func (e *SVGFEDISPLACEMENTMAPElement) IfIN_2F(condition bool, format string, arg
 	return e
 }
 
-// The displacement map
-// This attribute can take on the same values as the 'in' attribute.
+// The displacement map. This attribute can take on the same values as the 'in'
+// attribute.
 // Remove the attribute IN_2 from the element.
 func (e *SVGFEDISPLACEMENTMAPElement) IN_2Remove(s string) *SVGFEDISPLACEMENTMAPElement {
 	if e.StringAttributes == nil {
@@ -272,14 +272,14 @@ func (e *SVGFEDISPLACEMENTMAPElement) IN_2Remove(s string) *SVGFEDISPLACEMENTMAP
 	return e
 }
 
-// The displacement map
-// This attribute can take on the same values as the 'in' attribute.
+// The displacement map. This attribute can take on the same values as the 'in'
+// attribute.
 func (e *SVGFEDISPLACEMENTMAPElement) IN_2RemoveF(format string, args ...any) *SVGFEDISPLACEMENTMAPElement {
 	return e.IN_2Remove(fmt.Sprintf(format, args...))
 }
 
-// The scale attribute defines the maximum value for the in2 displacement
-// A value of 0 disables the effect of the displacement map.
+// The scale attribute defines the maximum value for the in2 displacement. A
+// value of 0 disables the effect of the displacement map.
 func (e *SVGFEDISPLACEMENTMAPElement) SCALE(f float64) *SVGFEDISPLACEMENTMAPElement {
 	if e.FloatAttributes == nil {
 		e.FloatAttributes = treemap.New[string, float64]()
@@ -288,8 +288,8 @@ func (e *SVGFEDISPLACEMENTMAPElement) SCALE(f float64) *SVGFEDISPLACEMENTMAPElem
 	return e
 }
 
-// The scale attribute defines the maximum value for the in2 displacement
-// A value of 0 disables the effect of the displacement map.
+// The scale attribute defines the maximum value for the in2 displacement. A
+// value of 0 disables the effect of the displacement map.
 func (e *SVGFEDISPLACEMENTMAPElement) IfSCALE(condition bool, f float64) *SVGFEDISPLACEMENTMAPElement {
 	if condition {
 		e.SCALE(f)
@@ -297,8 +297,8 @@ func (e *SVGFEDISPLACEMENTMAPElement) IfSCALE(condition bool, f float64) *SVGFED
 	return e
 }
 
-// The xChannelSelector attribute indicates which color channel from in2 to use to
-// displace the pixels in in the horizontal direction.
+// The xChannelSelector attribute indicates which color channel from in2 to use
+// to displace the pixels in in the horizontal direction.
 func (e *SVGFEDISPLACEMENTMAPElement) X_CHANNEL_SELECTOR(c SVGFeDisplacementMapXChannelSelectorChoice) *SVGFEDISPLACEMENTMAPElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -320,8 +320,8 @@ const (
 	SVGFeDisplacementMapXChannelSelector_A SVGFeDisplacementMapXChannelSelectorChoice = "A"
 )
 
-// The xChannelSelector attribute indicates which color channel from in2 to use to
-// displace the pixels in in the horizontal direction.
+// The xChannelSelector attribute indicates which color channel from in2 to use
+// to displace the pixels in in the horizontal direction.
 // Remove the attribute X_CHANNEL_SELECTOR from the element.
 func (e *SVGFEDISPLACEMENTMAPElement) X_CHANNEL_SELECTORRemove(c SVGFeDisplacementMapXChannelSelectorChoice) *SVGFEDISPLACEMENTMAPElement {
 	if e.StringAttributes == nil {
@@ -331,8 +331,8 @@ func (e *SVGFEDISPLACEMENTMAPElement) X_CHANNEL_SELECTORRemove(c SVGFeDisplaceme
 	return e
 }
 
-// The yChannelSelector attribute indicates which color channel from in2 to use to
-// displace the pixels in in the vertical direction.
+// The yChannelSelector attribute indicates which color channel from in2 to use
+// to displace the pixels in in the vertical direction.
 func (e *SVGFEDISPLACEMENTMAPElement) Y_CHANNEL_SELECTOR(c SVGFeDisplacementMapYChannelSelectorChoice) *SVGFEDISPLACEMENTMAPElement {
 	if e.StringAttributes == nil {
 		e.StringAttributes = treemap.New[string, string]()
@@ -354,8 +354,8 @@ const (
 	SVGFeDisplacementMapYChannelSelector_A SVGFeDisplacementMapYChannelSelectorChoice = "A"
 )
 
-// The yChannelSelector attribute indicates which color channel from in2 to use to
-// displace the pixels in in the vertical direction.
+// The yChannelSelector attribute indicates which color channel from in2 to use
+// to displace the pixels in in the vertical direction.
 // Remove the attribute Y_CHANNEL_SELECTOR from the element.
 func (e *SVGFEDISPLACEMENTMAPElement) Y_CHANNEL_SELECTORRemove(c SVGFeDisplacementMapYChannelSelectorChoice) *SVGFEDISPLACEMENTMAPElement {
 	if e.StringAttributes == nil {

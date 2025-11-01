@@ -10,10 +10,9 @@ import (
 )
 
 // The <filter> SVG element defines a custom filter effect by grouping atomic
-// filter primitives
-// It is never rendered directly
-// A filter is referenced by using the filter attribute on the target SVG element
-// or via the filter CSS property.
+// filter primitives. It is never rendered directly. A filter is referenced by
+// using the filter attribute on the target SVG element or via the filter CSS
+// property.
 type SVGFILTERElement struct {
 	*Element
 }

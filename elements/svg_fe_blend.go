@@ -10,10 +10,8 @@ import (
 )
 
 // The <feBlend> SVG filter primitive composes two objects together ruled by a
-// certain blending mode
-// This is similar to what is known from image editing software when blending two
-// layers
-// The mode is defined by the mode attribute.
+// certain blending mode. This is similar to what is known from image editing
+// software when blending two layers. The mode is defined by the mode attribute.
 type SVGFEBLENDElement struct {
 	*Element
 }
@@ -287,8 +285,8 @@ func (e *SVGFEBLENDElement) MODE(c SVGFeBlendModeChoice) *SVGFEBLENDElement {
 type SVGFeBlendModeChoice string
 
 const (
-	// The input image is placed over the backdrop image, then the parts of the input
-	// image that are outside the backdrop are discarded.
+	// The input image is placed over the backdrop image, then the parts of the
+	// input image that are outside the backdrop are discarded.
 	SVGFeBlendMode_normal SVGFeBlendModeChoice = "normal"
 	// The input image is multiplied by the backdrop image.
 	SVGFeBlendMode_multiply SVGFeBlendModeChoice = "multiply"

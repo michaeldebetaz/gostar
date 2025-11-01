@@ -10,10 +10,9 @@ import (
 )
 
 // The <polyline> SVG element is an SVG basic shape, used to create a series of
-// straight lines connecting several points
-// Typically a polyline is used to create open shapes as the last point doesn't
-// have to be connected to the first point
-// For closed shapes see the <polygon> element.
+// straight lines connecting several points. Typically a polyline is used to
+// create open shapes as the last point doesn't have to be connected to the
+// first point. For closed shapes see the <polygon> element.
 type SVGPOLYLINEElement struct {
 	*Element
 }

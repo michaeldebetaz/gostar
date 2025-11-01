@@ -182,8 +182,9 @@ func (e *SVGFEPOINTLIGHTElement) CustomDataRemove(key string) *SVGFEPOINTLIGHTEl
 	return e
 }
 
-// The x attribute indicates the x location of the light source in the coordinate
-// system established by attribute 'primitiveUnits' on the <filter> element.
+// The x attribute indicates the x location of the light source in the
+// coordinate system established by attribute 'primitiveUnits' on the <filter>
+// element.
 func (e *SVGFEPOINTLIGHTElement) X(f float64) *SVGFEPOINTLIGHTElement {
 	if e.FloatAttributes == nil {
 		e.FloatAttributes = treemap.New[string, float64]()
@@ -192,8 +193,9 @@ func (e *SVGFEPOINTLIGHTElement) X(f float64) *SVGFEPOINTLIGHTElement {
 	return e
 }
 
-// The x attribute indicates the x location of the light source in the coordinate
-// system established by attribute 'primitiveUnits' on the <filter> element.
+// The x attribute indicates the x location of the light source in the
+// coordinate system established by attribute 'primitiveUnits' on the <filter>
+// element.
 func (e *SVGFEPOINTLIGHTElement) IfX(condition bool, f float64) *SVGFEPOINTLIGHTElement {
 	if condition {
 		e.X(f)
@@ -201,8 +203,9 @@ func (e *SVGFEPOINTLIGHTElement) IfX(condition bool, f float64) *SVGFEPOINTLIGHT
 	return e
 }
 
-// The y attribute indicates the y location of the light source in the coordinate
-// system established by attribute 'primitiveUnits' on the <filter> element.
+// The y attribute indicates the y location of the light source in the
+// coordinate system established by attribute 'primitiveUnits' on the <filter>
+// element.
 func (e *SVGFEPOINTLIGHTElement) Y(f float64) *SVGFEPOINTLIGHTElement {
 	if e.FloatAttributes == nil {
 		e.FloatAttributes = treemap.New[string, float64]()
@@ -211,8 +214,9 @@ func (e *SVGFEPOINTLIGHTElement) Y(f float64) *SVGFEPOINTLIGHTElement {
 	return e
 }
 
-// The y attribute indicates the y location of the light source in the coordinate
-// system established by attribute 'primitiveUnits' on the <filter> element.
+// The y attribute indicates the y location of the light source in the
+// coordinate system established by attribute 'primitiveUnits' on the <filter>
+// element.
 func (e *SVGFEPOINTLIGHTElement) IfY(condition bool, f float64) *SVGFEPOINTLIGHTElement {
 	if condition {
 		e.Y(f)
@@ -220,8 +224,9 @@ func (e *SVGFEPOINTLIGHTElement) IfY(condition bool, f float64) *SVGFEPOINTLIGHT
 	return e
 }
 
-// The z attribute indicates the z location of the light source in the coordinate
-// system established by attribute 'primitiveUnits' on the <filter> element.
+// The z attribute indicates the z location of the light source in the
+// coordinate system established by attribute 'primitiveUnits' on the <filter>
+// element.
 func (e *SVGFEPOINTLIGHTElement) Z(f float64) *SVGFEPOINTLIGHTElement {
 	if e.FloatAttributes == nil {
 		e.FloatAttributes = treemap.New[string, float64]()
@@ -230,8 +235,9 @@ func (e *SVGFEPOINTLIGHTElement) Z(f float64) *SVGFEPOINTLIGHTElement {
 	return e
 }
 
-// The z attribute indicates the z location of the light source in the coordinate
-// system established by attribute 'primitiveUnits' on the <filter> element.
+// The z attribute indicates the z location of the light source in the
+// coordinate system established by attribute 'primitiveUnits' on the <filter>
+// element.
 func (e *SVGFEPOINTLIGHTElement) IfZ(condition bool, f float64) *SVGFEPOINTLIGHTElement {
 	if condition {
 		e.Z(f)
