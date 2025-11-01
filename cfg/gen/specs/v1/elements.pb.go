@@ -521,10 +521,7 @@ type Attribute_Type struct {
 	//	*Attribute_Type_Number
 	//	*Attribute_Type_Choices
 	//	*Attribute_Type_Rune
-	//	*Attribute_Type_Custom
 	//	*Attribute_Type_Json
-	//	*Attribute_Type_DurationMs
-	//	*Attribute_Type_DurationSec
 	Type          isAttribute_Type_Type `protobuf_oneof:"type"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -639,37 +636,10 @@ func (x *Attribute_Type) GetRune() bool {
 	return false
 }
 
-func (x *Attribute_Type) GetCustom() *Attribute_Custom {
-	if x != nil {
-		if x, ok := x.Type.(*Attribute_Type_Custom); ok {
-			return x.Custom
-		}
-	}
-	return nil
-}
-
 func (x *Attribute_Type) GetJson() bool {
 	if x != nil {
 		if x, ok := x.Type.(*Attribute_Type_Json); ok {
 			return x.Json
-		}
-	}
-	return false
-}
-
-func (x *Attribute_Type) GetDurationMs() bool {
-	if x != nil {
-		if x, ok := x.Type.(*Attribute_Type_DurationMs); ok {
-			return x.DurationMs
-		}
-	}
-	return false
-}
-
-func (x *Attribute_Type) GetDurationSec() bool {
-	if x != nil {
-		if x, ok := x.Type.(*Attribute_Type_DurationSec); ok {
-			return x.DurationSec
 		}
 	}
 	return false
@@ -711,20 +681,8 @@ type Attribute_Type_Rune struct {
 	Rune bool `protobuf:"varint,8,opt,name=rune,proto3,oneof"`
 }
 
-type Attribute_Type_Custom struct {
-	Custom *Attribute_Custom `protobuf:"bytes,9,opt,name=custom,proto3,oneof"`
-}
-
 type Attribute_Type_Json struct {
-	Json bool `protobuf:"varint,10,opt,name=json,proto3,oneof"`
-}
-
-type Attribute_Type_DurationMs struct {
-	DurationMs bool `protobuf:"varint,11,opt,name=duration_ms,json=durationMs,proto3,oneof"`
-}
-
-type Attribute_Type_DurationSec struct {
-	DurationSec bool `protobuf:"varint,12,opt,name=duration_sec,json=durationSec,proto3,oneof"`
+	Json bool `protobuf:"varint,9,opt,name=json,proto3,oneof"`
 }
 
 func (*Attribute_Type_String_) isAttribute_Type_Type() {}
@@ -743,13 +701,7 @@ func (*Attribute_Type_Choices) isAttribute_Type_Type() {}
 
 func (*Attribute_Type_Rune) isAttribute_Type_Type() {}
 
-func (*Attribute_Type_Custom) isAttribute_Type_Type() {}
-
 func (*Attribute_Type_Json) isAttribute_Type_Type() {}
-
-func (*Attribute_Type_DurationMs) isAttribute_Type_Type() {}
-
-func (*Attribute_Type_DurationSec) isAttribute_Type_Type() {}
 
 type Attribute_Custom_Modifier struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
@@ -831,7 +783,7 @@ var File_specs_v1_elements_proto protoreflect.FileDescriptor
 
 const file_specs_v1_elements_proto_rawDesc = "" +
 	"\n" +
-	"\x17specs/v1/elements.proto\x12\bspecs.v1\"\xcd\b\n" +
+	"\x17specs/v1/elements.proto\x12\bspecs.v1\"\xcf\a\n" +
 	"\tAttribute\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12 \n" +
@@ -855,7 +807,7 @@ const file_specs_v1_elements_proto_rawDesc = "" +
 	"\vdescription\x18\x02 \x01(\tR\vdescription\x12,\n" +
 	"\x04type\x18\x03 \x01(\v2\x18.specs.v1.Attribute.TypeR\x04type\x12\x16\n" +
 	"\x06prefix\x18\x04 \x01(\tR\x06prefix\x12\x16\n" +
-	"\x06suffix\x18\x05 \x01(\tR\x06suffix\x1a\xa1\x03\n" +
+	"\x06suffix\x18\x05 \x01(\tR\x06suffix\x1a\xa3\x02\n" +
 	"\x04Type\x12\x18\n" +
 	"\x06string\x18\x01 \x01(\bH\x00R\x06string\x12\x1e\n" +
 	"\tdelimited\x18\x02 \x01(\tH\x00R\tdelimited\x12(\n" +
@@ -864,13 +816,8 @@ const file_specs_v1_elements_proto_rawDesc = "" +
 	"\ainteger\x18\x05 \x01(\bH\x00R\ainteger\x12\x18\n" +
 	"\x06number\x18\x06 \x01(\bH\x00R\x06number\x127\n" +
 	"\achoices\x18\a \x01(\v2\x1b.specs.v1.Attribute.ChoicesH\x00R\achoices\x12\x14\n" +
-	"\x04rune\x18\b \x01(\bH\x00R\x04rune\x124\n" +
-	"\x06custom\x18\t \x01(\v2\x1a.specs.v1.Attribute.CustomH\x00R\x06custom\x12\x14\n" +
-	"\x04json\x18\n" +
-	" \x01(\bH\x00R\x04json\x12!\n" +
-	"\vduration_ms\x18\v \x01(\bH\x00R\n" +
-	"durationMs\x12#\n" +
-	"\fduration_sec\x18\f \x01(\bH\x00R\vdurationSecB\x06\n" +
+	"\x04rune\x18\b \x01(\bH\x00R\x04rune\x12\x14\n" +
+	"\x04json\x18\t \x01(\bH\x00R\x04jsonB\x06\n" +
 	"\x04type\"\xa7\x01\n" +
 	"\aElement\x12\x10\n" +
 	"\x03tag\x18\x01 \x01(\tR\x03tag\x12\x12\n" +
@@ -936,13 +883,12 @@ var file_specs_v1_elements_proto_depIdxs = []int32{
 	9,  // 8: specs.v1.Attribute.Custom.modifiers:type_name -> specs.v1.Attribute.Custom.Modifier
 	4,  // 9: specs.v1.Attribute.Type.kv:type_name -> specs.v1.Attribute.KV
 	6,  // 10: specs.v1.Attribute.Type.choices:type_name -> specs.v1.Attribute.Choices
-	7,  // 11: specs.v1.Attribute.Type.custom:type_name -> specs.v1.Attribute.Custom
-	8,  // 12: specs.v1.Attribute.Custom.Modifier.type:type_name -> specs.v1.Attribute.Type
-	13, // [13:13] is the sub-list for method output_type
-	13, // [13:13] is the sub-list for method input_type
-	13, // [13:13] is the sub-list for extension type_name
-	13, // [13:13] is the sub-list for extension extendee
-	0,  // [0:13] is the sub-list for field type_name
+	8,  // 11: specs.v1.Attribute.Custom.Modifier.type:type_name -> specs.v1.Attribute.Type
+	12, // [12:12] is the sub-list for method output_type
+	12, // [12:12] is the sub-list for method input_type
+	12, // [12:12] is the sub-list for extension type_name
+	12, // [12:12] is the sub-list for extension extendee
+	0,  // [0:12] is the sub-list for field type_name
 }
 
 func init() { file_specs_v1_elements_proto_init() }
@@ -959,10 +905,7 @@ func file_specs_v1_elements_proto_init() {
 		(*Attribute_Type_Number)(nil),
 		(*Attribute_Type_Choices)(nil),
 		(*Attribute_Type_Rune)(nil),
-		(*Attribute_Type_Custom)(nil),
 		(*Attribute_Type_Json)(nil),
-		(*Attribute_Type_DurationMs)(nil),
-		(*Attribute_Type_DurationSec)(nil),
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{

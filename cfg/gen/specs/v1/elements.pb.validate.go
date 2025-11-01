@@ -1336,47 +1336,6 @@ func (m *Attribute_Type) validate(all bool) error {
 			errors = append(errors, err)
 		}
 		// no validation rules for Rune
-	case *Attribute_Type_Custom:
-		if v == nil {
-			err := Attribute_TypeValidationError{
-				field:  "Type",
-				reason: "oneof value cannot be a typed-nil",
-			}
-			if !all {
-				return err
-			}
-			errors = append(errors, err)
-		}
-
-		if all {
-			switch v := interface{}(m.GetCustom()).(type) {
-			case interface{ ValidateAll() error }:
-				if err := v.ValidateAll(); err != nil {
-					errors = append(errors, Attribute_TypeValidationError{
-						field:  "Custom",
-						reason: "embedded message failed validation",
-						cause:  err,
-					})
-				}
-			case interface{ Validate() error }:
-				if err := v.Validate(); err != nil {
-					errors = append(errors, Attribute_TypeValidationError{
-						field:  "Custom",
-						reason: "embedded message failed validation",
-						cause:  err,
-					})
-				}
-			}
-		} else if v, ok := interface{}(m.GetCustom()).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return Attribute_TypeValidationError{
-					field:  "Custom",
-					reason: "embedded message failed validation",
-					cause:  err,
-				}
-			}
-		}
-
 	case *Attribute_Type_Json:
 		if v == nil {
 			err := Attribute_TypeValidationError{
@@ -1389,30 +1348,6 @@ func (m *Attribute_Type) validate(all bool) error {
 			errors = append(errors, err)
 		}
 		// no validation rules for Json
-	case *Attribute_Type_DurationMs:
-		if v == nil {
-			err := Attribute_TypeValidationError{
-				field:  "Type",
-				reason: "oneof value cannot be a typed-nil",
-			}
-			if !all {
-				return err
-			}
-			errors = append(errors, err)
-		}
-		// no validation rules for DurationMs
-	case *Attribute_Type_DurationSec:
-		if v == nil {
-			err := Attribute_TypeValidationError{
-				field:  "Type",
-				reason: "oneof value cannot be a typed-nil",
-			}
-			if !all {
-				return err
-			}
-			errors = append(errors, err)
-		}
-		// no validation rules for DurationSec
 	default:
 		_ = v // ensures v is used
 	}
