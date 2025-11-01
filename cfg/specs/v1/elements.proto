@@ -16,20 +16,6 @@ message Attribute {
   }
   message Choices { repeated Choice choices = 1; }
 
-  message Custom {
-    message Modifier {
-      string name = 1;
-      string description = 2;
-      Type type = 3;
-      string prefix = 4;
-      string suffix = 5;
-    }
-    string name = 1;
-    Type type = 2;
-    bool has_key = 3;
-    repeated Modifier modifiers = 4;
-  }
-
   message Type {
     oneof type {
       bool string = 1;

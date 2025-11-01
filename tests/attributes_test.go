@@ -49,9 +49,32 @@ func TestBoolAttributes(t *testing.T) {
 			Actual:   INPUT().IfBoolAttr(false, "disabled"),
 		},
 		{
+			Expected: "<video autoplay muted></video>",
+			Actual:   VIDEO().AUTOPLAY().MUTED(),
+		},
+	})
+}
+
+func TestStringAttributes(t *testing.T) {
+	run(t, []result{
+		{
 			Expected: "<button popovertarget=\"my-popover\">Open Popover</button>",
 			Actual:   BUTTON().POPOVERTARGET("my-popover").Text("Open Popover"),
 		},
+	})
+}
+
+func TestKVAttributes(t *testing.T) {
+	run(t, []result{
+		{
+			Expected: "<div style=\"display:none\"></div>",
+			Actual:   DIV().STYLE("display", "none"),
+		},
+	})
+}
+
+func TestChoiceAttributes(t *testing.T) {
+	run(t, []result{
 		{
 			Expected: "<div id=\"my-popover\" popover=\"auto\">Greetings, one and all!</div>",
 			Actual:   DIV().POPOVER(DivPopover_auto).ID("my-popover").Text("Greetings, one and all!"),
@@ -61,8 +84,12 @@ func TestBoolAttributes(t *testing.T) {
 			Actual:   DIV().POPOVER(DivPopover_empty),
 		},
 		{
-			Expected: "<video autoplay muted></video>",
-			Actual:   VIDEO().AUTOPLAY().MUTED(),
+			Expected: "<a hidden></a>",
+			Actual:   A().HIDDEN(AHidden_empty),
+		},
+		{
+			Expected: "<a hidden=\"until-found\"></a>",
+			Actual:   A().HIDDEN(AHidden_until_found),
 		},
 	})
 }

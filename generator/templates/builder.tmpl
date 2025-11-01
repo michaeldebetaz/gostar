@@ -12,14 +12,12 @@ import (
 )
 
 var (
-	openBracket       = []byte("<")
-	closeBracket      = []byte(">")
-	spaceCloseBracket = []byte(" >")
-	openSlash         = []byte("</")
-	// dataDash          = []byte(" data-")
-	equalDblQuote = []byte("=\"")
-	dblQuote      = []byte("\"")
-	space         = []byte(" ")
+	openBracket  = []byte("<")
+	closeBracket = []byte(">")
+  slash        = []byte("/")
+	equal        = []byte("=")
+	doubleQuotes     = []byte("\"")
+	space        = []byte(" ")
 )
 
 type ElementRenderer interface {
@@ -149,9 +147,10 @@ func (e *Element) Render(w io.Writer) error {
 			w.Write([]byte(k))
 
 			if v != "" {
-				w.Write(equalDblQuote)
-				w.Write([]byte(fmt.Sprint(v)))
-				w.Write(dblQuote)
+        w.Write(equal)
+        w.Write(doubleQuotes)
+        w.Write(fmt.Append(nil, v))
+				w.Write(doubleQuotes)
 			}
 		}
 	}
@@ -160,6 +159,7 @@ func (e *Element) Render(w io.Writer) error {
 		w.Write(closeBracket)
 		return nil
 	}
+
 	w.Write(closeBracket)
 
 	for _, d := range e.Descendants {
@@ -171,21 +171,12 @@ func (e *Element) Render(w io.Writer) error {
 		}
 	}
 
-	w.Write(openSlash)
+  w.Write(openBracket)
+  w.Write(slash)
 	w.Write(e.Tag)
 	w.Write(closeBracket)
 
 	return nil
-}
-
-type customDataKeyModifier func() string
-func customDataKey(key string, modifiers ...customDataKeyModifier) string {
-	sb := strings.Builder{}
-	sb.WriteString(key)
-	for _, m := range modifiers {
-		sb.WriteString("__"+m())
-	}
-	return sb.String()
 }
 
 type DelimitedBuilder[T constraints.Ordered] struct {

@@ -1,11 +1,11 @@
 package tests
 
 import (
+	"strings"
 	"testing"
 
 	. "github.com/delaneyj/gostar/elements"
 	"github.com/stretchr/testify/assert"
-	"github.com/valyala/bytebufferpool"
 )
 
 type result struct {
@@ -15,12 +15,14 @@ type result struct {
 
 func run(t *testing.T, results []result) {
 	for _, result := range results {
-		buf := bytebufferpool.Get()
+		var sb strings.Builder
+
 		e := result.Expected
-		err := result.Actual.Render(buf)
+
+		err := result.Actual.Render(&sb)
 		assert.NoError(t, err)
-		a := buf.String()
+
+		a := sb.String()
 		assert.Equal(t, e, a)
-		bytebufferpool.Put(buf)
 	}
 }
