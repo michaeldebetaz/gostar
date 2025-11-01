@@ -24,8 +24,6 @@ func GenerateAll(ctx context.Context, outPath string, namespaces *pb.Namespaces)
 	if len(namespaces.Namespaces) == 0 {
 		return fmt.Errorf("no namespaces specified")
 	}
-	// pkgs = pkgs[:1]
-	// pkgs[0].Elements = pkgs[0].Elements[:1]
 
 	if err := os.RemoveAll(outPath); err != nil {
 		return fmt.Errorf("failed to remove output path: %w", err)
@@ -130,7 +128,7 @@ func GenerateAll(ctx context.Context, outPath string, namespaces *pb.Namespaces)
 	return nil
 }
 
-func generateElement(ctx context.Context, pkgPath string, globalAttributes []*pb.Attribute, ns *pb.Namespace, element *pb.Element) error {
+func generateElement(_ context.Context, pkgPath string, globalAttributes []*pb.Attribute, ns *pb.Namespace, element *pb.Element) error {
 	if element.Name == "" {
 		element.Name = element.Tag
 	}
@@ -156,9 +154,6 @@ func generateElement(ctx context.Context, pkgPath string, globalAttributes []*pb
 			return attr.Key
 		},
 	)
-	// slices.SortFunc(element.Attributes, func(i, j *pb.Attribute) int {
-	// 	return strings.Compare(i.Name, j.Name)
-	// })
 	for _, attr := range element.Attributes {
 		s := toolbelt.Snake(attr.Name)
 		s = strings.ReplaceAll(s, "-", "_")

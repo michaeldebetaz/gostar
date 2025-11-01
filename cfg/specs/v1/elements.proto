@@ -14,7 +14,9 @@ message Attribute {
     string name = 1;
     string description = 2;
   }
-  message Choices { repeated Choice choices = 1; }
+  message Choices { 
+    repeated Choice choices = 1; 
+  }
 
   message Type {
     oneof type {
@@ -53,5 +55,5 @@ message Namespace {
 
 message Namespaces {
   repeated Namespace namespaces = 1;
-  repeated Attribute attributes = 5;
+  repeated Attribute attributes = 2;
 }
