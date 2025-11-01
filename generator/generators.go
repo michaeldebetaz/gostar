@@ -95,46 +95,12 @@ func GenerateAll(ctx context.Context, outPath string, namespaces *pb.Namespaces)
 		}
 		return false
 	}
-	fm["attrIsCustom"] = func(attr *pb.Attribute_Type) bool {
-		switch attr.Type.(type) {
-		case *pb.Attribute_Type_Custom:
-			return true
-		}
-		return false
-	}
 	fm["attrIsJson"] = func(attr *pb.Attribute_Type) bool {
 		switch attr.Type.(type) {
 		case *pb.Attribute_Type_Json:
 			return true
 		}
 		return false
-	}
-	fm["attrIsDuration"] = func(attr *pb.Attribute_Type) bool {
-		switch attr.Type.(type) {
-		case *pb.Attribute_Type_DurationMs:
-			return true
-		case *pb.Attribute_Type_DurationSec:
-			return true
-		}
-
-		return false
-	}
-	fm["attrIsDurationMs"] = func(attr *pb.Attribute_Type) bool {
-		switch attr.Type.(type) {
-		case *pb.Attribute_Type_DurationMs:
-			return true
-		}
-		return false
-	}
-	fm["attrIsDurationSec"] = func(attr *pb.Attribute_Type) bool {
-		switch attr.Type.(type) {
-		case *pb.Attribute_Type_DurationSec:
-			return true
-		}
-		return false
-	}
-	fm["TrimDatastarPrefix"] = func(s string) string {
-		return strings.TrimPrefix(s, "datastar-")
 	}
 
 	templs, err = template.New("base").Funcs(fm).ParseFS(templatesFS, "templates/*.tmpl")

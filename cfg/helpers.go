@@ -71,41 +71,8 @@ func AttributeTypeRune() *pb.Attribute_Type {
 	}}
 }
 
-func AttributeTypeCustomModifier(name string, hasKey bool, valueType *pb.Attribute_Type, modifiers ...*pb.Attribute_Custom_Modifier) *pb.Attribute_Type {
-	return &pb.Attribute_Type{Type: &pb.Attribute_Type_Custom{
-		Custom: &pb.Attribute_Custom{
-			Name:      name,
-			Type:      valueType,
-			Modifiers: modifiers,
-			HasKey:    hasKey,
-		},
-	}}
-}
-
-func AttributeTypeCustom(hasKey bool, valueType *pb.Attribute_Type, modifiers ...*pb.Attribute_Custom_Modifier) *pb.Attribute_Type {
-	return &pb.Attribute_Type{Type: &pb.Attribute_Type_Custom{
-		Custom: &pb.Attribute_Custom{
-			Type:      valueType,
-			Modifiers: modifiers,
-			HasKey:    hasKey,
-		},
-	}}
-}
-
 func AttributeTypeJSON() *pb.Attribute_Type {
 	return &pb.Attribute_Type{Type: &pb.Attribute_Type_Json{
 		Json: true,
-	}}
-}
-
-func AttributeTypeDurationMs() *pb.Attribute_Type {
-	return &pb.Attribute_Type{Type: &pb.Attribute_Type_DurationMs{
-		DurationMs: true,
-	}}
-}
-
-func AttributeTypeDurationSec() *pb.Attribute_Type {
-	return &pb.Attribute_Type{Type: &pb.Attribute_Type_DurationSec{
-		DurationSec: true,
 	}}
 }
