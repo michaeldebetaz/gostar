@@ -441,74 +441,6 @@ func (x *Attribute_Choices) GetChoices() []*Attribute_Choice {
 	return nil
 }
 
-type Attribute_Custom struct {
-	state         protoimpl.MessageState       `protogen:"open.v1"`
-	Name          string                       `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Type          *Attribute_Type              `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty"`
-	HasKey        bool                         `protobuf:"varint,3,opt,name=has_key,json=hasKey,proto3" json:"has_key,omitempty"`
-	Modifiers     []*Attribute_Custom_Modifier `protobuf:"bytes,4,rep,name=modifiers,proto3" json:"modifiers,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Attribute_Custom) Reset() {
-	*x = Attribute_Custom{}
-	mi := &file_specs_v1_elements_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Attribute_Custom) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Attribute_Custom) ProtoMessage() {}
-
-func (x *Attribute_Custom) ProtoReflect() protoreflect.Message {
-	mi := &file_specs_v1_elements_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Attribute_Custom.ProtoReflect.Descriptor instead.
-func (*Attribute_Custom) Descriptor() ([]byte, []int) {
-	return file_specs_v1_elements_proto_rawDescGZIP(), []int{0, 3}
-}
-
-func (x *Attribute_Custom) GetName() string {
-	if x != nil {
-		return x.Name
-	}
-	return ""
-}
-
-func (x *Attribute_Custom) GetType() *Attribute_Type {
-	if x != nil {
-		return x.Type
-	}
-	return nil
-}
-
-func (x *Attribute_Custom) GetHasKey() bool {
-	if x != nil {
-		return x.HasKey
-	}
-	return false
-}
-
-func (x *Attribute_Custom) GetModifiers() []*Attribute_Custom_Modifier {
-	if x != nil {
-		return x.Modifiers
-	}
-	return nil
-}
-
 type Attribute_Type struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Types that are valid to be assigned to Type:
@@ -529,7 +461,7 @@ type Attribute_Type struct {
 
 func (x *Attribute_Type) Reset() {
 	*x = Attribute_Type{}
-	mi := &file_specs_v1_elements_proto_msgTypes[8]
+	mi := &file_specs_v1_elements_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -541,7 +473,7 @@ func (x *Attribute_Type) String() string {
 func (*Attribute_Type) ProtoMessage() {}
 
 func (x *Attribute_Type) ProtoReflect() protoreflect.Message {
-	mi := &file_specs_v1_elements_proto_msgTypes[8]
+	mi := &file_specs_v1_elements_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -554,7 +486,7 @@ func (x *Attribute_Type) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Attribute_Type.ProtoReflect.Descriptor instead.
 func (*Attribute_Type) Descriptor() ([]byte, []int) {
-	return file_specs_v1_elements_proto_rawDescGZIP(), []int{0, 4}
+	return file_specs_v1_elements_proto_rawDescGZIP(), []int{0, 3}
 }
 
 func (x *Attribute_Type) GetType() isAttribute_Type_Type {
@@ -703,87 +635,11 @@ func (*Attribute_Type_Rune) isAttribute_Type_Type() {}
 
 func (*Attribute_Type_Json) isAttribute_Type_Type() {}
 
-type Attribute_Custom_Modifier struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Description   string                 `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
-	Type          *Attribute_Type        `protobuf:"bytes,3,opt,name=type,proto3" json:"type,omitempty"`
-	Prefix        string                 `protobuf:"bytes,4,opt,name=prefix,proto3" json:"prefix,omitempty"`
-	Suffix        string                 `protobuf:"bytes,5,opt,name=suffix,proto3" json:"suffix,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Attribute_Custom_Modifier) Reset() {
-	*x = Attribute_Custom_Modifier{}
-	mi := &file_specs_v1_elements_proto_msgTypes[9]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Attribute_Custom_Modifier) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Attribute_Custom_Modifier) ProtoMessage() {}
-
-func (x *Attribute_Custom_Modifier) ProtoReflect() protoreflect.Message {
-	mi := &file_specs_v1_elements_proto_msgTypes[9]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Attribute_Custom_Modifier.ProtoReflect.Descriptor instead.
-func (*Attribute_Custom_Modifier) Descriptor() ([]byte, []int) {
-	return file_specs_v1_elements_proto_rawDescGZIP(), []int{0, 3, 0}
-}
-
-func (x *Attribute_Custom_Modifier) GetName() string {
-	if x != nil {
-		return x.Name
-	}
-	return ""
-}
-
-func (x *Attribute_Custom_Modifier) GetDescription() string {
-	if x != nil {
-		return x.Description
-	}
-	return ""
-}
-
-func (x *Attribute_Custom_Modifier) GetType() *Attribute_Type {
-	if x != nil {
-		return x.Type
-	}
-	return nil
-}
-
-func (x *Attribute_Custom_Modifier) GetPrefix() string {
-	if x != nil {
-		return x.Prefix
-	}
-	return ""
-}
-
-func (x *Attribute_Custom_Modifier) GetSuffix() string {
-	if x != nil {
-		return x.Suffix
-	}
-	return ""
-}
-
 var File_specs_v1_elements_proto protoreflect.FileDescriptor
 
 const file_specs_v1_elements_proto_rawDesc = "" +
 	"\n" +
-	"\x17specs/v1/elements.proto\x12\bspecs.v1\"\xcf\a\n" +
+	"\x17specs/v1/elements.proto\x12\bspecs.v1\"\x85\x05\n" +
 	"\tAttribute\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12 \n" +
@@ -796,18 +652,7 @@ const file_specs_v1_elements_proto_rawDesc = "" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12 \n" +
 	"\vdescription\x18\x02 \x01(\tR\vdescription\x1a?\n" +
 	"\aChoices\x124\n" +
-	"\achoices\x18\x01 \x03(\v2\x1a.specs.v1.Attribute.ChoiceR\achoices\x1a\xc7\x02\n" +
-	"\x06Custom\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\x12,\n" +
-	"\x04type\x18\x02 \x01(\v2\x18.specs.v1.Attribute.TypeR\x04type\x12\x17\n" +
-	"\ahas_key\x18\x03 \x01(\bR\x06hasKey\x12A\n" +
-	"\tmodifiers\x18\x04 \x03(\v2#.specs.v1.Attribute.Custom.ModifierR\tmodifiers\x1a\x9e\x01\n" +
-	"\bModifier\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\x12 \n" +
-	"\vdescription\x18\x02 \x01(\tR\vdescription\x12,\n" +
-	"\x04type\x18\x03 \x01(\v2\x18.specs.v1.Attribute.TypeR\x04type\x12\x16\n" +
-	"\x06prefix\x18\x04 \x01(\tR\x06prefix\x12\x16\n" +
-	"\x06suffix\x18\x05 \x01(\tR\x06suffix\x1a\xa3\x02\n" +
+	"\achoices\x18\x01 \x03(\v2\x1a.specs.v1.Attribute.ChoiceR\achoices\x1a\xa3\x02\n" +
 	"\x04Type\x12\x18\n" +
 	"\x06string\x18\x01 \x01(\bH\x00R\x06string\x12\x1e\n" +
 	"\tdelimited\x18\x02 \x01(\tH\x00R\tdelimited\x12(\n" +
@@ -858,37 +703,32 @@ func file_specs_v1_elements_proto_rawDescGZIP() []byte {
 	return file_specs_v1_elements_proto_rawDescData
 }
 
-var file_specs_v1_elements_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
+var file_specs_v1_elements_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_specs_v1_elements_proto_goTypes = []any{
-	(*Attribute)(nil),                 // 0: specs.v1.Attribute
-	(*Element)(nil),                   // 1: specs.v1.Element
-	(*Namespace)(nil),                 // 2: specs.v1.Namespace
-	(*Namespaces)(nil),                // 3: specs.v1.Namespaces
-	(*Attribute_KV)(nil),              // 4: specs.v1.Attribute.KV
-	(*Attribute_Choice)(nil),          // 5: specs.v1.Attribute.Choice
-	(*Attribute_Choices)(nil),         // 6: specs.v1.Attribute.Choices
-	(*Attribute_Custom)(nil),          // 7: specs.v1.Attribute.Custom
-	(*Attribute_Type)(nil),            // 8: specs.v1.Attribute.Type
-	(*Attribute_Custom_Modifier)(nil), // 9: specs.v1.Attribute.Custom.Modifier
+	(*Attribute)(nil),         // 0: specs.v1.Attribute
+	(*Element)(nil),           // 1: specs.v1.Element
+	(*Namespace)(nil),         // 2: specs.v1.Namespace
+	(*Namespaces)(nil),        // 3: specs.v1.Namespaces
+	(*Attribute_KV)(nil),      // 4: specs.v1.Attribute.KV
+	(*Attribute_Choice)(nil),  // 5: specs.v1.Attribute.Choice
+	(*Attribute_Choices)(nil), // 6: specs.v1.Attribute.Choices
+	(*Attribute_Type)(nil),    // 7: specs.v1.Attribute.Type
 }
 var file_specs_v1_elements_proto_depIdxs = []int32{
-	8,  // 0: specs.v1.Attribute.type:type_name -> specs.v1.Attribute.Type
-	0,  // 1: specs.v1.Element.attributes:type_name -> specs.v1.Attribute
-	1,  // 2: specs.v1.Namespace.elements:type_name -> specs.v1.Element
-	0,  // 3: specs.v1.Namespace.attributes:type_name -> specs.v1.Attribute
-	2,  // 4: specs.v1.Namespaces.namespaces:type_name -> specs.v1.Namespace
-	0,  // 5: specs.v1.Namespaces.attributes:type_name -> specs.v1.Attribute
-	5,  // 6: specs.v1.Attribute.Choices.choices:type_name -> specs.v1.Attribute.Choice
-	8,  // 7: specs.v1.Attribute.Custom.type:type_name -> specs.v1.Attribute.Type
-	9,  // 8: specs.v1.Attribute.Custom.modifiers:type_name -> specs.v1.Attribute.Custom.Modifier
-	4,  // 9: specs.v1.Attribute.Type.kv:type_name -> specs.v1.Attribute.KV
-	6,  // 10: specs.v1.Attribute.Type.choices:type_name -> specs.v1.Attribute.Choices
-	8,  // 11: specs.v1.Attribute.Custom.Modifier.type:type_name -> specs.v1.Attribute.Type
-	12, // [12:12] is the sub-list for method output_type
-	12, // [12:12] is the sub-list for method input_type
-	12, // [12:12] is the sub-list for extension type_name
-	12, // [12:12] is the sub-list for extension extendee
-	0,  // [0:12] is the sub-list for field type_name
+	7, // 0: specs.v1.Attribute.type:type_name -> specs.v1.Attribute.Type
+	0, // 1: specs.v1.Element.attributes:type_name -> specs.v1.Attribute
+	1, // 2: specs.v1.Namespace.elements:type_name -> specs.v1.Element
+	0, // 3: specs.v1.Namespace.attributes:type_name -> specs.v1.Attribute
+	2, // 4: specs.v1.Namespaces.namespaces:type_name -> specs.v1.Namespace
+	0, // 5: specs.v1.Namespaces.attributes:type_name -> specs.v1.Attribute
+	5, // 6: specs.v1.Attribute.Choices.choices:type_name -> specs.v1.Attribute.Choice
+	4, // 7: specs.v1.Attribute.Type.kv:type_name -> specs.v1.Attribute.KV
+	6, // 8: specs.v1.Attribute.Type.choices:type_name -> specs.v1.Attribute.Choices
+	9, // [9:9] is the sub-list for method output_type
+	9, // [9:9] is the sub-list for method input_type
+	9, // [9:9] is the sub-list for extension type_name
+	9, // [9:9] is the sub-list for extension extendee
+	0, // [0:9] is the sub-list for field type_name
 }
 
 func init() { file_specs_v1_elements_proto_init() }
@@ -896,7 +736,7 @@ func file_specs_v1_elements_proto_init() {
 	if File_specs_v1_elements_proto != nil {
 		return
 	}
-	file_specs_v1_elements_proto_msgTypes[8].OneofWrappers = []any{
+	file_specs_v1_elements_proto_msgTypes[7].OneofWrappers = []any{
 		(*Attribute_Type_String_)(nil),
 		(*Attribute_Type_Delimited)(nil),
 		(*Attribute_Type_Kv)(nil),
@@ -913,7 +753,7 @@ func file_specs_v1_elements_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_specs_v1_elements_proto_rawDesc), len(file_specs_v1_elements_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   10,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
