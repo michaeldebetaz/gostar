@@ -78,7 +78,13 @@ func TestHTMLElement(t *testing.T) {
 			Actual: HTML(
 				BODY(
 					DIV().CLASS("header").Text("Page Header"),
-					DIV().STYLE("color", "rad").CLASS("foo", "aaaa").Text("bar").STYLEPairs("color", "rad", "font-size", "12px").STYLERemove("color").AUTOCAPITALIZE(DivAutocapitalize_off),
+					DIV().
+						STYLE("color", "rad").
+						AUTOCAPITALIZE(DivAutocapitalize_off).
+						CLASS("foo", "aaaa").
+						STYLE("font-size", "12px").
+						STYLERemove("color").
+						Text("bar"),
 				),
 			),
 		},
