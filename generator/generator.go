@@ -94,13 +94,6 @@ func GenerateAll(ctx context.Context, outPath string, namespaces *pb.Namespaces)
 		}
 		return false
 	}
-	fm["attrIsJson"] = func(attr *pb.Attribute_Type) bool {
-		switch attr.Type.(type) {
-		case *pb.Attribute_Type_Json:
-			return true
-		}
-		return false
-	}
 
 	templs, err = template.New("base").Funcs(fm).ParseFS(templatesFS, "templates/*.tmpl")
 	if err != nil {
