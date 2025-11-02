@@ -52,6 +52,18 @@ func TestBoolAttributes(t *testing.T) {
 			Expected: "<video autoplay muted></video>",
 			Actual:   VIDEO().AUTOPLAY().MUTED(),
 		},
+		{
+			Expected: "<video autoplay muted></video>",
+			Actual:   VIDEO().AUTOPLAY().MUTEDSet(true),
+		},
+		{
+			Expected: "<video autoplay></video>",
+			Actual:   VIDEO().AUTOPLAY().MUTEDSet(false),
+		},
+		{
+			Expected: "<video autoplay></video>",
+			Actual:   VIDEO().AUTOPLAY().MUTED().MUTEDRemove(),
+		},
 	})
 }
 

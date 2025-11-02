@@ -28,16 +28,6 @@ func TestNavElement(t *testing.T) {
 	run(t, []result{
 		{
 			Expected: `<nav class="navbar"><ol><li><a href="/">Home</a></li><li><a href="/contact">Contact</a></li><li><a href="/about">About</a></li></ol></nav>`,
-			Actual: NAV(
-				OL(
-					LI(A().HREF("/").Text("Home")),
-					LI(A().HREF("/contact").Text("Contact")),
-					LI(A().HREF("/about").Text("About")),
-				),
-			).CLASS("navbar"),
-		},
-		{
-			Expected: `<nav class="navbar"><ol><li><a href="/">Home</a></li><li><a href="/contact">Contact</a></li><li><a href="/about">About</a></li></ol></nav>`,
 			Actual: NAV().CLASS("navbar").Children(
 				OL(
 					LI(A().HREF("/").Text("Home")),
@@ -53,9 +43,9 @@ func TestSVGElement(t *testing.T) {
 	run(t, []result{
 		{
 			Expected: `<clipPath id="clip-path"><rect class="cls-1" height="300" id="Rectangle_73" width="300"></rect></clipPath>`,
-			Actual: SVG_CLIPPATH(
+			Actual: SVG_CLIPPATH().ID("clip-path").Children(
 				SVG_RECT().CLASS("cls-1").ID("Rectangle_73").WIDTH(300).HEIGHT(300),
-			).ID("clip-path"),
+			),
 		},
 		{
 			Expected: `<linearGradient gradientUnits="objectBoundingBox" id="linear-gradient" x1="0.048" x2="0.963" y1="0.5" y2="0.5"><stop offset="0" stop-color="#000000"></stop><stop offset="1" stop-color="#0E67B4"></stop></linearGradient>`,
@@ -74,16 +64,17 @@ func TestSVGElement(t *testing.T) {
 func TestHTMLElement(t *testing.T) {
 	run(t, []result{
 		{
-			Expected: `<html><body><div class="header">Page Header</div><div autocapitalize="off" class="aaaa foo" style="font-size:12px">bar</div></body></html>`,
+			Expected: `<html><body><div class="header">Page Header</div><div autocapitalize="off" class="bg-red-200 block" style="font-size:12px">bar</div></body></html>`,
 			Actual: HTML(
 				BODY(
 					DIV().CLASS("header").Text("Page Header"),
 					DIV().
 						STYLE("color", "rad").
-						AUTOCAPITALIZE(DivAutocapitalize_off).
-						CLASS("foo", "aaaa").
 						STYLE("font-size", "12px").
 						STYLERemove("color").
+						CLASS("block", "bg-red-200", "hidden").
+						CLASSRemove("hidden").
+						AUTOCAPITALIZE(DivAutocapitalize_off).
 						Text("bar"),
 				),
 			),

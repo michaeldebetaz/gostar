@@ -193,17 +193,12 @@ func (e *{{$elStructName}}) CustomDataRemove(key string) *{{$elStructName}} {
 
         {{ .Description | comments }}
         // Remove the attribute {{.Name}} from the element.
-        func(e *{{$elStructName}}) {{.Name}}Remove(s string) *{{$elStructName}}{
+        func(e *{{$elStructName}}) {{.Name}}Remove() *{{$elStructName}}{
             if e.StringAttributes == nil {
                 return e
             }
             e.StringAttributes.Del("{{.Key}}")
             return e
-        }
-
-        {{ .Description | comments }}
-        func(e *{{$elStructName}}) {{.Name}}RemoveF(format string, args ...any) *{{$elStructName}}{
-            return e.{{.Name}}Remove(fmt.Sprintf(format, args...))
         }
 
 
@@ -240,7 +235,7 @@ func (e *{{$elStructName}}) CustomDataRemove(key string) *{{$elStructName}} {
             if !ok {
                 return e
             }
-            ds.Remove(s ...)
+            ds.Remove(s...)
             return e
         }
 
@@ -335,7 +330,7 @@ func (e *{{$elStructName}}) CustomDataRemove(key string) *{{$elStructName}} {
 
         {{ .Description | comments }}
         // Remove the attribute {{.Name}} from the element.
-        func(e *{{$elStructName}}) {{.Name}}Remove(c {{$choicePrefix}}Choice) *{{$elStructName}}{
+        func(e *{{$elStructName}}) {{.Name}}Remove() *{{$elStructName}}{
             if e.StringAttributes == nil {
                 return e
             }
@@ -363,7 +358,7 @@ func (e *{{$elStructName}}) CustomDataRemove(key string) *{{$elStructName}} {
 
         {{ .Description | comments }}
         // Remove the attribute {{.Name}} from the element.
-        func(e *{{$elStructName}}) {{.Name}}Remove(i int) *{{$elStructName}}{
+        func(e *{{$elStructName}}) {{.Name}}Remove() *{{$elStructName}}{
             if e.IntAttributes == nil {
                 return e
             }
@@ -424,7 +419,7 @@ func (e *{{$elStructName}}) CustomDataRemove(key string) *{{$elStructName}} {
 
         // Remove the attribute {{.Name}} from the element.
         {{ .Description | comments }}
-        func(e *{{$elStructName}}) {{.Name}}Remove(b bool) *{{$elStructName}}{
+        func(e *{{$elStructName}}) {{.Name}}Remove() *{{$elStructName}}{
             if e.BoolAttributes == nil {
                 return e
             }
