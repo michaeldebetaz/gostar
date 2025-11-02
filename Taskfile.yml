@@ -25,7 +25,7 @@ tasks:
     deps:
       - pb
     sources:
-      - "generator/**/*.go"
+      - "generator/generator.go"
       - "cfg/**/*.go"
       - "**/*.tmpl"
     generates:
@@ -39,7 +39,7 @@ tasks:
     deps:
       - gen
     sources:
-      - "**/*_test.go"
+      - "**/*.go"
     cmds:
       - go test ./...
 
