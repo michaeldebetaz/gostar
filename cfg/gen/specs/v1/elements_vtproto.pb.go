@@ -170,15 +170,6 @@ func (m *Attribute_Type_Rune) CloneVT() isAttribute_Type_Type {
 	return r
 }
 
-func (m *Attribute_Type_Json) CloneVT() isAttribute_Type_Type {
-	if m == nil {
-		return (*Attribute_Type_Json)(nil)
-	}
-	r := new(Attribute_Type_Json)
-	r.Json = m.Json
-	return r
-}
-
 func (m *Attribute) CloneVT() *Attribute {
 	if m == nil {
 		return (*Attribute)(nil)
@@ -541,23 +532,6 @@ func (this *Attribute_Type_Rune) EqualVT(thatIface isAttribute_Type_Type) bool {
 		return false
 	}
 	if this.Rune != that.Rune {
-		return false
-	}
-	return true
-}
-
-func (this *Attribute_Type_Json) EqualVT(thatIface isAttribute_Type_Type) bool {
-	that, ok := thatIface.(*Attribute_Type_Json)
-	if !ok {
-		return false
-	}
-	if this == that {
-		return true
-	}
-	if this == nil && that != nil || this != nil && that == nil {
-		return false
-	}
-	if this.Json != that.Json {
 		return false
 	}
 	return true
@@ -1063,23 +1037,6 @@ func (m *Attribute_Type_Rune) MarshalToSizedBufferVT(dAtA []byte) (int, error) {
 	dAtA[i] = 0x40
 	return len(dAtA) - i, nil
 }
-func (m *Attribute_Type_Json) MarshalToVT(dAtA []byte) (int, error) {
-	size := m.SizeVT()
-	return m.MarshalToSizedBufferVT(dAtA[:size])
-}
-
-func (m *Attribute_Type_Json) MarshalToSizedBufferVT(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	i--
-	if m.Json {
-		dAtA[i] = 1
-	} else {
-		dAtA[i] = 0
-	}
-	i--
-	dAtA[i] = 0x48
-	return len(dAtA) - i, nil
-}
 func (m *Attribute) MarshalVT() (dAtA []byte, err error) {
 	if m == nil {
 		return nil, nil
@@ -1524,13 +1481,6 @@ func (m *Attribute_Type) MarshalToSizedBufferVTStrict(dAtA []byte) (int, error) 
 		i -= len(m.unknownFields)
 		copy(dAtA[i:], m.unknownFields)
 	}
-	if msg, ok := m.Type.(*Attribute_Type_Json); ok {
-		size, err := msg.MarshalToSizedBufferVTStrict(dAtA[:i])
-		if err != nil {
-			return 0, err
-		}
-		i -= size
-	}
 	if msg, ok := m.Type.(*Attribute_Type_Rune); ok {
 		size, err := msg.MarshalToSizedBufferVTStrict(dAtA[:i])
 		if err != nil {
@@ -1725,23 +1675,6 @@ func (m *Attribute_Type_Rune) MarshalToSizedBufferVTStrict(dAtA []byte) (int, er
 	}
 	i--
 	dAtA[i] = 0x40
-	return len(dAtA) - i, nil
-}
-func (m *Attribute_Type_Json) MarshalToVTStrict(dAtA []byte) (int, error) {
-	size := m.SizeVT()
-	return m.MarshalToSizedBufferVTStrict(dAtA[:size])
-}
-
-func (m *Attribute_Type_Json) MarshalToSizedBufferVTStrict(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	i--
-	if m.Json {
-		dAtA[i] = 1
-	} else {
-		dAtA[i] = 0
-	}
-	i--
-	dAtA[i] = 0x48
 	return len(dAtA) - i, nil
 }
 func (m *Attribute) MarshalVTStrict() (dAtA []byte, err error) {
@@ -2155,15 +2088,6 @@ func (m *Attribute_Type_Choices) SizeVT() (n int) {
 	return n
 }
 func (m *Attribute_Type_Rune) SizeVT() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	n += 2
-	return n
-}
-func (m *Attribute_Type_Json) SizeVT() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -2848,27 +2772,6 @@ func (m *Attribute_Type) UnmarshalVT(dAtA []byte) error {
 			}
 			b := bool(v != 0)
 			m.Type = &Attribute_Type_Rune{Rune: b}
-		case 9:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Json", wireType)
-			}
-			var v int
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return protohelpers.ErrIntOverflow
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				v |= int(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			b := bool(v != 0)
-			m.Type = &Attribute_Type_Json{Json: b}
 		default:
 			iNdEx = preIndex
 			skippy, err := protohelpers.Skip(dAtA[iNdEx:])
@@ -4192,27 +4095,6 @@ func (m *Attribute_Type) UnmarshalVTUnsafe(dAtA []byte) error {
 			}
 			b := bool(v != 0)
 			m.Type = &Attribute_Type_Rune{Rune: b}
-		case 9:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Json", wireType)
-			}
-			var v int
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return protohelpers.ErrIntOverflow
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				v |= int(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			b := bool(v != 0)
-			m.Type = &Attribute_Type_Json{Json: b}
 		default:
 			iNdEx = preIndex
 			skippy, err := protohelpers.Skip(dAtA[iNdEx:])

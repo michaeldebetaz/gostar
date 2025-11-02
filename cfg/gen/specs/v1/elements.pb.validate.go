@@ -1169,18 +1169,6 @@ func (m *Attribute_Type) validate(all bool) error {
 			errors = append(errors, err)
 		}
 		// no validation rules for Rune
-	case *Attribute_Type_Json:
-		if v == nil {
-			err := Attribute_TypeValidationError{
-				field:  "Type",
-				reason: "oneof value cannot be a typed-nil",
-			}
-			if !all {
-				return err
-			}
-			errors = append(errors, err)
-		}
-		// no validation rules for Json
 	default:
 		_ = v // ensures v is used
 	}

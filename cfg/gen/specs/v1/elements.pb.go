@@ -453,7 +453,6 @@ type Attribute_Type struct {
 	//	*Attribute_Type_Number
 	//	*Attribute_Type_Choices
 	//	*Attribute_Type_Rune
-	//	*Attribute_Type_Json
 	Type          isAttribute_Type_Type `protobuf_oneof:"type"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -568,15 +567,6 @@ func (x *Attribute_Type) GetRune() bool {
 	return false
 }
 
-func (x *Attribute_Type) GetJson() bool {
-	if x != nil {
-		if x, ok := x.Type.(*Attribute_Type_Json); ok {
-			return x.Json
-		}
-	}
-	return false
-}
-
 type isAttribute_Type_Type interface {
 	isAttribute_Type_Type()
 }
@@ -613,10 +603,6 @@ type Attribute_Type_Rune struct {
 	Rune bool `protobuf:"varint,8,opt,name=rune,proto3,oneof"`
 }
 
-type Attribute_Type_Json struct {
-	Json bool `protobuf:"varint,9,opt,name=json,proto3,oneof"`
-}
-
 func (*Attribute_Type_String_) isAttribute_Type_Type() {}
 
 func (*Attribute_Type_Delimited) isAttribute_Type_Type() {}
@@ -633,13 +619,11 @@ func (*Attribute_Type_Choices) isAttribute_Type_Type() {}
 
 func (*Attribute_Type_Rune) isAttribute_Type_Type() {}
 
-func (*Attribute_Type_Json) isAttribute_Type_Type() {}
-
 var File_specs_v1_elements_proto protoreflect.FileDescriptor
 
 const file_specs_v1_elements_proto_rawDesc = "" +
 	"\n" +
-	"\x17specs/v1/elements.proto\x12\bspecs.v1\"\x85\x05\n" +
+	"\x17specs/v1/elements.proto\x12\bspecs.v1\"\xef\x04\n" +
 	"\tAttribute\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12 \n" +
@@ -652,7 +636,7 @@ const file_specs_v1_elements_proto_rawDesc = "" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12 \n" +
 	"\vdescription\x18\x02 \x01(\tR\vdescription\x1a?\n" +
 	"\aChoices\x124\n" +
-	"\achoices\x18\x01 \x03(\v2\x1a.specs.v1.Attribute.ChoiceR\achoices\x1a\xa3\x02\n" +
+	"\achoices\x18\x01 \x03(\v2\x1a.specs.v1.Attribute.ChoiceR\achoices\x1a\x8d\x02\n" +
 	"\x04Type\x12\x18\n" +
 	"\x06string\x18\x01 \x01(\bH\x00R\x06string\x12\x1e\n" +
 	"\tdelimited\x18\x02 \x01(\tH\x00R\tdelimited\x12(\n" +
@@ -661,8 +645,7 @@ const file_specs_v1_elements_proto_rawDesc = "" +
 	"\ainteger\x18\x05 \x01(\bH\x00R\ainteger\x12\x18\n" +
 	"\x06number\x18\x06 \x01(\bH\x00R\x06number\x127\n" +
 	"\achoices\x18\a \x01(\v2\x1b.specs.v1.Attribute.ChoicesH\x00R\achoices\x12\x14\n" +
-	"\x04rune\x18\b \x01(\bH\x00R\x04rune\x12\x14\n" +
-	"\x04json\x18\t \x01(\bH\x00R\x04jsonB\x06\n" +
+	"\x04rune\x18\b \x01(\bH\x00R\x04runeB\x06\n" +
 	"\x04type\"\xa7\x01\n" +
 	"\aElement\x12\x10\n" +
 	"\x03tag\x18\x01 \x01(\tR\x03tag\x12\x12\n" +
@@ -745,7 +728,6 @@ func file_specs_v1_elements_proto_init() {
 		(*Attribute_Type_Number)(nil),
 		(*Attribute_Type_Choices)(nil),
 		(*Attribute_Type_Rune)(nil),
-		(*Attribute_Type_Json)(nil),
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{

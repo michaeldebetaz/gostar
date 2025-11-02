@@ -28,7 +28,6 @@ message Attribute {
       bool number = 6;
       Choices choices = 7;
       bool rune = 8;
-      bool json = 9;
     }
   }
   string key = 1;
