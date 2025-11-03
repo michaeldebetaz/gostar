@@ -113,3 +113,29 @@ func TestChoiceAttributes(t *testing.T) {
 		},
 	})
 }
+
+func TestSpaceDelimitedAttributes(t *testing.T) {
+	run(t, []result{
+		{
+			Expected: "<div class=\"foo bar baz\"></div>",
+			Actual:   DIV().CLASS("foo bar baz hello").CLASSRemove("hello"),
+		},
+		{
+			Expected: "<div class=\"foo bar\"></div>",
+			Actual:   DIV().CLASS("foo").CLASS("bar"),
+		},
+	})
+}
+
+func TestCommaDelimitedAttributes(t *testing.T) {
+	run(t, []result{
+		{
+			Expected: "<area alt=\"HTML\" coords=\"260,96,209,249,130,138\" href=\"https://developer.mozilla.org/docs/Web/HTML\" shape=\"poly\">",
+			Actual:   AREA().SHAPE(AreaShape_poly).COORDS("260,96,209,249,130,138").HREF("https://developer.mozilla.org/docs/Web/HTML").ALT("HTML"),
+		},
+		{
+			Expected: "<area alt=\"HTML\" coords=\"260,96,209,249,130\" href=\"https://developer.mozilla.org/docs/Web/HTML\" shape=\"poly\">",
+			Actual:   AREA().SHAPE(AreaShape_poly).COORDS("260,96,209,249,130,138").COORDSRemove("138").HREF("https://developer.mozilla.org/docs/Web/HTML").ALT("HTML"),
+		},
+	})
+}

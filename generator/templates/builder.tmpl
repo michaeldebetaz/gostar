@@ -178,44 +178,51 @@ func (e *Element) Render(w io.Writer) error {
 	return nil
 }
 
-type DelimitedBuilder[T constraints.Ordered] struct {
+type DelimitedBuilder[T comparable] struct {
 	Delimiter string
-	Values    *treemap.TreeMap[T, struct{}]
+	Values    []T
 }
 
-func NewDelimitedBuilder[T constraints.Ordered](delimiter string) *DelimitedBuilder[T] {
+func NewDelimitedBuilder[T comparable](delimiter string) *DelimitedBuilder[T] {
 	return &DelimitedBuilder[T]{
 		Delimiter: delimiter,
-		Values:    treemap.New[T, struct{}](),
 	}
 }
 
 func (d *DelimitedBuilder[T]) Add(values ...T) *DelimitedBuilder[T] {
-	for _, v := range values {
-		d.Values.Set(v, struct{}{})
-	}
+	d.Values = append(d.Values, values...)
 	return d
 }
 
 func (d *DelimitedBuilder[T]) Remove(values ...T) *DelimitedBuilder[T] {
+	toRemove := make(map[T]struct{}, len(values))
 	for _, v := range values {
-		d.Values.Del(v)
+		toRemove[v] = struct{}{}
 	}
+
+	n := 0
+	for _, v := range d.Values {
+		if _, found := toRemove[v]; !found {
+			d.Values[n] = v
+			n++
+		}
+	}
+	d.Values = d.Values[:n]
+
 	return d
 }
 
 func (d *DelimitedBuilder[T]) Render(w io.Writer) error {
-	count := 0
-	total := d.Values.Len()
-	for it := d.Values.Iterator(); it.Valid(); it.Next() {
-		b := fmt.Append(nil, it.Key())
+	for i, v := range d.Values {
+		b := fmt.Append(nil, v)
 		if _, err := w.Write(b); err != nil {
 			return err
 		}
 
-		count++
-		if count < total {
-			w.Write([]byte(d.Delimiter))
+		if i < len(d.Values)-1 {
+			if _, err := w.Write([]byte(d.Delimiter)); err != nil {
+				return err
+			}
 		}
 	}
 	return nil

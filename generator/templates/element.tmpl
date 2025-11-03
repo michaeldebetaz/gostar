@@ -4,10 +4,8 @@ package elements
 import(
     "fmt"
     "html"
-    "time"
+    "strings"
     "github.com/igrmk/treemap/v2"
-    "github.com/goccy/go-json"
-    "github.com/samber/lo"
 )
 
 {{ .Element.Description | comments}}
@@ -192,6 +190,7 @@ func (e *{{$elStructName}}) CustomDataRemove(key string) *{{$elStructName}} {
         }
 
         {{ .Description | comments }}
+        //
         // Remove the attribute {{.Name}} from the element.
         func(e *{{$elStructName}}) {{.Name}}Remove() *{{$elStructName}}{
             if e.StringAttributes == nil {
@@ -204,7 +203,8 @@ func (e *{{$elStructName}}) CustomDataRemove(key string) *{{$elStructName}} {
 
     {{ else if .Type | attrIsDelimited -}}
         {{ .Description | comments }}
-        func(e *{{$elStructName}}) {{.Name}}(s ...string) *{{$elStructName}}{
+        func(e *{{$elStructName}}) {{.Name}}(s string) *{{$elStructName}}{
+            values := strings.Split(s, "{{.Type.Type.Delimited}}")
             if e.DelimitedStrings == nil {
                 e.DelimitedStrings = treemap.New[string,*DelimitedBuilder[string]]()
             }
@@ -213,20 +213,21 @@ func (e *{{$elStructName}}) CustomDataRemove(key string) *{{$elStructName}} {
                 ds = NewDelimitedBuilder[string]("{{.Type.Type.Delimited}}")
                 e.DelimitedStrings.Set("{{.Key}}", ds)
             }
-            ds.Add(s...)
+            ds.Add(values...)
             return e
         }
 
         {{ .Description | comments }}
-        func(e *{{$elStructName}}) If{{.Name}}(condition bool, s ...string) *{{$elStructName}}{
+        func(e *{{$elStructName}}) If{{.Name}}(condition bool, s string) *{{$elStructName}}{
             if condition {
-                e.{{.Name}}(s...)
+                e.{{.Name}}(s)
             }
             return e
         }
 
         {{ .Description | comments }}
-        // Remove the attribute {{.Name}} from the element.
+        //
+        // Remove the values from the attribute {{.Name}} in the element.
         func(e *{{$elStructName}}) {{.Name}}Remove(s ...string) *{{$elStructName}}{
             if e.DelimitedStrings == nil {
                 return e

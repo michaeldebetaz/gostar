@@ -64,7 +64,7 @@ func TestSVGElement(t *testing.T) {
 func TestHTMLElement(t *testing.T) {
 	run(t, []result{
 		{
-			Expected: `<html><body><div class="header">Page Header</div><div autocapitalize="off" class="bg-red-200 block" style="font-size:12px">bar</div></body></html>`,
+			Expected: `<html><body><div class="header">Page Header</div><div autocapitalize="off" class="block bg-red-200 text-red-600 italic" style="font-size:12px">bar</div></body></html>`,
 			Actual: HTML(
 				BODY(
 					DIV().CLASS("header").Text("Page Header"),
@@ -72,7 +72,8 @@ func TestHTMLElement(t *testing.T) {
 						STYLE("color", "rad").
 						STYLE("font-size", "12px").
 						STYLERemove("color").
-						CLASS("block", "bg-red-200", "hidden").
+						CLASS("block bg-red-200 hidden").
+						CLASS("text-red-600 italic").
 						CLASSRemove("hidden").
 						AUTOCAPITALIZE(DivAutocapitalize_off).
 						Text("bar"),
