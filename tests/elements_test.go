@@ -4,7 +4,6 @@ import (
 	"testing"
 
 	. "github.com/delaneyj/gostar/elements"
-	"github.com/samber/lo"
 )
 
 func TestDivElement(t *testing.T) {
@@ -154,7 +153,7 @@ func TestGrouper(t *testing.T) {
 								DIV().CLASS("raw").Text(u.RawContent),
 								DIV().CLASS("enc").Escaped(u.EscapedContent),
 							).CLASS("welcome"),
-							Range(lo.Range(5), func(i int) ElementRenderer {
+							Range([]int{0, 1, 2, 3, 4}, func(i int) ElementRenderer {
 								count := i + 1
 								return Tern(
 									count == 1,
