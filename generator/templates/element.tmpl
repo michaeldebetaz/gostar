@@ -4,6 +4,7 @@ package elements
 import(
     "fmt"
     "html"
+    "sort"
     "strings"
     "github.com/igrmk/treemap/v2"
 )
@@ -242,20 +243,10 @@ func (e *{{$elStructName}}) CustomDataRemove(key string) *{{$elStructName}} {
 
     {{ else if .Type | attrIsKV -}}
         {{ .Description | comments }}
-        func (e *{{$elStructName}}) {{.Name}}F(k string, format string, args ...any) *{{$elStructName}} {
-            return e.{{.Name}}(k, fmt.Sprintf(format, args...))
-        }
-
-        {{ .Description | comments }}
-        func (e *{{$elStructName}}) If{{.Name}}(condition bool, k string, v string) *{{$elStructName}} {
-            if condition {
-                e.{{.Name}}(k, v)
+        func (e *{{$elStructName}}) {{.Name}}Pairs(pairs ...string) *{{$elStructName}} {
+            if len(pairs) == 0 || len(pairs)%2 != 0 {
+                panic("{{.Name}}Pairs requires an even number of arguments representing key-value pairs.")
             }
-            return e
-        }
-
-        {{ .Description | comments }}
-        func (e *{{$elStructName}}) {{.Name}}(k string, v string) *{{$elStructName}} {
             if e.KVStrings == nil {
                 e.KVStrings = treemap.New[string,*KVBuilder]()
             }
@@ -264,19 +255,84 @@ func (e *{{$elStructName}}) CustomDataRemove(key string) *{{$elStructName}} {
                 kv = NewKVBuilder("{{.Type.Type.Kv.KeyValueDelimiter}}", "{{.Type.Type.Kv.PairDelimiter}}")
                 e.KVStrings.Set("{{.Key}}", kv)
             }
-            kv.Add(k, v)
-            return e
-        }
-
-        {{ .Description | comments }}
-        func (e *{{$elStructName}}) If{{.Name}}F(condition bool, k string, format string, args ...any) *{{$elStructName}} {
-            if condition {
-                e.{{.Name}}(k, fmt.Sprintf(format, args...))
+            for i := 0; i < len(pairs)-1; i += 2 {
+                key := strings.TrimSpace(pairs[i])
+                if key == "" {
+                    panic("empty key in key-value pairs.")
+                }
+                value := strings.TrimSpace(pairs[i+1])
+                kv.Add(key, value)
             }
             return e
         }
 
         {{ .Description | comments }}
+        func (e *{{$elStructName}}) {{.Name}}(s string) *{{$elStructName}} {
+            if e.KVStrings == nil {
+                e.KVStrings = treemap.New[string,*KVBuilder]()
+            }
+            kv, ok := e.KVStrings.Get("{{.Key}}")
+            if !ok {
+                kv = NewKVBuilder("{{.Type.Type.Kv.KeyValueDelimiter}}", "{{.Type.Type.Kv.PairDelimiter}}")
+                e.KVStrings.Set("{{.Key}}", kv)
+            }
+            s = strings.TrimRight(s, "{{.Type.Type.Kv.PairDelimiter}}")
+            kvPairs := strings.Split(s, "{{.Type.Type.Kv.PairDelimiter}}")
+            for _, pair := range kvPairs {
+                parts := strings.SplitN(pair, "{{.Type.Type.Kv.KeyValueDelimiter}}", 2)
+                if len(parts) != 2 {
+                    panic(fmt.Sprintf("invalid key-value pair: %q", pair))
+                }
+                e.{{.Name}}Pairs(parts[0], parts[1])
+            }
+            return e
+        }
+
+        {{ .Description | comments }}
+        func (e *{{$elStructName}}) If{{.Name}}(condition bool, s string) *{{$elStructName}} {
+            if condition {
+                e.{{.Name}}(s)
+            }
+            return e
+        }
+
+        {{ .Description | comments }}
+        func (e *{{$elStructName}}) {{.Name}}Add(k string, v string) *{{$elStructName}} {
+            if e.KVStrings == nil {
+                e.KVStrings = treemap.New[string,*KVBuilder]()
+            }
+            kv, ok := e.KVStrings.Get("{{.Key}}")
+            if !ok {
+                kv = NewKVBuilder("{{.Type.Type.Kv.KeyValueDelimiter}}", "{{.Type.Type.Kv.PairDelimiter}}")
+                e.KVStrings.Set("{{.Key}}", kv)
+            }
+            e.{{.Name}}Pairs(k, v)
+            return e
+        }
+
+        {{ .Description | comments }}
+        func (e *{{$elStructName}}) {{.Name}}AddF(k string, format string, args ...any) *{{$elStructName}} {
+            return e.{{.Name}}Add(k, fmt.Sprintf(format, args...))
+        }
+
+        {{ .Description | comments }}
+        func (e *{{$elStructName}}) If{{.Name}}Add(condition bool, k string, v string) *{{$elStructName}} {
+            if condition {
+                e.{{.Name}}Add(k, v)
+            }
+            return e
+        }
+
+        {{ .Description | comments }}
+        func (e *{{$elStructName}}) If{{.Name}}AddF(condition bool, k string, format string, args ...any) *{{$elStructName}} {
+            if condition {
+                e.{{.Name}}AddF(k, format, args...)
+            }
+            return e
+        }
+
+        {{ .Description | comments }}
+        //
         // Add the attributes in the map to the element.
         func (e *{{$elStructName}}) {{.Name}}Map(m map[string]string) *{{$elStructName}} {
             if e.KVStrings == nil {
@@ -287,8 +343,13 @@ func (e *{{$elStructName}}) CustomDataRemove(key string) *{{$elStructName}} {
                 kv = NewKVBuilder("{{.Type.Type.Kv.KeyValueDelimiter}}", "{{.Type.Type.Kv.PairDelimiter}}")
                 e.KVStrings.Set("{{.Key}}", kv)
             }
-            for k, v := range m {
-                kv.Add(k, v)
+            keys := make([]string, 0, len(m))
+            for k := range m {
+                keys = append(keys, k)
+            }
+            sort.Strings(keys)
+            for _, k := range keys {
+                e.{{.Name}}Pairs(k, m[k])
             }
             return e
         }
@@ -304,9 +365,7 @@ func (e *{{$elStructName}}) CustomDataRemove(key string) *{{$elStructName}} {
             if !ok {
                 return e
             }
-            for _, k := range keys {
-                kv.Remove(k)
-            }
+            kv.Remove(keys...)
             return e
         }
 

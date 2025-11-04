@@ -68,8 +68,8 @@ func TestHTMLElement(t *testing.T) {
 				BODY(
 					DIV().CLASS("header").Text("Page Header"),
 					DIV().
-						STYLE("color", "rad").
-						STYLE("font-size", "12px").
+						STYLEAdd("color", "rad").
+						STYLEAdd("font-size", "12px").
 						STYLERemove("color").
 						CLASS("block bg-red-200 hidden").
 						CLASS("text-red-600 italic").

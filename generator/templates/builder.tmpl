@@ -15,7 +15,7 @@ var (
 	closeBracket = []byte(">")
   slash        = []byte("/")
 	equal        = []byte("=")
-	doubleQuotes     = []byte("\"")
+	doubleQuotes = []byte("\"")
 	space        = []byte(" ")
 )
 
@@ -228,47 +228,67 @@ func (d *DelimitedBuilder[T]) Render(w io.Writer) error {
 	return nil
 }
 
+type keyValue struct {
+	Key   string
+	Value string
+}
+
 type KVBuilder struct {
 	KeyPairDelimiter string
 	EntryDelimiter   string
-	Values           **treemap.TreeMap[string, string]
+	Values           []keyValue
+	keysIdx          map[string]int
 }
 
 func NewKVBuilder(keyPairDelimiter, entryDelimiter string) *KVBuilder {
 	return &KVBuilder{
 		KeyPairDelimiter: keyPairDelimiter,
 		EntryDelimiter:   entryDelimiter,
-		Values:           new(*treemap.TreeMap[string, string]),
+		keysIdx:          make(map[string]int),
 	}
 }
 
 func (d *KVBuilder) Add(key, value string) *KVBuilder {
-	if *d.Values == nil {
-		*d.Values = treemap.New[string, string]()
+	if i, found := d.keysIdx[key]; found {
+		d.Values[i].Value = value
+	} else {
+		d.Values = append(d.Values, keyValue{key, value})
+		d.keysIdx[key] = len(d.Values) - 1
 	}
-	(*d.Values).Set(key, value)
 	return d
 }
 
-func (d *KVBuilder) Remove(key string) *KVBuilder {
-	if *d.Values == nil {
-		return d
+func (d *KVBuilder) Remove(keys ...string) *KVBuilder {
+	for _, key := range keys {
+		if idx, found := d.keysIdx[key]; found {
+			d.Values = append(d.Values[:idx], d.Values[idx+1:]...)
+			delete(d.keysIdx, key)
+
+			// Rebuild keysIdx map
+			for j := idx; j < len(d.Values); j++ {
+				d.keysIdx[d.Values[j].Key] = j
+			}
+		}
 	}
-	(*d.Values).Del(key)
 	return d
 }
 
 func (d *KVBuilder) Render(w io.Writer) error {
-	count := 0
-	total := (*d.Values).Len()
-	for it := (*d.Values).Iterator(); it.Valid(); it.Next() {
-		k, v := it.Key(), it.Value()
-		w.Write([]byte(k))
-		w.Write([]byte(d.KeyPairDelimiter))
-		w.Write([]byte(v))
-		count++
-		if count < total {
-			w.Write([]byte(d.EntryDelimiter))
+	for i, kv := range d.Values {
+		if _, err := w.Write([]byte(kv.Key)); err != nil {
+			return err
+		}
+		if _, err := w.Write([]byte(d.KeyPairDelimiter)); err != nil {
+			return err
+		}
+		if _, err := w.Write([]byte(kv.Value)); err != nil {
+			return err
+		}
+
+		if i < len(d.Values)-1 {
+			if _, err := w.Write([]byte(d.EntryDelimiter)); err != nil {
+				return err
+			}
 		}
 	}
 	return nil

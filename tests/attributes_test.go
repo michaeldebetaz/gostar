@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	. "github.com/delaneyj/gostar/elements"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestBoolAttributes(t *testing.T) {
@@ -79,18 +80,32 @@ func TestStringAttributes(t *testing.T) {
 func TestKVAttributes(t *testing.T) {
 	run(t, []result{
 		{
+			Expected: "<div id=\"elt\" style=\"border-top:1px solid blue;color:red\">An example div</div>",
+			Actual:   DIV().ID("elt").STYLE("border-top: 1px solid blue; color: red;").Text("An example div"),
+		},
+		{
 			Expected: "<div style=\"display:none\"></div>",
-			Actual:   DIV().STYLE("display", "none"),
+			Actual:   DIV().STYLEAdd("display", "none"),
 		},
 		{
 			Expected: "<span style=\"color:red;display:block\"></span>",
-			Actual: SPAN().STYLE("color", "red").STYLEMap(map[string]string{
-				"display":     "block",
-				"font-size":   "12px",
-				"font-weight": "bold",
-			}).STYLERemove("font-size", "font-weight"),
+			Actual: SPAN().
+				STYLEAdd("color", "red").
+				STYLEMap(map[string]string{"display": "block", "font-size": "12px", "font-weight": "bold"}).
+				STYLERemove("font-size", "font-weight"),
+		},
+		{
+			Expected: "<p style=\"display:block;margin:10px;padding:5px\"></p>",
+			Actual:   P().STYLEMap(map[string]string{"margin": "10px", "padding": "5px", "display": "block"}),
 		},
 	})
+
+	assert.NotPanics(t, func() { P().STYLEMap(map[string]string{"foo": ""}) })
+
+	assert.Panics(t, func() { A().STYLEPairs("foo") })
+	assert.Panics(t, func() { DIV().STYLEAdd("", "bar") })
+	assert.Panics(t, func() { SPAN().STYLE(";;;;;;") })
+	assert.Panics(t, func() { DIV().STYLE("font-size; color: red;") })
 }
 
 func TestChoiceAttributes(t *testing.T) {
