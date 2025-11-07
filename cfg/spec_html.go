@@ -204,14 +204,12 @@ var HTML = &pb.Namespace{
 		},
 
 		{
-
 			Key:         "slot",
 			Description: `The slot global attribute assigns a slot in a shadow DOM shadow tree to an element: An element with a slot attribute is assigned to the slot created by the <slot> element whose name attribute's value matches that slot attribute's value.`,
 			Type:        AttributeTypeString(),
 		},
 
 		{
-
 			Key:         "spellcheck",
 			Description: `The spellcheck global attribute is an enumerated attribute that defines whether the element may be checked for spelling errors. If this attribute is not set, its default value is element-type and browser-defined. This default value may also be inherited, which means that the element content will be checked for spelling errors only if its nearest ancestor has a spellcheck state of true. Security and privacy concerns Using spellchecking can have consequences for users' security and privacy. The specification does not regulate how spellchecking is done and the content of the element may be sent to a third party for spellchecking results (see enhanced spellchecking and "spell-jacking"). You should consider setting spellcheck to false for elements that can contain sensitive information.`,
 			Type: AttributeTypeChoices(
@@ -222,28 +220,24 @@ var HTML = &pb.Namespace{
 		},
 
 		{
-
 			Key:         "style",
 			Description: `The style global attribute is used to add styles to an element, such as color, font, size, and more. Styles are written in CSS.`,
 			Type:        AttributeTypeKVColonSemicolon(),
 		},
 
 		{
-
 			Key:         "tabindex",
 			Description: `The tabindex global attribute indicates if its element can be focused, and if/where it participates in sequential keyboard navigation (usually with the Tab key, hence the name). It accepts an integer as a value, with different results depending on the integer's value: a negative value (usually tabindex="-1") means that the element should be focusable, but should not be reachable via sequential keyboard navigation; a value of 0 (tabindex="0") means that the element should be focusable and reachable via sequential keyboard navigation, but its relative order is defined by the platform convention; a positive value means should be focusable and reachable via sequential keyboard navigation; its relative order is defined by the value of the attribute: the sequential follow the increasing number of the tabindex. If several elements share the same tabindex, their relative order follows their relative position in the document.`,
 			Type:        AttributeTypeInt(),
 		},
 
 		{
-
 			Key:         "title",
 			Description: `The title global attribute contains text representing advisory information related to the element it belongs to. Such information can typically, but not necessarily, be presented to the user as a tooltip. The main use of the title attribute is to label <iframe> elements for assistive technology. The title attribute may also be used to label controls in data tables. The title attribute, when added to <link rel="stylesheet">, creates an alternate stylesheet. When defining an alternative style sheet with <link rel="alternate"> the attribute is required and must be set to a non-empty string. If included on the <abbr> opening tag, the title must be a full expansion of the abbreviation or acronym. Instead of using title, when possible, provide an expansion of the abbreviation or acronym in plain text on first use, using the <abbr> to mark up the abbreviation. This enables all users know what name or term the abbreviation or acronym shortens while providing a hint to user agents on how to announce the content. While title can be used to provide a programmatically associated label for an <input> element, this is not good practice. Use a <label> instead.`,
 			Type:        AttributeTypeString(),
 		},
 
 		{
-
 			Key:         "translate",
 			Description: `The translate global attribute is an enumerated attribute that is used to specify whether an element's attribute values and the values of its Text node children are to be translated when the page is localized, or whether to leave them unchanged.`,
 			Type: AttributeTypeChoices(
@@ -783,6 +777,23 @@ var HTML = &pb.Namespace{
 		{
 			Tag:         "fieldset",
 			Description: "The HTML <fieldset> element is used to group several controls as well as labels (<label>) within a web form.",
+			Attributes: []*pb.Attribute{
+				{
+					Key:         "disabled",
+					Description: "If this Boolean attribute is set, all form controls that are descendants of the <fieldset>, are disabled, meaning they are not editable and won't be submitted along with the <form>.",
+					Type:        AttributeTypeBool(),
+				},
+				{
+					Key:         "form",
+					Description: "This attribute takes the value of the id attribute of a <form> element you want the <fieldset> to be part of, even if it is not inside the form.",
+					Type:        AttributeTypeString(),
+				},
+				{
+					Key:         "name",
+					Description: "The name associated with the group.",
+					Type:        AttributeTypeString(),
+				},
+			},
 		},
 
 		{
